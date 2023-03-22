@@ -1,0 +1,620 @@
+../../../../connectors/source-mailerlite/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-mailerlite
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffaec15cd0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='subscribers', json_schema={'type'...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffae992af0>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='subscribers', data={'id': '68597741621609824', 'email': 'dainiuxazz@gmai...me_for_humans': 'Africa/Addis Ababa (+03:00)', 'offset_name': '+03:00', 'offset': 180}, emitted_at=1679407790252), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='subscribers', json_schema={'type'...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('automations', 'forms_popup', 'forms_embedded', 'forms_promotion').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe automations stream has the following schema errors:\n'group' is a required property\n\nFailed validating 'required' in schema['properties']['triggers']['items']:\n    {'properties': {'broken': {'type': 'boolean'},\n                    'exclude_group_ids': {'items': {'type': 'string'},\n                                          'type': 'array'},\n                    'excluded_groups': {'items': {'type': 'string'},\n                                        'type': 'array'},\n                    'group': {'properties': {'id': {'type': 'string'},\n                                             'name': {'type': 'string'},\n                                             'url': {'type': ['string',\n                                                              'null']}},\n                              'required': ['id', 'name', 'url'],\n                              'type': 'object'},\n                    'group_id': {'type': 'string'},\n                    'id': {'type': 'string'},\n                    'type': {'type': 'string'}},\n     'required': ['id',\n                  'type',\n                  'group_id',\n                  'group',\n                  'exclude_group_ids',\n                  'excluded_groups',\n                  'broken'],\n     'type': 'object'}\n\nOn instance['triggers'][0]:\n    {'broken': False,\n     'exclude_group_ids': [],\n     'excluded_groups': [],\n     'group_ids': ['68939161758860404'],\n     'groups': [{'id': '68939161758860404',\n                 'name': 'Test group',\n                 'url': 'https://dashboard.mailerlite.com/subscribers?rules=W1t7Im9wZXJhdG9yIjoiaW5fYW55IiwiY29uZGl0aW9uIjoiZ3JvdXBzIiwiYXJncyI6WyJncm91cHMiLFsiNjg5MzkxNjE3NTg4NjA0MDQiXV19XV0%3D'}],\n     'id': '68941918300538764',\n     'type': 'subscriber_joins_group'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe forms_popup stream has the following schema errors:\nAdditional properties are not allowed ('parent_id', 'split_percentage', 'split_test_enabled', 'analytics_reset_at', 'is_split_test_winner', 'warning_messages', 'original_name', 'split_test_finished', 'conversion_rate_including_children', 'conversions_count_including_children', 'uses_survey', 'children', 'has_split_tests', 'opens_count_including_children' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'active': {'type': 'boolean'},\n                    'can': {'properties': {'update': {'type': 'boolean'}},\n                            'required': ['update'],\n                            'type': 'object'},\n                    'conversion_rate': {'properties': {'float': {'type': 'number'},\n                                                       'string': {'type': 'string'}},\n                                        'required': ['float', 'string'],\n                                        'type': 'object'},\n                    'conversions_count': {'type': 'integer'},\n                    'created_at': {'type': 'string'},\n                    'double_optin': {'type': ['boolean', 'null']},\n                    'groups': {'items': {'properties': {'active_count': {'type': 'integer'},\n                                                        'bounced_count': {'type': 'integer'},\n                                                        'click_rate': {'properties': {'float': {'type': 'integer'},\n                                                                                      'string': {'type': 'string'}},\n                                                                       'required': ['float',\n                                                                                    'string'],\n                                                                       'type': 'object'},\n                                                        'clicks_count': {'type': 'integer'},\n                                                        'created_at': {'type': 'string'},\n                                                        'id': {'type': 'string'},\n                                                        'junk_count': {'type': 'integer'},\n                                                        'name': {'type': 'string'},\n                                                        'open_rate': {'properties': {'float': {'type': 'integer'},\n                                                                                     'string': {'type': 'string'}},\n                                                                      'required': ['float',\n                                                                                   'string'],\n                                                                      'type': 'object'},\n                                                        'opens_count': {'type': 'integer'},\n                                                        'sent_count': {'type': 'integer'},\n                                                        'unconfirmed_count': {'type': 'integer'},\n                                                        'unsubscribed_count': {'type': 'integer'}},\n                                         'required': ['id',\n                                                      'name',\n                                                      'active_count',\n                                                      'sent_count',\n                                                      'opens_count',\n                                                      'open_rate',\n                                                      'clicks_count',\n                                                      'click_rate',\n                                                      'unsubscribed_count',\n                                                      'unconfirmed_count',\n                                                      'bounced_count',\n                                                      'junk_count',\n                                                      'created_at'],\n                                         'type': 'object'},\n                               'type': 'array'},\n                    'has_content': {'type': 'boolean'},\n                    'has_missing_groups': {'type': 'boolean'},\n                    'id': {'type': 'string'},\n                    'is_broken': {'type': 'boolean'},\n                    'last_registration_at': {'type': ['string', 'null']},\n                    'name': {'type': 'string'},\n                    'opens_count': {'type': 'integer'},\n                    'screenshot_url': {'type': ['string', 'null']},\n                    'settings': {'properties': {'double_optin': {'type': 'boolean'},\n                                                'form_type': {'type': 'string'},\n                                                'frequency': {'type': 'integer'},\n                                                'frequency_unit': {'type': 'string'},\n                                                'groot_id': {'type': 'integer'},\n                                                'hide_on': {'items': {'type': 'string'},\n                                                            'type': 'array'},\n                                                'schedule': {'type': 'string'},\n                                                'scroll_percentage': {'type': 'integer'},\n                                                'timeout_seconds': {'type': 'integer'},\n                                                'triggers': {'items': {'type': 'string'},\n                                                             'type': 'array'},\n                                                'url_list': {'items': {'type': 'string'},\n                                                             'type': 'array'},\n                                                'url_list_strict': {'type': ['null',\n                                                                             'string']},\n                                                'visibility': {'type': 'string'}},\n                                 'required': ['double_optin',\n                                              'groot_id',\n                                              'form_type',\n                                              'triggers',\n                                              'timeout_seconds',\n                                              'scroll_percentage',\n                                              'frequency',\n                                              'frequency_unit',\n                                              'visibility',\n                                              'url_list',\n                                              'url_list_strict',\n                                              'hide_on',\n                                              'schedule'],\n                                 'type': 'object'},\n                    'slug': {'type': 'string'},\n                    'type': {'type': 'string'},\n                    'used_in_automations': {'type': 'boolean'},\n                    'warnings': {'items': {'type': 'string'},\n                                 'type': 'array'}},\n     'required': ['id',\n                  'type',\n                  'slug',\n                  'name',\n                  'created_at',\n                  'conversions_count',\n                  'opens_count',\n                  'conversion_rate',\n                  'settings',\n                  'last_registration_at',\n                  'active',\n                  'is_broken',\n                  'has_content',\n                  'can',\n                  'used_in_automations',\n                  'warnings',\n                  'double_optin',\n                  'screenshot_url'],\n     'type': 'object'}\n\nOn instance:\n    {'active': False,\n     'analytics_reset_at': None,\n     'can': {'update': True},\n     'children': [],\n     'conversion_rate': {'float': 0, 'string': '0%'},\n     'conversion_rate_including_children': {'float': 0, 'string': '0%'},\n     'conversions_count': 0,\n     'conversions_count_including_children': 0,\n     'created_at': '2022-10-14 11:04:59',\n     'double_optin': False,\n     'groups': [{'active_count': 0,\n                 'bounced_count': 0,\n                 'click_rate': {'float': 0, 'string': '0%'},\n                 'clicks_count': 0,\n                 'created_at': '2022-10-14 11:05:07',\n                 'id': '68939161758860404',\n                 'junk_count': 0,\n                 'name': 'Test group',\n                 'open_rate': {'float': 0, 'string': '0%'},\n                 'opens_count': 0,\n                 'sent_count': 0,\n                 'unconfirmed_count': 0,\n                 'unsubscribed_count': 0}],\n     'has_content': True,\n     'has_missing_groups': False,\n     'has_split_tests': False,\n     'id': '68939153207723682',\n     'is_broken': False,\n     'is_split_test_winner': False,\n     'last_registration_at': None,\n     'name': 'Test form',\n     'opens_count': 0,\n     'opens_count_including_children': 0,\n     'original_name': None,\n     'parent_id': None,\n     'screenshot_url': 'https://storage.googleapis.com/mailerlite-screenshots-prod/screenshot/forms/68939153207723682/1284x1284.png',\n     'settings': {'double_optin': False,\n                  'form_type': 'popup',\n                  'frequency': 1,\n                  'frequency_unit': 'months',\n                  'groot_id': 1775925,\n                  'hide_on': [],\n                  'schedule': 'no',\n                  'scroll_percentage': 50,\n                  'timeout_seconds': 5,\n                  'triggers': ['timeout', 'scroll'],\n                  'url_list': [],\n                  'url_list_strict': None,\n                  'visibility': 'always'},\n     'slug': 'ujeCae',\n     'split_percentage': 0,\n     'split_test_enabled': False,\n     'split_test_finished': False,\n     'type': 'popup',\n     'used_in_automations': False,\n     'uses_survey': False,\n     'warning_messages': [],\n     'warnings': []}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe forms_embedded stream has the following schema errors:\nAdditional properties are not allowed ('parent_id', 'split_percentage', 'split_test_enabled', 'analytics_reset_at', 'is_split_test_winner', 'warning_messages', 'original_name', 'split_test_finished', 'conversion_rate_including_children', 'conversions_count_including_children', 'uses_survey', 'children', 'has_split_tests', 'opens_count_including_children' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'active': {'type': 'boolean'},\n                    'can': {'properties': {'update': {'type': 'boolean'}},\n                            'required': ['update'],\n                            'type': 'object'},\n                    'conversion_rate': {'properties': {'float': {'type': 'integer'},\n                                                       'string': {'type': 'string'}},\n                                        'required': ['float', 'string'],\n                                        'type': 'object'},\n                    'conversions_count': {'type': 'integer'},\n                    'created_at': {'type': 'string'},\n                    'double_optin': {'type': 'boolean'},\n                    'groups': {'items': {'properties': {'active_count': {'type': 'integer'},\n                                                        'bounced_count': {'type': 'integer'},\n                                                        'click_rate': {'properties': {'float': {'type': 'number'},\n                                                                                      'string': {'type': 'string'}},\n                                                                       'required': ['float',\n                                                                                    'string'],\n                                                                       'type': 'object'},\n                                                        'clicks_count': {'type': 'integer'},\n                                                        'created_at': {'type': 'string'},\n                                                        'id': {'type': 'string'},\n                                                        'junk_count': {'type': 'integer'},\n                                                        'name': {'type': 'string'},\n                                                        'open_rate': {'properties': {'float': {'type': 'number'},\n                                                                                     'string': {'type': 'string'}},\n                                                                      'required': ['float',\n                                                                                   'string'],\n                                                                      'type': 'object'},\n                                                        'opens_count': {'type': 'integer'},\n                                                        'sent_count': {'type': 'integer'},\n                                                        'unconfirmed_count': {'type': 'integer'},\n                                                        'unsubscribed_count': {'type': 'integer'}},\n                                         'required': ['id',\n                                                      'name',\n                                                      'active_count',\n                                                      'sent_count',\n                                                      'opens_count',\n                                                      'open_rate',\n                                                      'clicks_count',\n                                                      'click_rate',\n                                                      'unsubscribed_count',\n                                                      'unconfirmed_count',\n                                                      'bounced_count',\n                                                      'junk_count',\n                                                      'created_at'],\n                                         'type': 'object'},\n                               'type': 'array'},\n                    'has_content': {'type': 'boolean'},\n                    'has_missing_groups': {'type': 'boolean'},\n                    'id': {'type': 'string'},\n                    'is_broken': {'type': 'boolean'},\n                    'last_registration_at': {'type': ['null', 'string']},\n                    'name': {'type': 'string'},\n                    'opens_count': {'type': 'integer'},\n                    'screenshot_url': {'type': 'string'},\n                    'settings': {'properties': {'double_optin': {'type': 'boolean'},\n                                                'groot_id': {'type': 'integer'}},\n                                 'required': ['double_optin', 'groot_id'],\n                                 'type': 'object'},\n                    'slug': {'type': 'string'},\n                    'type': {'type': 'string'},\n                    'used_in_automations': {'type': 'boolean'},\n                    'warnings': {'items': {'type': 'string'},\n                                 'type': 'array'}},\n     'required': ['id',\n                  'type',\n                  'slug',\n                  'name',\n                  'created_at',\n                  'conversions_count',\n                  'opens_count',\n                  'conversion_rate',\n                  'settings',\n                  'last_registration_at',\n                  'active',\n                  'is_broken',\n                  'has_content',\n                  'can',\n                  'used_in_automations',\n                  'warnings',\n                  'double_optin',\n                  'screenshot_url',\n                  'has_missing_groups',\n                  'groups'],\n     'type': 'object'}\n\nOn instance:\n    {'active': False,\n     'analytics_reset_at': None,\n     'can': {'update': True},\n     'children': [],\n     'conversion_rate': {'float': 0, 'string': '0%'},\n     'conversion_rate_including_children': {'float': 0, 'string': '0%'},\n     'conversions_count': 0,\n     'conversions_count_including_children': 0,\n     'created_at': '2022-10-18 20:39:15',\n     'double_optin': True,\n     'groups': [{'active_count': 0,\n                 'bounced_count': 0,\n                 'click_rate': {'float': 0, 'string': '0%'},\n                 'clicks_count': 0,\n                 'created_at': '2022-10-14 11:05:07',\n                 'id': '68939161758860404',\n                 'junk_count': 0,\n                 'name': 'Test group',\n                 'open_rate': {'float': 0, 'string': '0%'},\n                 'opens_count': 0,\n                 'sent_count': 0,\n                 'unconfirmed_count': 0,\n                 'unsubscribed_count': 0}],\n     'has_content': True,\n     'has_missing_groups': False,\n     'has_split_tests': False,\n     'id': '69337670689490374',\n     'is_broken': False,\n     'is_split_test_winner': False,\n     'last_registration_at': None,\n     'name': 'Test form 2',\n     'opens_count': 0,\n     'opens_count_including_children': 0,\n     'original_name': None,\n     'parent_id': None,\n     'screenshot_url': 'https://storage.googleapis.com/mailerlite-screenshots-prod/screenshot/forms/69337670689490374/1284x1284.png',\n     'settings': {'double_optin': True, 'groot_id': 1825986},\n     'slug': '69v5dJ',\n     'split_percentage': 0,\n     'split_test_enabled': False,\n     'split_test_finished': False,\n     'type': 'embedded',\n     'used_in_automations': False,\n     'uses_survey': False,\n     'warning_messages': [],\n     'warnings': []}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe forms_promotion stream has the following schema errors:\nAdditional properties are not allowed ('parent_id', 'split_percentage', 'split_test_enabled', 'analytics_reset_at', 'is_split_test_winner', 'warning_messages', 'original_name', 'split_test_finished', 'conversion_rate_including_children', 'conversions_count_including_children', 'uses_survey', 'children', 'has_split_tests', 'opens_count_including_children' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-04/schema#',\n     'additionalProperties': False,\n     'properties': {'active': {'type': 'boolean'},\n                    'can': {'properties': {'update': {'type': 'boolean'}},\n                            'required': ['update'],\n                            'type': 'object'},\n                    'conversion_rate': {'properties': {'float': {'type': 'integer'},\n                                                       'string': {'type': 'string'}},\n                                        'required': ['float', 'string'],\n                                        'type': 'object'},\n                    'conversions_count': {'type': 'integer'},\n                    'created_at': {'type': 'string'},\n                    'double_optin': {'type': ['string', 'null']},\n                    'groups': {'items': {'type': 'string'},\n                               'type': 'array'},\n                    'has_content': {'type': 'boolean'},\n                    'has_missing_groups': {'type': 'boolean'},\n                    'id': {'type': 'string'},\n                    'is_broken': {'type': 'boolean'},\n                    'last_registration_at': {'type': ['string', 'null']},\n                    'name': {'type': 'string'},\n                    'opens_count': {'type': 'integer'},\n                    'screenshot_url': {'type': 'string'},\n                    'settings': {'properties': {'form_type': {'type': 'string'},\n                                                'frequency': {'type': 'integer'},\n                                                'frequency_unit': {'type': 'string'},\n                                                'groot_id': {'type': 'integer'},\n                                                'hide_on': {'items': {'type': 'string'},\n                                                            'type': 'array'},\n                                                'schedule': {'type': 'string'},\n                                                'schedule_from': {'type': 'string'},\n                                                'schedule_timezone_id': {'type': 'string'},\n                                                'schedule_until': {'type': 'string'},\n                                                'scroll_percentage': {'type': 'integer'},\n                                                'timeout_seconds': {'type': 'integer'},\n                                                'triggers': {'items': {'type': 'string'},\n                                                             'type': 'array'},\n                                                'url_list': {'items': {'type': 'string'},\n                                                             'type': 'array'},\n                                                'url_list_strict': {'items': {'type': 'string'},\n                                                                    'type': ['array',\n                                                                             'null']},\n                                                'visibility': {'type': 'string'}},\n                                 'required': ['groot_id',\n                                              'form_type',\n                                              'triggers',\n                                              'timeout_seconds',\n                                              'scroll_percentage',\n                                              'frequency',\n                                              'frequency_unit',\n                                              'visibility',\n                                              'url_list',\n                                              'url_list_strict',\n                                              'hide_on',\n                                              'schedule',\n                                              'schedule_from',\n                                              'schedule_until',\n                                              'schedule_timezone_id'],\n                                 'type': 'object'},\n                    'slug': {'type': 'string'},\n                    'type': {'type': 'string'},\n                    'used_in_automations': {'type': 'boolean'},\n                    'warnings': {'items': {'type': 'string'},\n                                 'type': 'array'}},\n     'required': ['id',\n                  'type',\n                  'slug',\n                  'name',\n                  'created_at',\n                  'conversions_count',\n                  'opens_count',\n                  'conversion_rate',\n                  'settings',\n                  'last_registration_at',\n                  'active',\n                  'is_broken',\n                  'has_content',\n                  'can',\n                  'used_in_automations',\n                  'warnings',\n                  'double_optin',\n                  'screenshot_url',\n                  'has_missing_groups',\n                  'groups'],\n     'type': 'object'}\n\nOn instance:\n    {'active': False,\n     'analytics_reset_at': None,\n     'can': {'update': True},\n     'children': [],\n     'conversion_rate': {'float': 0, 'string': '0%'},\n     'conversion_rate_including_children': {'float': 0, 'string': '0%'},\n     'conversions_count': 0,\n     'conversions_count_including_children': 0,\n     'created_at': '2022-10-18 20:40:26',\n     'double_optin': None,\n     'groups': [],\n     'has_content': True,\n     'has_missing_groups': False,\n     'has_split_tests': False,\n     'id': '69337745455056000',\n     'is_broken': False,\n     'is_split_test_winner': False,\n     'last_registration_at': None,\n     'name': 'Test form 3',\n     'opens_count': 0,\n     'opens_count_including_children': 0,\n     'original_name': None,\n     'parent_id': None,\n     'screenshot_url': 'https://storage.googleapis.com/mailerlite-screenshots-prod/screenshot/forms/69337745455056000/1284x1284.png',\n     'settings': {'form_type': 'popup',\n                  'frequency': 1,\n                  'frequency_unit': 'months',\n                  'groot_id': 1825993,\n                  'hide_on': ['tablet', 'mobile', 'desktop'],\n                  'schedule': 'yes',\n                  'schedule_from': '2022-10-19 00:00:00',\n                  'schedule_timezone_id': '371',\n                  'schedule_until': '2022-10-31 00:00:00',\n                  'scroll_percentage': 50,\n                  'timeout_seconds': 5,\n                  'triggers': ['timeout'],\n                  'url_list': [],\n                  'url_list_strict': None,\n                  'visibility': 'always'},\n     'slug': 'psi7uA',\n     'split_percentage': 0,\n     'split_test_enabled': False,\n     'split_test_finished': False,\n     'type': 'promotion',\n     'used_in_automations': False,\n     'uses_survey': False,\n     'warning_messages': [],\n     'warnings': []}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The automations stream has the following schema errors:
+'group' is a required property
+
+Failed validating 'required' in schema['properties']['triggers']['items']:
+    {'properties': {'broken': {'type': 'boolean'},
+                    'exclude_group_ids': {'items': {'type': 'string'},
+                                          'type': 'array'},
+                    'excluded_groups': {'items': {'type': 'string'},
+                                        'type': 'array'},
+                    'group': {'properties': {'id': {'type': 'string'},
+                                             'name': {'type': 'string'},
+                                             'url': {'type': ['string',
+                                                              'null']}},
+                              'required': ['id', 'name', 'url'],
+                              'type': 'object'},
+                    'group_id': {'type': 'string'},
+                    'id': {'type': 'string'},
+                    'type': {'type': 'string'}},
+     'required': ['id',
+                  'type',
+                  'group_id',
+                  'group',
+                  'exclude_group_ids',
+                  'excluded_groups',
+                  'broken'],
+     'type': 'object'}
+
+On instance['triggers'][0]:
+    {'broken': False,
+     'exclude_group_ids': [],
+     'excluded_groups': [],
+     'group_ids': ['68939161758860404'],
+     'groups': [{'id': '68939161758860404',
+                 'name': 'Test group',
+                 'url': 'https://dashboard.mailerlite.com/subscribers?rules=W1t7Im9wZXJhdG9yIjoiaW5fYW55IiwiY29uZGl0aW9uIjoiZ3JvdXBzIiwiYXJncyI6WyJncm91cHMiLFsiNjg5MzkxNjE3NTg4NjA0MDQiXV19XV0%3D'}],
+     'id': '68941918300538764',
+     'type': 'subscriber_joins_group'}
+ERROR    root:test_core.py:662 
+The forms_popup stream has the following schema errors:
+Additional properties are not allowed ('parent_id', 'split_percentage', 'split_test_enabled', 'analytics_reset_at', 'is_split_test_winner', 'warning_messages', 'original_name', 'split_test_finished', 'conversion_rate_including_children', 'conversions_count_including_children', 'uses_survey', 'children', 'has_split_tests', 'opens_count_including_children' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'active': {'type': 'boolean'},
+                    'can': {'properties': {'update': {'type': 'boolean'}},
+                            'required': ['update'],
+                            'type': 'object'},
+                    'conversion_rate': {'properties': {'float': {'type': 'number'},
+                                                       'string': {'type': 'string'}},
+                                        'required': ['float', 'string'],
+                                        'type': 'object'},
+                    'conversions_count': {'type': 'integer'},
+                    'created_at': {'type': 'string'},
+                    'double_optin': {'type': ['boolean', 'null']},
+                    'groups': {'items': {'properties': {'active_count': {'type': 'integer'},
+                                                        'bounced_count': {'type': 'integer'},
+                                                        'click_rate': {'properties': {'float': {'type': 'integer'},
+                                                                                      'string': {'type': 'string'}},
+                                                                       'required': ['float',
+                                                                                    'string'],
+                                                                       'type': 'object'},
+                                                        'clicks_count': {'type': 'integer'},
+                                                        'created_at': {'type': 'string'},
+                                                        'id': {'type': 'string'},
+                                                        'junk_count': {'type': 'integer'},
+                                                        'name': {'type': 'string'},
+                                                        'open_rate': {'properties': {'float': {'type': 'integer'},
+                                                                                     'string': {'type': 'string'}},
+                                                                      'required': ['float',
+                                                                                   'string'],
+                                                                      'type': 'object'},
+                                                        'opens_count': {'type': 'integer'},
+                                                        'sent_count': {'type': 'integer'},
+                                                        'unconfirmed_count': {'type': 'integer'},
+                                                        'unsubscribed_count': {'type': 'integer'}},
+                                         'required': ['id',
+                                                      'name',
+                                                      'active_count',
+                                                      'sent_count',
+                                                      'opens_count',
+                                                      'open_rate',
+                                                      'clicks_count',
+                                                      'click_rate',
+                                                      'unsubscribed_count',
+                                                      'unconfirmed_count',
+                                                      'bounced_count',
+                                                      'junk_count',
+                                                      'created_at'],
+                                         'type': 'object'},
+                               'type': 'array'},
+                    'has_content': {'type': 'boolean'},
+                    'has_missing_groups': {'type': 'boolean'},
+                    'id': {'type': 'string'},
+                    'is_broken': {'type': 'boolean'},
+                    'last_registration_at': {'type': ['string', 'null']},
+                    'name': {'type': 'string'},
+                    'opens_count': {'type': 'integer'},
+                    'screenshot_url': {'type': ['string', 'null']},
+                    'settings': {'properties': {'double_optin': {'type': 'boolean'},
+                                                'form_type': {'type': 'string'},
+                                                'frequency': {'type': 'integer'},
+                                                'frequency_unit': {'type': 'string'},
+                                                'groot_id': {'type': 'integer'},
+                                                'hide_on': {'items': {'type': 'string'},
+                                                            'type': 'array'},
+                                                'schedule': {'type': 'string'},
+                                                'scroll_percentage': {'type': 'integer'},
+                                                'timeout_seconds': {'type': 'integer'},
+                                                'triggers': {'items': {'type': 'string'},
+                                                             'type': 'array'},
+                                                'url_list': {'items': {'type': 'string'},
+                                                             'type': 'array'},
+                                                'url_list_strict': {'type': ['null',
+                                                                             'string']},
+                                                'visibility': {'type': 'string'}},
+                                 'required': ['double_optin',
+                                              'groot_id',
+                                              'form_type',
+                                              'triggers',
+                                              'timeout_seconds',
+                                              'scroll_percentage',
+                                              'frequency',
+                                              'frequency_unit',
+                                              'visibility',
+                                              'url_list',
+                                              'url_list_strict',
+                                              'hide_on',
+                                              'schedule'],
+                                 'type': 'object'},
+                    'slug': {'type': 'string'},
+                    'type': {'type': 'string'},
+                    'used_in_automations': {'type': 'boolean'},
+                    'warnings': {'items': {'type': 'string'},
+                                 'type': 'array'}},
+     'required': ['id',
+                  'type',
+                  'slug',
+                  'name',
+                  'created_at',
+                  'conversions_count',
+                  'opens_count',
+                  'conversion_rate',
+                  'settings',
+                  'last_registration_at',
+                  'active',
+                  'is_broken',
+                  'has_content',
+                  'can',
+                  'used_in_automations',
+                  'warnings',
+                  'double_optin',
+                  'screenshot_url'],
+     'type': 'object'}
+
+On instance:
+    {'active': False,
+     'analytics_reset_at': None,
+     'can': {'update': True},
+     'children': [],
+     'conversion_rate': {'float': 0, 'string': '0%'},
+     'conversion_rate_including_children': {'float': 0, 'string': '0%'},
+     'conversions_count': 0,
+     'conversions_count_including_children': 0,
+     'created_at': '2022-10-14 11:04:59',
+     'double_optin': False,
+     'groups': [{'active_count': 0,
+                 'bounced_count': 0,
+                 'click_rate': {'float': 0, 'string': '0%'},
+                 'clicks_count': 0,
+                 'created_at': '2022-10-14 11:05:07',
+                 'id': '68939161758860404',
+                 'junk_count': 0,
+                 'name': 'Test group',
+                 'open_rate': {'float': 0, 'string': '0%'},
+                 'opens_count': 0,
+                 'sent_count': 0,
+                 'unconfirmed_count': 0,
+                 'unsubscribed_count': 0}],
+     'has_content': True,
+     'has_missing_groups': False,
+     'has_split_tests': False,
+     'id': '68939153207723682',
+     'is_broken': False,
+     'is_split_test_winner': False,
+     'last_registration_at': None,
+     'name': 'Test form',
+     'opens_count': 0,
+     'opens_count_including_children': 0,
+     'original_name': None,
+     'parent_id': None,
+     'screenshot_url': 'https://storage.googleapis.com/mailerlite-screenshots-prod/screenshot/forms/68939153207723682/1284x1284.png',
+     'settings': {'double_optin': False,
+                  'form_type': 'popup',
+                  'frequency': 1,
+                  'frequency_unit': 'months',
+                  'groot_id': 1775925,
+                  'hide_on': [],
+                  'schedule': 'no',
+                  'scroll_percentage': 50,
+                  'timeout_seconds': 5,
+                  'triggers': ['timeout', 'scroll'],
+                  'url_list': [],
+                  'url_list_strict': None,
+                  'visibility': 'always'},
+     'slug': 'ujeCae',
+     'split_percentage': 0,
+     'split_test_enabled': False,
+     'split_test_finished': False,
+     'type': 'popup',
+     'used_in_automations': False,
+     'uses_survey': False,
+     'warning_messages': [],
+     'warnings': []}
+ERROR    root:test_core.py:662 
+The forms_embedded stream has the following schema errors:
+Additional properties are not allowed ('parent_id', 'split_percentage', 'split_test_enabled', 'analytics_reset_at', 'is_split_test_winner', 'warning_messages', 'original_name', 'split_test_finished', 'conversion_rate_including_children', 'conversions_count_including_children', 'uses_survey', 'children', 'has_split_tests', 'opens_count_including_children' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'active': {'type': 'boolean'},
+                    'can': {'properties': {'update': {'type': 'boolean'}},
+                            'required': ['update'],
+                            'type': 'object'},
+                    'conversion_rate': {'properties': {'float': {'type': 'integer'},
+                                                       'string': {'type': 'string'}},
+                                        'required': ['float', 'string'],
+                                        'type': 'object'},
+                    'conversions_count': {'type': 'integer'},
+                    'created_at': {'type': 'string'},
+                    'double_optin': {'type': 'boolean'},
+                    'groups': {'items': {'properties': {'active_count': {'type': 'integer'},
+                                                        'bounced_count': {'type': 'integer'},
+                                                        'click_rate': {'properties': {'float': {'type': 'number'},
+                                                                                      'string': {'type': 'string'}},
+                                                                       'required': ['float',
+                                                                                    'string'],
+                                                                       'type': 'object'},
+                                                        'clicks_count': {'type': 'integer'},
+                                                        'created_at': {'type': 'string'},
+                                                        'id': {'type': 'string'},
+                                                        'junk_count': {'type': 'integer'},
+                                                        'name': {'type': 'string'},
+                                                        'open_rate': {'properties': {'float': {'type': 'number'},
+                                                                                     'string': {'type': 'string'}},
+                                                                      'required': ['float',
+                                                                                   'string'],
+                                                                      'type': 'object'},
+                                                        'opens_count': {'type': 'integer'},
+                                                        'sent_count': {'type': 'integer'},
+                                                        'unconfirmed_count': {'type': 'integer'},
+                                                        'unsubscribed_count': {'type': 'integer'}},
+                                         'required': ['id',
+                                                      'name',
+                                                      'active_count',
+                                                      'sent_count',
+                                                      'opens_count',
+                                                      'open_rate',
+                                                      'clicks_count',
+                                                      'click_rate',
+                                                      'unsubscribed_count',
+                                                      'unconfirmed_count',
+                                                      'bounced_count',
+                                                      'junk_count',
+                                                      'created_at'],
+                                         'type': 'object'},
+                               'type': 'array'},
+                    'has_content': {'type': 'boolean'},
+                    'has_missing_groups': {'type': 'boolean'},
+                    'id': {'type': 'string'},
+                    'is_broken': {'type': 'boolean'},
+                    'last_registration_at': {'type': ['null', 'string']},
+                    'name': {'type': 'string'},
+                    'opens_count': {'type': 'integer'},
+                    'screenshot_url': {'type': 'string'},
+                    'settings': {'properties': {'double_optin': {'type': 'boolean'},
+                                                'groot_id': {'type': 'integer'}},
+                                 'required': ['double_optin', 'groot_id'],
+                                 'type': 'object'},
+                    'slug': {'type': 'string'},
+                    'type': {'type': 'string'},
+                    'used_in_automations': {'type': 'boolean'},
+                    'warnings': {'items': {'type': 'string'},
+                                 'type': 'array'}},
+     'required': ['id',
+                  'type',
+                  'slug',
+                  'name',
+                  'created_at',
+                  'conversions_count',
+                  'opens_count',
+                  'conversion_rate',
+                  'settings',
+                  'last_registration_at',
+                  'active',
+                  'is_broken',
+                  'has_content',
+                  'can',
+                  'used_in_automations',
+                  'warnings',
+                  'double_optin',
+                  'screenshot_url',
+                  'has_missing_groups',
+                  'groups'],
+     'type': 'object'}
+
+On instance:
+    {'active': False,
+     'analytics_reset_at': None,
+     'can': {'update': True},
+     'children': [],
+     'conversion_rate': {'float': 0, 'string': '0%'},
+     'conversion_rate_including_children': {'float': 0, 'string': '0%'},
+     'conversions_count': 0,
+     'conversions_count_including_children': 0,
+     'created_at': '2022-10-18 20:39:15',
+     'double_optin': True,
+     'groups': [{'active_count': 0,
+                 'bounced_count': 0,
+                 'click_rate': {'float': 0, 'string': '0%'},
+                 'clicks_count': 0,
+                 'created_at': '2022-10-14 11:05:07',
+                 'id': '68939161758860404',
+                 'junk_count': 0,
+                 'name': 'Test group',
+                 'open_rate': {'float': 0, 'string': '0%'},
+                 'opens_count': 0,
+                 'sent_count': 0,
+                 'unconfirmed_count': 0,
+                 'unsubscribed_count': 0}],
+     'has_content': True,
+     'has_missing_groups': False,
+     'has_split_tests': False,
+     'id': '69337670689490374',
+     'is_broken': False,
+     'is_split_test_winner': False,
+     'last_registration_at': None,
+     'name': 'Test form 2',
+     'opens_count': 0,
+     'opens_count_including_children': 0,
+     'original_name': None,
+     'parent_id': None,
+     'screenshot_url': 'https://storage.googleapis.com/mailerlite-screenshots-prod/screenshot/forms/69337670689490374/1284x1284.png',
+     'settings': {'double_optin': True, 'groot_id': 1825986},
+     'slug': '69v5dJ',
+     'split_percentage': 0,
+     'split_test_enabled': False,
+     'split_test_finished': False,
+     'type': 'embedded',
+     'used_in_automations': False,
+     'uses_survey': False,
+     'warning_messages': [],
+     'warnings': []}
+ERROR    root:test_core.py:662 
+The forms_promotion stream has the following schema errors:
+Additional properties are not allowed ('parent_id', 'split_percentage', 'split_test_enabled', 'analytics_reset_at', 'is_split_test_winner', 'warning_messages', 'original_name', 'split_test_finished', 'conversion_rate_including_children', 'conversions_count_including_children', 'uses_survey', 'children', 'has_split_tests', 'opens_count_including_children' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-04/schema#',
+     'additionalProperties': False,
+     'properties': {'active': {'type': 'boolean'},
+                    'can': {'properties': {'update': {'type': 'boolean'}},
+                            'required': ['update'],
+                            'type': 'object'},
+                    'conversion_rate': {'properties': {'float': {'type': 'integer'},
+                                                       'string': {'type': 'string'}},
+                                        'required': ['float', 'string'],
+                                        'type': 'object'},
+                    'conversions_count': {'type': 'integer'},
+                    'created_at': {'type': 'string'},
+                    'double_optin': {'type': ['string', 'null']},
+                    'groups': {'items': {'type': 'string'},
+                               'type': 'array'},
+                    'has_content': {'type': 'boolean'},
+                    'has_missing_groups': {'type': 'boolean'},
+                    'id': {'type': 'string'},
+                    'is_broken': {'type': 'boolean'},
+                    'last_registration_at': {'type': ['string', 'null']},
+                    'name': {'type': 'string'},
+                    'opens_count': {'type': 'integer'},
+                    'screenshot_url': {'type': 'string'},
+                    'settings': {'properties': {'form_type': {'type': 'string'},
+                                                'frequency': {'type': 'integer'},
+                                                'frequency_unit': {'type': 'string'},
+                                                'groot_id': {'type': 'integer'},
+                                                'hide_on': {'items': {'type': 'string'},
+                                                            'type': 'array'},
+                                                'schedule': {'type': 'string'},
+                                                'schedule_from': {'type': 'string'},
+                                                'schedule_timezone_id': {'type': 'string'},
+                                                'schedule_until': {'type': 'string'},
+                                                'scroll_percentage': {'type': 'integer'},
+                                                'timeout_seconds': {'type': 'integer'},
+                                                'triggers': {'items': {'type': 'string'},
+                                                             'type': 'array'},
+                                                'url_list': {'items': {'type': 'string'},
+                                                             'type': 'array'},
+                                                'url_list_strict': {'items': {'type': 'string'},
+                                                                    'type': ['array',
+                                                                             'null']},
+                                                'visibility': {'type': 'string'}},
+                                 'required': ['groot_id',
+                                              'form_type',
+                                              'triggers',
+                                              'timeout_seconds',
+                                              'scroll_percentage',
+                                              'frequency',
+                                              'frequency_unit',
+                                              'visibility',
+                                              'url_list',
+                                              'url_list_strict',
+                                              'hide_on',
+                                              'schedule',
+                                              'schedule_from',
+                                              'schedule_until',
+                                              'schedule_timezone_id'],
+                                 'type': 'object'},
+                    'slug': {'type': 'string'},
+                    'type': {'type': 'string'},
+                    'used_in_automations': {'type': 'boolean'},
+                    'warnings': {'items': {'type': 'string'},
+                                 'type': 'array'}},
+     'required': ['id',
+                  'type',
+                  'slug',
+                  'name',
+                  'created_at',
+                  'conversions_count',
+                  'opens_count',
+                  'conversion_rate',
+                  'settings',
+                  'last_registration_at',
+                  'active',
+                  'is_broken',
+                  'has_content',
+                  'can',
+                  'used_in_automations',
+                  'warnings',
+                  'double_optin',
+                  'screenshot_url',
+                  'has_missing_groups',
+                  'groups'],
+     'type': 'object'}
+
+On instance:
+    {'active': False,
+     'analytics_reset_at': None,
+     'can': {'update': True},
+     'children': [],
+     'conversion_rate': {'float': 0, 'string': '0%'},
+     'conversion_rate_including_children': {'float': 0, 'string': '0%'},
+     'conversions_count': 0,
+     'conversions_count_including_children': 0,
+     'created_at': '2022-10-18 20:40:26',
+     'double_optin': None,
+     'groups': [],
+     'has_content': True,
+     'has_missing_groups': False,
+     'has_split_tests': False,
+     'id': '69337745455056000',
+     'is_broken': False,
+     'is_split_test_winner': False,
+     'last_registration_at': None,
+     'name': 'Test form 3',
+     'opens_count': 0,
+     'opens_count_including_children': 0,
+     'original_name': None,
+     'parent_id': None,
+     'screenshot_url': 'https://storage.googleapis.com/mailerlite-screenshots-prod/screenshot/forms/69337745455056000/1284x1284.png',
+     'settings': {'form_type': 'popup',
+                  'frequency': 1,
+                  'frequency_unit': 'months',
+                  'groot_id': 1825993,
+                  'hide_on': ['tablet', 'mobile', 'desktop'],
+                  'schedule': 'yes',
+                  'schedule_from': '2022-10-19 00:00:00',
+                  'schedule_timezone_id': '371',
+                  'schedule_until': '2022-10-31 00:00:00',
+                  'scroll_percentage': 50,
+                  'timeout_seconds': 5,
+                  'triggers': ['timeout'],
+                  'url_list': [],
+                  'url_list_strict': None,
+                  'visibility': 'always'},
+     'slug': 'psi7uA',
+     'split_percentage': 0,
+     'split_test_enabled': False,
+     'split_test_finished': False,
+     'type': 'promotion',
+     'used_in_automations': False,
+     'uses_survey': False,
+     'warning_messages': [],
+     'warnings': []}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+========== 1 failed, 1 skipped, 33 deselected, 35 warnings in 10.05s ===========

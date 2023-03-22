@@ -1,0 +1,264 @@
+../../../../connectors/source-linnworks/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-linnworks
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 37 items / 35 deselected / 2 selected
+
+../../test_input/test_core.py E                                          [ 50%]
+../../test_input/test_incremental.py E                                   [100%]
+
+
+==================================== ERRORS ====================================
+______________ ERROR at setup of TestBasicRead.test_read[inputs0] ______________
+
+connector_config = SecretDict(******)
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffb66d4820>
+cached_schemas = {}, cache_discovered_catalog = True
+
+    @pytest.fixture(name="discovered_catalog")
+    def discovered_catalog_fixture(
+        connector_config, docker_runner: ConnectorRunner, cached_schemas, cache_discovered_catalog: bool
+    ) -> MutableMapping[str, AirbyteStream]:
+        """JSON schemas for each stream"""
+        cached_schemas = cached_schemas.setdefault(make_hashable(connector_config), {})
+        if not cache_discovered_catalog:
+            cached_schemas.clear()
+        if not cached_schemas:
+>           output = docker_runner.call_discover(config=connector_config)
+
+connector_acceptance_test/conftest.py:290: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+connector_acceptance_test/utils/connector_runner.py:91: in call_discover
+    output = list(self.run(cmd=cmd, config=config, **kwargs))
+connector_acceptance_test/utils/connector_runner.py:120: in run
+    for line in self.read(container, command=cmd, with_ext=raise_container_error):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'connector_acceptance_test.utils.connector_runner.ConnectorRunner'>
+container = <Container: 7a4550bca2>
+command = 'discover --config /data/tap_config.json', with_ext = True
+
+    @classmethod
+    def read(cls, container: Container, command: str = None, with_ext: bool = True) -> Iterable[str]:
+        """Reads connector's logs per line"""
+        buffer = b""
+        exception = ""
+        line = ""
+        for chunk in container.logs(stdout=True, stderr=True, stream=True, follow=True):
+    
+            buffer += chunk
+            while True:
+                # every chunk can include several lines
+                found = buffer.find(b"\n")
+                if found <= -1:
+                    break
+    
+                line = buffer[: found + 1].decode("utf-8")
+                if len(exception) > 0 or line.startswith("Traceback (most recent call last)"):
+                    exception += line
+                else:
+                    yield line
+                buffer = buffer[found + 1 :]
+    
+        if buffer:
+            # send the latest chunk if exists
+            line = buffer.decode("utf-8")
+            if exception:
+                exception += line
+            else:
+                yield line
+        try:
+            exit_status = container.wait()
+            container.remove()
+        except NotFound as err:
+            logging.error(f"Waiting error: {err}, logs: {exception or line}")
+            raise
+        if exit_status["StatusCode"]:
+            error = exit_status.get("Error") or exception or line
+            logging.error(f"Docker container failed, " f'code {exit_status["StatusCode"]}, error:\n{error}')
+            if with_ext:
+>               raise ContainerError(
+                    container=container,
+                    exit_status=exit_status["StatusCode"],
+                    command=command,
+                    image=container.image,
+                    stderr=error,
+                )
+E               docker.errors.ContainerError: Command 'discover --config /data/tap_config.json' in image '<Image: 'airbyte/source-linnworks:dev'>' returned non-zero exit status 1: Traceback (most recent call last):
+E                 File "/airbyte/integration_code/main.py", line 9, in <module>
+E                   from source_linnworks import SourceLinnworks
+E                 File "/airbyte/integration_code/source_linnworks/__init__.py", line 6, in <module>
+E                   from .source import SourceLinnworks
+E                 File "/airbyte/integration_code/source_linnworks/source.py", line 14, in <module>
+E                   from .streams import ProcessedOrderDetails, ProcessedOrders, StockItems, StockLocationDetails, StockLocations
+E                 File "/airbyte/integration_code/source_linnworks/streams.py", line 13, in <module>
+E                   import vcr
+E               ModuleNotFoundError: No module named 'vcr'
+
+connector_acceptance_test/utils/connector_runner.py:174: ContainerError
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "Docker container failed, code 1, error:\nTraceback (most recent call last):\n  File \"/airbyte/integration_code/main.py\", line 9, in <module>\n    from source_linnworks import SourceLinnworks\n  File \"/airbyte/integration_code/source_linnworks/__init__.py\", line 6, in <module>\n    from .source import SourceLinnworks\n  File \"/airbyte/integration_code/source_linnworks/source.py\", line 14, in <module>\n    from .streams import ProcessedOrderDetails, ProcessedOrders, StockItems, StockLocationDetails, StockLocations\n  File \"/airbyte/integration_code/source_linnworks/streams.py\", line 13, in <module>\n    import vcr\nModuleNotFoundError: No module named 'vcr'\n"}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+ERROR    root:connector_runner.py:172 Docker container failed, code 1, error:
+Traceback (most recent call last):
+  File "/airbyte/integration_code/main.py", line 9, in <module>
+    from source_linnworks import SourceLinnworks
+  File "/airbyte/integration_code/source_linnworks/__init__.py", line 6, in <module>
+    from .source import SourceLinnworks
+  File "/airbyte/integration_code/source_linnworks/source.py", line 14, in <module>
+    from .streams import ProcessedOrderDetails, ProcessedOrders, StockItems, StockLocationDetails, StockLocations
+  File "/airbyte/integration_code/source_linnworks/streams.py", line 13, in <module>
+    import vcr
+ModuleNotFoundError: No module named 'vcr'
+____ ERROR at setup of TestIncremental.test_read_sequential_slices[inputs0] ____
+
+connector_config = SecretDict(******)
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffb6ed3730>
+cached_schemas = {}, cache_discovered_catalog = True
+
+    @pytest.fixture(name="discovered_catalog")
+    def discovered_catalog_fixture(
+        connector_config, docker_runner: ConnectorRunner, cached_schemas, cache_discovered_catalog: bool
+    ) -> MutableMapping[str, AirbyteStream]:
+        """JSON schemas for each stream"""
+        cached_schemas = cached_schemas.setdefault(make_hashable(connector_config), {})
+        if not cache_discovered_catalog:
+            cached_schemas.clear()
+        if not cached_schemas:
+>           output = docker_runner.call_discover(config=connector_config)
+
+connector_acceptance_test/conftest.py:290: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+connector_acceptance_test/utils/connector_runner.py:91: in call_discover
+    output = list(self.run(cmd=cmd, config=config, **kwargs))
+connector_acceptance_test/utils/connector_runner.py:120: in run
+    for line in self.read(container, command=cmd, with_ext=raise_container_error):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'connector_acceptance_test.utils.connector_runner.ConnectorRunner'>
+container = <Container: 5953bc4e9f>
+command = 'discover --config /data/tap_config.json', with_ext = True
+
+    @classmethod
+    def read(cls, container: Container, command: str = None, with_ext: bool = True) -> Iterable[str]:
+        """Reads connector's logs per line"""
+        buffer = b""
+        exception = ""
+        line = ""
+        for chunk in container.logs(stdout=True, stderr=True, stream=True, follow=True):
+    
+            buffer += chunk
+            while True:
+                # every chunk can include several lines
+                found = buffer.find(b"\n")
+                if found <= -1:
+                    break
+    
+                line = buffer[: found + 1].decode("utf-8")
+                if len(exception) > 0 or line.startswith("Traceback (most recent call last)"):
+                    exception += line
+                else:
+                    yield line
+                buffer = buffer[found + 1 :]
+    
+        if buffer:
+            # send the latest chunk if exists
+            line = buffer.decode("utf-8")
+            if exception:
+                exception += line
+            else:
+                yield line
+        try:
+            exit_status = container.wait()
+            container.remove()
+        except NotFound as err:
+            logging.error(f"Waiting error: {err}, logs: {exception or line}")
+            raise
+        if exit_status["StatusCode"]:
+            error = exit_status.get("Error") or exception or line
+            logging.error(f"Docker container failed, " f'code {exit_status["StatusCode"]}, error:\n{error}')
+            if with_ext:
+>               raise ContainerError(
+                    container=container,
+                    exit_status=exit_status["StatusCode"],
+                    command=command,
+                    image=container.image,
+                    stderr=error,
+                )
+E               docker.errors.ContainerError: Command 'discover --config /data/tap_config.json' in image '<Image: 'airbyte/source-linnworks:dev'>' returned non-zero exit status 1: Traceback (most recent call last):
+E                 File "/airbyte/integration_code/main.py", line 9, in <module>
+E                   from source_linnworks import SourceLinnworks
+E                 File "/airbyte/integration_code/source_linnworks/__init__.py", line 6, in <module>
+E                   from .source import SourceLinnworks
+E                 File "/airbyte/integration_code/source_linnworks/source.py", line 14, in <module>
+E                   from .streams import ProcessedOrderDetails, ProcessedOrders, StockItems, StockLocationDetails, StockLocations
+E                 File "/airbyte/integration_code/source_linnworks/streams.py", line 13, in <module>
+E                   import vcr
+E               ModuleNotFoundError: No module named 'vcr'
+
+connector_acceptance_test/utils/connector_runner.py:174: ContainerError
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "Docker container failed, code 1, error:\nTraceback (most recent call last):\n  File \"/airbyte/integration_code/main.py\", line 9, in <module>\n    from source_linnworks import SourceLinnworks\n  File \"/airbyte/integration_code/source_linnworks/__init__.py\", line 6, in <module>\n    from .source import SourceLinnworks\n  File \"/airbyte/integration_code/source_linnworks/source.py\", line 14, in <module>\n    from .streams import ProcessedOrderDetails, ProcessedOrders, StockItems, StockLocationDetails, StockLocations\n  File \"/airbyte/integration_code/source_linnworks/streams.py\", line 13, in <module>\n    import vcr\nModuleNotFoundError: No module named 'vcr'\n"}}
+------------------------------ Captured log setup ------------------------------
+ERROR    root:connector_runner.py:172 Docker container failed, code 1, error:
+Traceback (most recent call last):
+  File "/airbyte/integration_code/main.py", line 9, in <module>
+    from source_linnworks import SourceLinnworks
+  File "/airbyte/integration_code/source_linnworks/__init__.py", line 6, in <module>
+    from .source import SourceLinnworks
+  File "/airbyte/integration_code/source_linnworks/source.py", line 14, in <module>
+    from .streams import ProcessedOrderDetails, ProcessedOrders, StockItems, StockLocationDetails, StockLocations
+  File "/airbyte/integration_code/source_linnworks/streams.py", line 13, in <module>
+    import vcr
+ModuleNotFoundError: No module named 'vcr'
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 36 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+ERROR ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - dock...
+ERROR ../../test_input/test_incremental.py::TestIncremental::test_read_sequential_slices[inputs0]
+================ 35 deselected, 37 warnings, 2 errors in 6.53s =================

@@ -1,0 +1,816 @@
+../../../../connectors/source-looker/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-looker
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 38 items / 36 deselected / 2 selected
+
+../../test_input/test_core.py F                                          [ 50%]
+../../test_input/test_incremental.py .                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffa9cede50>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='color_collections', json_schema={...: 'full_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='user_attribute_group_values', bypass_reason=None), EmptyStreamConfiguration(name='user...(name='scheduled_plans', bypass_reason=None), EmptyStreamConfiguration(name='user_login_lockouts', bypass_reason=None)}
+ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffa9d54790>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='color_collections', data={'id': '7c56cc21-66e4-41c9-81ce-a60e1c3967b2', ... 0.0}, {'color': '#FFFFFF', 'offset': 50.0}, {'color': '#404FC4', 'offset': 100.0}]}]}, emitted_at=1679407788606), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='color_collections', json_schema={...: 'full_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('connections', 'roles').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe connections stream has the following schema errors:\nAdditional properties are not allowed ('tunnel_id', 'custom_local_port' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'after_connect_statements': {'description': 'SQL '\n                                                                'statements '\n                                                                '(semicolon '\n                                                                'separated) '\n                                                                'to issue '\n                                                                'after '\n                                                                'connecting '\n                                                                'to the '\n                                                                'database. '\n                                                                'Requires '\n                                                                '`custom_after_connect_statements` '\n                                                                'license '\n                                                                'feature',\n                                                 'type': ['null',\n                                                          'string']},\n                    'can': {'description': 'Operations the current user is '\n                                           'able to perform on this object',\n                            'type': ['null', 'object']},\n                    'certificate': {'description': '(Write-Only) Base64 '\n                                                   'encoded Certificate '\n                                                   'body for server '\n                                                   'authentication (when '\n                                                   'appropriate for '\n                                                   'dialect).',\n                                    'type': ['null', 'string']},\n                    'created_at': {'description': 'Creation date for this '\n                                                  'connection',\n                                   'type': ['null', 'string']},\n                    'database': {'description': 'Database name',\n                                 'type': ['null', 'string']},\n                    'db_timezone': {'description': 'Time zone of database',\n                                    'type': ['null', 'string']},\n                    'dialect': {'properties': {'automatically_run_sql_runner_snippets': {'description': 'Should '\n                                                                                                        'SQL '\n                                                                                                        'Runner '\n                                                                                                        'snippets '\n                                                                                                        'automatically '\n                                                                                                        'be '\n                                                                                                        'run',\n                                                                                         'type': ['null',\n                                                                                                  'boolean']},\n                                               'connection_tests': {'description': 'Array '\n                                                                                   'of '\n                                                                                   'names '\n                                                                                   'of '\n                                                                                   'the '\n                                                                                   'tests '\n                                                                                   'that '\n                                                                                   'can '\n                                                                                   'be '\n                                                                                   'run '\n                                                                                   'on '\n                                                                                   'a '\n                                                                                   'connection '\n                                                                                   'using '\n                                                                                   'this '\n                                                                                   'dialect',\n                                                                    'items': {'type': ['null',\n                                                                                       'string']},\n                                                                    'type': ['null',\n                                                                             'array']},\n                                               'cost_estimate_style': {'description': 'How '\n                                                                                      'the '\n                                                                                      'dialect '\n                                                                                      'handles '\n                                                                                      'cost '\n                                                                                      'estimation',\n                                                                       'type': ['null',\n                                                                                'string']},\n                                               'has_ssl_support': {'description': 'Does '\n                                                                                  'the '\n                                                                                  'database '\n                                                                                  'have '\n                                                                                  'client '\n                                                                                  'SSL '\n                                                                                  'support '\n                                                                                  'settable '\n                                                                                  'through '\n                                                                                  'the '\n                                                                                  'JDBC '\n                                                                                  'string '\n                                                                                  'explicitly?',\n                                                                   'type': ['null',\n                                                                            'boolean']},\n                                               'label': {'description': 'The '\n                                                                        'human-readable '\n                                                                        'label '\n                                                                        'of '\n                                                                        'the '\n                                                                        'connection',\n                                                         'type': ['null',\n                                                                  'string']},\n                                               'name': {'description': 'The '\n                                                                       'name '\n                                                                       'of '\n                                                                       'the '\n                                                                       'dialect',\n                                                        'type': ['null',\n                                                                 'string']},\n                                               'persistent_table_distkey': {'description': 'PDT '\n                                                                                           'distkey '\n                                                                                           'column',\n                                                                            'type': ['null',\n                                                                                     'string']},\n                                               'persistent_table_indexes': {'description': 'PDT '\n                                                                                           'index '\n                                                                                           'columns',\n                                                                            'type': ['null',\n                                                                                     'string']},\n                                               'persistent_table_sortkeys': {'description': 'PDT '\n                                                                                            'sortkey '\n                                                                                            'columns',\n                                                                             'type': ['null',\n                                                                                      'string']},\n                                               'supports_cost_estimate': {'description': 'Whether '\n                                                                                         'the '\n                                                                                         'dialect '\n                                                                                         'supports '\n                                                                                         'query '\n                                                                                         'cost '\n                                                                                         'estimates',\n                                                                          'type': ['null',\n                                                                                   'boolean']},\n                                               'supports_inducer': {'description': 'Is '\n                                                                                   'supported '\n                                                                                   'with '\n                                                                                   'the '\n                                                                                   'inducer '\n                                                                                   '(i.e. '\n                                                                                   'generate '\n                                                                                   'from '\n                                                                                   'sql)',\n                                                                    'type': ['null',\n                                                                             'boolean']},\n                                               'supports_multiple_databases': {'description': 'Can '\n                                                                                              'multiple '\n                                                                                              'databases '\n                                                                                              'be '\n                                                                                              'accessed '\n                                                                                              'from '\n                                                                                              'a '\n                                                                                              'connection '\n                                                                                              'using '\n                                                                                              'this '\n                                                                                              'dialect',\n                                                                               'type': ['null',\n                                                                                        'boolean']},\n                                               'supports_persistent_derived_tables': {'description': 'Whether '\n                                                                                                     'the '\n                                                                                                     'dialect '\n                                                                                                     'supports '\n                                                                                                     'allowing '\n                                                                                                     'Looker '\n                                                                                                     'to '\n                                                                                                     'build '\n                                                                                                     'persistent '\n                                                                                                     'derived '\n                                                                                                     'tables',\n                                                                                      'type': ['null',\n                                                                                               'boolean']},\n                                               'supports_streaming': {'description': 'Suports '\n                                                                                     'streaming '\n                                                                                     'results',\n                                                                      'type': ['null',\n                                                                               'boolean']}},\n                                'type': ['null', 'object']},\n                    'dialect_name': {'description': '(Read/Write) SQL '\n                                                    'Dialect name',\n                                     'type': ['null', 'string']},\n                    'example': {'description': 'Is this an example '\n                                               'connection?',\n                                'type': ['null', 'boolean']},\n                    'file_type': {'description': '(Write-Only) Certificate '\n                                                 'keyfile type - .json or '\n                                                 '.p12',\n                                  'type': ['null', 'string']},\n                    'host': {'description': 'Host name/address of server; '\n                                            \"or the string 'localhost' in \"\n                                            'case of a connection over an '\n                                            'SSH tunnel.',\n                             'type': ['null', 'string']},\n                    'jdbc_additional_params': {'description': 'Additional '\n                                                              'params to '\n                                                              'add to JDBC '\n                                                              'connection '\n                                                              'string',\n                                               'type': ['null', 'string']},\n                    'last_reap_at': {'description': 'Unix timestamp at '\n                                                    'start of last '\n                                                    'completed PDT reap '\n                                                    'process',\n                                     'type': ['null', 'string']},\n                    'last_regen_at': {'description': 'Unix timestamp at '\n                                                     'start of last '\n                                                     'completed PDT '\n                                                     'trigger check '\n                                                     'process',\n                                      'type': ['null', 'string']},\n                    'maintenance_cron': {'description': 'Cron string '\n                                                        'specifying when '\n                                                        'maintenance such '\n                                                        'as PDT trigger '\n                                                        'checks and drops '\n                                                        'should be '\n                                                        'performed',\n                                         'type': ['null', 'string']},\n                    'managed': {'description': 'Is this connection created '\n                                               'and managed by Looker',\n                                'type': ['null', 'boolean']},\n                    'max_billing_gigabytes': {'description': 'Maximum size '\n                                                             'of query in '\n                                                             'GBs '\n                                                             '(BigQuery '\n                                                             'only, can be '\n                                                             'a '\n                                                             'user_attribute '\n                                                             'name)',\n                                              'type': ['null', 'string']},\n                    'max_connections': {'description': 'Maximum number of '\n                                                       'concurrent '\n                                                       'connection to use',\n                                        'multipleOf': 1e-16,\n                                        'type': ['null', 'number']},\n                    'name': {'description': 'Name of the connection. Also '\n                                            'used as the unique identifier',\n                             'type': ['null', 'string']},\n                    'password': {'description': '(Write-Only) Password for '\n                                                'server authentication',\n                                 'type': ['null', 'string']},\n                    'pdt_context_override': {'properties': {'after_connect_statements': {'description': 'SQL '\n                                                                                                        'statements '\n                                                                                                        '(semicolon '\n                                                                                                        'separated) '\n                                                                                                        'to '\n                                                                                                        'issue '\n                                                                                                        'after '\n                                                                                                        'connecting '\n                                                                                                        'to '\n                                                                                                        'the '\n                                                                                                        'database. '\n                                                                                                        'Requires '\n                                                                                                        '`custom_after_connect_statements` '\n                                                                                                        'license '\n                                                                                                        'feature',\n                                                                                         'type': ['null',\n                                                                                                  'string']},\n                                                            'certificate': {'description': '(Write-Only) '\n                                                                                           'Base64 '\n                                                                                           'encoded '\n                                                                                           'Certificate '\n                                                                                           'body '\n                                                                                           'for '\n                                                                                           'server '\n                                                                                           'authentication '\n                                                                                           '(when '\n                                                                                           'appropriate '\n                                                                                           'for '\n                                                                                           'dialect).',\n                                                                            'type': ['null',\n                                                                                     'string']},\n                                                            'context': {'description': 'Context '\n                                                                                       'in '\n                                                                                       'which '\n                                                                                       'to '\n                                                                                       'override '\n                                                                                       '(`pdt` '\n                                                                                       'is '\n                                                                                       'the '\n                                                                                       'only '\n                                                                                       'allowed '\n                                                                                       'value)',\n                                                                        'type': ['null',\n                                                                                 'string']},\n                                                            'database': {'description': 'Database '\n                                                                                        'name',\n                                                                         'type': ['null',\n                                                                                  'string']},\n                                                            'file_type': {'description': '(Write-Only) '\n                                                                                         'Certificate '\n                                                                                         'keyfile '\n                                                                                         'type '\n                                                                                         '- '\n                                                                                         '.json '\n                                                                                         'or '\n                                                                                         '.p12',\n                                                                          'type': ['null',\n                                                                                   'string']},\n                                                            'has_password': {'description': 'Whether '\n                                                                                            'or '\n                                                                                            'not '\n                                                                                            'the '\n                                                                                            'password '\n                                                                                            'is '\n                                                                                            'overridden '\n                                                                                            'in '\n                                                                                            'this '\n                                                                                            'context',\n                                                                             'type': ['null',\n                                                                                      'boolean']},\n                                                            'host': {'description': 'Host '\n                                                                                    'name/address '\n                                                                                    'of '\n                                                                                    'server',\n                                                                     'type': ['null',\n                                                                              'string']},\n                                                            'jdbc_additional_params': {'description': 'Additional '\n                                                                                                      'params '\n                                                                                                      'to '\n                                                                                                      'add '\n                                                                                                      'to '\n                                                                                                      'JDBC '\n                                                                                                      'connection '\n                                                                                                      'string',\n                                                                                       'type': ['null',\n                                                                                                'string']},\n                                                            'password': {'description': '(Write-Only) '\n                                                                                        'Password '\n                                                                                        'for '\n                                                                                        'server '\n                                                                                        'authentication',\n                                                                         'type': ['null',\n                                                                                  'string']},\n                                                            'port': {'description': 'Port '\n                                                                                    'number '\n                                                                                    'on '\n                                                                                    'server',\n                                                                     'type': ['null',\n                                                                              'string']},\n                                                            'schema': {'description': 'Scheme '\n                                                                                      'name',\n                                                                       'type': ['null',\n                                                                                'string']},\n                                                            'username': {'description': 'Username '\n                                                                                        'for '\n                                                                                        'server '\n                                                                                        'authentication',\n                                                                         'type': ['null',\n                                                                                  'string']}},\n                                             'type': ['null', 'object']},\n                    'pdts_enabled': {'description': 'True if PDTs are '\n                                                    'enabled on this '\n                                                    'connection',\n                                     'type': ['null', 'boolean']},\n                    'pool_timeout': {'description': 'Connection Pool '\n                                                    'Timeout, in seconds',\n                                     'multipleOf': 1e-16,\n                                     'type': ['null', 'number']},\n                    'port': {'description': 'Port number on server. If the '\n                                            'connection is over an SSH '\n                                            'tunnel, then the local port '\n                                            'associated with the SSH '\n                                            'tunnel.',\n                             'type': ['null', 'string']},\n                    'query_timezone': {'description': 'Timezone to use in '\n                                                      'queries',\n                                       'type': ['null', 'string']},\n                    'schema': {'description': 'Scheme name',\n                               'type': ['null', 'string']},\n                    'snippets': {'description': 'SQL Runner snippets for '\n                                                'this connection',\n                                 'items': {'properties': {'can': {'description': 'Operations '\n                                                                                 'the '\n                                                                                 'current '\n                                                                                 'user '\n                                                                                 'is '\n                                                                                 'able '\n                                                                                 'to '\n                                                                                 'perform '\n                                                                                 'on '\n                                                                                 'this '\n                                                                                 'object',\n                                                                  'type': ['null',\n                                                                           'object']},\n                                                          'label': {'description': 'Label '\n                                                                                   'of '\n                                                                                   'the '\n                                                                                   'snippet',\n                                                                    'type': ['null',\n                                                                             'string']},\n                                                          'name': {'description': 'Name '\n                                                                                  'of '\n                                                                                  'the '\n                                                                                  'snippet',\n                                                                   'type': ['null',\n                                                                            'string']},\n                                                          'sql': {'description': 'SQL '\n                                                                                 'text '\n                                                                                 'of '\n                                                                                 'the '\n                                                                                 'snippet',\n                                                                  'type': ['null',\n                                                                           'string']}},\n                                           'type': ['null', 'object']},\n                                 'type': ['null', 'array']},\n                    'sql_runner_precache_tables': {'description': 'Precache '\n                                                                  'tables '\n                                                                  'in the '\n                                                                  'SQL '\n                                                                  'Runner',\n                                                   'type': ['null',\n                                                            'boolean']},\n                    'sql_writing_with_info_schema': {'description': 'Fetch '\n                                                                    'Information '\n                                                                    'Schema '\n                                                                    'For '\n                                                                    'SQL '\n                                                                    'Writing',\n                                                     'type': ['null',\n                                                              'boolean']},\n                    'ssl': {'description': 'Use SSL/TLS when connecting to '\n                                           'server',\n                            'type': ['null', 'boolean']},\n                    'supports_data_studio_link': {'description': 'Database '\n                                                                 'connection '\n                                                                 'has the '\n                                                                 'ability '\n                                                                 'to '\n                                                                 'support '\n                                                                 'open '\n                                                                 'data '\n                                                                 'studio '\n                                                                 'from '\n                                                                 'explore',\n                                                  'type': ['null',\n                                                           'boolean']},\n                    'tmp_db_name': {'description': 'Name of temporary '\n                                                   'database (if used)',\n                                    'type': ['null', 'string']},\n                    'user_attribute_fields': {'description': 'Fields whose '\n                                                             'values map '\n                                                             'to user '\n                                                             'attribute '\n                                                             'names',\n                                              'items': {'type': ['null',\n                                                                 'string']},\n                                              'type': ['null', 'array']},\n                    'user_db_credentials': {'description': '(Limited '\n                                                           'access '\n                                                           'feature) Are '\n                                                           'per user db '\n                                                           'credentials '\n                                                           'enabled. '\n                                                           'Enabling will '\n                                                           'remove '\n                                                           'previously set '\n                                                           'username and '\n                                                           'password',\n                                            'type': ['null', 'boolean']},\n                    'user_id': {'description': 'Id of user who last '\n                                               'modified this connection '\n                                               'configuration',\n                                'type': ['null', 'string']},\n                    'username': {'description': 'Username for server '\n                                                'authentication',\n                                 'type': ['null', 'string']},\n                    'uses_oauth': {'description': 'Whether the connection '\n                                                  'uses OAuth for '\n                                                  'authentication.',\n                                   'type': ['null', 'boolean']},\n                    'uses_tns': {'description': 'Enable Transparent '\n                                                'Network Substrate (TNS) '\n                                                'connections',\n                                 'type': ['null', 'boolean']},\n                    'verify_ssl': {'description': 'Verify the SSL',\n                                   'type': ['null', 'boolean']}},\n     'type': 'object'}\n\nOn instance:\n    {'after_connect_statements': None,\n     'can': {'access_data': True,\n             'cost_estimate': True,\n             'create': True,\n             'destroy': True,\n             'explore': True,\n             'index': True,\n             'index_limited': True,\n             'refresh_schemas': True,\n             'run_sql_queries': True,\n             'show': True,\n             'test': True,\n             'update': True},\n     'created_at': '2020-12-10T18:18:55.000+00:00',\n     'custom_local_port': None,\n     'database': 'THELOOK',\n     'db_timezone': None,\n     'dialect': {'automatically_run_sql_runner_snippets': True,\n                 'connection_tests': ['connect',\n                                      'kill',\n                                      'query',\n                                      'database_timezone',\n                                      'tmp_db',\n                                      'cdt',\n                                      'tmp_db_views',\n                                      'database_version'],\n                 'cost_estimate_style': 'configurable',\n                 'has_ssl_support': True,\n                 'label': 'Snowflake',\n                 'name': 'snowflake',\n                 'persistent_table_distkey': '',\n                 'persistent_table_indexes': 'false',\n                 'persistent_table_sortkeys': '',\n                 'supports_cost_estimate': True,\n                 'supports_inducer': False,\n                 'supports_multiple_databases': False,\n                 'supports_persistent_derived_tables': True,\n                 'supports_streaming': True},\n     'dialect_name': 'snowflake',\n     'example': False,\n     'host': 'looker.snowflakecomputing.com',\n     'jdbc_additional_params': 'account=looker&warehouse=DEMO_WH',\n     'last_reap_at': '1646671763',\n     'last_regen_at': '1679407657',\n     'maintenance_cron': None,\n     'managed': False,\n     'max_billing_gigabytes': None,\n     'max_connections': 30.0,\n     'name': 'snowlooker',\n     'pdt_context_override': None,\n     'pdts_enabled': True,\n     'pool_timeout': 120.0,\n     'port': '443',\n     'query_timezone': None,\n     'schema': 'PUBLIC',\n     'snippets': [],\n     'sql_runner_precache_tables': True,\n     'sql_writing_with_info_schema': True,\n     'ssl': True,\n     'supports_data_studio_link': False,\n     'tmp_db_name': 'LOOKER_SCRATCH_2',\n     'tunnel_id': None,\n     'user_attribute_fields': [],\n     'user_id': '1',\n     'username': 'partner_looker_public_data',\n     'uses_oauth': False,\n     'uses_tns': None,\n     'verify_ssl': None}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe roles stream has the following schema errors:\nAdditional properties are not allowed ('user_count' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'can': {'description': 'Operations the current user is '\n                                           'able to perform on this object',\n                            'type': ['null', 'object']},\n                    'id': {'description': 'Unique Id',\n                           'format': 'int64',\n                           'type': ['null', 'integer']},\n                    'model_set': {'properties': {'all_access': {'type': ['null',\n                                                                         'boolean']},\n                                                 'built_in': {'type': ['null',\n                                                                       'boolean']},\n                                                 'can': {'description': 'Operations '\n                                                                        'the '\n                                                                        'current '\n                                                                        'user '\n                                                                        'is '\n                                                                        'able '\n                                                                        'to '\n                                                                        'perform '\n                                                                        'on '\n                                                                        'this '\n                                                                        'object',\n                                                         'type': ['null',\n                                                                  'object']},\n                                                 'id': {'description': 'Unique '\n                                                                       'Id',\n                                                        'format': 'int64',\n                                                        'type': ['null',\n                                                                 'integer']},\n                                                 'models': {'items': {'type': ['null',\n                                                                               'string']},\n                                                            'type': ['null',\n                                                                     'array']},\n                                                 'name': {'description': 'Name '\n                                                                         'of '\n                                                                         'ModelSet',\n                                                          'type': ['null',\n                                                                   'string']},\n                                                 'url': {'description': 'Link '\n                                                                        'to '\n                                                                        'get '\n                                                                        'this '\n                                                                        'item',\n                                                         'format': 'uri',\n                                                         'type': ['null',\n                                                                  'string']}},\n                                  'type': ['null', 'object']},\n                    'model_set_id': {'description': '(Write-Only) Id of '\n                                                    'model set',\n                                     'format': 'int64',\n                                     'type': ['null', 'integer']},\n                    'name': {'description': 'Name of Role',\n                             'type': ['null', 'string']},\n                    'permission_set': {'properties': {'all_access': {'type': ['null',\n                                                                              'boolean']},\n                                                      'built_in': {'type': ['null',\n                                                                            'boolean']},\n                                                      'can': {'description': 'Operations '\n                                                                             'the '\n                                                                             'current '\n                                                                             'user '\n                                                                             'is '\n                                                                             'able '\n                                                                             'to '\n                                                                             'perform '\n                                                                             'on '\n                                                                             'this '\n                                                                             'object',\n                                                              'type': ['null',\n                                                                       'object']},\n                                                      'id': {'description': 'Unique '\n                                                                            'Id',\n                                                             'format': 'int64',\n                                                             'type': ['null',\n                                                                      'integer']},\n                                                      'name': {'description': 'Name '\n                                                                              'of '\n                                                                              'PermissionSet',\n                                                               'type': ['null',\n                                                                        'string']},\n                                                      'permissions': {'items': {'type': ['null',\n                                                                                         'string']},\n                                                                      'type': ['null',\n                                                                               'array']},\n                                                      'url': {'description': 'Link '\n                                                                             'to '\n                                                                             'get '\n                                                                             'this '\n                                                                             'item',\n                                                              'format': 'uri',\n                                                              'type': ['null',\n                                                                       'string']}},\n                                       'type': ['null', 'object']},\n                    'permission_set_id': {'description': '(Write-Only) Id '\n                                                         'of permission '\n                                                         'set',\n                                          'format': 'int64',\n                                          'type': ['null', 'integer']},\n                    'url': {'description': 'Link to get this item',\n                            'format': 'uri',\n                            'type': ['null', 'string']},\n                    'users_url': {'description': 'Link to get list of '\n                                                 'users with this role',\n                                  'format': 'uri',\n                                  'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'can': {'index': True, 'show': True, 'update': True},\n     'id': 5,\n     'model_set': {'all_access': True,\n                   'built_in': True,\n                   'can': {'index': True, 'show': True, 'update': True},\n                   'id': 1,\n                   'models': ['thelook', 'extension-api-explorer'],\n                   'name': 'All',\n                   'url': 'https://localhost:19999/api/4.0/model_sets/1'},\n     'name': 'Viewer',\n     'permission_set': {'all_access': False,\n                        'built_in': False,\n                        'can': {'index': True,\n                                'show': True,\n                                'update': True},\n                        'id': 6,\n                        'name': 'Viewer',\n                        'permissions': ['access_data',\n                                        'clear_cache_refresh',\n                                        'download_without_limit',\n                                        'mobile_app_access',\n                                        'schedule_look_emails',\n                                        'see_drill_overlay',\n                                        'see_lookml_dashboards',\n                                        'see_looks',\n                                        'see_user_dashboards',\n                                        'send_to_integration'],\n                        'url': 'https://localhost:19999/api/4.0/permission_sets/6'},\n     'url': 'https://localhost:19999/api/4.0/roles/5',\n     'user_count': None,\n     'users_url': 'https://localhost:19999/api/4.0/roles/5/users'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The connections stream has the following schema errors:
+Additional properties are not allowed ('tunnel_id', 'custom_local_port' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'after_connect_statements': {'description': 'SQL '
+                                                                'statements '
+                                                                '(semicolon '
+                                                                'separated) '
+                                                                'to issue '
+                                                                'after '
+                                                                'connecting '
+                                                                'to the '
+                                                                'database. '
+                                                                'Requires '
+                                                                '`custom_after_connect_statements` '
+                                                                'license '
+                                                                'feature',
+                                                 'type': ['null',
+                                                          'string']},
+                    'can': {'description': 'Operations the current user is '
+                                           'able to perform on this object',
+                            'type': ['null', 'object']},
+                    'certificate': {'description': '(Write-Only) Base64 '
+                                                   'encoded Certificate '
+                                                   'body for server '
+                                                   'authentication (when '
+                                                   'appropriate for '
+                                                   'dialect).',
+                                    'type': ['null', 'string']},
+                    'created_at': {'description': 'Creation date for this '
+                                                  'connection',
+                                   'type': ['null', 'string']},
+                    'database': {'description': 'Database name',
+                                 'type': ['null', 'string']},
+                    'db_timezone': {'description': 'Time zone of database',
+                                    'type': ['null', 'string']},
+                    'dialect': {'properties': {'automatically_run_sql_runner_snippets': {'description': 'Should '
+                                                                                                        'SQL '
+                                                                                                        'Runner '
+                                                                                                        'snippets '
+                                                                                                        'automatically '
+                                                                                                        'be '
+                                                                                                        'run',
+                                                                                         'type': ['null',
+                                                                                                  'boolean']},
+                                               'connection_tests': {'description': 'Array '
+                                                                                   'of '
+                                                                                   'names '
+                                                                                   'of '
+                                                                                   'the '
+                                                                                   'tests '
+                                                                                   'that '
+                                                                                   'can '
+                                                                                   'be '
+                                                                                   'run '
+                                                                                   'on '
+                                                                                   'a '
+                                                                                   'connection '
+                                                                                   'using '
+                                                                                   'this '
+                                                                                   'dialect',
+                                                                    'items': {'type': ['null',
+                                                                                       'string']},
+                                                                    'type': ['null',
+                                                                             'array']},
+                                               'cost_estimate_style': {'description': 'How '
+                                                                                      'the '
+                                                                                      'dialect '
+                                                                                      'handles '
+                                                                                      'cost '
+                                                                                      'estimation',
+                                                                       'type': ['null',
+                                                                                'string']},
+                                               'has_ssl_support': {'description': 'Does '
+                                                                                  'the '
+                                                                                  'database '
+                                                                                  'have '
+                                                                                  'client '
+                                                                                  'SSL '
+                                                                                  'support '
+                                                                                  'settable '
+                                                                                  'through '
+                                                                                  'the '
+                                                                                  'JDBC '
+                                                                                  'string '
+                                                                                  'explicitly?',
+                                                                   'type': ['null',
+                                                                            'boolean']},
+                                               'label': {'description': 'The '
+                                                                        'human-readable '
+                                                                        'label '
+                                                                        'of '
+                                                                        'the '
+                                                                        'connection',
+                                                         'type': ['null',
+                                                                  'string']},
+                                               'name': {'description': 'The '
+                                                                       'name '
+                                                                       'of '
+                                                                       'the '
+                                                                       'dialect',
+                                                        'type': ['null',
+                                                                 'string']},
+                                               'persistent_table_distkey': {'description': 'PDT '
+                                                                                           'distkey '
+                                                                                           'column',
+                                                                            'type': ['null',
+                                                                                     'string']},
+                                               'persistent_table_indexes': {'description': 'PDT '
+                                                                                           'index '
+                                                                                           'columns',
+                                                                            'type': ['null',
+                                                                                     'string']},
+                                               'persistent_table_sortkeys': {'description': 'PDT '
+                                                                                            'sortkey '
+                                                                                            'columns',
+                                                                             'type': ['null',
+                                                                                      'string']},
+                                               'supports_cost_estimate': {'description': 'Whether '
+                                                                                         'the '
+                                                                                         'dialect '
+                                                                                         'supports '
+                                                                                         'query '
+                                                                                         'cost '
+                                                                                         'estimates',
+                                                                          'type': ['null',
+                                                                                   'boolean']},
+                                               'supports_inducer': {'description': 'Is '
+                                                                                   'supported '
+                                                                                   'with '
+                                                                                   'the '
+                                                                                   'inducer '
+                                                                                   '(i.e. '
+                                                                                   'generate '
+                                                                                   'from '
+                                                                                   'sql)',
+                                                                    'type': ['null',
+                                                                             'boolean']},
+                                               'supports_multiple_databases': {'description': 'Can '
+                                                                                              'multiple '
+                                                                                              'databases '
+                                                                                              'be '
+                                                                                              'accessed '
+                                                                                              'from '
+                                                                                              'a '
+                                                                                              'connection '
+                                                                                              'using '
+                                                                                              'this '
+                                                                                              'dialect',
+                                                                               'type': ['null',
+                                                                                        'boolean']},
+                                               'supports_persistent_derived_tables': {'description': 'Whether '
+                                                                                                     'the '
+                                                                                                     'dialect '
+                                                                                                     'supports '
+                                                                                                     'allowing '
+                                                                                                     'Looker '
+                                                                                                     'to '
+                                                                                                     'build '
+                                                                                                     'persistent '
+                                                                                                     'derived '
+                                                                                                     'tables',
+                                                                                      'type': ['null',
+                                                                                               'boolean']},
+                                               'supports_streaming': {'description': 'Suports '
+                                                                                     'streaming '
+                                                                                     'results',
+                                                                      'type': ['null',
+                                                                               'boolean']}},
+                                'type': ['null', 'object']},
+                    'dialect_name': {'description': '(Read/Write) SQL '
+                                                    'Dialect name',
+                                     'type': ['null', 'string']},
+                    'example': {'description': 'Is this an example '
+                                               'connection?',
+                                'type': ['null', 'boolean']},
+                    'file_type': {'description': '(Write-Only) Certificate '
+                                                 'keyfile type - .json or '
+                                                 '.p12',
+                                  'type': ['null', 'string']},
+                    'host': {'description': 'Host name/address of server; '
+                                            "or the string 'localhost' in "
+                                            'case of a connection over an '
+                                            'SSH tunnel.',
+                             'type': ['null', 'string']},
+                    'jdbc_additional_params': {'description': 'Additional '
+                                                              'params to '
+                                                              'add to JDBC '
+                                                              'connection '
+                                                              'string',
+                                               'type': ['null', 'string']},
+                    'last_reap_at': {'description': 'Unix timestamp at '
+                                                    'start of last '
+                                                    'completed PDT reap '
+                                                    'process',
+                                     'type': ['null', 'string']},
+                    'last_regen_at': {'description': 'Unix timestamp at '
+                                                     'start of last '
+                                                     'completed PDT '
+                                                     'trigger check '
+                                                     'process',
+                                      'type': ['null', 'string']},
+                    'maintenance_cron': {'description': 'Cron string '
+                                                        'specifying when '
+                                                        'maintenance such '
+                                                        'as PDT trigger '
+                                                        'checks and drops '
+                                                        'should be '
+                                                        'performed',
+                                         'type': ['null', 'string']},
+                    'managed': {'description': 'Is this connection created '
+                                               'and managed by Looker',
+                                'type': ['null', 'boolean']},
+                    'max_billing_gigabytes': {'description': 'Maximum size '
+                                                             'of query in '
+                                                             'GBs '
+                                                             '(BigQuery '
+                                                             'only, can be '
+                                                             'a '
+                                                             'user_attribute '
+                                                             'name)',
+                                              'type': ['null', 'string']},
+                    'max_connections': {'description': 'Maximum number of '
+                                                       'concurrent '
+                                                       'connection to use',
+                                        'multipleOf': 1e-16,
+                                        'type': ['null', 'number']},
+                    'name': {'description': 'Name of the connection. Also '
+                                            'used as the unique identifier',
+                             'type': ['null', 'string']},
+                    'password': {'description': '(Write-Only) Password for '
+                                                'server authentication',
+                                 'type': ['null', 'string']},
+                    'pdt_context_override': {'properties': {'after_connect_statements': {'description': 'SQL '
+                                                                                                        'statements '
+                                                                                                        '(semicolon '
+                                                                                                        'separated) '
+                                                                                                        'to '
+                                                                                                        'issue '
+                                                                                                        'after '
+                                                                                                        'connecting '
+                                                                                                        'to '
+                                                                                                        'the '
+                                                                                                        'database. '
+                                                                                                        'Requires '
+                                                                                                        '`custom_after_connect_statements` '
+                                                                                                        'license '
+                                                                                                        'feature',
+                                                                                         'type': ['null',
+                                                                                                  'string']},
+                                                            'certificate': {'description': '(Write-Only) '
+                                                                                           'Base64 '
+                                                                                           'encoded '
+                                                                                           'Certificate '
+                                                                                           'body '
+                                                                                           'for '
+                                                                                           'server '
+                                                                                           'authentication '
+                                                                                           '(when '
+                                                                                           'appropriate '
+                                                                                           'for '
+                                                                                           'dialect).',
+                                                                            'type': ['null',
+                                                                                     'string']},
+                                                            'context': {'description': 'Context '
+                                                                                       'in '
+                                                                                       'which '
+                                                                                       'to '
+                                                                                       'override '
+                                                                                       '(`pdt` '
+                                                                                       'is '
+                                                                                       'the '
+                                                                                       'only '
+                                                                                       'allowed '
+                                                                                       'value)',
+                                                                        'type': ['null',
+                                                                                 'string']},
+                                                            'database': {'description': 'Database '
+                                                                                        'name',
+                                                                         'type': ['null',
+                                                                                  'string']},
+                                                            'file_type': {'description': '(Write-Only) '
+                                                                                         'Certificate '
+                                                                                         'keyfile '
+                                                                                         'type '
+                                                                                         '- '
+                                                                                         '.json '
+                                                                                         'or '
+                                                                                         '.p12',
+                                                                          'type': ['null',
+                                                                                   'string']},
+                                                            'has_password': {'description': 'Whether '
+                                                                                            'or '
+                                                                                            'not '
+                                                                                            'the '
+                                                                                            'password '
+                                                                                            'is '
+                                                                                            'overridden '
+                                                                                            'in '
+                                                                                            'this '
+                                                                                            'context',
+                                                                             'type': ['null',
+                                                                                      'boolean']},
+                                                            'host': {'description': 'Host '
+                                                                                    'name/address '
+                                                                                    'of '
+                                                                                    'server',
+                                                                     'type': ['null',
+                                                                              'string']},
+                                                            'jdbc_additional_params': {'description': 'Additional '
+                                                                                                      'params '
+                                                                                                      'to '
+                                                                                                      'add '
+                                                                                                      'to '
+                                                                                                      'JDBC '
+                                                                                                      'connection '
+                                                                                                      'string',
+                                                                                       'type': ['null',
+                                                                                                'string']},
+                                                            'password': {'description': '(Write-Only) '
+                                                                                        'Password '
+                                                                                        'for '
+                                                                                        'server '
+                                                                                        'authentication',
+                                                                         'type': ['null',
+                                                                                  'string']},
+                                                            'port': {'description': 'Port '
+                                                                                    'number '
+                                                                                    'on '
+                                                                                    'server',
+                                                                     'type': ['null',
+                                                                              'string']},
+                                                            'schema': {'description': 'Scheme '
+                                                                                      'name',
+                                                                       'type': ['null',
+                                                                                'string']},
+                                                            'username': {'description': 'Username '
+                                                                                        'for '
+                                                                                        'server '
+                                                                                        'authentication',
+                                                                         'type': ['null',
+                                                                                  'string']}},
+                                             'type': ['null', 'object']},
+                    'pdts_enabled': {'description': 'True if PDTs are '
+                                                    'enabled on this '
+                                                    'connection',
+                                     'type': ['null', 'boolean']},
+                    'pool_timeout': {'description': 'Connection Pool '
+                                                    'Timeout, in seconds',
+                                     'multipleOf': 1e-16,
+                                     'type': ['null', 'number']},
+                    'port': {'description': 'Port number on server. If the '
+                                            'connection is over an SSH '
+                                            'tunnel, then the local port '
+                                            'associated with the SSH '
+                                            'tunnel.',
+                             'type': ['null', 'string']},
+                    'query_timezone': {'description': 'Timezone to use in '
+                                                      'queries',
+                                       'type': ['null', 'string']},
+                    'schema': {'description': 'Scheme name',
+                               'type': ['null', 'string']},
+                    'snippets': {'description': 'SQL Runner snippets for '
+                                                'this connection',
+                                 'items': {'properties': {'can': {'description': 'Operations '
+                                                                                 'the '
+                                                                                 'current '
+                                                                                 'user '
+                                                                                 'is '
+                                                                                 'able '
+                                                                                 'to '
+                                                                                 'perform '
+                                                                                 'on '
+                                                                                 'this '
+                                                                                 'object',
+                                                                  'type': ['null',
+                                                                           'object']},
+                                                          'label': {'description': 'Label '
+                                                                                   'of '
+                                                                                   'the '
+                                                                                   'snippet',
+                                                                    'type': ['null',
+                                                                             'string']},
+                                                          'name': {'description': 'Name '
+                                                                                  'of '
+                                                                                  'the '
+                                                                                  'snippet',
+                                                                   'type': ['null',
+                                                                            'string']},
+                                                          'sql': {'description': 'SQL '
+                                                                                 'text '
+                                                                                 'of '
+                                                                                 'the '
+                                                                                 'snippet',
+                                                                  'type': ['null',
+                                                                           'string']}},
+                                           'type': ['null', 'object']},
+                                 'type': ['null', 'array']},
+                    'sql_runner_precache_tables': {'description': 'Precache '
+                                                                  'tables '
+                                                                  'in the '
+                                                                  'SQL '
+                                                                  'Runner',
+                                                   'type': ['null',
+                                                            'boolean']},
+                    'sql_writing_with_info_schema': {'description': 'Fetch '
+                                                                    'Information '
+                                                                    'Schema '
+                                                                    'For '
+                                                                    'SQL '
+                                                                    'Writing',
+                                                     'type': ['null',
+                                                              'boolean']},
+                    'ssl': {'description': 'Use SSL/TLS when connecting to '
+                                           'server',
+                            'type': ['null', 'boolean']},
+                    'supports_data_studio_link': {'description': 'Database '
+                                                                 'connection '
+                                                                 'has the '
+                                                                 'ability '
+                                                                 'to '
+                                                                 'support '
+                                                                 'open '
+                                                                 'data '
+                                                                 'studio '
+                                                                 'from '
+                                                                 'explore',
+                                                  'type': ['null',
+                                                           'boolean']},
+                    'tmp_db_name': {'description': 'Name of temporary '
+                                                   'database (if used)',
+                                    'type': ['null', 'string']},
+                    'user_attribute_fields': {'description': 'Fields whose '
+                                                             'values map '
+                                                             'to user '
+                                                             'attribute '
+                                                             'names',
+                                              'items': {'type': ['null',
+                                                                 'string']},
+                                              'type': ['null', 'array']},
+                    'user_db_credentials': {'description': '(Limited '
+                                                           'access '
+                                                           'feature) Are '
+                                                           'per user db '
+                                                           'credentials '
+                                                           'enabled. '
+                                                           'Enabling will '
+                                                           'remove '
+                                                           'previously set '
+                                                           'username and '
+                                                           'password',
+                                            'type': ['null', 'boolean']},
+                    'user_id': {'description': 'Id of user who last '
+                                               'modified this connection '
+                                               'configuration',
+                                'type': ['null', 'string']},
+                    'username': {'description': 'Username for server '
+                                                'authentication',
+                                 'type': ['null', 'string']},
+                    'uses_oauth': {'description': 'Whether the connection '
+                                                  'uses OAuth for '
+                                                  'authentication.',
+                                   'type': ['null', 'boolean']},
+                    'uses_tns': {'description': 'Enable Transparent '
+                                                'Network Substrate (TNS) '
+                                                'connections',
+                                 'type': ['null', 'boolean']},
+                    'verify_ssl': {'description': 'Verify the SSL',
+                                   'type': ['null', 'boolean']}},
+     'type': 'object'}
+
+On instance:
+    {'after_connect_statements': None,
+     'can': {'access_data': True,
+             'cost_estimate': True,
+             'create': True,
+             'destroy': True,
+             'explore': True,
+             'index': True,
+             'index_limited': True,
+             'refresh_schemas': True,
+             'run_sql_queries': True,
+             'show': True,
+             'test': True,
+             'update': True},
+     'created_at': '2020-12-10T18:18:55.000+00:00',
+     'custom_local_port': None,
+     'database': 'THELOOK',
+     'db_timezone': None,
+     'dialect': {'automatically_run_sql_runner_snippets': True,
+                 'connection_tests': ['connect',
+                                      'kill',
+                                      'query',
+                                      'database_timezone',
+                                      'tmp_db',
+                                      'cdt',
+                                      'tmp_db_views',
+                                      'database_version'],
+                 'cost_estimate_style': 'configurable',
+                 'has_ssl_support': True,
+                 'label': 'Snowflake',
+                 'name': 'snowflake',
+                 'persistent_table_distkey': '',
+                 'persistent_table_indexes': 'false',
+                 'persistent_table_sortkeys': '',
+                 'supports_cost_estimate': True,
+                 'supports_inducer': False,
+                 'supports_multiple_databases': False,
+                 'supports_persistent_derived_tables': True,
+                 'supports_streaming': True},
+     'dialect_name': 'snowflake',
+     'example': False,
+     'host': 'looker.snowflakecomputing.com',
+     'jdbc_additional_params': 'account=looker&warehouse=DEMO_WH',
+     'last_reap_at': '1646671763',
+     'last_regen_at': '1679407657',
+     'maintenance_cron': None,
+     'managed': False,
+     'max_billing_gigabytes': None,
+     'max_connections': 30.0,
+     'name': 'snowlooker',
+     'pdt_context_override': None,
+     'pdts_enabled': True,
+     'pool_timeout': 120.0,
+     'port': '443',
+     'query_timezone': None,
+     'schema': 'PUBLIC',
+     'snippets': [],
+     'sql_runner_precache_tables': True,
+     'sql_writing_with_info_schema': True,
+     'ssl': True,
+     'supports_data_studio_link': False,
+     'tmp_db_name': 'LOOKER_SCRATCH_2',
+     'tunnel_id': None,
+     'user_attribute_fields': [],
+     'user_id': '1',
+     'username': 'partner_looker_public_data',
+     'uses_oauth': False,
+     'uses_tns': None,
+     'verify_ssl': None}
+ERROR    root:test_core.py:662 
+The roles stream has the following schema errors:
+Additional properties are not allowed ('user_count' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'can': {'description': 'Operations the current user is '
+                                           'able to perform on this object',
+                            'type': ['null', 'object']},
+                    'id': {'description': 'Unique Id',
+                           'format': 'int64',
+                           'type': ['null', 'integer']},
+                    'model_set': {'properties': {'all_access': {'type': ['null',
+                                                                         'boolean']},
+                                                 'built_in': {'type': ['null',
+                                                                       'boolean']},
+                                                 'can': {'description': 'Operations '
+                                                                        'the '
+                                                                        'current '
+                                                                        'user '
+                                                                        'is '
+                                                                        'able '
+                                                                        'to '
+                                                                        'perform '
+                                                                        'on '
+                                                                        'this '
+                                                                        'object',
+                                                         'type': ['null',
+                                                                  'object']},
+                                                 'id': {'description': 'Unique '
+                                                                       'Id',
+                                                        'format': 'int64',
+                                                        'type': ['null',
+                                                                 'integer']},
+                                                 'models': {'items': {'type': ['null',
+                                                                               'string']},
+                                                            'type': ['null',
+                                                                     'array']},
+                                                 'name': {'description': 'Name '
+                                                                         'of '
+                                                                         'ModelSet',
+                                                          'type': ['null',
+                                                                   'string']},
+                                                 'url': {'description': 'Link '
+                                                                        'to '
+                                                                        'get '
+                                                                        'this '
+                                                                        'item',
+                                                         'format': 'uri',
+                                                         'type': ['null',
+                                                                  'string']}},
+                                  'type': ['null', 'object']},
+                    'model_set_id': {'description': '(Write-Only) Id of '
+                                                    'model set',
+                                     'format': 'int64',
+                                     'type': ['null', 'integer']},
+                    'name': {'description': 'Name of Role',
+                             'type': ['null', 'string']},
+                    'permission_set': {'properties': {'all_access': {'type': ['null',
+                                                                              'boolean']},
+                                                      'built_in': {'type': ['null',
+                                                                            'boolean']},
+                                                      'can': {'description': 'Operations '
+                                                                             'the '
+                                                                             'current '
+                                                                             'user '
+                                                                             'is '
+                                                                             'able '
+                                                                             'to '
+                                                                             'perform '
+                                                                             'on '
+                                                                             'this '
+                                                                             'object',
+                                                              'type': ['null',
+                                                                       'object']},
+                                                      'id': {'description': 'Unique '
+                                                                            'Id',
+                                                             'format': 'int64',
+                                                             'type': ['null',
+                                                                      'integer']},
+                                                      'name': {'description': 'Name '
+                                                                              'of '
+                                                                              'PermissionSet',
+                                                               'type': ['null',
+                                                                        'string']},
+                                                      'permissions': {'items': {'type': ['null',
+                                                                                         'string']},
+                                                                      'type': ['null',
+                                                                               'array']},
+                                                      'url': {'description': 'Link '
+                                                                             'to '
+                                                                             'get '
+                                                                             'this '
+                                                                             'item',
+                                                              'format': 'uri',
+                                                              'type': ['null',
+                                                                       'string']}},
+                                       'type': ['null', 'object']},
+                    'permission_set_id': {'description': '(Write-Only) Id '
+                                                         'of permission '
+                                                         'set',
+                                          'format': 'int64',
+                                          'type': ['null', 'integer']},
+                    'url': {'description': 'Link to get this item',
+                            'format': 'uri',
+                            'type': ['null', 'string']},
+                    'users_url': {'description': 'Link to get list of '
+                                                 'users with this role',
+                                  'format': 'uri',
+                                  'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'can': {'index': True, 'show': True, 'update': True},
+     'id': 5,
+     'model_set': {'all_access': True,
+                   'built_in': True,
+                   'can': {'index': True, 'show': True, 'update': True},
+                   'id': 1,
+                   'models': ['thelook', 'extension-api-explorer'],
+                   'name': 'All',
+                   'url': 'https://localhost:19999/api/4.0/model_sets/1'},
+     'name': 'Viewer',
+     'permission_set': {'all_access': False,
+                        'built_in': False,
+                        'can': {'index': True,
+                                'show': True,
+                                'update': True},
+                        'id': 6,
+                        'name': 'Viewer',
+                        'permissions': ['access_data',
+                                        'clear_cache_refresh',
+                                        'download_without_limit',
+                                        'mobile_app_access',
+                                        'schedule_look_emails',
+                                        'see_drill_overlay',
+                                        'see_lookml_dashboards',
+                                        'see_looks',
+                                        'see_user_dashboards',
+                                        'send_to_integration'],
+                        'url': 'https://localhost:19999/api/4.0/permission_sets/6'},
+     'url': 'https://localhost:19999/api/4.0/roles/5',
+     'user_count': None,
+     'users_url': 'https://localhost:19999/api/4.0/roles/5/users'}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 36 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+===== 1 failed, 1 passed, 36 deselected, 37 warnings in 255.36s (0:04:15) ======

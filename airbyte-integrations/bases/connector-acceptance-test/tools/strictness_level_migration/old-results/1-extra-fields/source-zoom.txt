@@ -1,0 +1,373 @@
+../../../../connectors/source-zoom/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-zoom
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff8c2108b0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='users', json_schema={'$schema': '...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='webinar_panelists', bypass_reason=None), EmptyStreamConfiguration(name='webinar_tracki...on(name='webinars', bypass_reason=None), EmptyStreamConfiguration(name='webinar_registrants', bypass_reason=None), ...}
+ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff8c8d0940>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='users', data={'id': 'DLCmjKmmT6eh9ddjXI4YMg', 'first_name': 'Sherif', 'l... False, 'email_notification': True, 'host_save_video_order': False}, 'pre_schedule': False}, emitted_at=1679429866057)]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='users', json_schema={'$schema': '...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('users', 'meetings').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe users stream has the following schema errors:\nAdditional properties are not allowed ('user_created_at', 'language', 'display_name', 'phone_number' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-06/schema#',\n     'additionalProperties': False,\n     'properties': {'created_at': {'type': 'string'},\n                    'custom_attributes': {'items': {'properties': {'key': {'type': 'string'},\n                                                                   'name': {'type': 'string'},\n                                                                   'value': {'type': 'string'}},\n                                                    'required': [],\n                                                    'type': 'object'},\n                                          'type': 'array'},\n                    'dept': {'type': 'string'},\n                    'email': {'type': 'string'},\n                    'employee_unique_id': {'type': 'string'},\n                    'first_name': {'type': 'string'},\n                    'group_ids': {'items': {'type': 'string'},\n                                  'type': 'array'},\n                    'id': {'type': 'string'},\n                    'im_group_ids': {'items': {'type': 'string'},\n                                     'type': 'array'},\n                    'last_client_version': {'type': 'string'},\n                    'last_login_time': {'type': 'string'},\n                    'last_name': {'type': 'string'},\n                    'plan_united_type': {'type': 'string'},\n                    'pmi': {'type': 'number'},\n                    'role_id': {'type': 'string'},\n                    'status': {'type': 'string'},\n                    'timezone': {'type': 'string'},\n                    'type': {'type': 'number'},\n                    'verified': {'type': 'number'}},\n     'required': []}\n\nOn instance:\n    {'created_at': '2020-04-24T16:56:30Z',\n     'dept': 'test_engineering',\n     'display_name': 'Sherif Nada',\n     'email': 'sherif@dataline.io',\n     'first_name': 'Sherif',\n     'id': 'DLCmjKmmT6eh9ddjXI4YMg',\n     'language': 'en-US',\n     'last_client_version': '5.8.4.2421(mac)',\n     'last_login_time': '2022-03-02T18:31:46Z',\n     'last_name': 'Nada',\n     'phone_number': '',\n     'pmi': 4777289359,\n     'role_id': '0',\n     'status': 'active',\n     'timezone': 'America/Los_Angeles',\n     'type': 1,\n     'user_created_at': '2020-04-16T19:03:43Z',\n     'verified': 1}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe meetings stream has the following schema errors:\nAdditional properties are not allowed ('pstn_password' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-06/schema#',\n     'additionalProperties': False,\n     'properties': {'agenda': {'type': 'string'},\n                    'assistant_id': {'type': 'string'},\n                    'created_at': {'type': 'string'},\n                    'duration': {'type': 'number'},\n                    'encrypted_password': {'type': 'string'},\n                    'h323_password': {'type': 'string'},\n                    'host_email': {'type': 'string'},\n                    'host_id': {'type': 'string'},\n                    'id': {'type': 'number'},\n                    'join_url': {'type': 'string'},\n                    'occurrences': {'items': {'properties': {'duration': {'type': 'number'},\n                                                             'occurrence_id': {'type': 'string'},\n                                                             'start_time': {'type': 'string'},\n                                                             'status': {'type': 'string'}},\n                                              'required': [],\n                                              'type': 'object'},\n                                    'type': 'array'},\n                    'password': {'type': 'string'},\n                    'pmi': {'type': 'string'},\n                    'pre_schedule': {'type': 'boolean'},\n                    'recurrence': {'properties': {'end_date_time': {'type': 'string'},\n                                                  'end_times': {'type': 'number'},\n                                                  'monthly_day': {'type': 'number'},\n                                                  'monthly_week': {'type': 'number'},\n                                                  'monthly_week_day': {'type': 'number'},\n                                                  'repeat_interval': {'type': 'number'},\n                                                  'type': {'type': 'number'},\n                                                  'weekly_days': {'type': 'string'}},\n                                   'required': [],\n                                   'type': 'object'},\n                    'settings': {'properties': {'allow_multiple_devices': {'type': 'boolean'},\n                                                'alternative_host_update_polls': {'type': 'boolean'},\n                                                'alternative_hosts': {'type': 'string'},\n                                                'alternative_hosts_email_notification': {'type': 'boolean'},\n                                                'approval_type': {'type': 'number'},\n                                                'approved_or_denied_countries_or_regions': {'properties': {'approved_list': {'items': {'type': 'string'},\n                                                                                                                             'type': 'array'},\n                                                                                                           'denied_list': {'items': {'type': 'string'},\n                                                                                                                           'type': 'array'},\n                                                                                                           'enable': {'type': 'boolean'},\n                                                                                                           'method': {'type': 'string'}},\n                                                                                            'required': [],\n                                                                                            'type': 'object'},\n                                                'audio': {'type': 'string'},\n                                                'authentication_domains': {'type': 'string'},\n                                                'authentication_exception': {'items': {'properties': {'email': {'type': 'string'},\n                                                                                                      'join_url': {'type': 'string'},\n                                                                                                      'name': {'type': 'string'}},\n                                                                                       'required': [],\n                                                                                       'type': 'object'},\n                                                                             'type': 'array'},\n                                                'authentication_name': {'type': 'string'},\n                                                'authentication_option': {'type': 'string'},\n                                                'auto_recording': {'type': 'string'},\n                                                'breakout_room': {'properties': {'enable': {'type': 'boolean'},\n                                                                                 'rooms': {'items': {'properties': {'name': {'type': 'string'},\n                                                                                                                    'participants': {'items': {'type': 'string'},\n                                                                                                                                     'type': 'array'}},\n                                                                                                     'required': [],\n                                                                                                     'type': 'object'},\n                                                                                           'type': 'array'}},\n                                                                  'required': [],\n                                                                  'type': 'object'},\n                                                'calendar_type': {'type': 'number'},\n                                                'close_registration': {'type': 'boolean'},\n                                                'contact_email': {'type': 'string'},\n                                                'contact_name': {'type': 'string'},\n                                                'custom_keys': {'items': {'properties': {'key': {'type': 'string'},\n                                                                                         'value': {'type': 'string'}},\n                                                                          'required': [],\n                                                                          'type': 'object'},\n                                                                'type': 'array'},\n                                                'email_notification': {'type': 'boolean'},\n                                                'encryption_type': {'type': 'string'},\n                                                'focus_mode': {'type': 'boolean'},\n                                                'global_dial_in_countries': {'items': {'type': 'string'},\n                                                                             'type': 'array'},\n                                                'global_dial_in_numbers': {'items': {'properties': {'city': {'type': 'string'},\n                                                                                                    'country': {'type': 'string'},\n                                                                                                    'country_name': {'type': 'string'},\n                                                                                                    'number': {'type': 'string'},\n                                                                                                    'type': {'type': 'string'}},\n                                                                                     'required': [],\n                                                                                     'type': 'object'},\n                                                                           'type': 'array'},\n                                                'host_save_video_order': {'type': 'boolean'},\n                                                'host_video': {'type': 'boolean'},\n                                                'jbh_time': {'type': 'number'},\n                                                'join_before_host': {'type': 'boolean'},\n                                                'language_interpretation': {'properties': {'enable': {'type': 'boolean'},\n                                                                                           'interpreters': {'items': {'properties': {'email': {'type': 'string'},\n                                                                                                                                     'languages': {'type': 'string'}},\n                                                                                                                      'required': [],\n                                                                                                                      'type': 'object'},\n                                                                                                            'type': 'array'}},\n                                                                            'required': [],\n                                                                            'type': 'object'},\n                                                'meeting_authentication': {'type': 'boolean'},\n                                                'mute_upon_entry': {'type': 'boolean'},\n                                                'participant_video': {'type': 'boolean'},\n                                                'private_meeting': {'type': 'boolean'},\n                                                'registrants_confirmation_email': {'type': 'boolean'},\n                                                'registrants_email_notification': {'type': 'boolean'},\n                                                'registration_type': {'type': 'number'},\n                                                'show_share_button': {'type': 'boolean'},\n                                                'use_pmi': {'type': 'boolean'},\n                                                'waiting_room': {'type': 'boolean'},\n                                                'waiting_room_options': {'properties': {'admit_type': {'type': 'number'},\n                                                                                        'auto_admit': {'type': 'number'},\n                                                                                        'enable': {'type': 'boolean'},\n                                                                                        'internal_user_auto_admit': {'type': 'number'}},\n                                                                         'required': [],\n                                                                         'type': 'object'},\n                                                'watermark': {'type': 'boolean'}},\n                                 'required': [],\n                                 'type': 'object'},\n                    'start_time': {'type': 'string'},\n                    'start_url': {'type': 'string'},\n                    'status': {'type': 'string'},\n                    'timezone': {'type': 'string'},\n                    'topic': {'type': 'string'},\n                    'tracking_fields': {'items': {'properties': {'field': {'type': 'string'},\n                                                                 'value': {'type': 'string'},\n                                                                 'visible': {'type': 'boolean'}},\n                                                  'required': [],\n                                                  'type': 'object'},\n                                        'type': 'array'},\n                    'type': {'type': 'number'},\n                    'uuid': {'type': 'string'}},\n     'required': []}\n\nOn instance:\n    {'agenda': '',\n     'assistant_id': '',\n     'created_at': '2023-03-07T02:32:04Z',\n     'duration': 30,\n     'encrypted_password': 'UTc5R2huSUNOVWduWUNFV3JDalBKdz09',\n     'h323_password': '293482',\n     'host_email': 'sherif@dataline.io',\n     'host_id': 'DLCmjKmmT6eh9ddjXI4YMg',\n     'id': 89337700924,\n     'join_url': 'https://us05web.zoom.us/j/89337700924?pwd=UTc5R2huSUNOVWduWUNFV3JDalBKdz09',\n     'password': 't05JiN',\n     'pre_schedule': False,\n     'pstn_password': '293482',\n     'settings': {'allow_multiple_devices': False,\n                  'alternative_host_update_polls': False,\n                  'alternative_hosts': '',\n                  'alternative_hosts_email_notification': True,\n                  'approval_type': 2,\n                  'approved_or_denied_countries_or_regions': {'enable': False},\n                  'audio': 'voip',\n                  'auto_recording': 'none',\n                  'breakout_room': {'enable': False},\n                  'close_registration': False,\n                  'cn_meeting': False,\n                  'device_testing': False,\n                  'email_notification': True,\n                  'enable_dedicated_group_chat': False,\n                  'encryption_type': 'enhanced_encryption',\n                  'enforce_login': False,\n                  'enforce_login_domains': '',\n                  'focus_mode': False,\n                  'host_save_video_order': False,\n                  'host_video': False,\n                  'in_meeting': False,\n                  'jbh_time': 0,\n                  'join_before_host': True,\n                  'meeting_authentication': False,\n                  'mute_upon_entry': False,\n                  'participant_video': False,\n                  'private_meeting': False,\n                  'registrants_confirmation_email': True,\n                  'registrants_email_notification': True,\n                  'request_permission_to_unmute_participants': False,\n                  'show_share_button': False,\n                  'use_pmi': False,\n                  'waiting_room': False,\n                  'watermark': False},\n     'start_time': '2023-03-09T17:00:00Z',\n     'start_url': 'https://us05web.zoom.us/s/89337700924?zak=eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJhdWQiOiJjbGllbnRzbSIsInVpZCI6IkRMQ21qS21tVDZlaDlkZGpYSTRZTWciLCJpc3MiOiJ3ZWIiLCJzayI6IjAiLCJzdHkiOjEwMCwid2NkIjoidXMwNSIsImNsdCI6MCwibW51bSI6Ijg5MzM3NzAwOTI0IiwiZXhwIjoxNjc5NDM3MDY2LCJpYXQiOjE2Nzk0Mjk4NjYsImFpZCI6ImczOXdkZ3ZQVEdtUVI0SE13TGtVOWciLCJjaWQiOiIifQ.dcH8kOFVZ0kDh1h22QHK8r4ZT_4NEOmkURANajzz1Ec',\n     'status': 'waiting',\n     'timezone': 'America/Los_Angeles',\n     'topic': 'Ellery: 30 Minute Meeting',\n     'type': 2,\n     'uuid': '2NxepWYpQEeYelOh5cJ5oQ=='}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The users stream has the following schema errors:
+Additional properties are not allowed ('user_created_at', 'language', 'display_name', 'phone_number' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-06/schema#',
+     'additionalProperties': False,
+     'properties': {'created_at': {'type': 'string'},
+                    'custom_attributes': {'items': {'properties': {'key': {'type': 'string'},
+                                                                   'name': {'type': 'string'},
+                                                                   'value': {'type': 'string'}},
+                                                    'required': [],
+                                                    'type': 'object'},
+                                          'type': 'array'},
+                    'dept': {'type': 'string'},
+                    'email': {'type': 'string'},
+                    'employee_unique_id': {'type': 'string'},
+                    'first_name': {'type': 'string'},
+                    'group_ids': {'items': {'type': 'string'},
+                                  'type': 'array'},
+                    'id': {'type': 'string'},
+                    'im_group_ids': {'items': {'type': 'string'},
+                                     'type': 'array'},
+                    'last_client_version': {'type': 'string'},
+                    'last_login_time': {'type': 'string'},
+                    'last_name': {'type': 'string'},
+                    'plan_united_type': {'type': 'string'},
+                    'pmi': {'type': 'number'},
+                    'role_id': {'type': 'string'},
+                    'status': {'type': 'string'},
+                    'timezone': {'type': 'string'},
+                    'type': {'type': 'number'},
+                    'verified': {'type': 'number'}},
+     'required': []}
+
+On instance:
+    {'created_at': '2020-04-24T16:56:30Z',
+     'dept': 'test_engineering',
+     'display_name': 'Sherif Nada',
+     'email': 'sherif@dataline.io',
+     'first_name': 'Sherif',
+     'id': 'DLCmjKmmT6eh9ddjXI4YMg',
+     'language': 'en-US',
+     'last_client_version': '5.8.4.2421(mac)',
+     'last_login_time': '2022-03-02T18:31:46Z',
+     'last_name': 'Nada',
+     'phone_number': '',
+     'pmi': 4777289359,
+     'role_id': '0',
+     'status': 'active',
+     'timezone': 'America/Los_Angeles',
+     'type': 1,
+     'user_created_at': '2020-04-16T19:03:43Z',
+     'verified': 1}
+ERROR    root:test_core.py:662 
+The meetings stream has the following schema errors:
+Additional properties are not allowed ('pstn_password' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-06/schema#',
+     'additionalProperties': False,
+     'properties': {'agenda': {'type': 'string'},
+                    'assistant_id': {'type': 'string'},
+                    'created_at': {'type': 'string'},
+                    'duration': {'type': 'number'},
+                    'encrypted_password': {'type': 'string'},
+                    'h323_password': {'type': 'string'},
+                    'host_email': {'type': 'string'},
+                    'host_id': {'type': 'string'},
+                    'id': {'type': 'number'},
+                    'join_url': {'type': 'string'},
+                    'occurrences': {'items': {'properties': {'duration': {'type': 'number'},
+                                                             'occurrence_id': {'type': 'string'},
+                                                             'start_time': {'type': 'string'},
+                                                             'status': {'type': 'string'}},
+                                              'required': [],
+                                              'type': 'object'},
+                                    'type': 'array'},
+                    'password': {'type': 'string'},
+                    'pmi': {'type': 'string'},
+                    'pre_schedule': {'type': 'boolean'},
+                    'recurrence': {'properties': {'end_date_time': {'type': 'string'},
+                                                  'end_times': {'type': 'number'},
+                                                  'monthly_day': {'type': 'number'},
+                                                  'monthly_week': {'type': 'number'},
+                                                  'monthly_week_day': {'type': 'number'},
+                                                  'repeat_interval': {'type': 'number'},
+                                                  'type': {'type': 'number'},
+                                                  'weekly_days': {'type': 'string'}},
+                                   'required': [],
+                                   'type': 'object'},
+                    'settings': {'properties': {'allow_multiple_devices': {'type': 'boolean'},
+                                                'alternative_host_update_polls': {'type': 'boolean'},
+                                                'alternative_hosts': {'type': 'string'},
+                                                'alternative_hosts_email_notification': {'type': 'boolean'},
+                                                'approval_type': {'type': 'number'},
+                                                'approved_or_denied_countries_or_regions': {'properties': {'approved_list': {'items': {'type': 'string'},
+                                                                                                                             'type': 'array'},
+                                                                                                           'denied_list': {'items': {'type': 'string'},
+                                                                                                                           'type': 'array'},
+                                                                                                           'enable': {'type': 'boolean'},
+                                                                                                           'method': {'type': 'string'}},
+                                                                                            'required': [],
+                                                                                            'type': 'object'},
+                                                'audio': {'type': 'string'},
+                                                'authentication_domains': {'type': 'string'},
+                                                'authentication_exception': {'items': {'properties': {'email': {'type': 'string'},
+                                                                                                      'join_url': {'type': 'string'},
+                                                                                                      'name': {'type': 'string'}},
+                                                                                       'required': [],
+                                                                                       'type': 'object'},
+                                                                             'type': 'array'},
+                                                'authentication_name': {'type': 'string'},
+                                                'authentication_option': {'type': 'string'},
+                                                'auto_recording': {'type': 'string'},
+                                                'breakout_room': {'properties': {'enable': {'type': 'boolean'},
+                                                                                 'rooms': {'items': {'properties': {'name': {'type': 'string'},
+                                                                                                                    'participants': {'items': {'type': 'string'},
+                                                                                                                                     'type': 'array'}},
+                                                                                                     'required': [],
+                                                                                                     'type': 'object'},
+                                                                                           'type': 'array'}},
+                                                                  'required': [],
+                                                                  'type': 'object'},
+                                                'calendar_type': {'type': 'number'},
+                                                'close_registration': {'type': 'boolean'},
+                                                'contact_email': {'type': 'string'},
+                                                'contact_name': {'type': 'string'},
+                                                'custom_keys': {'items': {'properties': {'key': {'type': 'string'},
+                                                                                         'value': {'type': 'string'}},
+                                                                          'required': [],
+                                                                          'type': 'object'},
+                                                                'type': 'array'},
+                                                'email_notification': {'type': 'boolean'},
+                                                'encryption_type': {'type': 'string'},
+                                                'focus_mode': {'type': 'boolean'},
+                                                'global_dial_in_countries': {'items': {'type': 'string'},
+                                                                             'type': 'array'},
+                                                'global_dial_in_numbers': {'items': {'properties': {'city': {'type': 'string'},
+                                                                                                    'country': {'type': 'string'},
+                                                                                                    'country_name': {'type': 'string'},
+                                                                                                    'number': {'type': 'string'},
+                                                                                                    'type': {'type': 'string'}},
+                                                                                     'required': [],
+                                                                                     'type': 'object'},
+                                                                           'type': 'array'},
+                                                'host_save_video_order': {'type': 'boolean'},
+                                                'host_video': {'type': 'boolean'},
+                                                'jbh_time': {'type': 'number'},
+                                                'join_before_host': {'type': 'boolean'},
+                                                'language_interpretation': {'properties': {'enable': {'type': 'boolean'},
+                                                                                           'interpreters': {'items': {'properties': {'email': {'type': 'string'},
+                                                                                                                                     'languages': {'type': 'string'}},
+                                                                                                                      'required': [],
+                                                                                                                      'type': 'object'},
+                                                                                                            'type': 'array'}},
+                                                                            'required': [],
+                                                                            'type': 'object'},
+                                                'meeting_authentication': {'type': 'boolean'},
+                                                'mute_upon_entry': {'type': 'boolean'},
+                                                'participant_video': {'type': 'boolean'},
+                                                'private_meeting': {'type': 'boolean'},
+                                                'registrants_confirmation_email': {'type': 'boolean'},
+                                                'registrants_email_notification': {'type': 'boolean'},
+                                                'registration_type': {'type': 'number'},
+                                                'show_share_button': {'type': 'boolean'},
+                                                'use_pmi': {'type': 'boolean'},
+                                                'waiting_room': {'type': 'boolean'},
+                                                'waiting_room_options': {'properties': {'admit_type': {'type': 'number'},
+                                                                                        'auto_admit': {'type': 'number'},
+                                                                                        'enable': {'type': 'boolean'},
+                                                                                        'internal_user_auto_admit': {'type': 'number'}},
+                                                                         'required': [],
+                                                                         'type': 'object'},
+                                                'watermark': {'type': 'boolean'}},
+                                 'required': [],
+                                 'type': 'object'},
+                    'start_time': {'type': 'string'},
+                    'start_url': {'type': 'string'},
+                    'status': {'type': 'string'},
+                    'timezone': {'type': 'string'},
+                    'topic': {'type': 'string'},
+                    'tracking_fields': {'items': {'properties': {'field': {'type': 'string'},
+                                                                 'value': {'type': 'string'},
+                                                                 'visible': {'type': 'boolean'}},
+                                                  'required': [],
+                                                  'type': 'object'},
+                                        'type': 'array'},
+                    'type': {'type': 'number'},
+                    'uuid': {'type': 'string'}},
+     'required': []}
+
+On instance:
+    {'agenda': '',
+     'assistant_id': '',
+     'created_at': '2023-03-07T02:32:04Z',
+     'duration': 30,
+     'encrypted_password': 'UTc5R2huSUNOVWduWUNFV3JDalBKdz09',
+     'h323_password': '293482',
+     'host_email': 'sherif@dataline.io',
+     'host_id': 'DLCmjKmmT6eh9ddjXI4YMg',
+     'id': 89337700924,
+     'join_url': 'https://us05web.zoom.us/j/89337700924?pwd=UTc5R2huSUNOVWduWUNFV3JDalBKdz09',
+     'password': 't05JiN',
+     'pre_schedule': False,
+     'pstn_password': '293482',
+     'settings': {'allow_multiple_devices': False,
+                  'alternative_host_update_polls': False,
+                  'alternative_hosts': '',
+                  'alternative_hosts_email_notification': True,
+                  'approval_type': 2,
+                  'approved_or_denied_countries_or_regions': {'enable': False},
+                  'audio': 'voip',
+                  'auto_recording': 'none',
+                  'breakout_room': {'enable': False},
+                  'close_registration': False,
+                  'cn_meeting': False,
+                  'device_testing': False,
+                  'email_notification': True,
+                  'enable_dedicated_group_chat': False,
+                  'encryption_type': 'enhanced_encryption',
+                  'enforce_login': False,
+                  'enforce_login_domains': '',
+                  'focus_mode': False,
+                  'host_save_video_order': False,
+                  'host_video': False,
+                  'in_meeting': False,
+                  'jbh_time': 0,
+                  'join_before_host': True,
+                  'meeting_authentication': False,
+                  'mute_upon_entry': False,
+                  'participant_video': False,
+                  'private_meeting': False,
+                  'registrants_confirmation_email': True,
+                  'registrants_email_notification': True,
+                  'request_permission_to_unmute_participants': False,
+                  'show_share_button': False,
+                  'use_pmi': False,
+                  'waiting_room': False,
+                  'watermark': False},
+     'start_time': '2023-03-09T17:00:00Z',
+     'start_url': 'https://us05web.zoom.us/s/89337700924?zak=eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJhdWQiOiJjbGllbnRzbSIsInVpZCI6IkRMQ21qS21tVDZlaDlkZGpYSTRZTWciLCJpc3MiOiJ3ZWIiLCJzayI6IjAiLCJzdHkiOjEwMCwid2NkIjoidXMwNSIsImNsdCI6MCwibW51bSI6Ijg5MzM3NzAwOTI0IiwiZXhwIjoxNjc5NDM3MDY2LCJpYXQiOjE2Nzk0Mjk4NjYsImFpZCI6ImczOXdkZ3ZQVEdtUVI0SE13TGtVOWciLCJjaWQiOiIifQ.dcH8kOFVZ0kDh1h22QHK8r4ZT_4NEOmkURANajzz1Ec',
+     'status': 'waiting',
+     'timezone': 'America/Los_Angeles',
+     'topic': 'Ellery: 30 Minute Meeting',
+     'type': 2,
+     'uuid': '2NxepWYpQEeYelOh5cJ5oQ=='}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+===== 1 failed, 1 skipped, 33 deselected, 35 warnings in 335.68s (0:05:35) =====

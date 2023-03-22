@@ -1,0 +1,99 @@
+../../../../connectors/source-bing-ads/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-bing-ads
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 35 items / 34 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff8c104f40>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='accounts', json_schema={'$schema'...Distribution'], ['DeviceType'], ['Network'], ['DeliveredMatchType'], ['DeviceOS'], ['TopVsOther'], ['BidMatchType']])])
+expect_records_config = ExpectedRecordsConfig(bypass_reason=None, path=PosixPath('integration_tests/expected_records.txt'), extra_fields=False, exact_order=False, extra_records=True)
+should_validate_schema = True, should_validate_data_points = False
+should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='campaign_performance_report_hourly', bypass_reason='Hourly reports are disabled, becau...ation(name='keyword_performance_report_hourly', bypass_reason='Hourly reports are disabled, because sync is too long')}
+ignored_fields = {}
+expected_records_by_stream = defaultdict(<class 'list'>, {'ad_groups': [{'AdRotation': None, 'AudienceAdsBidAdjustment': None, 'BiddingScheme': {'T...lRevenue': 0, 'AllRevenuePerConversion': None, 'Revenue': 0, 'RevenuePerConversion': None, 'RevenuePerAssist': None}]})
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff8b7fa790>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+>       output = docker_runner.call_read(connector_config, configured_catalog)
+
+connector_acceptance_test/tests/test_core.py:817: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+connector_acceptance_test/utils/connector_runner.py:96: in call_read
+    output = list(self.run(cmd=cmd, config=config, catalog=catalog, **kwargs))
+connector_acceptance_test/utils/connector_runner.py:120: in run
+    for line in self.read(container, command=cmd, with_ext=raise_container_error):
+connector_acceptance_test/utils/connector_runner.py:141: in read
+    for chunk in container.logs(stdout=True, stderr=True, stream=True, follow=True):
+/usr/local/lib/python3.9/site-packages/docker/types/daemon.py:32: in __next__
+    return next(self._stream)
+/usr/local/lib/python3.9/site-packages/docker/api/client.py:386: in _multiplexed_response_stream_helper
+    header = response.raw.read(STREAM_HEADER_SIZE_BYTES)
+/usr/local/lib/python3.9/site-packages/urllib3/response.py:567: in read
+    data = self._fp_read(amt) if not fp_closed else b""
+/usr/local/lib/python3.9/site-packages/urllib3/response.py:533: in _fp_read
+    return self._fp.read(amt) if amt is not None else self._fp.read()
+/usr/local/lib/python3.9/http/client.py:463: in read
+    n = self.readinto(b)
+/usr/local/lib/python3.9/http/client.py:497: in readinto
+    return self._readinto_chunked(b)
+/usr/local/lib/python3.9/http/client.py:592: in _readinto_chunked
+    chunk_left = self._get_chunk_left()
+/usr/local/lib/python3.9/http/client.py:560: in _get_chunk_left
+    chunk_left = self._read_next_chunk_size()
+/usr/local/lib/python3.9/http/client.py:520: in _read_next_chunk_size
+    line = self.fp.readline(_MAXLINE + 1)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <socket.SocketIO object at 0xffff8b8caac0>
+b = <memory at 0xffff8b80df40>
+
+    def readinto(self, b):
+        """Read up to len(b) bytes into the writable buffer *b* and return
+        the number of bytes read.  If the socket is non-blocking and no bytes
+        are available, None is returned.
+    
+        If *b* is non-empty, a 0 return value indicates that the connection
+        was shutdown at the other end.
+        """
+        self._checkClosed()
+        self._checkReadable()
+        if self._timeout_occurred:
+            raise OSError("cannot read from timed out object")
+        while True:
+            try:
+>               return self._sock.recv_into(b)
+E               Failed: Timeout >300.0s
+
+/usr/local/lib/python3.9/socket.py:704: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The configured catalog was built with the discovered catalog from which the following empty streams were removed: campaign_performance_report_hourly, account_performance_report_hourly, ad_group_performance_report_hourly, ad_performance_report_hourly, keyword_performance_report_hourly."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:common.py:149 The configured catalog was built with the discovered catalog from which the following empty streams were removed: campaign_performance_report_hourly, account_performance_report_hourly, ad_group_performance_report_hourly, ad_performance_report_hourly, keyword_performance_report_hourly.
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: SAT doesn't support complex nested states used in incremental report streams
+=========== 1 failed, 1 skipped, 34 deselected in 301.92s (0:05:01) ============

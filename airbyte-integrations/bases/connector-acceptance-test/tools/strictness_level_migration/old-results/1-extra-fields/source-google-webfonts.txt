@@ -1,0 +1,214 @@
+../../../../connectors/source-google-webfonts/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-google-webfonts
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff7d2fac40>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='fonts', json_schema={'definitions...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff7ca08460>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='fonts', data={'family': 'ABeeZee', 'variants': ['regular', 'italic'], 's...zOqK7iI3rK_45WKoc8J6UZBFOVAXuI.ttf'}, 'category': 'serif', 'kind': 'webfonts#webfont'}, emitted_at=1679405609261), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='fonts', json_schema={'definitions...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('fonts',).
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe fonts stream has the following schema errors:\nAdditional properties are not allowed ('family', 'variants', 'version', 'lastModified', 'subsets', 'category', 'files' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$id': 'https://example.com/object1666796406.json',\n     '$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'definitions': {},\n     'properties': {'items': {'$id': '#root/items',\n                              'default': [],\n                              'items': {'$id': '#root/items/items',\n                                        'properties': {'category': {'$id': '#root/items/items/category',\n                                                                    'default': '',\n                                                                    'pattern': '^.*$',\n                                                                    'title': 'Category',\n                                                                    'type': 'string'},\n                                                       'family': {'$id': '#root/items/items/family',\n                                                                  'default': '',\n                                                                  'pattern': '^.*$',\n                                                                  'title': 'Family',\n                                                                  'type': 'string'},\n                                                       'files': {'$id': '#root/items/items/files',\n                                                                 'properties': {'italic': {'$id': '#root/items/items/files/italic',\n                                                                                           'default': '',\n                                                                                           'pattern': '^.*$',\n                                                                                           'title': 'Italic',\n                                                                                           'type': 'string'},\n                                                                                'regular': {'$id': '#root/items/items/files/regular',\n                                                                                            'default': '',\n                                                                                            'pattern': '^.*$',\n                                                                                            'title': 'Regular',\n                                                                                            'type': 'string'}},\n                                                                 'title': 'Files',\n                                                                 'type': 'object'},\n                                                       'kind': {'$id': '#root/items/items/kind',\n                                                                'default': '',\n                                                                'pattern': '^.*$',\n                                                                'title': 'Kind',\n                                                                'type': 'string'},\n                                                       'lastModified': {'$id': '#root/items/items/lastModified',\n                                                                        'default': '',\n                                                                        'pattern': '^.*$',\n                                                                        'title': 'Lastmodified',\n                                                                        'type': 'string'},\n                                                       'subsets': {'$id': '#root/items/items/subsets',\n                                                                   'default': [],\n                                                                   'items': {'$id': '#root/items/items/subsets/items',\n                                                                             'default': '',\n                                                                             'pattern': '^.*$',\n                                                                             'title': 'Items',\n                                                                             'type': 'string'},\n                                                                   'title': 'Subsets',\n                                                                   'type': 'array'},\n                                                       'variants': {'$id': '#root/items/items/variants',\n                                                                    'default': [],\n                                                                    'items': {'$id': '#root/items/items/variants/items',\n                                                                              'default': '',\n                                                                              'pattern': '^.*$',\n                                                                              'title': 'Items',\n                                                                              'type': 'string'},\n                                                                    'title': 'Variants',\n                                                                    'type': 'array'},\n                                                       'version': {'$id': '#root/items/items/version',\n                                                                   'default': '',\n                                                                   'pattern': '^.*$',\n                                                                   'title': 'Version',\n                                                                   'type': 'string'}},\n                                        'title': 'Items',\n                                        'type': 'object'},\n                              'title': 'Items',\n                              'type': 'array'},\n                    'kind': {'$id': '#root/kind',\n                             'default': '',\n                             'pattern': '^.*$',\n                             'title': 'Kind',\n                             'type': 'string'}},\n     'title': 'Root',\n     'type': 'object'}\n\nOn instance:\n    {'category': 'display',\n     'family': 'Zilla Slab Highlight',\n     'files': {'700': 'http://fonts.gstatic.com/s/zillaslabhighlight/v17/gNMUW2BrTpK8-inLtBJgMMfbm6uNVDvRxiP0TET4YmVF0Mb6.ttf',\n               'regular': 'http://fonts.gstatic.com/s/zillaslabhighlight/v17/gNMbW2BrTpK8-inLtBJgMMfbm6uNVDvRxhtIY2DwSXlM.ttf'},\n     'kind': 'webfonts#webfont',\n     'lastModified': '2022-09-22',\n     'subsets': ['latin', 'latin-ext'],\n     'variants': ['regular', '700'],\n     'version': 'v17'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The fonts stream has the following schema errors:
+Additional properties are not allowed ('family', 'variants', 'version', 'lastModified', 'subsets', 'category', 'files' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$id': 'https://example.com/object1666796406.json',
+     '$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'definitions': {},
+     'properties': {'items': {'$id': '#root/items',
+                              'default': [],
+                              'items': {'$id': '#root/items/items',
+                                        'properties': {'category': {'$id': '#root/items/items/category',
+                                                                    'default': '',
+                                                                    'pattern': '^.*$',
+                                                                    'title': 'Category',
+                                                                    'type': 'string'},
+                                                       'family': {'$id': '#root/items/items/family',
+                                                                  'default': '',
+                                                                  'pattern': '^.*$',
+                                                                  'title': 'Family',
+                                                                  'type': 'string'},
+                                                       'files': {'$id': '#root/items/items/files',
+                                                                 'properties': {'italic': {'$id': '#root/items/items/files/italic',
+                                                                                           'default': '',
+                                                                                           'pattern': '^.*$',
+                                                                                           'title': 'Italic',
+                                                                                           'type': 'string'},
+                                                                                'regular': {'$id': '#root/items/items/files/regular',
+                                                                                            'default': '',
+                                                                                            'pattern': '^.*$',
+                                                                                            'title': 'Regular',
+                                                                                            'type': 'string'}},
+                                                                 'title': 'Files',
+                                                                 'type': 'object'},
+                                                       'kind': {'$id': '#root/items/items/kind',
+                                                                'default': '',
+                                                                'pattern': '^.*$',
+                                                                'title': 'Kind',
+                                                                'type': 'string'},
+                                                       'lastModified': {'$id': '#root/items/items/lastModified',
+                                                                        'default': '',
+                                                                        'pattern': '^.*$',
+                                                                        'title': 'Lastmodified',
+                                                                        'type': 'string'},
+                                                       'subsets': {'$id': '#root/items/items/subsets',
+                                                                   'default': [],
+                                                                   'items': {'$id': '#root/items/items/subsets/items',
+                                                                             'default': '',
+                                                                             'pattern': '^.*$',
+                                                                             'title': 'Items',
+                                                                             'type': 'string'},
+                                                                   'title': 'Subsets',
+                                                                   'type': 'array'},
+                                                       'variants': {'$id': '#root/items/items/variants',
+                                                                    'default': [],
+                                                                    'items': {'$id': '#root/items/items/variants/items',
+                                                                              'default': '',
+                                                                              'pattern': '^.*$',
+                                                                              'title': 'Items',
+                                                                              'type': 'string'},
+                                                                    'title': 'Variants',
+                                                                    'type': 'array'},
+                                                       'version': {'$id': '#root/items/items/version',
+                                                                   'default': '',
+                                                                   'pattern': '^.*$',
+                                                                   'title': 'Version',
+                                                                   'type': 'string'}},
+                                        'title': 'Items',
+                                        'type': 'object'},
+                              'title': 'Items',
+                              'type': 'array'},
+                    'kind': {'$id': '#root/kind',
+                             'default': '',
+                             'pattern': '^.*$',
+                             'title': 'Kind',
+                             'type': 'string'}},
+     'title': 'Root',
+     'type': 'object'}
+
+On instance:
+    {'category': 'display',
+     'family': 'Zilla Slab Highlight',
+     'files': {'700': 'http://fonts.gstatic.com/s/zillaslabhighlight/v17/gNMUW2BrTpK8-inLtBJgMMfbm6uNVDvRxiP0TET4YmVF0Mb6.ttf',
+               'regular': 'http://fonts.gstatic.com/s/zillaslabhighlight/v17/gNMbW2BrTpK8-inLtBJgMMfbm6uNVDvRxhtIY2DwSXlM.ttf'},
+     'kind': 'webfonts#webfont',
+     'lastModified': '2022-09-22',
+     'subsets': ['latin', 'latin-ext'],
+     'variants': ['regular', '700'],
+     'version': 'v17'}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+=========== 1 failed, 1 skipped, 33 deselected, 35 warnings in 5.21s ===========

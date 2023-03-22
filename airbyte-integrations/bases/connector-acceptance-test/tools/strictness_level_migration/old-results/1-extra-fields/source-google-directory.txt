@@ -1,0 +1,512 @@
+../../../../connectors/source-google-directory/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-google-directory
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 38 items / 36 deselected / 1 skipped / 1 selected
+
+../../test_input/test_core.py FF                                         [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff94c30970>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='users', json_schema={'$schema': '...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff94c661c0>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='users', data={'kind': 'admin#directory#user', 'id': '1072766262662895554...UxbM"', 'recoveryEmail': 'alexgronemeyer1@gmail.com', 'recoveryPhone': '+16125085516'}, emitted_at=1679405308000), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='users', json_schema={'$schema': '...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('users', 'groups', 'group_members').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe users stream has the following schema errors:\nAdditional properties are not allowed ('isEnforcedIn2Sv', 'isEnrolledIn2Sv', 'etag', 'languages', 'primaryEmail', 'archived' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'agreedToTerms': {'type': ['null', 'boolean']},\n                    'aliases': {'items': {'type': ['null', 'string']},\n                                'type': ['null', 'array']},\n                    'changePasswordAtNextLogin': {'type': ['null',\n                                                           'boolean']},\n                    'creationTime': {'type': ['null', 'string']},\n                    'customerId': {'type': ['null', 'string']},\n                    'emails': {'items': {'properties': {'address': {'type': ['null',\n                                                                             'string']},\n                                                        'customType': {'type': ['null',\n                                                                                'string']},\n                                                        'primary': {'type': ['null',\n                                                                             'boolean']},\n                                                        'type': {'type': ['null',\n                                                                          'string']}},\n                                         'type': 'object'},\n                               'type': ['null', 'array']},\n                    'externalIds': {'items': {'properties': {'customType': {'type': ['null',\n                                                                                     'string']},\n                                                             'type': {'type': ['null',\n                                                                               'string']},\n                                                             'value': {'type': ['null',\n                                                                                'string']}},\n                                              'type': 'object'},\n                                    'type': ['null', 'array']},\n                    'hashFunction': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'string']},\n                    'includeInGlobalAddressList': {'type': ['null',\n                                                            'boolean']},\n                    'ipWhitelisted': {'type': ['null', 'boolean']},\n                    'isAdmin': {'type': ['null', 'boolean']},\n                    'isDelegatedAdmin': {'type': ['null', 'boolean']},\n                    'isMailboxSetup': {'type': ['null', 'boolean']},\n                    'kind': {'type': ['null', 'string']},\n                    'lastLoginTime': {'type': ['null', 'string']},\n                    'name': {'properties': {'familyName': {'type': ['null',\n                                                                    'string']},\n                                            'fullName': {'type': ['null',\n                                                                  'string']},\n                                            'givenName': {'type': ['null',\n                                                                   'string']}},\n                             'type': ['null', 'object']},\n                    'nonEditableAliases': {'items': {'type': ['null',\n                                                              'string']},\n                                           'type': ['null', 'array']},\n                    'orgUnitPath': {'type': ['null', 'string']},\n                    'organizations': {'items': {'properties': {'customType': {'type': ['null',\n                                                                                       'string']},\n                                                               'description': {'type': ['null',\n                                                                                        'string']},\n                                                               'name': {'type': ['null',\n                                                                                 'string']},\n                                                               'primary': {'type': ['null',\n                                                                                    'boolean']},\n                                                               'title': {'type': ['null',\n                                                                                  'string']}},\n                                                'type': 'object'},\n                                      'type': ['null', 'array']},\n                    'phones': {'items': {'properties': {'type': {'type': ['null',\n                                                                          'string']},\n                                                        'value': {'type': ['null',\n                                                                           'string']}},\n                                         'type': 'object'},\n                               'type': ['null', 'array']},\n                    'relations': {'items': {'properties': {'customType': {'type': ['null',\n                                                                                   'string']},\n                                                           'type': {'type': ['null',\n                                                                             'string']},\n                                                           'value': {'type': ['null',\n                                                                              'string']}},\n                                            'type': 'object'},\n                                  'type': ['null', 'array']},\n                    'suspended': {'type': ['null', 'boolean']},\n                    'username': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'agreedToTerms': True,\n     'archived': False,\n     'changePasswordAtNextLogin': False,\n     'creationTime': '2021-05-25T23:19:30.000Z',\n     'customerId': 'C044d0iyq',\n     'emails': [{'address': 'yuri.cherniaiev@airbyte.io', 'primary': True}],\n     'etag': '\"qAxgWRjj_qedrLqFbWHTy1pmyA1Adf_tYfnIUrJGQIY/TNloEzt1sAm0l5jp2jgiMMqiV7E\"',\n     'id': '102642546458229027548',\n     'includeInGlobalAddressList': True,\n     'ipWhitelisted': False,\n     'isAdmin': False,\n     'isDelegatedAdmin': False,\n     'isEnforcedIn2Sv': True,\n     'isEnrolledIn2Sv': True,\n     'isMailboxSetup': True,\n     'kind': 'admin#directory#user',\n     'languages': [{'languageCode': 'en', 'preference': 'preferred'}],\n     'lastLoginTime': '2023-03-17T07:30:59.000Z',\n     'name': {'familyName': 'Cherniaiev',\n              'fullName': 'Yuri Cherniaiev',\n              'givenName': 'Yuri'},\n     'orgUnitPath': '/Okta Not Required',\n     'primaryEmail': 'yuri.cherniaiev@airbyte.io',\n     'suspended': False}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe groups stream has the following schema errors:\nAdditional properties are not allowed ('aliases', 'nonEditableAliases' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'adminCreated': {'type': ['null', 'boolean']},\n                    'description': {'type': ['null', 'string']},\n                    'directMembersCount': {'type': ['null', 'string']},\n                    'email': {'type': ['null', 'string']},\n                    'etag': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'string']},\n                    'kind': {'type': ['null', 'string']},\n                    'name': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'adminCreated': True,\n     'aliases': ['team@daxtarity.com'],\n     'description': 'Everybody',\n     'directMembersCount': '115',\n     'email': 'team@airbyte.io',\n     'etag': '\"qAxgWRjj_qedrLqFbWHTy1pmyA1Adf_tYfnIUrJGQIY/YWouAvRt5f72M_s5VeXf0_RV-NU\"',\n     'id': '00lnxbz93fa7339',\n     'kind': 'admin#directory#group',\n     'name': 'Team',\n     'nonEditableAliases': ['team@dataline.io',\n                            'team@unblockdata.com',\n                            'team@airbyte.com']}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe group_members stream has the following schema errors:\nAdditional properties are not allowed ('etag', 'status' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'email': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'string']},\n                    'kind': {'type': ['null', 'string']},\n                    'role': {'type': ['null', 'string']},\n                    'type': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'email': 'manny@airbyte.io',\n     'etag': '\"qAxgWRjj_qedrLqFbWHTy1pmyA1Adf_tYfnIUrJGQIY/Pn2HNQIKXag7h-E8N2vOMkIwGVQ\"',\n     'id': '100070512165692731501',\n     'kind': 'admin#directory#member',\n     'role': 'OWNER',\n     'status': 'SUSPENDED',\n     'type': 'USER'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The users stream has the following schema errors:
+Additional properties are not allowed ('isEnforcedIn2Sv', 'isEnrolledIn2Sv', 'etag', 'languages', 'primaryEmail', 'archived' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'agreedToTerms': {'type': ['null', 'boolean']},
+                    'aliases': {'items': {'type': ['null', 'string']},
+                                'type': ['null', 'array']},
+                    'changePasswordAtNextLogin': {'type': ['null',
+                                                           'boolean']},
+                    'creationTime': {'type': ['null', 'string']},
+                    'customerId': {'type': ['null', 'string']},
+                    'emails': {'items': {'properties': {'address': {'type': ['null',
+                                                                             'string']},
+                                                        'customType': {'type': ['null',
+                                                                                'string']},
+                                                        'primary': {'type': ['null',
+                                                                             'boolean']},
+                                                        'type': {'type': ['null',
+                                                                          'string']}},
+                                         'type': 'object'},
+                               'type': ['null', 'array']},
+                    'externalIds': {'items': {'properties': {'customType': {'type': ['null',
+                                                                                     'string']},
+                                                             'type': {'type': ['null',
+                                                                               'string']},
+                                                             'value': {'type': ['null',
+                                                                                'string']}},
+                                              'type': 'object'},
+                                    'type': ['null', 'array']},
+                    'hashFunction': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'string']},
+                    'includeInGlobalAddressList': {'type': ['null',
+                                                            'boolean']},
+                    'ipWhitelisted': {'type': ['null', 'boolean']},
+                    'isAdmin': {'type': ['null', 'boolean']},
+                    'isDelegatedAdmin': {'type': ['null', 'boolean']},
+                    'isMailboxSetup': {'type': ['null', 'boolean']},
+                    'kind': {'type': ['null', 'string']},
+                    'lastLoginTime': {'type': ['null', 'string']},
+                    'name': {'properties': {'familyName': {'type': ['null',
+                                                                    'string']},
+                                            'fullName': {'type': ['null',
+                                                                  'string']},
+                                            'givenName': {'type': ['null',
+                                                                   'string']}},
+                             'type': ['null', 'object']},
+                    'nonEditableAliases': {'items': {'type': ['null',
+                                                              'string']},
+                                           'type': ['null', 'array']},
+                    'orgUnitPath': {'type': ['null', 'string']},
+                    'organizations': {'items': {'properties': {'customType': {'type': ['null',
+                                                                                       'string']},
+                                                               'description': {'type': ['null',
+                                                                                        'string']},
+                                                               'name': {'type': ['null',
+                                                                                 'string']},
+                                                               'primary': {'type': ['null',
+                                                                                    'boolean']},
+                                                               'title': {'type': ['null',
+                                                                                  'string']}},
+                                                'type': 'object'},
+                                      'type': ['null', 'array']},
+                    'phones': {'items': {'properties': {'type': {'type': ['null',
+                                                                          'string']},
+                                                        'value': {'type': ['null',
+                                                                           'string']}},
+                                         'type': 'object'},
+                               'type': ['null', 'array']},
+                    'relations': {'items': {'properties': {'customType': {'type': ['null',
+                                                                                   'string']},
+                                                           'type': {'type': ['null',
+                                                                             'string']},
+                                                           'value': {'type': ['null',
+                                                                              'string']}},
+                                            'type': 'object'},
+                                  'type': ['null', 'array']},
+                    'suspended': {'type': ['null', 'boolean']},
+                    'username': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'agreedToTerms': True,
+     'archived': False,
+     'changePasswordAtNextLogin': False,
+     'creationTime': '2021-05-25T23:19:30.000Z',
+     'customerId': 'C044d0iyq',
+     'emails': [{'address': 'yuri.cherniaiev@airbyte.io', 'primary': True}],
+     'etag': '"qAxgWRjj_qedrLqFbWHTy1pmyA1Adf_tYfnIUrJGQIY/TNloEzt1sAm0l5jp2jgiMMqiV7E"',
+     'id': '102642546458229027548',
+     'includeInGlobalAddressList': True,
+     'ipWhitelisted': False,
+     'isAdmin': False,
+     'isDelegatedAdmin': False,
+     'isEnforcedIn2Sv': True,
+     'isEnrolledIn2Sv': True,
+     'isMailboxSetup': True,
+     'kind': 'admin#directory#user',
+     'languages': [{'languageCode': 'en', 'preference': 'preferred'}],
+     'lastLoginTime': '2023-03-17T07:30:59.000Z',
+     'name': {'familyName': 'Cherniaiev',
+              'fullName': 'Yuri Cherniaiev',
+              'givenName': 'Yuri'},
+     'orgUnitPath': '/Okta Not Required',
+     'primaryEmail': 'yuri.cherniaiev@airbyte.io',
+     'suspended': False}
+ERROR    root:test_core.py:662 
+The groups stream has the following schema errors:
+Additional properties are not allowed ('aliases', 'nonEditableAliases' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'adminCreated': {'type': ['null', 'boolean']},
+                    'description': {'type': ['null', 'string']},
+                    'directMembersCount': {'type': ['null', 'string']},
+                    'email': {'type': ['null', 'string']},
+                    'etag': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'string']},
+                    'kind': {'type': ['null', 'string']},
+                    'name': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'adminCreated': True,
+     'aliases': ['team@daxtarity.com'],
+     'description': 'Everybody',
+     'directMembersCount': '115',
+     'email': 'team@airbyte.io',
+     'etag': '"qAxgWRjj_qedrLqFbWHTy1pmyA1Adf_tYfnIUrJGQIY/YWouAvRt5f72M_s5VeXf0_RV-NU"',
+     'id': '00lnxbz93fa7339',
+     'kind': 'admin#directory#group',
+     'name': 'Team',
+     'nonEditableAliases': ['team@dataline.io',
+                            'team@unblockdata.com',
+                            'team@airbyte.com']}
+ERROR    root:test_core.py:662 
+The group_members stream has the following schema errors:
+Additional properties are not allowed ('etag', 'status' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'email': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'string']},
+                    'kind': {'type': ['null', 'string']},
+                    'role': {'type': ['null', 'string']},
+                    'type': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'email': 'manny@airbyte.io',
+     'etag': '"qAxgWRjj_qedrLqFbWHTy1pmyA1Adf_tYfnIUrJGQIY/Pn2HNQIKXag7h-E8N2vOMkIwGVQ"',
+     'id': '100070512165692731501',
+     'kind': 'admin#directory#member',
+     'role': 'OWNER',
+     'status': 'SUSPENDED',
+     'type': 'USER'}
+_______________________ TestBasicRead.test_read[inputs1] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff94c308b0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='users', json_schema={'$schema': '...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff94995610>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs1].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='users', data={'kind': 'admin#directory#user', 'id': '1072766262662895554...UxbM"', 'recoveryEmail': 'alexgronemeyer1@gmail.com', 'recoveryPhone': '+16125085516'}, emitted_at=1679405324000), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='users', json_schema={'$schema': '...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('users', 'groups', 'group_members').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe users stream has the following schema errors:\nAdditional properties are not allowed ('isEnforcedIn2Sv', 'isEnrolledIn2Sv', 'etag', 'languages', 'primaryEmail', 'archived' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'agreedToTerms': {'type': ['null', 'boolean']},\n                    'aliases': {'items': {'type': ['null', 'string']},\n                                'type': ['null', 'array']},\n                    'changePasswordAtNextLogin': {'type': ['null',\n                                                           'boolean']},\n                    'creationTime': {'type': ['null', 'string']},\n                    'customerId': {'type': ['null', 'string']},\n                    'emails': {'items': {'properties': {'address': {'type': ['null',\n                                                                             'string']},\n                                                        'customType': {'type': ['null',\n                                                                                'string']},\n                                                        'primary': {'type': ['null',\n                                                                             'boolean']},\n                                                        'type': {'type': ['null',\n                                                                          'string']}},\n                                         'type': 'object'},\n                               'type': ['null', 'array']},\n                    'externalIds': {'items': {'properties': {'customType': {'type': ['null',\n                                                                                     'string']},\n                                                             'type': {'type': ['null',\n                                                                               'string']},\n                                                             'value': {'type': ['null',\n                                                                                'string']}},\n                                              'type': 'object'},\n                                    'type': ['null', 'array']},\n                    'hashFunction': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'string']},\n                    'includeInGlobalAddressList': {'type': ['null',\n                                                            'boolean']},\n                    'ipWhitelisted': {'type': ['null', 'boolean']},\n                    'isAdmin': {'type': ['null', 'boolean']},\n                    'isDelegatedAdmin': {'type': ['null', 'boolean']},\n                    'isMailboxSetup': {'type': ['null', 'boolean']},\n                    'kind': {'type': ['null', 'string']},\n                    'lastLoginTime': {'type': ['null', 'string']},\n                    'name': {'properties': {'familyName': {'type': ['null',\n                                                                    'string']},\n                                            'fullName': {'type': ['null',\n                                                                  'string']},\n                                            'givenName': {'type': ['null',\n                                                                   'string']}},\n                             'type': ['null', 'object']},\n                    'nonEditableAliases': {'items': {'type': ['null',\n                                                              'string']},\n                                           'type': ['null', 'array']},\n                    'orgUnitPath': {'type': ['null', 'string']},\n                    'organizations': {'items': {'properties': {'customType': {'type': ['null',\n                                                                                       'string']},\n                                                               'description': {'type': ['null',\n                                                                                        'string']},\n                                                               'name': {'type': ['null',\n                                                                                 'string']},\n                                                               'primary': {'type': ['null',\n                                                                                    'boolean']},\n                                                               'title': {'type': ['null',\n                                                                                  'string']}},\n                                                'type': 'object'},\n                                      'type': ['null', 'array']},\n                    'phones': {'items': {'properties': {'type': {'type': ['null',\n                                                                          'string']},\n                                                        'value': {'type': ['null',\n                                                                           'string']}},\n                                         'type': 'object'},\n                               'type': ['null', 'array']},\n                    'relations': {'items': {'properties': {'customType': {'type': ['null',\n                                                                                   'string']},\n                                                           'type': {'type': ['null',\n                                                                             'string']},\n                                                           'value': {'type': ['null',\n                                                                              'string']}},\n                                            'type': 'object'},\n                                  'type': ['null', 'array']},\n                    'suspended': {'type': ['null', 'boolean']},\n                    'username': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'agreedToTerms': True,\n     'archived': False,\n     'changePasswordAtNextLogin': False,\n     'creationTime': '2021-05-25T23:19:30.000Z',\n     'customerId': 'C044d0iyq',\n     'emails': [{'address': 'yuri.cherniaiev@airbyte.io', 'primary': True}],\n     'etag': '\"qAxgWRjj_qedrLqFbWHTy1pmyA1Adf_tYfnIUrJGQIY/TNloEzt1sAm0l5jp2jgiMMqiV7E\"',\n     'id': '102642546458229027548',\n     'includeInGlobalAddressList': True,\n     'ipWhitelisted': False,\n     'isAdmin': False,\n     'isDelegatedAdmin': False,\n     'isEnforcedIn2Sv': True,\n     'isEnrolledIn2Sv': True,\n     'isMailboxSetup': True,\n     'kind': 'admin#directory#user',\n     'languages': [{'languageCode': 'en', 'preference': 'preferred'}],\n     'lastLoginTime': '2023-03-17T07:30:59.000Z',\n     'name': {'familyName': 'Cherniaiev',\n              'fullName': 'Yuri Cherniaiev',\n              'givenName': 'Yuri'},\n     'orgUnitPath': '/Okta Not Required',\n     'primaryEmail': 'yuri.cherniaiev@airbyte.io',\n     'suspended': False}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe groups stream has the following schema errors:\nAdditional properties are not allowed ('aliases', 'nonEditableAliases' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'adminCreated': {'type': ['null', 'boolean']},\n                    'description': {'type': ['null', 'string']},\n                    'directMembersCount': {'type': ['null', 'string']},\n                    'email': {'type': ['null', 'string']},\n                    'etag': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'string']},\n                    'kind': {'type': ['null', 'string']},\n                    'name': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'adminCreated': True,\n     'aliases': ['team@daxtarity.com'],\n     'description': 'Everybody',\n     'directMembersCount': '115',\n     'email': 'team@airbyte.io',\n     'etag': '\"qAxgWRjj_qedrLqFbWHTy1pmyA1Adf_tYfnIUrJGQIY/YWouAvRt5f72M_s5VeXf0_RV-NU\"',\n     'id': '00lnxbz93fa7339',\n     'kind': 'admin#directory#group',\n     'name': 'Team',\n     'nonEditableAliases': ['team@dataline.io',\n                            'team@unblockdata.com',\n                            'team@airbyte.com']}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe group_members stream has the following schema errors:\nAdditional properties are not allowed ('etag', 'status' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'email': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'string']},\n                    'kind': {'type': ['null', 'string']},\n                    'role': {'type': ['null', 'string']},\n                    'type': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'email': 'manny@airbyte.io',\n     'etag': '\"qAxgWRjj_qedrLqFbWHTy1pmyA1Adf_tYfnIUrJGQIY/Pn2HNQIKXag7h-E8N2vOMkIwGVQ\"',\n     'id': '100070512165692731501',\n     'kind': 'admin#directory#member',\n     'role': 'OWNER',\n     'status': 'SUSPENDED',\n     'type': 'USER'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The users stream has the following schema errors:
+Additional properties are not allowed ('isEnforcedIn2Sv', 'isEnrolledIn2Sv', 'etag', 'languages', 'primaryEmail', 'archived' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'agreedToTerms': {'type': ['null', 'boolean']},
+                    'aliases': {'items': {'type': ['null', 'string']},
+                                'type': ['null', 'array']},
+                    'changePasswordAtNextLogin': {'type': ['null',
+                                                           'boolean']},
+                    'creationTime': {'type': ['null', 'string']},
+                    'customerId': {'type': ['null', 'string']},
+                    'emails': {'items': {'properties': {'address': {'type': ['null',
+                                                                             'string']},
+                                                        'customType': {'type': ['null',
+                                                                                'string']},
+                                                        'primary': {'type': ['null',
+                                                                             'boolean']},
+                                                        'type': {'type': ['null',
+                                                                          'string']}},
+                                         'type': 'object'},
+                               'type': ['null', 'array']},
+                    'externalIds': {'items': {'properties': {'customType': {'type': ['null',
+                                                                                     'string']},
+                                                             'type': {'type': ['null',
+                                                                               'string']},
+                                                             'value': {'type': ['null',
+                                                                                'string']}},
+                                              'type': 'object'},
+                                    'type': ['null', 'array']},
+                    'hashFunction': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'string']},
+                    'includeInGlobalAddressList': {'type': ['null',
+                                                            'boolean']},
+                    'ipWhitelisted': {'type': ['null', 'boolean']},
+                    'isAdmin': {'type': ['null', 'boolean']},
+                    'isDelegatedAdmin': {'type': ['null', 'boolean']},
+                    'isMailboxSetup': {'type': ['null', 'boolean']},
+                    'kind': {'type': ['null', 'string']},
+                    'lastLoginTime': {'type': ['null', 'string']},
+                    'name': {'properties': {'familyName': {'type': ['null',
+                                                                    'string']},
+                                            'fullName': {'type': ['null',
+                                                                  'string']},
+                                            'givenName': {'type': ['null',
+                                                                   'string']}},
+                             'type': ['null', 'object']},
+                    'nonEditableAliases': {'items': {'type': ['null',
+                                                              'string']},
+                                           'type': ['null', 'array']},
+                    'orgUnitPath': {'type': ['null', 'string']},
+                    'organizations': {'items': {'properties': {'customType': {'type': ['null',
+                                                                                       'string']},
+                                                               'description': {'type': ['null',
+                                                                                        'string']},
+                                                               'name': {'type': ['null',
+                                                                                 'string']},
+                                                               'primary': {'type': ['null',
+                                                                                    'boolean']},
+                                                               'title': {'type': ['null',
+                                                                                  'string']}},
+                                                'type': 'object'},
+                                      'type': ['null', 'array']},
+                    'phones': {'items': {'properties': {'type': {'type': ['null',
+                                                                          'string']},
+                                                        'value': {'type': ['null',
+                                                                           'string']}},
+                                         'type': 'object'},
+                               'type': ['null', 'array']},
+                    'relations': {'items': {'properties': {'customType': {'type': ['null',
+                                                                                   'string']},
+                                                           'type': {'type': ['null',
+                                                                             'string']},
+                                                           'value': {'type': ['null',
+                                                                              'string']}},
+                                            'type': 'object'},
+                                  'type': ['null', 'array']},
+                    'suspended': {'type': ['null', 'boolean']},
+                    'username': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'agreedToTerms': True,
+     'archived': False,
+     'changePasswordAtNextLogin': False,
+     'creationTime': '2021-05-25T23:19:30.000Z',
+     'customerId': 'C044d0iyq',
+     'emails': [{'address': 'yuri.cherniaiev@airbyte.io', 'primary': True}],
+     'etag': '"qAxgWRjj_qedrLqFbWHTy1pmyA1Adf_tYfnIUrJGQIY/TNloEzt1sAm0l5jp2jgiMMqiV7E"',
+     'id': '102642546458229027548',
+     'includeInGlobalAddressList': True,
+     'ipWhitelisted': False,
+     'isAdmin': False,
+     'isDelegatedAdmin': False,
+     'isEnforcedIn2Sv': True,
+     'isEnrolledIn2Sv': True,
+     'isMailboxSetup': True,
+     'kind': 'admin#directory#user',
+     'languages': [{'languageCode': 'en', 'preference': 'preferred'}],
+     'lastLoginTime': '2023-03-17T07:30:59.000Z',
+     'name': {'familyName': 'Cherniaiev',
+              'fullName': 'Yuri Cherniaiev',
+              'givenName': 'Yuri'},
+     'orgUnitPath': '/Okta Not Required',
+     'primaryEmail': 'yuri.cherniaiev@airbyte.io',
+     'suspended': False}
+ERROR    root:test_core.py:662 
+The groups stream has the following schema errors:
+Additional properties are not allowed ('aliases', 'nonEditableAliases' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'adminCreated': {'type': ['null', 'boolean']},
+                    'description': {'type': ['null', 'string']},
+                    'directMembersCount': {'type': ['null', 'string']},
+                    'email': {'type': ['null', 'string']},
+                    'etag': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'string']},
+                    'kind': {'type': ['null', 'string']},
+                    'name': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'adminCreated': True,
+     'aliases': ['team@daxtarity.com'],
+     'description': 'Everybody',
+     'directMembersCount': '115',
+     'email': 'team@airbyte.io',
+     'etag': '"qAxgWRjj_qedrLqFbWHTy1pmyA1Adf_tYfnIUrJGQIY/YWouAvRt5f72M_s5VeXf0_RV-NU"',
+     'id': '00lnxbz93fa7339',
+     'kind': 'admin#directory#group',
+     'name': 'Team',
+     'nonEditableAliases': ['team@dataline.io',
+                            'team@unblockdata.com',
+                            'team@airbyte.com']}
+ERROR    root:test_core.py:662 
+The group_members stream has the following schema errors:
+Additional properties are not allowed ('etag', 'status' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'email': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'string']},
+                    'kind': {'type': ['null', 'string']},
+                    'role': {'type': ['null', 'string']},
+                    'type': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'email': 'manny@airbyte.io',
+     'etag': '"qAxgWRjj_qedrLqFbWHTy1pmyA1Adf_tYfnIUrJGQIY/Pn2HNQIKXag7h-E8N2vOMkIwGVQ"',
+     'id': '100070512165692731501',
+     'kind': 'admin#directory#member',
+     'role': 'OWNER',
+     'status': 'SUSPENDED',
+     'type': 'USER'}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs1] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+========== 2 failed, 1 skipped, 36 deselected, 35 warnings in 32.01s ===========

@@ -1,0 +1,378 @@
+../../../../connectors/source-hellobaton/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-hellobaton
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffb8f07d60>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='activity', json_schema={'$schema'...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='templates', bypass_reason=None), EmptyStreamConfiguration(name='time_entries', bypass_reason=None)}
+ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffb85f2940>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='activity', data={'id': 617048, '_self': 'https://airbyte-integration-tes..., 'created': '2022-01-06T11:50:18.060058Z', 'modified': '2022-01-06T11:50:18.060058Z'}, emitted_at=1679405807199), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='activity', json_schema={'$schema'...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('activity', 'milestones', 'projects', 'tasks').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe activity stream has the following schema errors:\nNone is not of type 'string'\n\nFailed validating 'type' in schema['properties']['group']:\n    {'type': 'string'}\n\nOn instance['group']:\n    None"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe milestones stream has the following schema errors:\nAdditional properties are not allowed ('feedback_list' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-04/schema#',\n     'additionalProperties': False,\n     'properties': {'_self': {'type': 'string'},\n                    'created': {'format': 'date-time', 'type': 'string'},\n                    'created_from': {'type': ['string', 'null']},\n                    'deadline_datetime': {'format': 'date-time',\n                                          'type': ['string', 'null']},\n                    'deadline_fixed': {'type': 'boolean'},\n                    'description': {'type': ['string', 'null']},\n                    'duration': {'type': 'integer'},\n                    'finish_datetime': {'format': 'date-time',\n                                        'type': ['string', 'null']},\n                    'id': {'type': 'integer'},\n                    'modified': {'format': 'date-time', 'type': 'string'},\n                    'phase': {'properties': {'_self': {'type': 'string'},\n                                             'created': {'format': 'date-time',\n                                                         'type': 'string'},\n                                             'id': {'type': 'integer'},\n                                             'modified': {'format': 'date-time',\n                                                          'type': 'string'},\n                                             'name': {'type': 'string'}},\n                              'type': ['object', 'null']},\n                    'project': {'type': 'string'},\n                    'risk_profiles': {'items': {'properties': {'formula': {'type': 'string'},\n                                                               'id': {'type': 'integer'},\n                                                               'over_run': {'type': 'integer'},\n                                                               'risk_level': {'type': 'string'}},\n                                                'type': 'object'},\n                                      'type': 'array'},\n                    'start_datetime': {'type': 'string'},\n                    'task_list': {'type': 'string'},\n                    'title': {'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'_self': 'https://airbyte-integration-test.hellobaton.com/api/milestones/35286/',\n     'created': '2022-01-06T11:43:44.293194Z',\n     'created_from': None,\n     'deadline_datetime': '2022-01-09T10:00:00Z',\n     'deadline_fixed': True,\n     'description': 'Planning',\n     'duration': 4,\n     'feedback_list': 'https://airbyte-integration-test.hellobaton.com/api/milestone_feedback/?milestone=35286',\n     'finish_datetime': None,\n     'id': 35286,\n     'modified': '2022-09-07T22:07:30.628199Z',\n     'phase': None,\n     'project': 'https://airbyte-integration-test.hellobaton.com/api/projects/6325/',\n     'risk_profiles': [{'formula': 'duration-effort-and-working-days-rev-2',\n                        'id': 112513,\n                        'over_run': 878,\n                        'risk_level': 'high'}],\n     'start_datetime': '2022-01-06T23:59:59.999000Z',\n     'task_list': 'https://airbyte-integration-test.hellobaton.com/api/tasks/?milestone=35286',\n     'title': 'The 1st milestone'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe projects stream has the following schema errors:\nAdditional properties are not allowed ('archived', 'milestone_feedback_list', 'project_user_list', 'custom_field_list', 'project_phases_list' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-04/schema#',\n     'additionalProperties': False,\n     'properties': {'_self': {'type': 'string'},\n                    'annual_contract_value': {'type': 'string'},\n                    'attachment_list': {'type': 'string'},\n                    'client_systems': {'type': ['string', 'null']},\n                    'companies': {'items': {'type': 'string'},\n                                  'type': 'array'},\n                    'completed_datetime': {'format': 'date-time',\n                                           'type': ['string', 'null']},\n                    'cost': {'type': ['integer', 'null']},\n                    'created': {'format': 'date-time', 'type': 'string'},\n                    'created_from': {'type': ['string', 'null']},\n                    'created_from_template': {'type': ['string', 'null']},\n                    'creator': {'type': ['string', 'null']},\n                    'deadline_datetime': {'format': 'date-time',\n                                          'type': ['string', 'null']},\n                    'estimated_duration': {'type': ['integer', 'null']},\n                    'id': {'type': 'integer'},\n                    'implementation_budget': {'type': 'string'},\n                    'milestone_list': {'type': 'string'},\n                    'modified': {'format': 'date-time',\n                                 'type': ['string', 'null']},\n                    'phase': {'properties': {'_self': {'type': 'string'},\n                                             'created': {'format': 'date-time',\n                                                         'type': 'string'},\n                                             'id': {'type': 'integer'},\n                                             'modified': {'format': 'date-time',\n                                                          'type': 'string'},\n                                             'name': {'type': ['string',\n                                                               'null']},\n                                             'order': {'type': 'integer'}},\n                              'type': ['object', 'null']},\n                    'risk_profiles': {'items': {'properties': {'formula': {'type': 'string'},\n                                                               'id': {'type': 'integer'},\n                                                               'level': {'type': 'string'},\n                                                               'projected_golive_datetime': {'format': 'date-time',\n                                                                                             'type': ['string',\n                                                                                                      'null']},\n                                                               'risk_score': {'type': 'number'},\n                                                               'variance': {'type': 'integer'}},\n                                                'type': 'object'},\n                                      'type': 'array'},\n                    'start_datetime': {'format': 'date-time',\n                                       'type': ['string', 'null']},\n                    'started_datetime': {'format': 'date-time',\n                                         'type': ['string', 'null']},\n                    'status': {'type': 'string'},\n                    'task_list': {'type': 'string'},\n                    'time_entry_list': {'type': 'string'},\n                    'title': {'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'_self': 'https://airbyte-integration-test.hellobaton.com/api/projects/6325/',\n     'annual_contract_value': '1000.00',\n     'archived': False,\n     'attachment_list': 'https://airbyte-integration-test.hellobaton.com/api/project_attachments/?project=6325',\n     'client_systems': None,\n     'companies': ['https://airbyte-integration-test.hellobaton.com/api/companies/4745/',\n                   'https://airbyte-integration-test.hellobaton.com/api/companies/4463/'],\n     'completed_datetime': None,\n     'cost': None,\n     'created': '2022-01-06T11:42:44.186387Z',\n     'created_from': None,\n     'created_from_template': None,\n     'creator': 'https://airbyte-integration-test.hellobaton.com/api/users/44756/',\n     'custom_field_list': 'https://airbyte-integration-test.hellobaton.com/api/custom_field_values/?project=6325',\n     'deadline_datetime': '2022-01-19T10:00:00Z',\n     'estimated_duration': 864000,\n     'id': 6325,\n     'implementation_budget': '350.00',\n     'milestone_feedback_list': 'https://airbyte-integration-test.hellobaton.com/api/milestone_feedback/?milestone__project=6325',\n     'milestone_list': 'https://airbyte-integration-test.hellobaton.com/api/milestones/?project=6325',\n     'modified': '2022-12-14T20:49:22.950627Z',\n     'phase': None,\n     'project_phases_list': 'https://airbyte-integration-test.hellobaton.com/api/project_phases/?project=6325',\n     'project_user_list': 'https://airbyte-integration-test.hellobaton.com/api/project_users/?project=6325',\n     'risk_profiles': [{'id': 21465,\n                        'level': 'high',\n                        'project': 6325,\n                        'projected_golive_datetime': '2023-03-26T23:59:59.999999Z',\n                        'risk_score': 1.009367681498829,\n                        'variance': 431}],\n     'start_datetime': '2022-01-05T22:00:00Z',\n     'started_datetime': None,\n     'status': 'planning',\n     'task_list': 'https://airbyte-integration-test.hellobaton.com/api/tasks/?project=6325',\n     'time_entry_list': 'https://airbyte-integration-test.hellobaton.com/api/time_entries/?project=6325',\n     'title': 'Test Project'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe tasks stream has the following schema errors:\nAdditional properties are not allowed ('dependencies' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-04/schema#',\n     'additionalProperties': False,\n     'properties': {'_self': {'type': 'string'},\n                    'assigned_to': {'type': ['string', 'null']},\n                    'attachment_list': {'type': 'string'},\n                    'created': {'format': 'date-time', 'type': 'string'},\n                    'created_by': {'type': ['string', 'null']},\n                    'created_from': {'type': ['string', 'null']},\n                    'dependency': {'type': ['string', 'null']},\n                    'description': {'type': ['string', 'null']},\n                    'due_datetime': {'format': 'date-time',\n                                     'type': 'string'},\n                    'estimated_duration': {'type': ['integer', 'null']},\n                    'finished_datetime': {'format': 'date-time',\n                                          'type': ['string', 'null']},\n                    'finished_overridden_datetime': {'format': 'date-time',\n                                                     'type': ['string',\n                                                              'null']},\n                    'id': {'type': 'integer'},\n                    'milestone': {'type': 'string'},\n                    'modified': {'format': 'date-time', 'type': 'string'},\n                    'project': {'type': 'string'},\n                    'risk_profiles': {'items': {'properties': {'cool_down': {'type': 'integer'},\n                                                               'duration': {'type': 'integer'},\n                                                               'estimated_duration': {'type': 'integer'},\n                                                               'formula': {'type': 'string'},\n                                                               'id': {'type': 'integer'},\n                                                               'over_run': {'type': 'integer'},\n                                                               'reason': {'type': 'integer'},\n                                                               'risk_level': {'type': 'string'},\n                                                               'task_variance': {'type': 'integer'}},\n                                                'type': 'object'},\n                                      'type': 'array'},\n                    'start_datetime': {'format': 'date-time',\n                                       'type': ['string', 'null']},\n                    'started_datetime': {'format': 'date-time',\n                                         'type': ['string', 'null']},\n                    'started_overridden_datetime': {'format': 'date-time',\n                                                    'type': ['string',\n                                                             'null']},\n                    'status': {'type': 'string'},\n                    'time_entry_list': {'type': 'string'},\n                    'title': {'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'_self': 'https://airbyte-integration-test.hellobaton.com/api/tasks/172380/',\n     'assigned_to': 'https://airbyte-integration-test.hellobaton.com/api/users/44756/',\n     'attachment_list': 'https://airbyte-integration-test.hellobaton.com/api/task_attachments/?task=172380',\n     'created': '2022-01-05T21:39:51.124888Z',\n     'created_by': 'https://airbyte-integration-test.hellobaton.com/api/users/44756/',\n     'created_from': None,\n     'dependencies': [],\n     'description': None,\n     'due_datetime': '2022-01-09T21:39:51.124724Z',\n     'estimated_duration': None,\n     'finished_datetime': None,\n     'finished_overridden_datetime': None,\n     'id': 172380,\n     'milestone': 'https://airbyte-integration-test.hellobaton.com/api/milestones/35216/',\n     'modified': '2022-01-05T21:39:51.124888Z',\n     'project': 'https://airbyte-integration-test.hellobaton.com/api/projects/6316/',\n     'risk_profiles': [{'cool_down': 0,\n                        'days_deviation': 436,\n                        'duration': 1,\n                        'estimated_duration': 1,\n                        'formula': 'duration-effort-and-working-days-rev-2',\n                        'id': 560137,\n                        'over_run': 436,\n                        'projected_due_datetime': '2023-03-22T23:59:59.999999Z',\n                        'reason': 200,\n                        'remaining_duration': 1,\n                        'risk_level': 'high',\n                        'task_variance': 437}],\n     'start_datetime': None,\n     'started_datetime': None,\n     'started_overridden_datetime': None,\n     'status': 'unstarted',\n     'time_entry_list': 'https://airbyte-integration-test.hellobaton.com/api/time_entries/?task=172380',\n     'title': \"Reassign tasks by clicking on the assignee's avatar \u2014 give \"\n              'it a try!.'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The activity stream has the following schema errors:
+None is not of type 'string'
+
+Failed validating 'type' in schema['properties']['group']:
+    {'type': 'string'}
+
+On instance['group']:
+    None
+ERROR    root:test_core.py:662 
+The milestones stream has the following schema errors:
+Additional properties are not allowed ('feedback_list' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-04/schema#',
+     'additionalProperties': False,
+     'properties': {'_self': {'type': 'string'},
+                    'created': {'format': 'date-time', 'type': 'string'},
+                    'created_from': {'type': ['string', 'null']},
+                    'deadline_datetime': {'format': 'date-time',
+                                          'type': ['string', 'null']},
+                    'deadline_fixed': {'type': 'boolean'},
+                    'description': {'type': ['string', 'null']},
+                    'duration': {'type': 'integer'},
+                    'finish_datetime': {'format': 'date-time',
+                                        'type': ['string', 'null']},
+                    'id': {'type': 'integer'},
+                    'modified': {'format': 'date-time', 'type': 'string'},
+                    'phase': {'properties': {'_self': {'type': 'string'},
+                                             'created': {'format': 'date-time',
+                                                         'type': 'string'},
+                                             'id': {'type': 'integer'},
+                                             'modified': {'format': 'date-time',
+                                                          'type': 'string'},
+                                             'name': {'type': 'string'}},
+                              'type': ['object', 'null']},
+                    'project': {'type': 'string'},
+                    'risk_profiles': {'items': {'properties': {'formula': {'type': 'string'},
+                                                               'id': {'type': 'integer'},
+                                                               'over_run': {'type': 'integer'},
+                                                               'risk_level': {'type': 'string'}},
+                                                'type': 'object'},
+                                      'type': 'array'},
+                    'start_datetime': {'type': 'string'},
+                    'task_list': {'type': 'string'},
+                    'title': {'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'_self': 'https://airbyte-integration-test.hellobaton.com/api/milestones/35286/',
+     'created': '2022-01-06T11:43:44.293194Z',
+     'created_from': None,
+     'deadline_datetime': '2022-01-09T10:00:00Z',
+     'deadline_fixed': True,
+     'description': 'Planning',
+     'duration': 4,
+     'feedback_list': 'https://airbyte-integration-test.hellobaton.com/api/milestone_feedback/?milestone=35286',
+     'finish_datetime': None,
+     'id': 35286,
+     'modified': '2022-09-07T22:07:30.628199Z',
+     'phase': None,
+     'project': 'https://airbyte-integration-test.hellobaton.com/api/projects/6325/',
+     'risk_profiles': [{'formula': 'duration-effort-and-working-days-rev-2',
+                        'id': 112513,
+                        'over_run': 878,
+                        'risk_level': 'high'}],
+     'start_datetime': '2022-01-06T23:59:59.999000Z',
+     'task_list': 'https://airbyte-integration-test.hellobaton.com/api/tasks/?milestone=35286',
+     'title': 'The 1st milestone'}
+ERROR    root:test_core.py:662 
+The projects stream has the following schema errors:
+Additional properties are not allowed ('archived', 'milestone_feedback_list', 'project_user_list', 'custom_field_list', 'project_phases_list' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-04/schema#',
+     'additionalProperties': False,
+     'properties': {'_self': {'type': 'string'},
+                    'annual_contract_value': {'type': 'string'},
+                    'attachment_list': {'type': 'string'},
+                    'client_systems': {'type': ['string', 'null']},
+                    'companies': {'items': {'type': 'string'},
+                                  'type': 'array'},
+                    'completed_datetime': {'format': 'date-time',
+                                           'type': ['string', 'null']},
+                    'cost': {'type': ['integer', 'null']},
+                    'created': {'format': 'date-time', 'type': 'string'},
+                    'created_from': {'type': ['string', 'null']},
+                    'created_from_template': {'type': ['string', 'null']},
+                    'creator': {'type': ['string', 'null']},
+                    'deadline_datetime': {'format': 'date-time',
+                                          'type': ['string', 'null']},
+                    'estimated_duration': {'type': ['integer', 'null']},
+                    'id': {'type': 'integer'},
+                    'implementation_budget': {'type': 'string'},
+                    'milestone_list': {'type': 'string'},
+                    'modified': {'format': 'date-time',
+                                 'type': ['string', 'null']},
+                    'phase': {'properties': {'_self': {'type': 'string'},
+                                             'created': {'format': 'date-time',
+                                                         'type': 'string'},
+                                             'id': {'type': 'integer'},
+                                             'modified': {'format': 'date-time',
+                                                          'type': 'string'},
+                                             'name': {'type': ['string',
+                                                               'null']},
+                                             'order': {'type': 'integer'}},
+                              'type': ['object', 'null']},
+                    'risk_profiles': {'items': {'properties': {'formula': {'type': 'string'},
+                                                               'id': {'type': 'integer'},
+                                                               'level': {'type': 'string'},
+                                                               'projected_golive_datetime': {'format': 'date-time',
+                                                                                             'type': ['string',
+                                                                                                      'null']},
+                                                               'risk_score': {'type': 'number'},
+                                                               'variance': {'type': 'integer'}},
+                                                'type': 'object'},
+                                      'type': 'array'},
+                    'start_datetime': {'format': 'date-time',
+                                       'type': ['string', 'null']},
+                    'started_datetime': {'format': 'date-time',
+                                         'type': ['string', 'null']},
+                    'status': {'type': 'string'},
+                    'task_list': {'type': 'string'},
+                    'time_entry_list': {'type': 'string'},
+                    'title': {'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'_self': 'https://airbyte-integration-test.hellobaton.com/api/projects/6325/',
+     'annual_contract_value': '1000.00',
+     'archived': False,
+     'attachment_list': 'https://airbyte-integration-test.hellobaton.com/api/project_attachments/?project=6325',
+     'client_systems': None,
+     'companies': ['https://airbyte-integration-test.hellobaton.com/api/companies/4745/',
+                   'https://airbyte-integration-test.hellobaton.com/api/companies/4463/'],
+     'completed_datetime': None,
+     'cost': None,
+     'created': '2022-01-06T11:42:44.186387Z',
+     'created_from': None,
+     'created_from_template': None,
+     'creator': 'https://airbyte-integration-test.hellobaton.com/api/users/44756/',
+     'custom_field_list': 'https://airbyte-integration-test.hellobaton.com/api/custom_field_values/?project=6325',
+     'deadline_datetime': '2022-01-19T10:00:00Z',
+     'estimated_duration': 864000,
+     'id': 6325,
+     'implementation_budget': '350.00',
+     'milestone_feedback_list': 'https://airbyte-integration-test.hellobaton.com/api/milestone_feedback/?milestone__project=6325',
+     'milestone_list': 'https://airbyte-integration-test.hellobaton.com/api/milestones/?project=6325',
+     'modified': '2022-12-14T20:49:22.950627Z',
+     'phase': None,
+     'project_phases_list': 'https://airbyte-integration-test.hellobaton.com/api/project_phases/?project=6325',
+     'project_user_list': 'https://airbyte-integration-test.hellobaton.com/api/project_users/?project=6325',
+     'risk_profiles': [{'id': 21465,
+                        'level': 'high',
+                        'project': 6325,
+                        'projected_golive_datetime': '2023-03-26T23:59:59.999999Z',
+                        'risk_score': 1.009367681498829,
+                        'variance': 431}],
+     'start_datetime': '2022-01-05T22:00:00Z',
+     'started_datetime': None,
+     'status': 'planning',
+     'task_list': 'https://airbyte-integration-test.hellobaton.com/api/tasks/?project=6325',
+     'time_entry_list': 'https://airbyte-integration-test.hellobaton.com/api/time_entries/?project=6325',
+     'title': 'Test Project'}
+ERROR    root:test_core.py:662 
+The tasks stream has the following schema errors:
+Additional properties are not allowed ('dependencies' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-04/schema#',
+     'additionalProperties': False,
+     'properties': {'_self': {'type': 'string'},
+                    'assigned_to': {'type': ['string', 'null']},
+                    'attachment_list': {'type': 'string'},
+                    'created': {'format': 'date-time', 'type': 'string'},
+                    'created_by': {'type': ['string', 'null']},
+                    'created_from': {'type': ['string', 'null']},
+                    'dependency': {'type': ['string', 'null']},
+                    'description': {'type': ['string', 'null']},
+                    'due_datetime': {'format': 'date-time',
+                                     'type': 'string'},
+                    'estimated_duration': {'type': ['integer', 'null']},
+                    'finished_datetime': {'format': 'date-time',
+                                          'type': ['string', 'null']},
+                    'finished_overridden_datetime': {'format': 'date-time',
+                                                     'type': ['string',
+                                                              'null']},
+                    'id': {'type': 'integer'},
+                    'milestone': {'type': 'string'},
+                    'modified': {'format': 'date-time', 'type': 'string'},
+                    'project': {'type': 'string'},
+                    'risk_profiles': {'items': {'properties': {'cool_down': {'type': 'integer'},
+                                                               'duration': {'type': 'integer'},
+                                                               'estimated_duration': {'type': 'integer'},
+                                                               'formula': {'type': 'string'},
+                                                               'id': {'type': 'integer'},
+                                                               'over_run': {'type': 'integer'},
+                                                               'reason': {'type': 'integer'},
+                                                               'risk_level': {'type': 'string'},
+                                                               'task_variance': {'type': 'integer'}},
+                                                'type': 'object'},
+                                      'type': 'array'},
+                    'start_datetime': {'format': 'date-time',
+                                       'type': ['string', 'null']},
+                    'started_datetime': {'format': 'date-time',
+                                         'type': ['string', 'null']},
+                    'started_overridden_datetime': {'format': 'date-time',
+                                                    'type': ['string',
+                                                             'null']},
+                    'status': {'type': 'string'},
+                    'time_entry_list': {'type': 'string'},
+                    'title': {'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'_self': 'https://airbyte-integration-test.hellobaton.com/api/tasks/172380/',
+     'assigned_to': 'https://airbyte-integration-test.hellobaton.com/api/users/44756/',
+     'attachment_list': 'https://airbyte-integration-test.hellobaton.com/api/task_attachments/?task=172380',
+     'created': '2022-01-05T21:39:51.124888Z',
+     'created_by': 'https://airbyte-integration-test.hellobaton.com/api/users/44756/',
+     'created_from': None,
+     'dependencies': [],
+     'description': None,
+     'due_datetime': '2022-01-09T21:39:51.124724Z',
+     'estimated_duration': None,
+     'finished_datetime': None,
+     'finished_overridden_datetime': None,
+     'id': 172380,
+     'milestone': 'https://airbyte-integration-test.hellobaton.com/api/milestones/35216/',
+     'modified': '2022-01-05T21:39:51.124888Z',
+     'project': 'https://airbyte-integration-test.hellobaton.com/api/projects/6316/',
+     'risk_profiles': [{'cool_down': 0,
+                        'days_deviation': 436,
+                        'duration': 1,
+                        'estimated_duration': 1,
+                        'formula': 'duration-effort-and-working-days-rev-2',
+                        'id': 560137,
+                        'over_run': 436,
+                        'projected_due_datetime': '2023-03-22T23:59:59.999999Z',
+                        'reason': 200,
+                        'remaining_duration': 1,
+                        'risk_level': 'high',
+                        'task_variance': 437}],
+     'start_datetime': None,
+     'started_datetime': None,
+     'started_overridden_datetime': None,
+     'status': 'unstarted',
+     'time_entry_list': 'https://airbyte-integration-test.hellobaton.com/api/time_entries/?task=172380',
+     'title': "Reassign tasks by clicking on the assignee's avatar — give "
+              'it a try!.'}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+========== 1 failed, 1 skipped, 33 deselected, 35 warnings in 12.03s ===========

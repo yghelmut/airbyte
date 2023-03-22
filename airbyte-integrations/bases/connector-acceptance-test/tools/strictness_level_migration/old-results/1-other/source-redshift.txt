@@ -1,0 +1,173 @@
+../../../../connectors/source-redshift/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-redshift
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 36 items / 34 deselected / 2 selected
+
+../../test_input/test_core.py E                                          [ 50%]
+../../test_input/test_incremental.py E                                   [100%]
+
+
+==================================== ERRORS ====================================
+______________ ERROR at setup of TestBasicRead.test_read[inputs0] ______________
+
+configured_catalog_path = PosixPath('/test_input/integration_tests/configured_catalog.json')
+discovered_catalog = {'_airbyte_raw_activities': AirbyteStream(name='_airbyte_raw_activities', json_schema={'type': 'object', 'properties':...fined_cursor=None, default_cursor_field=[], source_defined_primary_key=[['_airbyte_ab_id']], namespace='fb_data'), ...}
+
+    def build_configured_catalog_from_custom_catalog(configured_catalog_path: str, discovered_catalog: MutableMapping[str, AirbyteStream]):
+        """Build a configured catalog from a local one stored in a JSON file.
+    
+        Args:
+            configured_catalog_path (str): Local path to a custom configured catalog path
+            discovered_catalog (MutableMapping[str, AirbyteStream]): The discovered catalog
+    
+        Returns:
+            ConfiguredAirbyteCatalog: a configured Airbyte catalog
+        """
+        catalog = ConfiguredAirbyteCatalog.parse_file(configured_catalog_path)
+        for configured_stream in catalog.streams:
+            try:
+>               configured_stream.stream = discovered_catalog[configured_stream.stream.name]
+E               KeyError: 'sat_basic_dataset'
+
+connector_acceptance_test/utils/common.py:170: KeyError
+
+During handling of the above exception, another exception occurred:
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffa80be220>
+test_strictness_level = <TestStrictnessLevel.low: 'low'>
+configured_catalog_path = PosixPath('/test_input/integration_tests/configured_catalog.json')
+discovered_catalog = {'_airbyte_raw_activities': AirbyteStream(name='_airbyte_raw_activities', json_schema={'type': 'object', 'properties':...fined_cursor=None, default_cursor_field=[], source_defined_primary_key=[['_airbyte_ab_id']], namespace='fb_data'), ...}
+empty_streams = set()
+
+    @pytest.fixture(name="configured_catalog")
+    def configured_catalog_fixture(
+        self,
+        test_strictness_level: Config.TestStrictnessLevel,
+        configured_catalog_path: Optional[str],
+        discovered_catalog: MutableMapping[str, AirbyteStream],
+        empty_streams: Set[EmptyStreamConfiguration],
+    ) -> ConfiguredAirbyteCatalog:
+        """Build a configured catalog for basic read only.
+        We discard the use of custom configured catalog if:
+        - No custom configured catalog is declared with configured_catalog_path.
+        - We are in high test strictness level.
+        When a custom configured catalog is discarded we use the discovered catalog from which we remove the declared empty streams.
+        We use a custom configured catalog if a configured_catalog_path is declared and we are not in high test strictness level.
+        Args:
+            test_strictness_level (Config.TestStrictnessLevel): The current test strictness level according to the global test configuration.
+            configured_catalog_path (Optional[str]): Path to a JSON file containing a custom configured catalog.
+            discovered_catalog (MutableMapping[str, AirbyteStream]): The discovered catalog.
+            empty_streams (Set[EmptyStreamConfiguration]): The empty streams declared in the test configuration.
+    
+        Returns:
+            ConfiguredAirbyteCatalog: the configured Airbyte catalog.
+        """
+        if test_strictness_level is Config.TestStrictnessLevel.high or not configured_catalog_path:
+            if configured_catalog_path:
+                pytest.fail(
+                    "High strictness level error: you can't set a custom configured catalog on the basic read test when strictness level is high."
+                )
+            return build_configured_catalog_from_discovered_catalog_and_empty_streams(discovered_catalog, empty_streams)
+        else:
+>           return build_configured_catalog_from_custom_catalog(configured_catalog_path, discovered_catalog)
+
+connector_acceptance_test/tests/test_core.py:801: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+configured_catalog_path = PosixPath('/test_input/integration_tests/configured_catalog.json')
+discovered_catalog = {'_airbyte_raw_activities': AirbyteStream(name='_airbyte_raw_activities', json_schema={'type': 'object', 'properties':...fined_cursor=None, default_cursor_field=[], source_defined_primary_key=[['_airbyte_ab_id']], namespace='fb_data'), ...}
+
+    def build_configured_catalog_from_custom_catalog(configured_catalog_path: str, discovered_catalog: MutableMapping[str, AirbyteStream]):
+        """Build a configured catalog from a local one stored in a JSON file.
+    
+        Args:
+            configured_catalog_path (str): Local path to a custom configured catalog path
+            discovered_catalog (MutableMapping[str, AirbyteStream]): The discovered catalog
+    
+        Returns:
+            ConfiguredAirbyteCatalog: a configured Airbyte catalog
+        """
+        catalog = ConfiguredAirbyteCatalog.parse_file(configured_catalog_path)
+        for configured_stream in catalog.streams:
+            try:
+                configured_stream.stream = discovered_catalog[configured_stream.stream.name]
+            except KeyError:
+>               pytest.fail(
+                    f"The {configured_stream.stream.name} stream you have set in {configured_catalog_path} is not part of the discovered_catalog"
+                )
+E               Failed: The sat_basic_dataset stream you have set in /test_input/integration_tests/configured_catalog.json is not part of the discovered_catalog
+
+connector_acceptance_test/utils/common.py:172: Failed
+____ ERROR at setup of TestIncremental.test_read_sequential_slices[inputs0] ____
+
+configured_catalog_path = PosixPath('/test_input/integration_tests/configured_catalog_inc.json')
+discovered_catalog = {'_airbyte_raw_activities': AirbyteStream(name='_airbyte_raw_activities', json_schema={'type': 'object', 'properties':...fined_cursor=None, default_cursor_field=[], source_defined_primary_key=[['_airbyte_ab_id']], namespace='fb_data'), ...}
+
+    def build_configured_catalog_from_custom_catalog(configured_catalog_path: str, discovered_catalog: MutableMapping[str, AirbyteStream]):
+        """Build a configured catalog from a local one stored in a JSON file.
+    
+        Args:
+            configured_catalog_path (str): Local path to a custom configured catalog path
+            discovered_catalog (MutableMapping[str, AirbyteStream]): The discovered catalog
+    
+        Returns:
+            ConfiguredAirbyteCatalog: a configured Airbyte catalog
+        """
+        catalog = ConfiguredAirbyteCatalog.parse_file(configured_catalog_path)
+        for configured_stream in catalog.streams:
+            try:
+>               configured_stream.stream = discovered_catalog[configured_stream.stream.name]
+E               KeyError: 'sat_basic_dataset'
+
+connector_acceptance_test/utils/common.py:170: KeyError
+
+During handling of the above exception, another exception occurred:
+
+configured_catalog_path = PosixPath('/test_input/integration_tests/configured_catalog_inc.json')
+discovered_catalog = {'_airbyte_raw_activities': AirbyteStream(name='_airbyte_raw_activities', json_schema={'type': 'object', 'properties':...fined_cursor=None, default_cursor_field=[], source_defined_primary_key=[['_airbyte_ab_id']], namespace='fb_data'), ...}
+
+    @pytest.fixture(name="configured_catalog")
+    def configured_catalog_fixture(
+        configured_catalog_path: Optional[str],
+        discovered_catalog: MutableMapping[str, AirbyteStream],
+    ) -> ConfiguredAirbyteCatalog:
+        """Build a configured catalog.
+        If a configured catalog path is given we build a configured catalog from it, we build it from the discovered catalog otherwise.
+        """
+        if configured_catalog_path:
+>           return build_configured_catalog_from_custom_catalog(configured_catalog_path, discovered_catalog)
+
+connector_acceptance_test/conftest.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+configured_catalog_path = PosixPath('/test_input/integration_tests/configured_catalog_inc.json')
+discovered_catalog = {'_airbyte_raw_activities': AirbyteStream(name='_airbyte_raw_activities', json_schema={'type': 'object', 'properties':...fined_cursor=None, default_cursor_field=[], source_defined_primary_key=[['_airbyte_ab_id']], namespace='fb_data'), ...}
+
+    def build_configured_catalog_from_custom_catalog(configured_catalog_path: str, discovered_catalog: MutableMapping[str, AirbyteStream]):
+        """Build a configured catalog from a local one stored in a JSON file.
+    
+        Args:
+            configured_catalog_path (str): Local path to a custom configured catalog path
+            discovered_catalog (MutableMapping[str, AirbyteStream]): The discovered catalog
+    
+        Returns:
+            ConfiguredAirbyteCatalog: a configured Airbyte catalog
+        """
+        catalog = ConfiguredAirbyteCatalog.parse_file(configured_catalog_path)
+        for configured_stream in catalog.streams:
+            try:
+                configured_stream.stream = discovered_catalog[configured_stream.stream.name]
+            except KeyError:
+>               pytest.fail(
+                    f"The {configured_stream.stream.name} stream you have set in {configured_catalog_path} is not part of the discovered_catalog"
+                )
+E               Failed: The sat_basic_dataset stream you have set in /test_input/integration_tests/configured_catalog_inc.json is not part of the discovered_catalog
+
+connector_acceptance_test/utils/common.py:172: Failed
+=========================== short test summary info ============================
+ERROR ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fail...
+ERROR ../../test_input/test_incremental.py::TestIncremental::test_read_sequential_slices[inputs0]
+====================== 34 deselected, 2 errors in 11.40s =======================

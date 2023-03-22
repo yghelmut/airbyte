@@ -1,0 +1,409 @@
+../../../../connectors/source-timely/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-timely
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff94d528b0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='events', json_schema={'$schema': ...fresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=[['id']])])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff93f346a0>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='events', data={'id': 227865220, 'uid': 'd96444118c79c92e5a72884fbf1f2157...:00', 'locked_reason': 'billed', 'locked': True, 'invoice_id': None, 'timestamps': []}, emitted_at=1679429212130), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='events', json_schema={'$schema': ...fresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=[['id']])])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('events',).
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe events stream has the following schema errors:\nAdditional properties are not allowed ('creator_id', 'updated_at', 'timestamps' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'billable': {'type': ['null', 'boolean']},\n                    'billed': {'type': ['null', 'boolean']},\n                    'billed_at': {'airbyte_type': 'timestamp_with_timezone',\n                                  'format': 'date-time',\n                                  'type': ['null', 'string']},\n                    'cost': {'properties': {'amount': {'type': ['null',\n                                                                'number']},\n                                            'formatted': {'type': ['null',\n                                                                   'string']},\n                                            'fractional': {'type': ['null',\n                                                                    'integer']}},\n                             'type': 'object'},\n                    'created_at': {'type': ['null', 'integer']},\n                    'created_from': {'type': ['null', 'string']},\n                    'created_id': {'type': ['null', 'integer']},\n                    'day': {'format': 'date', 'type': ['null', 'string']},\n                    'deleted': {'type': ['null', 'boolean']},\n                    'draft': {'type': ['null', 'boolean']},\n                    'duration': {'properties': {'correctedHours': {'type': ['null',\n                                                                            'integer']},\n                                                'formatted': {'type': ['null',\n                                                                       'string']},\n                                                'hours': {'type': ['null',\n                                                                   'integer']},\n                                                'minutes': {'type': ['null',\n                                                                     'integer']},\n                                                'seconds': {'type': ['null',\n                                                                     'integer']},\n                                                'total_hours': {'type': ['null',\n                                                                         'number']},\n                                                'total_minutes': {'type': ['null',\n                                                                           'integer']},\n                                                'total_seconds': {'type': ['null',\n                                                                           'integer']}},\n                                 'type': 'object'},\n                    'entry_ids': {'type': ['null', 'array']},\n                    'estimated': {'type': ['null', 'boolean']},\n                    'estimated_cost': {'properties': {'amount': {'type': ['null',\n                                                                          'number']},\n                                                      'formatted': {'type': ['null',\n                                                                             'string']},\n                                                      'fractional': {'type': ['null',\n                                                                              'integer']}},\n                                       'type': 'object'},\n                    'estimated_duration': {'properties': {'formatted': {'type': ['null',\n                                                                                 'string']},\n                                                          'hours': {'type': ['null',\n                                                                             'integer']},\n                                                          'minutes': {'type': ['null',\n                                                                               'integer']},\n                                                          'seconds': {'type': ['null',\n                                                                               'integer']},\n                                                          'total_hours': {'type': ['null',\n                                                                                   'number']},\n                                                          'total_minutes': {'type': ['null',\n                                                                                     'integer']},\n                                                          'total_seconds': {'type': ['null',\n                                                                                     'integer']}},\n                                           'type': 'object'},\n                    'external_id': {'type': ['null', 'integer']},\n                    'forecast_id': {'type': ['null', 'string']},\n                    'from': {'airbyte_type': 'timestamp_with_timezone',\n                             'format': 'date-time',\n                             'type': ['null', 'string']},\n                    'hour_rate': {'type': ['null', 'number']},\n                    'hour_rate_in_cents': {'type': ['null', 'number']},\n                    'id': {'type': ['null', 'integer']},\n                    'invoice_id': {'type': ['null', 'string']},\n                    'label_ids': {'type': ['null', 'array']},\n                    'locked': {'type': ['null', 'boolean']},\n                    'locked_reason': {'type': ['null', 'string']},\n                    'manage': {'type': ['null', 'boolean']},\n                    'note': {'type': ['null', 'string']},\n                    'project': {'properties': {'account_id': {'type': ['null',\n                                                                       'integer']},\n                                               'active': {'type': ['null',\n                                                                   'boolean']},\n                                               'billable': {'type': ['null',\n                                                                     'boolean']},\n                                               'budget': {'type': ['null',\n                                                                   'integer']},\n                                               'budget_calculation': {'type': ['null',\n                                                                               'string']},\n                                               'budget_expired_on': {'type': ['null',\n                                                                              'string']},\n                                               'budget_percent': {'type': ['null',\n                                                                           'number']},\n                                               'budget_progress': {'type': ['null',\n                                                                            'number']},\n                                               'budget_scope': {'type': ['null',\n                                                                         'string']},\n                                               'budget_type': {'type': ['null',\n                                                                        'string']},\n                                               'client': {'properties': {'active': {'type': ['null',\n                                                                                             'boolean']},\n                                                                         'external_id': {'type': ['null',\n                                                                                                  'string']},\n                                                                         'id': {'type': ['null',\n                                                                                         'integer']},\n                                                                         'name': {'type': ['null',\n                                                                                           'string']},\n                                                                         'updated_at': {'airbyte_type': 'timestamp_with_timezone',\n                                                                                        'format': 'date-time',\n                                                                                        'type': ['null',\n                                                                                                 'string']}},\n                                                          'type': 'object'},\n                                               'color': {'type': ['null',\n                                                                  'string']},\n                                               'enable_labels': {'type': ['null',\n                                                                          'string']},\n                                               'external_id': {'type': ['null',\n                                                                        'string']},\n                                               'has_recurrence': {'type': ['null',\n                                                                           'boolean']},\n                                               'hour_rate': {'type': ['null',\n                                                                      'number']},\n                                               'hour_rate_in_cents': {'type': ['null',\n                                                                               'number']},\n                                               'id': {'type': ['null',\n                                                               'integer']},\n                                               'invoice_by_budget': {'type': ['null',\n                                                                              'boolean']},\n                                               'label_ids': {'type': ['null',\n                                                                      'array']},\n                                               'labels': {'type': ['null',\n                                                                   'array']},\n                                               'name': {'type': ['null',\n                                                                 'string']},\n                                               'rate_type': {'type': ['null',\n                                                                      'string']},\n                                               'required_label_ids': {'type': ['null',\n                                                                               'array']},\n                                               'required_labels': {'type': ['null',\n                                                                            'boolean']},\n                                               'required_notes': {'type': ['null',\n                                                                           'boolean']},\n                                               'updated_at': {'type': ['null',\n                                                                       'integer']}},\n                                'type': 'object'},\n                    'sequence': {'type': ['null', 'integer']},\n                    'suggestion_id': {'type': ['null', 'integer']},\n                    'timer_started_on': {'type': ['null', 'integer']},\n                    'timer_state': {'type': ['null', 'string']},\n                    'timer_stopped_on': {'type': ['null', 'integer']},\n                    'to': {'airbyte_type': 'timestamp_with_timezone',\n                           'format': 'date-time',\n                           'type': ['null', 'string']},\n                    'uid': {'type': ['null', 'string']},\n                    'updated_from': {'type': ['null', 'string']},\n                    'updater_id': {'type': ['null', 'integer']},\n                    'user': {'properties': {'avatar': {'properties': {'large': {'type': ['null',\n                                                                                         'string']},\n                                                                      'large_retina': {'type': ['null',\n                                                                                                'string']},\n                                                                      'medium': {'type': ['null',\n                                                                                          'string']},\n                                                                      'medium_retina': {'type': ['null',\n                                                                                                 'string']},\n                                                                      'timeline': {'type': ['null',\n                                                                                            'string']}},\n                                                       'type': 'object'},\n                                            'email': {'type': ['null',\n                                                               'string']},\n                                            'id': {'type': ['null',\n                                                            'integer']},\n                                            'name': {'type': ['null',\n                                                              'string']},\n                                            'updated_at': {'airbyte_type': 'timestamp_with_timezone',\n                                                           'format': 'date-time',\n                                                           'type': ['null',\n                                                                    'string']}},\n                             'type': 'object'},\n                    'user_ids': {'type': ['null', 'array']}},\n     'type': 'object'}\n\nOn instance:\n    {'billable': False,\n     'billed': False,\n     'billed_at': None,\n     'cost': {'amount': 0.0,\n              'currency_code': 'usd',\n              'formatted': '$0.00',\n              'fractional': 0},\n     'created_at': 1646170914,\n     'created_from': 'Web',\n     'creator_id': 2003446,\n     'day': '2022-03-01',\n     'deleted': False,\n     'draft': False,\n     'duration': {'formatted': '00:30',\n                  'hours': 0,\n                  'minutes': 30,\n                  'seconds': 0,\n                  'total_hours': 0.5,\n                  'total_minutes': 30,\n                  'total_seconds': 1800},\n     'entry_ids': [],\n     'estimated': False,\n     'estimated_cost': {'amount': 0.0,\n                        'currency_code': 'usd',\n                        'formatted': '$0.00',\n                        'fractional': 0},\n     'estimated_duration': {'formatted': '00:00',\n                            'hours': 0,\n                            'minutes': 0,\n                            'seconds': 0,\n                            'total_hours': 0.0,\n                            'total_minutes': 0,\n                            'total_seconds': 0},\n     'external_id': None,\n     'forecast_id': None,\n     'from': None,\n     'hour_rate': 0.0,\n     'hour_rate_in_cents': 0,\n     'id': 213567897,\n     'invoice_id': None,\n     'label_ids': [],\n     'locked': False,\n     'locked_reason': None,\n     'manage': True,\n     'note': '',\n     'project': {'account_id': 937971,\n                 'active': True,\n                 'billable': False,\n                 'budget': 0,\n                 'budget_calculation': 'completed',\n                 'budget_expired_on': None,\n                 'budget_percent': 0.0,\n                 'budget_progress': 0.0,\n                 'budget_scope': None,\n                 'budget_type': '',\n                 'client': {'active': True,\n                            'external_id': 'LIV',\n                            'id': 1554433,\n                            'name': 'Lorem Ipsum Ventures',\n                            'updated_at': '2021-08-27T22:43:12Z'},\n                 'color': 'd1c4e9',\n                 'currency': {'id': 'usd',\n                              'iso_code': 'USD',\n                              'name': 'United States Dollar',\n                              'symbol': '$',\n                              'symbol_first': True},\n                 'enable_labels': 'none',\n                 'external_id': 'LIV',\n                 'has_recurrence': False,\n                 'hour_rate': 0.0,\n                 'hour_rate_in_cents': 0.0,\n                 'id': 3749505,\n                 'invoice_by_budget': False,\n                 'label_ids': [],\n                 'labels': [],\n                 'name': 'LIV - General Support',\n                 'rate_type': 'non-billable',\n                 'required_label_ids': [],\n                 'required_labels': False,\n                 'required_notes': False,\n                 'updated_at': 1673306976},\n     'sequence': 1,\n     'suggestion_id': None,\n     'timer_started_on': 0,\n     'timer_state': 'default',\n     'timer_stopped_on': 0,\n     'timestamps': [],\n     'to': None,\n     'uid': '69353c0057f43685a00ec246d8207b07',\n     'updated_at': 1646170914,\n     'updated_from': 'Web',\n     'updater_id': 2003446,\n     'user': {'avatar': {'large': 'https://www.gravatar.com/avatar/7123312e480e92c1e23d6c005fca9949?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_large-c403e04ad44c7d8b8c7904dc7e7c1893101f3672565370034edbe3dee9985509.jpg&s=',\n                         'large_retina': 'https://www.gravatar.com/avatar/7123312e480e92c1e23d6c005fca9949?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_large_retina-c403e04ad44c7d8b8c7904dc7e7c1893101f3672565370034edbe3dee9985509.jpg&s=200',\n                         'medium': 'https://www.gravatar.com/avatar/7123312e480e92c1e23d6c005fca9949?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_medium-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=',\n                         'medium_retina': 'https://www.gravatar.com/avatar/7123312e480e92c1e23d6c005fca9949?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_medium_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=50',\n                         'timeline': 'https://www.gravatar.com/avatar/7123312e480e92c1e23d6c005fca9949?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_timeline-e61ac46443487bd24fbaecab08cfacf5d0835b371cbe97a33b9e738744ef8334.jpg&s='},\n              'email': 'justin.mcmahon@pliancy.com',\n              'id': 2003446,\n              'name': 'Justin McMahon',\n              'updated_at': '2023-03-21T14:30:12-04:00'},\n     'user_ids': []}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The events stream has the following schema errors:
+Additional properties are not allowed ('creator_id', 'updated_at', 'timestamps' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'billable': {'type': ['null', 'boolean']},
+                    'billed': {'type': ['null', 'boolean']},
+                    'billed_at': {'airbyte_type': 'timestamp_with_timezone',
+                                  'format': 'date-time',
+                                  'type': ['null', 'string']},
+                    'cost': {'properties': {'amount': {'type': ['null',
+                                                                'number']},
+                                            'formatted': {'type': ['null',
+                                                                   'string']},
+                                            'fractional': {'type': ['null',
+                                                                    'integer']}},
+                             'type': 'object'},
+                    'created_at': {'type': ['null', 'integer']},
+                    'created_from': {'type': ['null', 'string']},
+                    'created_id': {'type': ['null', 'integer']},
+                    'day': {'format': 'date', 'type': ['null', 'string']},
+                    'deleted': {'type': ['null', 'boolean']},
+                    'draft': {'type': ['null', 'boolean']},
+                    'duration': {'properties': {'correctedHours': {'type': ['null',
+                                                                            'integer']},
+                                                'formatted': {'type': ['null',
+                                                                       'string']},
+                                                'hours': {'type': ['null',
+                                                                   'integer']},
+                                                'minutes': {'type': ['null',
+                                                                     'integer']},
+                                                'seconds': {'type': ['null',
+                                                                     'integer']},
+                                                'total_hours': {'type': ['null',
+                                                                         'number']},
+                                                'total_minutes': {'type': ['null',
+                                                                           'integer']},
+                                                'total_seconds': {'type': ['null',
+                                                                           'integer']}},
+                                 'type': 'object'},
+                    'entry_ids': {'type': ['null', 'array']},
+                    'estimated': {'type': ['null', 'boolean']},
+                    'estimated_cost': {'properties': {'amount': {'type': ['null',
+                                                                          'number']},
+                                                      'formatted': {'type': ['null',
+                                                                             'string']},
+                                                      'fractional': {'type': ['null',
+                                                                              'integer']}},
+                                       'type': 'object'},
+                    'estimated_duration': {'properties': {'formatted': {'type': ['null',
+                                                                                 'string']},
+                                                          'hours': {'type': ['null',
+                                                                             'integer']},
+                                                          'minutes': {'type': ['null',
+                                                                               'integer']},
+                                                          'seconds': {'type': ['null',
+                                                                               'integer']},
+                                                          'total_hours': {'type': ['null',
+                                                                                   'number']},
+                                                          'total_minutes': {'type': ['null',
+                                                                                     'integer']},
+                                                          'total_seconds': {'type': ['null',
+                                                                                     'integer']}},
+                                           'type': 'object'},
+                    'external_id': {'type': ['null', 'integer']},
+                    'forecast_id': {'type': ['null', 'string']},
+                    'from': {'airbyte_type': 'timestamp_with_timezone',
+                             'format': 'date-time',
+                             'type': ['null', 'string']},
+                    'hour_rate': {'type': ['null', 'number']},
+                    'hour_rate_in_cents': {'type': ['null', 'number']},
+                    'id': {'type': ['null', 'integer']},
+                    'invoice_id': {'type': ['null', 'string']},
+                    'label_ids': {'type': ['null', 'array']},
+                    'locked': {'type': ['null', 'boolean']},
+                    'locked_reason': {'type': ['null', 'string']},
+                    'manage': {'type': ['null', 'boolean']},
+                    'note': {'type': ['null', 'string']},
+                    'project': {'properties': {'account_id': {'type': ['null',
+                                                                       'integer']},
+                                               'active': {'type': ['null',
+                                                                   'boolean']},
+                                               'billable': {'type': ['null',
+                                                                     'boolean']},
+                                               'budget': {'type': ['null',
+                                                                   'integer']},
+                                               'budget_calculation': {'type': ['null',
+                                                                               'string']},
+                                               'budget_expired_on': {'type': ['null',
+                                                                              'string']},
+                                               'budget_percent': {'type': ['null',
+                                                                           'number']},
+                                               'budget_progress': {'type': ['null',
+                                                                            'number']},
+                                               'budget_scope': {'type': ['null',
+                                                                         'string']},
+                                               'budget_type': {'type': ['null',
+                                                                        'string']},
+                                               'client': {'properties': {'active': {'type': ['null',
+                                                                                             'boolean']},
+                                                                         'external_id': {'type': ['null',
+                                                                                                  'string']},
+                                                                         'id': {'type': ['null',
+                                                                                         'integer']},
+                                                                         'name': {'type': ['null',
+                                                                                           'string']},
+                                                                         'updated_at': {'airbyte_type': 'timestamp_with_timezone',
+                                                                                        'format': 'date-time',
+                                                                                        'type': ['null',
+                                                                                                 'string']}},
+                                                          'type': 'object'},
+                                               'color': {'type': ['null',
+                                                                  'string']},
+                                               'enable_labels': {'type': ['null',
+                                                                          'string']},
+                                               'external_id': {'type': ['null',
+                                                                        'string']},
+                                               'has_recurrence': {'type': ['null',
+                                                                           'boolean']},
+                                               'hour_rate': {'type': ['null',
+                                                                      'number']},
+                                               'hour_rate_in_cents': {'type': ['null',
+                                                                               'number']},
+                                               'id': {'type': ['null',
+                                                               'integer']},
+                                               'invoice_by_budget': {'type': ['null',
+                                                                              'boolean']},
+                                               'label_ids': {'type': ['null',
+                                                                      'array']},
+                                               'labels': {'type': ['null',
+                                                                   'array']},
+                                               'name': {'type': ['null',
+                                                                 'string']},
+                                               'rate_type': {'type': ['null',
+                                                                      'string']},
+                                               'required_label_ids': {'type': ['null',
+                                                                               'array']},
+                                               'required_labels': {'type': ['null',
+                                                                            'boolean']},
+                                               'required_notes': {'type': ['null',
+                                                                           'boolean']},
+                                               'updated_at': {'type': ['null',
+                                                                       'integer']}},
+                                'type': 'object'},
+                    'sequence': {'type': ['null', 'integer']},
+                    'suggestion_id': {'type': ['null', 'integer']},
+                    'timer_started_on': {'type': ['null', 'integer']},
+                    'timer_state': {'type': ['null', 'string']},
+                    'timer_stopped_on': {'type': ['null', 'integer']},
+                    'to': {'airbyte_type': 'timestamp_with_timezone',
+                           'format': 'date-time',
+                           'type': ['null', 'string']},
+                    'uid': {'type': ['null', 'string']},
+                    'updated_from': {'type': ['null', 'string']},
+                    'updater_id': {'type': ['null', 'integer']},
+                    'user': {'properties': {'avatar': {'properties': {'large': {'type': ['null',
+                                                                                         'string']},
+                                                                      'large_retina': {'type': ['null',
+                                                                                                'string']},
+                                                                      'medium': {'type': ['null',
+                                                                                          'string']},
+                                                                      'medium_retina': {'type': ['null',
+                                                                                                 'string']},
+                                                                      'timeline': {'type': ['null',
+                                                                                            'string']}},
+                                                       'type': 'object'},
+                                            'email': {'type': ['null',
+                                                               'string']},
+                                            'id': {'type': ['null',
+                                                            'integer']},
+                                            'name': {'type': ['null',
+                                                              'string']},
+                                            'updated_at': {'airbyte_type': 'timestamp_with_timezone',
+                                                           'format': 'date-time',
+                                                           'type': ['null',
+                                                                    'string']}},
+                             'type': 'object'},
+                    'user_ids': {'type': ['null', 'array']}},
+     'type': 'object'}
+
+On instance:
+    {'billable': False,
+     'billed': False,
+     'billed_at': None,
+     'cost': {'amount': 0.0,
+              'currency_code': 'usd',
+              'formatted': '$0.00',
+              'fractional': 0},
+     'created_at': 1646170914,
+     'created_from': 'Web',
+     'creator_id': 2003446,
+     'day': '2022-03-01',
+     'deleted': False,
+     'draft': False,
+     'duration': {'formatted': '00:30',
+                  'hours': 0,
+                  'minutes': 30,
+                  'seconds': 0,
+                  'total_hours': 0.5,
+                  'total_minutes': 30,
+                  'total_seconds': 1800},
+     'entry_ids': [],
+     'estimated': False,
+     'estimated_cost': {'amount': 0.0,
+                        'currency_code': 'usd',
+                        'formatted': '$0.00',
+                        'fractional': 0},
+     'estimated_duration': {'formatted': '00:00',
+                            'hours': 0,
+                            'minutes': 0,
+                            'seconds': 0,
+                            'total_hours': 0.0,
+                            'total_minutes': 0,
+                            'total_seconds': 0},
+     'external_id': None,
+     'forecast_id': None,
+     'from': None,
+     'hour_rate': 0.0,
+     'hour_rate_in_cents': 0,
+     'id': 213567897,
+     'invoice_id': None,
+     'label_ids': [],
+     'locked': False,
+     'locked_reason': None,
+     'manage': True,
+     'note': '',
+     'project': {'account_id': 937971,
+                 'active': True,
+                 'billable': False,
+                 'budget': 0,
+                 'budget_calculation': 'completed',
+                 'budget_expired_on': None,
+                 'budget_percent': 0.0,
+                 'budget_progress': 0.0,
+                 'budget_scope': None,
+                 'budget_type': '',
+                 'client': {'active': True,
+                            'external_id': 'LIV',
+                            'id': 1554433,
+                            'name': 'Lorem Ipsum Ventures',
+                            'updated_at': '2021-08-27T22:43:12Z'},
+                 'color': 'd1c4e9',
+                 'currency': {'id': 'usd',
+                              'iso_code': 'USD',
+                              'name': 'United States Dollar',
+                              'symbol': '$',
+                              'symbol_first': True},
+                 'enable_labels': 'none',
+                 'external_id': 'LIV',
+                 'has_recurrence': False,
+                 'hour_rate': 0.0,
+                 'hour_rate_in_cents': 0.0,
+                 'id': 3749505,
+                 'invoice_by_budget': False,
+                 'label_ids': [],
+                 'labels': [],
+                 'name': 'LIV - General Support',
+                 'rate_type': 'non-billable',
+                 'required_label_ids': [],
+                 'required_labels': False,
+                 'required_notes': False,
+                 'updated_at': 1673306976},
+     'sequence': 1,
+     'suggestion_id': None,
+     'timer_started_on': 0,
+     'timer_state': 'default',
+     'timer_stopped_on': 0,
+     'timestamps': [],
+     'to': None,
+     'uid': '69353c0057f43685a00ec246d8207b07',
+     'updated_at': 1646170914,
+     'updated_from': 'Web',
+     'updater_id': 2003446,
+     'user': {'avatar': {'large': 'https://www.gravatar.com/avatar/7123312e480e92c1e23d6c005fca9949?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_large-c403e04ad44c7d8b8c7904dc7e7c1893101f3672565370034edbe3dee9985509.jpg&s=',
+                         'large_retina': 'https://www.gravatar.com/avatar/7123312e480e92c1e23d6c005fca9949?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_large_retina-c403e04ad44c7d8b8c7904dc7e7c1893101f3672565370034edbe3dee9985509.jpg&s=200',
+                         'medium': 'https://www.gravatar.com/avatar/7123312e480e92c1e23d6c005fca9949?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_medium-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=',
+                         'medium_retina': 'https://www.gravatar.com/avatar/7123312e480e92c1e23d6c005fca9949?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_medium_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=50',
+                         'timeline': 'https://www.gravatar.com/avatar/7123312e480e92c1e23d6c005fca9949?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_timeline-e61ac46443487bd24fbaecab08cfacf5d0835b371cbe97a33b9e738744ef8334.jpg&s='},
+              'email': 'justin.mcmahon@pliancy.com',
+              'id': 2003446,
+              'name': 'Justin McMahon',
+              'updated_at': '2023-03-21T14:30:12-04:00'},
+     'user_ids': []}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+=========== 1 failed, 1 skipped, 33 deselected, 35 warnings in 6.95s ===========

@@ -1,0 +1,208 @@
+../../../../connectors/source-bigcommerce/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-bigcommerce
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 37 items / 35 deselected / 2 selected
+
+../../test_input/test_core.py F                                          [ 50%]
+../../test_input/test_incremental.py .                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffa7004910>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='customers', json_schema={'$schema... 'incremental'>, cursor_field=['id'], destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='order_products', bypass_reason=None), EmptyStreamConfiguration(name='orders', bypass_r...Configuration(name='transactions', bypass_reason=None), EmptyStreamConfiguration(name='customers', bypass_reason=None)}
+ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffa7083220>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='pages', data={'id': 2, 'channel_id': 1, 'name': 'Shipping & Returns', 'm...h_keywords': '', 'custom_url': {'url': '/brands/common-good/', 'is_customized': True}}, emitted_at=1679404631327), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='customers', json_schema={'$schema... 'incremental'>, cursor_field=['id'], destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('categories', 'channels').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe categories stream has the following schema errors:\nAdditional properties are not allowed ('custom_url' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'default_product_sort': {'type': ['null', 'string']},\n                    'description': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'integer']},\n                    'image_url': {'type': ['null', 'string']},\n                    'is_visible': {'type': ['null', 'boolean']},\n                    'layout_file': {'type': ['null', 'string']},\n                    'meta_description': {'type': ['null', 'string']},\n                    'meta_keywords': {'items': {'type': ['null', 'string']},\n                                      'type': ['null', 'array']},\n                    'name': {'type': ['null', 'string']},\n                    'page_title': {'type': ['null', 'string']},\n                    'parent_id': {'type': ['null', 'integer']},\n                    'search_keywords': {'type': ['null', 'string']},\n                    'sort_order': {'type': ['null', 'integer']},\n                    'url': {'properties': {'is_customized': {'type': ['null',\n                                                                      'boolean']},\n                                           'path': {'type': ['null',\n                                                             'string']}},\n                            'type': ['null', 'object']},\n                    'views': {'type': ['null', 'integer']}},\n     'type': 'object'}\n\nOn instance:\n    {'custom_url': {'is_customized': False, 'url': '/shop-all/'},\n     'default_product_sort': 'use_store_settings',\n     'description': '',\n     'id': 23,\n     'image_url': '',\n     'is_visible': True,\n     'layout_file': 'category_with_facets.html',\n     'meta_description': '',\n     'meta_keywords': [''],\n     'name': 'Shop All',\n     'page_title': '',\n     'parent_id': 0,\n     'search_keywords': '',\n     'sort_order': 0,\n     'views': 0}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe channels stream has the following schema errors:\nAdditional properties are not allowed ('is_enabled' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'date_created': {'format': 'date-time',\n                                     'type': ['null', 'string']},\n                    'date_modified': {'format': 'date-time',\n                                      'type': ['null', 'string']},\n                    'external_id': {'type': ['null', 'string']},\n                    'icon_url': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'integer']},\n                    'is_listable_from_ui': {'type': ['null', 'boolean']},\n                    'is_visible': {'type': ['null', 'boolean']},\n                    'name': {'type': ['null', 'string']},\n                    'platform': {'type': ['null', 'string']},\n                    'status': {'type': ['null', 'string']},\n                    'type': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'date_created': '2022-12-14T18:20:24+00:00',\n     'date_modified': '2022-12-14T18:20:24+00:00',\n     'external_id': '',\n     'icon_url': 'https://s3.amazonaws.com/bc-channel-platform/channel-icons/bigcommerce.svg',\n     'id': 1,\n     'is_enabled': True,\n     'is_listable_from_ui': True,\n     'is_visible': True,\n     'name': 'Airbyte Test',\n     'platform': 'bigcommerce',\n     'status': 'prelaunch',\n     'type': 'storefront'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The categories stream has the following schema errors:
+Additional properties are not allowed ('custom_url' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'default_product_sort': {'type': ['null', 'string']},
+                    'description': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'integer']},
+                    'image_url': {'type': ['null', 'string']},
+                    'is_visible': {'type': ['null', 'boolean']},
+                    'layout_file': {'type': ['null', 'string']},
+                    'meta_description': {'type': ['null', 'string']},
+                    'meta_keywords': {'items': {'type': ['null', 'string']},
+                                      'type': ['null', 'array']},
+                    'name': {'type': ['null', 'string']},
+                    'page_title': {'type': ['null', 'string']},
+                    'parent_id': {'type': ['null', 'integer']},
+                    'search_keywords': {'type': ['null', 'string']},
+                    'sort_order': {'type': ['null', 'integer']},
+                    'url': {'properties': {'is_customized': {'type': ['null',
+                                                                      'boolean']},
+                                           'path': {'type': ['null',
+                                                             'string']}},
+                            'type': ['null', 'object']},
+                    'views': {'type': ['null', 'integer']}},
+     'type': 'object'}
+
+On instance:
+    {'custom_url': {'is_customized': False, 'url': '/shop-all/'},
+     'default_product_sort': 'use_store_settings',
+     'description': '',
+     'id': 23,
+     'image_url': '',
+     'is_visible': True,
+     'layout_file': 'category_with_facets.html',
+     'meta_description': '',
+     'meta_keywords': [''],
+     'name': 'Shop All',
+     'page_title': '',
+     'parent_id': 0,
+     'search_keywords': '',
+     'sort_order': 0,
+     'views': 0}
+ERROR    root:test_core.py:662 
+The channels stream has the following schema errors:
+Additional properties are not allowed ('is_enabled' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'date_created': {'format': 'date-time',
+                                     'type': ['null', 'string']},
+                    'date_modified': {'format': 'date-time',
+                                      'type': ['null', 'string']},
+                    'external_id': {'type': ['null', 'string']},
+                    'icon_url': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'integer']},
+                    'is_listable_from_ui': {'type': ['null', 'boolean']},
+                    'is_visible': {'type': ['null', 'boolean']},
+                    'name': {'type': ['null', 'string']},
+                    'platform': {'type': ['null', 'string']},
+                    'status': {'type': ['null', 'string']},
+                    'type': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'date_created': '2022-12-14T18:20:24+00:00',
+     'date_modified': '2022-12-14T18:20:24+00:00',
+     'external_id': '',
+     'icon_url': 'https://s3.amazonaws.com/bc-channel-platform/channel-icons/bigcommerce.svg',
+     'id': 1,
+     'is_enabled': True,
+     'is_listable_from_ui': True,
+     'is_visible': True,
+     'name': 'Airbyte Test',
+     'platform': 'bigcommerce',
+     'status': 'prelaunch',
+     'type': 'storefront'}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 36 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+=========== 1 failed, 1 passed, 35 deselected, 37 warnings in 48.87s ===========

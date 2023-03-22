@@ -1,0 +1,353 @@
+../../../../connectors/source-getlago/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-getlago
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffb1639610>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='billable_metrics', json_schema={'...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffb105ddf0>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='billable_metrics', data={'lago_id': 'e8d3fce0-54f3-482f-8bf3-82aba9443cd...time_limit', 'expiration_at': '2023-01-31T23:59:59Z', 'expiration_date': '2023-01-31'}, emitted_at=1679405099451), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='billable_metrics', json_schema={'...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('billable_metrics', 'plans', 'coupons', 'invoices', 'customers', 'subscriptions').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe billable_metrics stream has the following schema errors:\nAdditional properties are not allowed ('draft_invoices_count', 'active_subscriptions_count', 'plans_count' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'aggregation_type': {'type': ['null', 'string']},\n                    'code': {'type': ['null', 'string']},\n                    'created_at': {'type': ['null', 'string']},\n                    'description': {'type': ['null', 'string']},\n                    'field_name': {'type': ['null', 'string']},\n                    'group': {'type': ['null', 'object']},\n                    'lago_id': {'type': ['null', 'string']},\n                    'name': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'active_subscriptions_count': 1,\n     'aggregation_type': 'count_agg',\n     'code': 'metric_one',\n     'created_at': '2022-10-31T13:42:03Z',\n     'description': 'This is a description.',\n     'draft_invoices_count': 0,\n     'field_name': None,\n     'group': {},\n     'lago_id': 'd8316869-e430-414c-a6ca-6417a097babf',\n     'name': 'Metric one',\n     'plans_count': 1}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe plans stream has the following schema errors:\nAdditional properties are not allowed ('draft_invoices_count', 'active_subscriptions_count' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'amount_cents': {'type': ['null', 'integer']},\n                    'amount_currency': {'type': ['null', 'string']},\n                    'bill_charges_monthly': {'type': ['null', 'boolean']},\n                    'charges': {'type': ['null', 'array']},\n                    'code': {'type': ['null', 'string']},\n                    'created_at': {'type': ['null', 'string']},\n                    'description': {'type': ['null', 'string']},\n                    'interval': {'type': ['null', 'string']},\n                    'lago_id': {'type': ['null', 'string']},\n                    'name': {'type': ['null', 'string']},\n                    'pay_in_advance': {'type': ['null', 'boolean']},\n                    'trial_period': {'type': ['null', 'number']}},\n     'type': 'object'}\n\nOn instance:\n    {'active_subscriptions_count': 0,\n     'amount_cents': 0,\n     'amount_currency': 'USD',\n     'bill_charges_monthly': None,\n     'charges': [],\n     'code': 'free_plan',\n     'created_at': '2022-10-31T13:43:48Z',\n     'description': 'This is a free plan',\n     'draft_invoices_count': 0,\n     'interval': 'monthly',\n     'lago_id': 'cca2fb9d-e122-4c77-b2ee-9f2005bc1338',\n     'name': 'Free',\n     'pay_in_advance': False,\n     'trial_period': 0.0}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe coupons stream has the following schema errors:\nAdditional properties are not allowed ('plan_codes', 'expiration_at', 'limited_plans', 'reusable' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'amount_cents': {'type': ['null', 'integer']},\n                    'amount_currency': {'type': ['null', 'string']},\n                    'code': {'type': ['null', 'string']},\n                    'coupon_type': {'type': ['null', 'string']},\n                    'created_at': {'type': ['null', 'string']},\n                    'expiration': {'type': ['null', 'string']},\n                    'expiration_date': {'type': ['null', 'string']},\n                    'frequency': {'type': ['null', 'string']},\n                    'frequency_duration': {'type': ['null', 'integer']},\n                    'lago_id': {'type': ['null', 'string']},\n                    'name': {'type': ['null', 'string']},\n                    'percentage_rate': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'amount_cents': None,\n     'amount_currency': None,\n     'code': 'hey_10',\n     'coupon_type': 'percentage',\n     'created_at': '2022-10-31T13:45:53Z',\n     'expiration': 'time_limit',\n     'expiration_at': '2023-01-31T23:59:59Z',\n     'expiration_date': '2023-01-31',\n     'frequency': 'once',\n     'frequency_duration': None,\n     'lago_id': '36a0507c-86f8-4701-bacc-b9503ee29f19',\n     'limited_plans': False,\n     'name': 'Hey10',\n     'percentage_rate': '10.0',\n     'plan_codes': [],\n     'reusable': True}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe invoices stream has the following schema errors:\nAdditional properties are not allowed ('metadata', 'payment_status', 'customer', 'legacy', 'credit_amount_currency', 'credit_amount_cents' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'amount_cents': {'type': ['null', 'integer']},\n                    'amount_currency': {'type': ['null', 'string']},\n                    'file_url': {'type': ['null', 'string']},\n                    'invoice_type': {'type': ['null', 'string']},\n                    'issuing_date': {'type': ['null', 'string']},\n                    'lago_id': {'type': ['null', 'string']},\n                    'number': {'type': ['null', 'string']},\n                    'sequential_id': {'type': ['null', 'integer']},\n                    'status': {'type': ['null', 'string']},\n                    'total_amount_cents': {'type': ['null', 'integer']},\n                    'total_amount_currency': {'type': ['null', 'string']},\n                    'vat_amount_cents': {'type': ['null', 'integer']},\n                    'vat_amount_currency': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'amount_cents': 500,\n     'amount_currency': 'USD',\n     'credit_amount_cents': 0,\n     'credit_amount_currency': 'USD',\n     'customer': {'address_line1': '288, rue roger salengro',\n                  'address_line2': None,\n                  'applicable_timezone': 'UTC',\n                  'billing_configuration': {'document_locale': None,\n                                            'invoice_grace_period': None,\n                                            'payment_provider': 'stripe',\n                                            'provider_customer_id': None,\n                                            'vat_rate': None},\n                  'city': 'Lille',\n                  'country': 'FR',\n                  'created_at': '2022-10-31T13:47:33Z',\n                  'currency': 'USD',\n                  'email': 'haithem.souala@woopit.fr',\n                  'external_id': 'customer1234',\n                  'lago_id': 'ca69c553-0f98-4c1d-91fd-75423c40c707',\n                  'legal_name': 'WOOP',\n                  'legal_number': '12234545',\n                  'logo_url': None,\n                  'name': 'Customer-one',\n                  'phone': '0600000000',\n                  'sequential_id': 1,\n                  'slug': 'AIR-0DC7-001',\n                  'state': 'Nord',\n                  'timezone': None,\n                  'url': None,\n                  'zipcode': '59000'},\n     'file_url': None,\n     'invoice_type': 'add_on',\n     'issuing_date': '2022-10-31',\n     'lago_id': '4d016def-e24e-4c69-8860-074d21577304',\n     'legacy': True,\n     'metadata': [],\n     'number': 'AIR-0DC7-001-001',\n     'payment_status': 'pending',\n     'sequential_id': 1,\n     'status': 'finalized',\n     'total_amount_cents': 500,\n     'total_amount_currency': 'USD',\n     'vat_amount_cents': 0,\n     'vat_amount_currency': 'USD'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe customers stream has the following schema errors:\nAdditional properties are not allowed ('metadata', 'zipcode', 'country', 'timezone', 'applicable_timezone' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'address_line1': {'type': ['null', 'string']},\n                    'address_line2': {'type': ['null', 'string']},\n                    'billing_configuration': {'type': ['null', 'object']},\n                    'city': {'type': ['null', 'string']},\n                    'created_at': {'type': ['null', 'string']},\n                    'currency': {'type': ['null', 'string']},\n                    'email': {'type': ['null', 'string']},\n                    'external_id': {'type': ['null', 'string']},\n                    'lago_id': {'type': ['null', 'string']},\n                    'legal_name': {'type': ['null', 'string']},\n                    'legal_number': {'type': ['null', 'string']},\n                    'logo_url': {'type': ['null', 'string']},\n                    'name': {'type': ['null', 'string']},\n                    'phone': {'type': ['null', 'string']},\n                    'sequential_id': {'type': ['null', 'integer']},\n                    'slug': {'type': ['null', 'string']},\n                    'state': {'type': ['null', 'string']},\n                    'url': {'type': ['null', 'string']},\n                    'vat_rate': {'type': ['null', 'number']}},\n     'type': 'object'}\n\nOn instance:\n    {'address_line1': '288, rue roger salengro',\n     'address_line2': None,\n     'applicable_timezone': 'UTC',\n     'billing_configuration': {'document_locale': None,\n                               'invoice_grace_period': None,\n                               'payment_provider': 'stripe',\n                               'provider_customer_id': None,\n                               'vat_rate': None},\n     'city': 'Lille',\n     'country': 'FR',\n     'created_at': '2022-10-31T13:47:33Z',\n     'currency': 'USD',\n     'email': 'haithem.souala@woopit.fr',\n     'external_id': 'customer1234',\n     'lago_id': 'ca69c553-0f98-4c1d-91fd-75423c40c707',\n     'legal_name': 'WOOP',\n     'legal_number': '12234545',\n     'logo_url': None,\n     'metadata': [],\n     'name': 'Customer-one',\n     'phone': '0600000000',\n     'sequential_id': 1,\n     'slug': 'AIR-0DC7-001',\n     'state': 'Nord',\n     'timezone': None,\n     'url': None,\n     'zipcode': '59000'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe subscriptions stream has the following schema errors:\nAdditional properties are not allowed ('subscription_at' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'billing_time': {'type': ['null', 'string']},\n                    'canceled_at': {'type': ['null', 'string']},\n                    'created_at': {'type': ['null', 'string']},\n                    'downgrade_plan_date': {'type': ['null', 'string']},\n                    'external_customer_id': {'type': ['null', 'string']},\n                    'external_id': {'type': ['null', 'string']},\n                    'lago_customer_id': {'type': ['null', 'string']},\n                    'lago_id': {'type': ['null', 'string']},\n                    'name': {'type': ['null', 'string']},\n                    'next_plan_code': {'type': ['null', 'string']},\n                    'plan_code': {'type': ['null', 'string']},\n                    'previous_plan_code': {'type': ['null', 'string']},\n                    'started_at': {'type': ['null', 'string']},\n                    'status': {'type': ['null', 'string']},\n                    'subscription_date': {'type': ['null', 'string']},\n                    'terminated_at': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'billing_time': 'calendar',\n     'canceled_at': None,\n     'created_at': '2022-10-31T16:36:08Z',\n     'downgrade_plan_date': None,\n     'external_customer_id': 'customer1234',\n     'external_id': '4743b06c-7828-4341-b292-f956471aba4a',\n     'lago_customer_id': 'ca69c553-0f98-4c1d-91fd-75423c40c707',\n     'lago_id': 'a1fa9317-2cff-43b0-8248-23491a366aa4',\n     'name': '',\n     'next_plan_code': None,\n     'plan_code': 'enterprise_plan',\n     'previous_plan_code': None,\n     'started_at': '2022-10-31T16:36:08Z',\n     'status': 'active',\n     'subscription_at': '2022-10-31T00:00:00Z',\n     'subscription_date': '2022-10-31',\n     'terminated_at': None}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The billable_metrics stream has the following schema errors:
+Additional properties are not allowed ('draft_invoices_count', 'active_subscriptions_count', 'plans_count' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'aggregation_type': {'type': ['null', 'string']},
+                    'code': {'type': ['null', 'string']},
+                    'created_at': {'type': ['null', 'string']},
+                    'description': {'type': ['null', 'string']},
+                    'field_name': {'type': ['null', 'string']},
+                    'group': {'type': ['null', 'object']},
+                    'lago_id': {'type': ['null', 'string']},
+                    'name': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'active_subscriptions_count': 1,
+     'aggregation_type': 'count_agg',
+     'code': 'metric_one',
+     'created_at': '2022-10-31T13:42:03Z',
+     'description': 'This is a description.',
+     'draft_invoices_count': 0,
+     'field_name': None,
+     'group': {},
+     'lago_id': 'd8316869-e430-414c-a6ca-6417a097babf',
+     'name': 'Metric one',
+     'plans_count': 1}
+ERROR    root:test_core.py:662 
+The plans stream has the following schema errors:
+Additional properties are not allowed ('draft_invoices_count', 'active_subscriptions_count' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'amount_cents': {'type': ['null', 'integer']},
+                    'amount_currency': {'type': ['null', 'string']},
+                    'bill_charges_monthly': {'type': ['null', 'boolean']},
+                    'charges': {'type': ['null', 'array']},
+                    'code': {'type': ['null', 'string']},
+                    'created_at': {'type': ['null', 'string']},
+                    'description': {'type': ['null', 'string']},
+                    'interval': {'type': ['null', 'string']},
+                    'lago_id': {'type': ['null', 'string']},
+                    'name': {'type': ['null', 'string']},
+                    'pay_in_advance': {'type': ['null', 'boolean']},
+                    'trial_period': {'type': ['null', 'number']}},
+     'type': 'object'}
+
+On instance:
+    {'active_subscriptions_count': 0,
+     'amount_cents': 0,
+     'amount_currency': 'USD',
+     'bill_charges_monthly': None,
+     'charges': [],
+     'code': 'free_plan',
+     'created_at': '2022-10-31T13:43:48Z',
+     'description': 'This is a free plan',
+     'draft_invoices_count': 0,
+     'interval': 'monthly',
+     'lago_id': 'cca2fb9d-e122-4c77-b2ee-9f2005bc1338',
+     'name': 'Free',
+     'pay_in_advance': False,
+     'trial_period': 0.0}
+ERROR    root:test_core.py:662 
+The coupons stream has the following schema errors:
+Additional properties are not allowed ('plan_codes', 'expiration_at', 'limited_plans', 'reusable' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'amount_cents': {'type': ['null', 'integer']},
+                    'amount_currency': {'type': ['null', 'string']},
+                    'code': {'type': ['null', 'string']},
+                    'coupon_type': {'type': ['null', 'string']},
+                    'created_at': {'type': ['null', 'string']},
+                    'expiration': {'type': ['null', 'string']},
+                    'expiration_date': {'type': ['null', 'string']},
+                    'frequency': {'type': ['null', 'string']},
+                    'frequency_duration': {'type': ['null', 'integer']},
+                    'lago_id': {'type': ['null', 'string']},
+                    'name': {'type': ['null', 'string']},
+                    'percentage_rate': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'amount_cents': None,
+     'amount_currency': None,
+     'code': 'hey_10',
+     'coupon_type': 'percentage',
+     'created_at': '2022-10-31T13:45:53Z',
+     'expiration': 'time_limit',
+     'expiration_at': '2023-01-31T23:59:59Z',
+     'expiration_date': '2023-01-31',
+     'frequency': 'once',
+     'frequency_duration': None,
+     'lago_id': '36a0507c-86f8-4701-bacc-b9503ee29f19',
+     'limited_plans': False,
+     'name': 'Hey10',
+     'percentage_rate': '10.0',
+     'plan_codes': [],
+     'reusable': True}
+ERROR    root:test_core.py:662 
+The invoices stream has the following schema errors:
+Additional properties are not allowed ('metadata', 'payment_status', 'customer', 'legacy', 'credit_amount_currency', 'credit_amount_cents' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'amount_cents': {'type': ['null', 'integer']},
+                    'amount_currency': {'type': ['null', 'string']},
+                    'file_url': {'type': ['null', 'string']},
+                    'invoice_type': {'type': ['null', 'string']},
+                    'issuing_date': {'type': ['null', 'string']},
+                    'lago_id': {'type': ['null', 'string']},
+                    'number': {'type': ['null', 'string']},
+                    'sequential_id': {'type': ['null', 'integer']},
+                    'status': {'type': ['null', 'string']},
+                    'total_amount_cents': {'type': ['null', 'integer']},
+                    'total_amount_currency': {'type': ['null', 'string']},
+                    'vat_amount_cents': {'type': ['null', 'integer']},
+                    'vat_amount_currency': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'amount_cents': 500,
+     'amount_currency': 'USD',
+     'credit_amount_cents': 0,
+     'credit_amount_currency': 'USD',
+     'customer': {'address_line1': '288, rue roger salengro',
+                  'address_line2': None,
+                  'applicable_timezone': 'UTC',
+                  'billing_configuration': {'document_locale': None,
+                                            'invoice_grace_period': None,
+                                            'payment_provider': 'stripe',
+                                            'provider_customer_id': None,
+                                            'vat_rate': None},
+                  'city': 'Lille',
+                  'country': 'FR',
+                  'created_at': '2022-10-31T13:47:33Z',
+                  'currency': 'USD',
+                  'email': 'haithem.souala@woopit.fr',
+                  'external_id': 'customer1234',
+                  'lago_id': 'ca69c553-0f98-4c1d-91fd-75423c40c707',
+                  'legal_name': 'WOOP',
+                  'legal_number': '12234545',
+                  'logo_url': None,
+                  'name': 'Customer-one',
+                  'phone': '0600000000',
+                  'sequential_id': 1,
+                  'slug': 'AIR-0DC7-001',
+                  'state': 'Nord',
+                  'timezone': None,
+                  'url': None,
+                  'zipcode': '59000'},
+     'file_url': None,
+     'invoice_type': 'add_on',
+     'issuing_date': '2022-10-31',
+     'lago_id': '4d016def-e24e-4c69-8860-074d21577304',
+     'legacy': True,
+     'metadata': [],
+     'number': 'AIR-0DC7-001-001',
+     'payment_status': 'pending',
+     'sequential_id': 1,
+     'status': 'finalized',
+     'total_amount_cents': 500,
+     'total_amount_currency': 'USD',
+     'vat_amount_cents': 0,
+     'vat_amount_currency': 'USD'}
+ERROR    root:test_core.py:662 
+The customers stream has the following schema errors:
+Additional properties are not allowed ('metadata', 'zipcode', 'country', 'timezone', 'applicable_timezone' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'address_line1': {'type': ['null', 'string']},
+                    'address_line2': {'type': ['null', 'string']},
+                    'billing_configuration': {'type': ['null', 'object']},
+                    'city': {'type': ['null', 'string']},
+                    'created_at': {'type': ['null', 'string']},
+                    'currency': {'type': ['null', 'string']},
+                    'email': {'type': ['null', 'string']},
+                    'external_id': {'type': ['null', 'string']},
+                    'lago_id': {'type': ['null', 'string']},
+                    'legal_name': {'type': ['null', 'string']},
+                    'legal_number': {'type': ['null', 'string']},
+                    'logo_url': {'type': ['null', 'string']},
+                    'name': {'type': ['null', 'string']},
+                    'phone': {'type': ['null', 'string']},
+                    'sequential_id': {'type': ['null', 'integer']},
+                    'slug': {'type': ['null', 'string']},
+                    'state': {'type': ['null', 'string']},
+                    'url': {'type': ['null', 'string']},
+                    'vat_rate': {'type': ['null', 'number']}},
+     'type': 'object'}
+
+On instance:
+    {'address_line1': '288, rue roger salengro',
+     'address_line2': None,
+     'applicable_timezone': 'UTC',
+     'billing_configuration': {'document_locale': None,
+                               'invoice_grace_period': None,
+                               'payment_provider': 'stripe',
+                               'provider_customer_id': None,
+                               'vat_rate': None},
+     'city': 'Lille',
+     'country': 'FR',
+     'created_at': '2022-10-31T13:47:33Z',
+     'currency': 'USD',
+     'email': 'haithem.souala@woopit.fr',
+     'external_id': 'customer1234',
+     'lago_id': 'ca69c553-0f98-4c1d-91fd-75423c40c707',
+     'legal_name': 'WOOP',
+     'legal_number': '12234545',
+     'logo_url': None,
+     'metadata': [],
+     'name': 'Customer-one',
+     'phone': '0600000000',
+     'sequential_id': 1,
+     'slug': 'AIR-0DC7-001',
+     'state': 'Nord',
+     'timezone': None,
+     'url': None,
+     'zipcode': '59000'}
+ERROR    root:test_core.py:662 
+The subscriptions stream has the following schema errors:
+Additional properties are not allowed ('subscription_at' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'billing_time': {'type': ['null', 'string']},
+                    'canceled_at': {'type': ['null', 'string']},
+                    'created_at': {'type': ['null', 'string']},
+                    'downgrade_plan_date': {'type': ['null', 'string']},
+                    'external_customer_id': {'type': ['null', 'string']},
+                    'external_id': {'type': ['null', 'string']},
+                    'lago_customer_id': {'type': ['null', 'string']},
+                    'lago_id': {'type': ['null', 'string']},
+                    'name': {'type': ['null', 'string']},
+                    'next_plan_code': {'type': ['null', 'string']},
+                    'plan_code': {'type': ['null', 'string']},
+                    'previous_plan_code': {'type': ['null', 'string']},
+                    'started_at': {'type': ['null', 'string']},
+                    'status': {'type': ['null', 'string']},
+                    'subscription_date': {'type': ['null', 'string']},
+                    'terminated_at': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'billing_time': 'calendar',
+     'canceled_at': None,
+     'created_at': '2022-10-31T16:36:08Z',
+     'downgrade_plan_date': None,
+     'external_customer_id': 'customer1234',
+     'external_id': '4743b06c-7828-4341-b292-f956471aba4a',
+     'lago_customer_id': 'ca69c553-0f98-4c1d-91fd-75423c40c707',
+     'lago_id': 'a1fa9317-2cff-43b0-8248-23491a366aa4',
+     'name': '',
+     'next_plan_code': None,
+     'plan_code': 'enterprise_plan',
+     'previous_plan_code': None,
+     'started_at': '2022-10-31T16:36:08Z',
+     'status': 'active',
+     'subscription_at': '2022-10-31T00:00:00Z',
+     'subscription_date': '2022-10-31',
+     'terminated_at': None}
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: This connector does not implement incremental sync
+================= 1 failed, 1 skipped, 33 deselected in 6.05s ==================

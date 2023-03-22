@@ -1,0 +1,278 @@
+../../../../connectors/source-bamboo-hr/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-bamboo-hr
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xfffface1ddc0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='custom_reports_stream', json_sche...esh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append_dedup: 'append_dedup'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffac53a2e0>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='custom_reports_stream', data={'id': '109', 'acaStatus': None, 'acaStatus...e': None, 'workPhonePlusExtension': None, 'workPhoneExtension': None, 'zipcode': None}, emitted_at=1679404629157), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='custom_reports_stream', json_sche...esh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append_dedup: 'append_dedup'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('custom_reports_stream',).
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe custom_reports_stream stream has the following schema errors:\nAdditional properties are not allowed ('payPer' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'Custom Gender Identity': {'type': ['null', 'string']},\n                    'acaStatus': {'type': ['null', 'string']},\n                    'acaStatusCategory': {'type': ['null', 'string']},\n                    'address1': {'type': ['null', 'string']},\n                    'address2': {'type': ['null', 'string']},\n                    'age': {'type': ['null', 'string']},\n                    'bestEmail': {'type': ['null', 'string']},\n                    'birthday': {'type': ['null', 'string']},\n                    'bonusAmount': {'type': ['null', 'string']},\n                    'bonusComment': {'type': ['null', 'string']},\n                    'bonusDate': {'type': ['null', 'string']},\n                    'bonusReason': {'type': ['null', 'string']},\n                    'city': {'type': ['null', 'string']},\n                    'commisionDate': {'type': ['null', 'string']},\n                    'commissionAmount': {'type': ['null', 'string']},\n                    'commissionComment': {'type': ['null', 'string']},\n                    'commissionDate': {'type': ['null', 'string']},\n                    'country': {'type': ['null', 'string']},\n                    'createdByUserId': {'type': ['null', 'string']},\n                    'dateOfBirth': {'type': ['null', 'string']},\n                    'department': {'type': ['null', 'string']},\n                    'displayName': {'type': ['null', 'string']},\n                    'division': {'type': ['null', 'string']},\n                    'eeo': {'type': ['null', 'string']},\n                    'employeeNumber': {'type': ['null', 'string']},\n                    'employmentHistoryStatus': {'type': ['null', 'string']},\n                    'ethnicity': {'type': ['null', 'string']},\n                    'exempt': {'type': ['null', 'string']},\n                    'firstName': {'type': ['null', 'string']},\n                    'flsaCode': {'type': ['null', 'string']},\n                    'fullName1': {'type': ['null', 'string']},\n                    'fullName2': {'type': ['null', 'string']},\n                    'fullName3': {'type': ['null', 'string']},\n                    'fullName4': {'type': ['null', 'string']},\n                    'fullName5': {'type': ['null', 'string']},\n                    'gender': {'type': ['null', 'string']},\n                    'hireDate': {'type': ['null', 'string']},\n                    'homeEmail': {'type': ['null', 'string']},\n                    'homePhone': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'string']},\n                    'includeInPayroll': {'type': ['null', 'string']},\n                    'isPhotoUploaded': {'type': ['null', 'string']},\n                    'jobTitle': {'type': ['null', 'string']},\n                    'lastChanged': {'type': ['null', 'string']},\n                    'lastName': {'type': ['null', 'string']},\n                    'location': {'type': ['null', 'string']},\n                    'maritalStatus': {'type': ['null', 'string']},\n                    'middleName': {'type': ['null', 'string']},\n                    'mobilePhone': {'type': ['null', 'string']},\n                    'nationalId': {'type': ['null', 'string']},\n                    'nationality': {'type': ['null', 'string']},\n                    'nin': {'type': ['null', 'string']},\n                    'originalHireDate': {'type': ['null', 'string']},\n                    'paidPer': {'type': ['null', 'string']},\n                    'payChangeReason': {'type': ['null', 'string']},\n                    'payFrequency': {'type': ['null', 'string']},\n                    'payGroup': {'type': ['null', 'string']},\n                    'payGroupId': {'type': ['null', 'string']},\n                    'payRate': {'type': ['null', 'string']},\n                    'payRateEffectiveDate': {'type': ['null', 'string']},\n                    'paySchedule': {'type': ['null', 'string']},\n                    'payScheduleId': {'type': ['null', 'string']},\n                    'payType': {'type': ['null', 'string']},\n                    'preferredName': {'type': ['null', 'string']},\n                    'sin': {'type': ['null', 'string']},\n                    'ssn': {'type': ['null', 'string']},\n                    'standardHoursPerWeek': {'type': ['null', 'string']},\n                    'state': {'type': ['null', 'string']},\n                    'stateCode': {'type': ['null', 'string']},\n                    'status': {'type': ['null', 'string']},\n                    'supervisor': {'type': ['null', 'string']},\n                    'supervisorEId': {'type': ['null', 'string']},\n                    'supervisorEmail': {'type': ['null', 'string']},\n                    'supervisorId': {'type': ['null', 'string']},\n                    'terminationDate': {'type': ['null', 'string']},\n                    'timeTrackingEnabled': {'type': ['null', 'string']},\n                    'workEmail': {'type': ['null', 'string']},\n                    'workPhone': {'type': ['null', 'string']},\n                    'workPhoneExtension': {'type': ['null', 'string']},\n                    'workPhonePlusExtension': {'type': ['null', 'string']},\n                    'zipcode': {'type': ['null', 'string']}},\n     'required': [],\n     'type': ['null', 'object']}\n\nOn instance:\n    {'acaStatus': None,\n     'acaStatusCategory': None,\n     'address1': None,\n     'address2': None,\n     'age': '-1',\n     'bestEmail': None,\n     'birthday': '',\n     'city': None,\n     'country': None,\n     'createdByUserId': '2385',\n     'dateOfBirth': '0000-00-00',\n     'department': None,\n     'displayName': 'John Doe',\n     'division': None,\n     'eeo': None,\n     'employeeNumber': None,\n     'employmentHistoryStatus': None,\n     'ethnicity': None,\n     'exempt': None,\n     'firstName': 'John',\n     'flsaCode': '0000-00-00',\n     'fullName1': 'John Doe',\n     'fullName2': 'Doe, John',\n     'fullName3': 'Doe, John',\n     'fullName4': 'Doe, John',\n     'fullName5': 'John Doe',\n     'gender': None,\n     'homeEmail': None,\n     'homePhone': None,\n     'id': '115',\n     'isPhotoUploaded': 'false',\n     'jobTitle': None,\n     'lastChanged': '2022-09-20T11:58:56+00:00',\n     'lastName': 'Doe',\n     'location': None,\n     'maritalStatus': None,\n     'middleName': None,\n     'mobilePhone': None,\n     'originalHireDate': '0000-00-00',\n     'payChangeReason': None,\n     'payFrequency': None,\n     'payGroupId': None,\n     'payPer': None,\n     'payRate': ' USD',\n     'payRateEffectiveDate': None,\n     'paySchedule': None,\n     'payScheduleId': None,\n     'payType': None,\n     'preferredName': None,\n     'ssn': None,\n     'state': '',\n     'stateCode': None,\n     'status': 'Active',\n     'supervisor': None,\n     'supervisorEId': None,\n     'supervisorEmail': None,\n     'supervisorId': None,\n     'terminationDate': '0000-00-00',\n     'workEmail': None,\n     'workPhone': None,\n     'workPhoneExtension': None,\n     'workPhonePlusExtension': None,\n     'zipcode': None}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The custom_reports_stream stream has the following schema errors:
+Additional properties are not allowed ('payPer' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'Custom Gender Identity': {'type': ['null', 'string']},
+                    'acaStatus': {'type': ['null', 'string']},
+                    'acaStatusCategory': {'type': ['null', 'string']},
+                    'address1': {'type': ['null', 'string']},
+                    'address2': {'type': ['null', 'string']},
+                    'age': {'type': ['null', 'string']},
+                    'bestEmail': {'type': ['null', 'string']},
+                    'birthday': {'type': ['null', 'string']},
+                    'bonusAmount': {'type': ['null', 'string']},
+                    'bonusComment': {'type': ['null', 'string']},
+                    'bonusDate': {'type': ['null', 'string']},
+                    'bonusReason': {'type': ['null', 'string']},
+                    'city': {'type': ['null', 'string']},
+                    'commisionDate': {'type': ['null', 'string']},
+                    'commissionAmount': {'type': ['null', 'string']},
+                    'commissionComment': {'type': ['null', 'string']},
+                    'commissionDate': {'type': ['null', 'string']},
+                    'country': {'type': ['null', 'string']},
+                    'createdByUserId': {'type': ['null', 'string']},
+                    'dateOfBirth': {'type': ['null', 'string']},
+                    'department': {'type': ['null', 'string']},
+                    'displayName': {'type': ['null', 'string']},
+                    'division': {'type': ['null', 'string']},
+                    'eeo': {'type': ['null', 'string']},
+                    'employeeNumber': {'type': ['null', 'string']},
+                    'employmentHistoryStatus': {'type': ['null', 'string']},
+                    'ethnicity': {'type': ['null', 'string']},
+                    'exempt': {'type': ['null', 'string']},
+                    'firstName': {'type': ['null', 'string']},
+                    'flsaCode': {'type': ['null', 'string']},
+                    'fullName1': {'type': ['null', 'string']},
+                    'fullName2': {'type': ['null', 'string']},
+                    'fullName3': {'type': ['null', 'string']},
+                    'fullName4': {'type': ['null', 'string']},
+                    'fullName5': {'type': ['null', 'string']},
+                    'gender': {'type': ['null', 'string']},
+                    'hireDate': {'type': ['null', 'string']},
+                    'homeEmail': {'type': ['null', 'string']},
+                    'homePhone': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'string']},
+                    'includeInPayroll': {'type': ['null', 'string']},
+                    'isPhotoUploaded': {'type': ['null', 'string']},
+                    'jobTitle': {'type': ['null', 'string']},
+                    'lastChanged': {'type': ['null', 'string']},
+                    'lastName': {'type': ['null', 'string']},
+                    'location': {'type': ['null', 'string']},
+                    'maritalStatus': {'type': ['null', 'string']},
+                    'middleName': {'type': ['null', 'string']},
+                    'mobilePhone': {'type': ['null', 'string']},
+                    'nationalId': {'type': ['null', 'string']},
+                    'nationality': {'type': ['null', 'string']},
+                    'nin': {'type': ['null', 'string']},
+                    'originalHireDate': {'type': ['null', 'string']},
+                    'paidPer': {'type': ['null', 'string']},
+                    'payChangeReason': {'type': ['null', 'string']},
+                    'payFrequency': {'type': ['null', 'string']},
+                    'payGroup': {'type': ['null', 'string']},
+                    'payGroupId': {'type': ['null', 'string']},
+                    'payRate': {'type': ['null', 'string']},
+                    'payRateEffectiveDate': {'type': ['null', 'string']},
+                    'paySchedule': {'type': ['null', 'string']},
+                    'payScheduleId': {'type': ['null', 'string']},
+                    'payType': {'type': ['null', 'string']},
+                    'preferredName': {'type': ['null', 'string']},
+                    'sin': {'type': ['null', 'string']},
+                    'ssn': {'type': ['null', 'string']},
+                    'standardHoursPerWeek': {'type': ['null', 'string']},
+                    'state': {'type': ['null', 'string']},
+                    'stateCode': {'type': ['null', 'string']},
+                    'status': {'type': ['null', 'string']},
+                    'supervisor': {'type': ['null', 'string']},
+                    'supervisorEId': {'type': ['null', 'string']},
+                    'supervisorEmail': {'type': ['null', 'string']},
+                    'supervisorId': {'type': ['null', 'string']},
+                    'terminationDate': {'type': ['null', 'string']},
+                    'timeTrackingEnabled': {'type': ['null', 'string']},
+                    'workEmail': {'type': ['null', 'string']},
+                    'workPhone': {'type': ['null', 'string']},
+                    'workPhoneExtension': {'type': ['null', 'string']},
+                    'workPhonePlusExtension': {'type': ['null', 'string']},
+                    'zipcode': {'type': ['null', 'string']}},
+     'required': [],
+     'type': ['null', 'object']}
+
+On instance:
+    {'acaStatus': None,
+     'acaStatusCategory': None,
+     'address1': None,
+     'address2': None,
+     'age': '-1',
+     'bestEmail': None,
+     'birthday': '',
+     'city': None,
+     'country': None,
+     'createdByUserId': '2385',
+     'dateOfBirth': '0000-00-00',
+     'department': None,
+     'displayName': 'John Doe',
+     'division': None,
+     'eeo': None,
+     'employeeNumber': None,
+     'employmentHistoryStatus': None,
+     'ethnicity': None,
+     'exempt': None,
+     'firstName': 'John',
+     'flsaCode': '0000-00-00',
+     'fullName1': 'John Doe',
+     'fullName2': 'Doe, John',
+     'fullName3': 'Doe, John',
+     'fullName4': 'Doe, John',
+     'fullName5': 'John Doe',
+     'gender': None,
+     'homeEmail': None,
+     'homePhone': None,
+     'id': '115',
+     'isPhotoUploaded': 'false',
+     'jobTitle': None,
+     'lastChanged': '2022-09-20T11:58:56+00:00',
+     'lastName': 'Doe',
+     'location': None,
+     'maritalStatus': None,
+     'middleName': None,
+     'mobilePhone': None,
+     'originalHireDate': '0000-00-00',
+     'payChangeReason': None,
+     'payFrequency': None,
+     'payGroupId': None,
+     'payPer': None,
+     'payRate': ' USD',
+     'payRateEffectiveDate': None,
+     'paySchedule': None,
+     'payScheduleId': None,
+     'payType': None,
+     'preferredName': None,
+     'ssn': None,
+     'state': '',
+     'stateCode': None,
+     'status': 'Active',
+     'supervisor': None,
+     'supervisorEId': None,
+     'supervisorEmail': None,
+     'supervisorId': None,
+     'terminationDate': '0000-00-00',
+     'workEmail': None,
+     'workPhone': None,
+     'workPhoneExtension': None,
+     'workPhonePlusExtension': None,
+     'zipcode': None}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+=========== 1 failed, 1 skipped, 33 deselected, 35 warnings in 6.37s ===========

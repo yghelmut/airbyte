@@ -1,0 +1,234 @@
+../../../../connectors/source-surveymonkey/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-surveymonkey
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 37 items / 35 deselected / 2 selected
+
+../../test_input/test_core.py F                                          [ 50%]
+../../test_input/test_incremental.py .                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff95b0a3d0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='surveys', json_schema={'$schema':..., cursor_field=['date_modified'], destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=[['id']])])
+expect_records_config = ExpectedRecordsConfig(bypass_reason=None, path=PosixPath('integration_tests/expected_records.txt'), extra_fields=False, exact_order=False, extra_records=True)
+should_validate_schema = True, should_validate_data_points = False
+should_fail_on_extra_columns = True, empty_streams = set(), ignored_fields = {}
+expected_records_by_stream = defaultdict(<class 'list'>, {'surveys': [{'title': 'Market Research - Product Testing Template', 'nickname': '', 'lang...mtu2v xau05rusflq k3as06r35dl9 38xpts', 'quiz_options': {'score': 0}, 'id': '4385175296'}]}, 'page_id': '168831402'}]})
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff954891c0>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='surveys', data={'title': 'Market Research - Product Testing Template', '...com/r/Preview/?sm=aPPwgAP8stOxnud8WXi8VHKMrUtKIqvd7JhVnp1f0Ucqjb7cbMATzGizMgcLO_2BzA'}, emitted_at=1679413177580), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='surveys', json_schema={'$schema':..., cursor_field=['date_modified'], destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=[['id']])])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('surveys', 'survey_responses').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe surveys stream has the following schema errors:\nAdditional properties are not allowed ('theme_id' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'analyze_url': {'type': ['string', 'null']},\n                    'buttons_text': {'properties': {'done_button': {'type': ['string',\n                                                                             'null']},\n                                                    'exit_button': {'type': ['string',\n                                                                             'null']},\n                                                    'next_button': {'type': ['string',\n                                                                             'null']},\n                                                    'prev_button': {'type': ['string',\n                                                                             'null']}},\n                                     'type': ['object', 'null']},\n                    'category': {'type': ['string', 'null']},\n                    'collect_url': {'type': ['string', 'null']},\n                    'custom_variables': {'type': ['object', 'null']},\n                    'date_created': {'format': 'date-time',\n                                     'type': ['string', 'null']},\n                    'date_modified': {'format': 'date-time',\n                                      'type': ['string', 'null']},\n                    'edit_url': {'type': ['string', 'null']},\n                    'folder_id': {'type': ['string', 'null']},\n                    'footer': {'type': ['boolean', 'null']},\n                    'href': {'type': ['string', 'null']},\n                    'id': {'type': ['string', 'null']},\n                    'is_owner': {'type': ['boolean', 'null']},\n                    'language': {'type': ['string', 'null']},\n                    'nickname': {'type': ['string', 'null']},\n                    'page_count': {'type': ['integer', 'null']},\n                    'preview': {'type': ['string', 'null']},\n                    'question_count': {'type': ['integer', 'null']},\n                    'response_count': {'type': ['integer', 'null']},\n                    'summary_url': {'type': ['string', 'null']},\n                    'title': {'type': ['string', 'null']}},\n     'type': 'object'}\n\nOn instance:\n    {'analyze_url': 'https://www.surveymonkey.com/analyze/VXMmVNBbmOp9KTSvXdhjIr3FHnqleAX32lr9MLBIOE0_3D',\n     'buttons_text': {'done_button': 'Done',\n                      'exit_button': '',\n                      'next_button': 'Next',\n                      'prev_button': 'Prev'},\n     'category': '',\n     'collect_url': 'https://www.surveymonkey.com/collect/list?sm=VXMmVNBbmOp9KTSvXdhjIr3FHnqleAX32lr9MLBIOE0_3D',\n     'custom_variables': {},\n     'date_created': '2023-01-17T09:17:00',\n     'date_modified': '2023-01-17T09:17:00',\n     'edit_url': 'https://www.surveymonkey.com/create/?sm=VXMmVNBbmOp9KTSvXdhjIr3FHnqleAX32lr9MLBIOE0_3D',\n     'folder_id': '0',\n     'footer': True,\n     'href': 'https://api.surveymonkey.com/v3/surveys/510388524',\n     'id': '510388524',\n     'is_owner': True,\n     'language': 'en',\n     'nickname': '',\n     'page_count': 1,\n     'preview': 'https://www.surveymonkey.com/r/Preview/?sm=TPlNncbuCs17cvxwjuS74VC03_2FOcqpP_2F03m2gerTSI_2FQvLWoY2yn_2FWxLDmxYOp5L',\n     'question_count': 0,\n     'response_count': 0,\n     'summary_url': 'https://www.surveymonkey.com/summary/VXMmVNBbmOp9KTSvXdhjIr3FHnqleAX32lr9MLBIOE0_3D',\n     'theme_id': '10292568',\n     'title': 'jjj'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe survey_responses stream has the following schema errors:\nAdditional properties are not allowed ('language' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'analyze_url': {'type': ['string', 'null']},\n                    'collection_mode': {'type': ['string', 'null']},\n                    'collector_id': {'type': ['string', 'null']},\n                    'custom_value': {'type': ['string', 'null']},\n                    'custom_variables': {'type': ['object', 'null']},\n                    'date_created': {'format': 'date-time',\n                                     'type': ['string', 'null']},\n                    'date_modified': {'format': 'date-time',\n                                      'type': ['string', 'null']},\n                    'edit_url': {'type': ['string', 'null']},\n                    'email_address': {'type': ['string', 'null']},\n                    'first_name': {'type': ['string', 'null']},\n                    'href': {'type': ['string', 'null']},\n                    'id': {'type': ['string', 'null']},\n                    'ip_address': {'type': ['string', 'null']},\n                    'last_name': {'type': ['string', 'null']},\n                    'logic_path': {'type': ['object', 'null']},\n                    'metadata': {'properties': {'contact': {'type': ['object',\n                                                                     'null']}},\n                                 'type': ['object', 'null']},\n                    'page_path': {'items': {'type': ['string', 'null']},\n                                  'type': ['array', 'null']},\n                    'pages': {'items': {'properties': {'id': {'type': ['string',\n                                                                       'null']},\n                                                       'questions': {'items': {'properties': {'answers': {'items': {'properties': {'choice_id': {'type': ['string',\n                                                                                                                                                          'null']}},\n                                                                                                                    'type': ['object',\n                                                                                                                             'null']},\n                                                                                                          'type': ['array',\n                                                                                                                   'null']},\n                                                                                              'id': {'type': ['string',\n                                                                                                              'null']}},\n                                                                               'type': ['object',\n                                                                                        'null']},\n                                                                     'type': ['array',\n                                                                              'null']}},\n                                        'type': ['object', 'null']},\n                              'type': ['array', 'null']},\n                    'recipient_id': {'type': ['string', 'null']},\n                    'response_status': {'type': ['string', 'null']},\n                    'survey_id': {'type': ['string', 'null']},\n                    'total_time': {'type': ['integer', 'null']}},\n     'type': 'object'}\n\nOn instance:\n    {'analyze_url': 'https://www.surveymonkey.com/analyze/browse/BPAkhAawaMN8C17tmmNFxjZ0KOiJJ3FCQU4krShVQhg_3D?respondent_id=12731362003',\n     'collection_mode': 'default',\n     'collector_id': '405843634',\n     'custom_value': '',\n     'custom_variables': {},\n     'date_created': '2021-06-10T11:06:23+00:00',\n     'date_modified': '2021-06-10T11:06:42+00:00',\n     'edit_url': 'https://www.surveymonkey.com/r/?sm=LFmWWSa5B0YPzIswFuEpoIxYrVHHhorNICipbTUhp6Z3p5apUZsA3ENZGZbaPFH0',\n     'email_address': '',\n     'first_name': '',\n     'href': 'https://api.surveymonkey.com/v3/surveys/307785415/responses/12731362003',\n     'id': '12731362003',\n     'ip_address': '91.242.192.88',\n     'language': None,\n     'last_name': '',\n     'logic_path': {},\n     'metadata': {'contact': {}},\n     'page_path': ['168831392', '168831393', '168831402'],\n     'pages': [{'id': '168831392', 'questions': []},\n               {'id': '168831393',\n                'questions': [{'answers': [{'choice_id': '4385174702'}],\n                               'id': '667461690'},\n                              {'answers': [{'choice_id': '4385174976'}],\n                               'id': '667461777'},\n                              {'answers': [{'choice_id': '4385175058'}],\n                               'id': '667461791'},\n                              {'answers': [{'choice_id': '4385175071'}],\n                               'id': '667461794'},\n                              {'answers': [{'choice_id': '4385175099'}],\n                               'id': '667461797'}]},\n               {'id': '168831402', 'questions': []}],\n     'recipient_id': '',\n     'response_status': 'partial',\n     'survey_id': '307785415',\n     'total_time': 19}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The surveys stream has the following schema errors:
+Additional properties are not allowed ('theme_id' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'analyze_url': {'type': ['string', 'null']},
+                    'buttons_text': {'properties': {'done_button': {'type': ['string',
+                                                                             'null']},
+                                                    'exit_button': {'type': ['string',
+                                                                             'null']},
+                                                    'next_button': {'type': ['string',
+                                                                             'null']},
+                                                    'prev_button': {'type': ['string',
+                                                                             'null']}},
+                                     'type': ['object', 'null']},
+                    'category': {'type': ['string', 'null']},
+                    'collect_url': {'type': ['string', 'null']},
+                    'custom_variables': {'type': ['object', 'null']},
+                    'date_created': {'format': 'date-time',
+                                     'type': ['string', 'null']},
+                    'date_modified': {'format': 'date-time',
+                                      'type': ['string', 'null']},
+                    'edit_url': {'type': ['string', 'null']},
+                    'folder_id': {'type': ['string', 'null']},
+                    'footer': {'type': ['boolean', 'null']},
+                    'href': {'type': ['string', 'null']},
+                    'id': {'type': ['string', 'null']},
+                    'is_owner': {'type': ['boolean', 'null']},
+                    'language': {'type': ['string', 'null']},
+                    'nickname': {'type': ['string', 'null']},
+                    'page_count': {'type': ['integer', 'null']},
+                    'preview': {'type': ['string', 'null']},
+                    'question_count': {'type': ['integer', 'null']},
+                    'response_count': {'type': ['integer', 'null']},
+                    'summary_url': {'type': ['string', 'null']},
+                    'title': {'type': ['string', 'null']}},
+     'type': 'object'}
+
+On instance:
+    {'analyze_url': 'https://www.surveymonkey.com/analyze/VXMmVNBbmOp9KTSvXdhjIr3FHnqleAX32lr9MLBIOE0_3D',
+     'buttons_text': {'done_button': 'Done',
+                      'exit_button': '',
+                      'next_button': 'Next',
+                      'prev_button': 'Prev'},
+     'category': '',
+     'collect_url': 'https://www.surveymonkey.com/collect/list?sm=VXMmVNBbmOp9KTSvXdhjIr3FHnqleAX32lr9MLBIOE0_3D',
+     'custom_variables': {},
+     'date_created': '2023-01-17T09:17:00',
+     'date_modified': '2023-01-17T09:17:00',
+     'edit_url': 'https://www.surveymonkey.com/create/?sm=VXMmVNBbmOp9KTSvXdhjIr3FHnqleAX32lr9MLBIOE0_3D',
+     'folder_id': '0',
+     'footer': True,
+     'href': 'https://api.surveymonkey.com/v3/surveys/510388524',
+     'id': '510388524',
+     'is_owner': True,
+     'language': 'en',
+     'nickname': '',
+     'page_count': 1,
+     'preview': 'https://www.surveymonkey.com/r/Preview/?sm=TPlNncbuCs17cvxwjuS74VC03_2FOcqpP_2F03m2gerTSI_2FQvLWoY2yn_2FWxLDmxYOp5L',
+     'question_count': 0,
+     'response_count': 0,
+     'summary_url': 'https://www.surveymonkey.com/summary/VXMmVNBbmOp9KTSvXdhjIr3FHnqleAX32lr9MLBIOE0_3D',
+     'theme_id': '10292568',
+     'title': 'jjj'}
+ERROR    root:test_core.py:662 
+The survey_responses stream has the following schema errors:
+Additional properties are not allowed ('language' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'analyze_url': {'type': ['string', 'null']},
+                    'collection_mode': {'type': ['string', 'null']},
+                    'collector_id': {'type': ['string', 'null']},
+                    'custom_value': {'type': ['string', 'null']},
+                    'custom_variables': {'type': ['object', 'null']},
+                    'date_created': {'format': 'date-time',
+                                     'type': ['string', 'null']},
+                    'date_modified': {'format': 'date-time',
+                                      'type': ['string', 'null']},
+                    'edit_url': {'type': ['string', 'null']},
+                    'email_address': {'type': ['string', 'null']},
+                    'first_name': {'type': ['string', 'null']},
+                    'href': {'type': ['string', 'null']},
+                    'id': {'type': ['string', 'null']},
+                    'ip_address': {'type': ['string', 'null']},
+                    'last_name': {'type': ['string', 'null']},
+                    'logic_path': {'type': ['object', 'null']},
+                    'metadata': {'properties': {'contact': {'type': ['object',
+                                                                     'null']}},
+                                 'type': ['object', 'null']},
+                    'page_path': {'items': {'type': ['string', 'null']},
+                                  'type': ['array', 'null']},
+                    'pages': {'items': {'properties': {'id': {'type': ['string',
+                                                                       'null']},
+                                                       'questions': {'items': {'properties': {'answers': {'items': {'properties': {'choice_id': {'type': ['string',
+                                                                                                                                                          'null']}},
+                                                                                                                    'type': ['object',
+                                                                                                                             'null']},
+                                                                                                          'type': ['array',
+                                                                                                                   'null']},
+                                                                                              'id': {'type': ['string',
+                                                                                                              'null']}},
+                                                                               'type': ['object',
+                                                                                        'null']},
+                                                                     'type': ['array',
+                                                                              'null']}},
+                                        'type': ['object', 'null']},
+                              'type': ['array', 'null']},
+                    'recipient_id': {'type': ['string', 'null']},
+                    'response_status': {'type': ['string', 'null']},
+                    'survey_id': {'type': ['string', 'null']},
+                    'total_time': {'type': ['integer', 'null']}},
+     'type': 'object'}
+
+On instance:
+    {'analyze_url': 'https://www.surveymonkey.com/analyze/browse/BPAkhAawaMN8C17tmmNFxjZ0KOiJJ3FCQU4krShVQhg_3D?respondent_id=12731362003',
+     'collection_mode': 'default',
+     'collector_id': '405843634',
+     'custom_value': '',
+     'custom_variables': {},
+     'date_created': '2021-06-10T11:06:23+00:00',
+     'date_modified': '2021-06-10T11:06:42+00:00',
+     'edit_url': 'https://www.surveymonkey.com/r/?sm=LFmWWSa5B0YPzIswFuEpoIxYrVHHhorNICipbTUhp6Z3p5apUZsA3ENZGZbaPFH0',
+     'email_address': '',
+     'first_name': '',
+     'href': 'https://api.surveymonkey.com/v3/surveys/307785415/responses/12731362003',
+     'id': '12731362003',
+     'ip_address': '91.242.192.88',
+     'language': None,
+     'last_name': '',
+     'logic_path': {},
+     'metadata': {'contact': {}},
+     'page_path': ['168831392', '168831393', '168831402'],
+     'pages': [{'id': '168831392', 'questions': []},
+               {'id': '168831393',
+                'questions': [{'answers': [{'choice_id': '4385174702'}],
+                               'id': '667461690'},
+                              {'answers': [{'choice_id': '4385174976'}],
+                               'id': '667461777'},
+                              {'answers': [{'choice_id': '4385175058'}],
+                               'id': '667461791'},
+                              {'answers': [{'choice_id': '4385175071'}],
+                               'id': '667461794'},
+                              {'answers': [{'choice_id': '4385175099'}],
+                               'id': '667461797'}]},
+               {'id': '168831402', 'questions': []}],
+     'recipient_id': '',
+     'response_status': 'partial',
+     'survey_id': '307785415',
+     'total_time': 19}
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+============ 1 failed, 1 passed, 35 deselected in 352.56s (0:05:52) ============

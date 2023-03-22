@@ -1,0 +1,423 @@
+../../../../connectors/source-posthog/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-posthog
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 40 items / 37 deselected / 3 selected
+
+../../test_input/test_core.py F                                          [ 33%]
+../../test_input/test_incremental.py ..                                  [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff950bae20>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='projects', json_schema={'type': '...: 'full_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff951048e0>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='projects', data={'id': 2331, 'uuid': '0178cc4f-df47-0000-c607-ca58c009c7...updated_at': '2021-06-02T09:37:49.742232Z', 'deleted': False, 'scope': 'organization'}, emitted_at=1679408617132), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='projects', json_schema={'type': '...: 'full_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('annotations', 'cohorts', 'feature_flags', 'persons', 'insights').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe annotations stream has the following schema errors:\nAdditional properties are not allowed ('insight_short_id', 'insight_name' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'content': {'type': ['string', 'null']},\n                    'created_at': {'format': 'date-time', 'type': 'string'},\n                    'created_by': {'properties': {'distinct_id': {'type': 'string'},\n                                                  'email': {'type': 'string'},\n                                                  'first_name': {'type': 'string'},\n                                                  'id': {'type': 'integer'},\n                                                  'uuid': {'type': 'string'}},\n                                   'type': 'object'},\n                    'creation_type': {'type': ['string', 'null']},\n                    'dashboard_item': {'type': ['string', 'null']},\n                    'date_marker': {'format': 'date-time',\n                                    'type': ['string', 'null']},\n                    'deleted': {'type': 'boolean'},\n                    'id': {'type': 'integer'},\n                    'scope': {'type': 'string'},\n                    'updated_at': {'format': 'date-time',\n                                   'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'content': 'test',\n     'created_at': '2021-04-13T18:20:54.640612Z',\n     'created_by': {'distinct_id': 'EFyGMuyo10bP6867CXbOhx2nHkFjH6snnKW06Fo17bk',\n                    'email': 'integration-test@airbyte.io',\n                    'first_name': 'Eugene Kulak',\n                    'id': 2784,\n                    'is_email_verified': None,\n                    'uuid': '0178cc4f-de6d-0000-2ab5-2f87f8e20c59'},\n     'creation_type': 'USR',\n     'dashboard_item': None,\n     'date_marker': '2021-04-13T18:20:47.276000Z',\n     'deleted': False,\n     'id': 2766,\n     'insight_name': None,\n     'insight_short_id': None,\n     'scope': 'organization',\n     'updated_at': '2021-04-13T18:20:54.640947Z'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe cohorts stream has the following schema errors:\nAdditional properties are not allowed ('description', 'filters' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'count': {'type': ['integer', 'null']},\n                    'created_at': {'format': 'date-time',\n                                   'type': ['string', 'null']},\n                    'created_by': {'properties': {'distinct_id': {'type': 'string'},\n                                                  'email': {'type': ['string',\n                                                                     'null']},\n                                                  'first_name': {'type': ['string',\n                                                                          'null']},\n                                                  'id': {'type': 'integer'},\n                                                  'uuid': {'type': 'string'}},\n                                   'type': 'object'},\n                    'deleted': {'type': 'boolean'},\n                    'errors_calculating': {'type': 'integer'},\n                    'groups': {'items': {'properties': {'action_id': {'type': ['string',\n                                                                               'null']},\n                                                        'days': {'type': ['string',\n                                                                          'null']},\n                                                        'properties': {'items': {'type': 'object'},\n                                                                       'type': ['array']}},\n                                         'type': 'object'},\n                               'type': ['array', 'object']},\n                    'id': {'type': 'integer'},\n                    'is_calculating': {'type': 'boolean'},\n                    'is_static': {'type': 'boolean'},\n                    'last_calculation': {'type': ['string', 'null']},\n                    'name': {'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'count': None,\n     'created_at': '2021-05-27T19:59:03.875702Z',\n     'created_by': {'distinct_id': 'EFyGMuyo10bP6867CXbOhx2nHkFjH6snnKW06Fo17bk',\n                    'email': 'integration-test@airbyte.io',\n                    'first_name': 'Eugene Kulak',\n                    'id': 2784,\n                    'is_email_verified': None,\n                    'uuid': '0178cc4f-de6d-0000-2ab5-2f87f8e20c59'},\n     'deleted': False,\n     'description': '',\n     'errors_calculating': 0,\n     'filters': {'properties': {}},\n     'groups': [],\n     'id': 939,\n     'is_calculating': False,\n     'is_static': True,\n     'last_calculation': None,\n     'name': 'bcwaa4f'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe feature_flags stream has the following schema errors:\nAdditional properties are not allowed ('can_edit', 'performed_rollback', 'usage_dashboard', 'is_simple_flag', 'tags', 'rollback_conditions', 'ensure_experience_continuity', 'experiment_set' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'active': {'type': 'boolean'},\n                    'created_at': {'format': 'date-time', 'type': 'string'},\n                    'created_by': {'properties': {'distinct_id': {'type': 'string'},\n                                                  'email': {'type': 'string'},\n                                                  'first_name': {'type': 'string'},\n                                                  'id': {'type': 'integer'}},\n                                   'type': 'object'},\n                    'deleted': {'type': 'boolean'},\n                    'filters': {'properties': {'properties': {'items': {'type': 'object'},\n                                                              'type': 'array'}},\n                                'type': 'object'},\n                    'id': {'type': 'integer'},\n                    'key': {'type': 'string'},\n                    'name': {'type': 'string'},\n                    'rollout_percentage': {'type': ['integer', 'null']}},\n     'type': 'object'}\n\nOn instance:\n    {'active': False,\n     'can_edit': True,\n     'created_at': '2021-04-13T18:21:31.843900Z',\n     'created_by': {'distinct_id': 'EFyGMuyo10bP6867CXbOhx2nHkFjH6snnKW06Fo17bk',\n                    'email': 'integration-test@airbyte.io',\n                    'first_name': 'Eugene Kulak',\n                    'id': 2784,\n                    'is_email_verified': None,\n                    'uuid': '0178cc4f-de6d-0000-2ab5-2f87f8e20c59'},\n     'deleted': False,\n     'ensure_experience_continuity': False,\n     'experiment_set': [],\n     'filters': {'groups': [{'properties': [],\n                             'rollout_percentage': None}]},\n     'id': 313,\n     'is_simple_flag': True,\n     'key': 'test_flag_1',\n     'name': 'test description',\n     'performed_rollback': None,\n     'rollback_conditions': None,\n     'rollout_percentage': None,\n     'tags': [],\n     'usage_dashboard': None}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe persons stream has the following schema errors:\nAdditional properties are not allowed ('matched_recordings', 'properties', 'is_identified', 'uuid', 'type', 'value_at_data_point' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'created_at': {'format': 'date-time', 'type': 'string'},\n                    'distinct_ids': {'items': {'type': 'string'},\n                                     'type': 'array'},\n                    'id': {'type': 'string'},\n                    'name': {'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'created_at': '2021-04-13T18:13:53.269000Z',\n     'distinct_ids': ['test-id'],\n     'id': '0178cc70-93de-0000-9839-0aae2d0dbbe4',\n     'is_identified': False,\n     'matched_recordings': [],\n     'name': 'test-id',\n     'properties': {},\n     'type': 'person',\n     'uuid': '0178cc70-93de-0000-9839-0aae2d0dbbe4',\n     'value_at_data_point': None}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe insights stream has the following schema errors:\nAdditional properties are not allowed ('dashboard_tiles', 'derived_name', 'query', 'next_allowed_client_refresh', 'dashboards', 'is_cached' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'created_at': {'type': ['string', 'null']},\n                    'created_by': {'properties': {'distinct_id': {'type': ['string',\n                                                                           'null']},\n                                                  'email': {'type': ['string',\n                                                                     'null']},\n                                                  'first_name': {'type': ['string',\n                                                                          'null']},\n                                                  'id': {'type': ['number',\n                                                                  'null']},\n                                                  'uuid': {'type': ['string',\n                                                                    'null']}},\n                                   'type': ['object', 'null']},\n                    'deleted': {'type': ['boolean', 'null']},\n                    'description': {'type': ['string', 'null']},\n                    'effective_privilege_level': {'type': ['number',\n                                                           'null']},\n                    'effective_restriction_level': {'type': ['number',\n                                                             'null']},\n                    'favorited': {'type': ['boolean', 'null']},\n                    'filters': {'properties': {'date_from': {'type': ['string',\n                                                                      'null']},\n                                               'display': {'type': ['string',\n                                                                    'null']},\n                                               'insight': {'type': ['string',\n                                                                    'null']},\n                                               'interval': {'type': ['string',\n                                                                     'null']}},\n                                'type': ['object', 'null']},\n                    'filters_hash': {'type': ['string', 'null']},\n                    'id': {'type': ['number']},\n                    'is_sample': {'type': ['boolean', 'null']},\n                    'last_modified_at': {'type': ['string', 'null']},\n                    'last_modified_by': {'properties': {'distinct_id': {'type': ['string',\n                                                                                 'null']},\n                                                        'email': {'type': ['string',\n                                                                           'null']},\n                                                        'first_name': {'type': ['string',\n                                                                                'null']},\n                                                        'id': {'type': ['number',\n                                                                        'null']},\n                                                        'uuid': {'type': ['string',\n                                                                          'null']}},\n                                         'type': ['object', 'null']},\n                    'last_refresh': {'type': ['string', 'null']},\n                    'name': {'derived_name': ['string', 'null']},\n                    'order': {'type': ['string', 'null']},\n                    'refreshing': {'type': ['boolean', 'null']},\n                    'result': {'items': {'properties': {'action_id': {'type': ['string',\n                                                                               'null']},\n                                                        'average_conversion_time': {'type': ['string',\n                                                                                             'null']},\n                                                        'converted_people_url': {'type': ['string',\n                                                                                          'null']},\n                                                        'count': {'type': ['number',\n                                                                           'null']},\n                                                        'custom_name': {'type': ['string',\n                                                                                 'null']},\n                                                        'median_conversion_time': {'type': ['string',\n                                                                                            'null']},\n                                                        'name': {'type': ['string',\n                                                                          'null']},\n                                                        'order': {'type': ['number',\n                                                                           'null']},\n                                                        'type': {'type': ['string',\n                                                                          'null']}},\n                                         'type': ['object', 'null']},\n                               'type': ['array', 'null']},\n                    'saved': {'type': ['boolean', 'null']},\n                    'short_id': {'type': ['string', 'null']},\n                    'tags': {'items': {'type': ['string', 'null']},\n                             'type': ['array', 'null']},\n                    'timezone': {'type': ['string', 'null']},\n                    'updated_at': {'type': ['string', 'null']}},\n     'type': ['object', 'null']}\n\nOn instance:\n    {'created_at': '2021-06-04T06:26:16.018680Z',\n     'created_by': {'distinct_id': 'EFyGMuyo10bP6867CXbOhx2nHkFjH6snnKW06Fo17bk',\n                    'email': 'integration-test@airbyte.io',\n                    'first_name': 'Eugene Kulak',\n                    'id': 2784,\n                    'is_email_verified': None,\n                    'uuid': '0178cc4f-de6d-0000-2ab5-2f87f8e20c59'},\n     'dashboard_tiles': [],\n     'dashboards': [],\n     'deleted': False,\n     'derived_name': None,\n     'description': None,\n     'effective_privilege_level': 37,\n     'effective_restriction_level': 21,\n     'favorited': False,\n     'filters': {'date_from': '-7d',\n                 'display': 'ActionsLineGraph',\n                 'events': [{'id': '$pageview',\n                             'math': None,\n                             'math_property': None,\n                             'name': '$pageview',\n                             'order': 0,\n                             'properties': [],\n                             'type': 'events'}],\n                 'funnel_window_days': 14,\n                 'insight': 'TRENDS',\n                 'interval': 'day'},\n     'filters_hash': 'cache_3db196ab930b7d6ba6a0a7fd63121de8',\n     'id': 213707,\n     'is_cached': False,\n     'is_sample': False,\n     'last_modified_at': '2021-11-11T11:16:32.135374Z',\n     'last_modified_by': None,\n     'last_refresh': None,\n     'name': None,\n     'next_allowed_client_refresh': None,\n     'order': None,\n     'query': None,\n     'result': None,\n     'saved': False,\n     'short_id': 'E3zJbZDu',\n     'tags': [],\n     'timezone': None,\n     'updated_at': '2021-11-11T11:16:32.135374Z'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The annotations stream has the following schema errors:
+Additional properties are not allowed ('insight_short_id', 'insight_name' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'content': {'type': ['string', 'null']},
+                    'created_at': {'format': 'date-time', 'type': 'string'},
+                    'created_by': {'properties': {'distinct_id': {'type': 'string'},
+                                                  'email': {'type': 'string'},
+                                                  'first_name': {'type': 'string'},
+                                                  'id': {'type': 'integer'},
+                                                  'uuid': {'type': 'string'}},
+                                   'type': 'object'},
+                    'creation_type': {'type': ['string', 'null']},
+                    'dashboard_item': {'type': ['string', 'null']},
+                    'date_marker': {'format': 'date-time',
+                                    'type': ['string', 'null']},
+                    'deleted': {'type': 'boolean'},
+                    'id': {'type': 'integer'},
+                    'scope': {'type': 'string'},
+                    'updated_at': {'format': 'date-time',
+                                   'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'content': 'test',
+     'created_at': '2021-04-13T18:20:54.640612Z',
+     'created_by': {'distinct_id': 'EFyGMuyo10bP6867CXbOhx2nHkFjH6snnKW06Fo17bk',
+                    'email': 'integration-test@airbyte.io',
+                    'first_name': 'Eugene Kulak',
+                    'id': 2784,
+                    'is_email_verified': None,
+                    'uuid': '0178cc4f-de6d-0000-2ab5-2f87f8e20c59'},
+     'creation_type': 'USR',
+     'dashboard_item': None,
+     'date_marker': '2021-04-13T18:20:47.276000Z',
+     'deleted': False,
+     'id': 2766,
+     'insight_name': None,
+     'insight_short_id': None,
+     'scope': 'organization',
+     'updated_at': '2021-04-13T18:20:54.640947Z'}
+ERROR    root:test_core.py:662 
+The cohorts stream has the following schema errors:
+Additional properties are not allowed ('description', 'filters' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'count': {'type': ['integer', 'null']},
+                    'created_at': {'format': 'date-time',
+                                   'type': ['string', 'null']},
+                    'created_by': {'properties': {'distinct_id': {'type': 'string'},
+                                                  'email': {'type': ['string',
+                                                                     'null']},
+                                                  'first_name': {'type': ['string',
+                                                                          'null']},
+                                                  'id': {'type': 'integer'},
+                                                  'uuid': {'type': 'string'}},
+                                   'type': 'object'},
+                    'deleted': {'type': 'boolean'},
+                    'errors_calculating': {'type': 'integer'},
+                    'groups': {'items': {'properties': {'action_id': {'type': ['string',
+                                                                               'null']},
+                                                        'days': {'type': ['string',
+                                                                          'null']},
+                                                        'properties': {'items': {'type': 'object'},
+                                                                       'type': ['array']}},
+                                         'type': 'object'},
+                               'type': ['array', 'object']},
+                    'id': {'type': 'integer'},
+                    'is_calculating': {'type': 'boolean'},
+                    'is_static': {'type': 'boolean'},
+                    'last_calculation': {'type': ['string', 'null']},
+                    'name': {'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'count': None,
+     'created_at': '2021-05-27T19:59:03.875702Z',
+     'created_by': {'distinct_id': 'EFyGMuyo10bP6867CXbOhx2nHkFjH6snnKW06Fo17bk',
+                    'email': 'integration-test@airbyte.io',
+                    'first_name': 'Eugene Kulak',
+                    'id': 2784,
+                    'is_email_verified': None,
+                    'uuid': '0178cc4f-de6d-0000-2ab5-2f87f8e20c59'},
+     'deleted': False,
+     'description': '',
+     'errors_calculating': 0,
+     'filters': {'properties': {}},
+     'groups': [],
+     'id': 939,
+     'is_calculating': False,
+     'is_static': True,
+     'last_calculation': None,
+     'name': 'bcwaa4f'}
+ERROR    root:test_core.py:662 
+The feature_flags stream has the following schema errors:
+Additional properties are not allowed ('can_edit', 'performed_rollback', 'usage_dashboard', 'is_simple_flag', 'tags', 'rollback_conditions', 'ensure_experience_continuity', 'experiment_set' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'active': {'type': 'boolean'},
+                    'created_at': {'format': 'date-time', 'type': 'string'},
+                    'created_by': {'properties': {'distinct_id': {'type': 'string'},
+                                                  'email': {'type': 'string'},
+                                                  'first_name': {'type': 'string'},
+                                                  'id': {'type': 'integer'}},
+                                   'type': 'object'},
+                    'deleted': {'type': 'boolean'},
+                    'filters': {'properties': {'properties': {'items': {'type': 'object'},
+                                                              'type': 'array'}},
+                                'type': 'object'},
+                    'id': {'type': 'integer'},
+                    'key': {'type': 'string'},
+                    'name': {'type': 'string'},
+                    'rollout_percentage': {'type': ['integer', 'null']}},
+     'type': 'object'}
+
+On instance:
+    {'active': False,
+     'can_edit': True,
+     'created_at': '2021-04-13T18:21:31.843900Z',
+     'created_by': {'distinct_id': 'EFyGMuyo10bP6867CXbOhx2nHkFjH6snnKW06Fo17bk',
+                    'email': 'integration-test@airbyte.io',
+                    'first_name': 'Eugene Kulak',
+                    'id': 2784,
+                    'is_email_verified': None,
+                    'uuid': '0178cc4f-de6d-0000-2ab5-2f87f8e20c59'},
+     'deleted': False,
+     'ensure_experience_continuity': False,
+     'experiment_set': [],
+     'filters': {'groups': [{'properties': [],
+                             'rollout_percentage': None}]},
+     'id': 313,
+     'is_simple_flag': True,
+     'key': 'test_flag_1',
+     'name': 'test description',
+     'performed_rollback': None,
+     'rollback_conditions': None,
+     'rollout_percentage': None,
+     'tags': [],
+     'usage_dashboard': None}
+ERROR    root:test_core.py:662 
+The persons stream has the following schema errors:
+Additional properties are not allowed ('matched_recordings', 'properties', 'is_identified', 'uuid', 'type', 'value_at_data_point' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'created_at': {'format': 'date-time', 'type': 'string'},
+                    'distinct_ids': {'items': {'type': 'string'},
+                                     'type': 'array'},
+                    'id': {'type': 'string'},
+                    'name': {'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'created_at': '2021-04-13T18:13:53.269000Z',
+     'distinct_ids': ['test-id'],
+     'id': '0178cc70-93de-0000-9839-0aae2d0dbbe4',
+     'is_identified': False,
+     'matched_recordings': [],
+     'name': 'test-id',
+     'properties': {},
+     'type': 'person',
+     'uuid': '0178cc70-93de-0000-9839-0aae2d0dbbe4',
+     'value_at_data_point': None}
+ERROR    root:test_core.py:662 
+The insights stream has the following schema errors:
+Additional properties are not allowed ('dashboard_tiles', 'derived_name', 'query', 'next_allowed_client_refresh', 'dashboards', 'is_cached' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'created_at': {'type': ['string', 'null']},
+                    'created_by': {'properties': {'distinct_id': {'type': ['string',
+                                                                           'null']},
+                                                  'email': {'type': ['string',
+                                                                     'null']},
+                                                  'first_name': {'type': ['string',
+                                                                          'null']},
+                                                  'id': {'type': ['number',
+                                                                  'null']},
+                                                  'uuid': {'type': ['string',
+                                                                    'null']}},
+                                   'type': ['object', 'null']},
+                    'deleted': {'type': ['boolean', 'null']},
+                    'description': {'type': ['string', 'null']},
+                    'effective_privilege_level': {'type': ['number',
+                                                           'null']},
+                    'effective_restriction_level': {'type': ['number',
+                                                             'null']},
+                    'favorited': {'type': ['boolean', 'null']},
+                    'filters': {'properties': {'date_from': {'type': ['string',
+                                                                      'null']},
+                                               'display': {'type': ['string',
+                                                                    'null']},
+                                               'insight': {'type': ['string',
+                                                                    'null']},
+                                               'interval': {'type': ['string',
+                                                                     'null']}},
+                                'type': ['object', 'null']},
+                    'filters_hash': {'type': ['string', 'null']},
+                    'id': {'type': ['number']},
+                    'is_sample': {'type': ['boolean', 'null']},
+                    'last_modified_at': {'type': ['string', 'null']},
+                    'last_modified_by': {'properties': {'distinct_id': {'type': ['string',
+                                                                                 'null']},
+                                                        'email': {'type': ['string',
+                                                                           'null']},
+                                                        'first_name': {'type': ['string',
+                                                                                'null']},
+                                                        'id': {'type': ['number',
+                                                                        'null']},
+                                                        'uuid': {'type': ['string',
+                                                                          'null']}},
+                                         'type': ['object', 'null']},
+                    'last_refresh': {'type': ['string', 'null']},
+                    'name': {'derived_name': ['string', 'null']},
+                    'order': {'type': ['string', 'null']},
+                    'refreshing': {'type': ['boolean', 'null']},
+                    'result': {'items': {'properties': {'action_id': {'type': ['string',
+                                                                               'null']},
+                                                        'average_conversion_time': {'type': ['string',
+                                                                                             'null']},
+                                                        'converted_people_url': {'type': ['string',
+                                                                                          'null']},
+                                                        'count': {'type': ['number',
+                                                                           'null']},
+                                                        'custom_name': {'type': ['string',
+                                                                                 'null']},
+                                                        'median_conversion_time': {'type': ['string',
+                                                                                            'null']},
+                                                        'name': {'type': ['string',
+                                                                          'null']},
+                                                        'order': {'type': ['number',
+                                                                           'null']},
+                                                        'type': {'type': ['string',
+                                                                          'null']}},
+                                         'type': ['object', 'null']},
+                               'type': ['array', 'null']},
+                    'saved': {'type': ['boolean', 'null']},
+                    'short_id': {'type': ['string', 'null']},
+                    'tags': {'items': {'type': ['string', 'null']},
+                             'type': ['array', 'null']},
+                    'timezone': {'type': ['string', 'null']},
+                    'updated_at': {'type': ['string', 'null']}},
+     'type': ['object', 'null']}
+
+On instance:
+    {'created_at': '2021-06-04T06:26:16.018680Z',
+     'created_by': {'distinct_id': 'EFyGMuyo10bP6867CXbOhx2nHkFjH6snnKW06Fo17bk',
+                    'email': 'integration-test@airbyte.io',
+                    'first_name': 'Eugene Kulak',
+                    'id': 2784,
+                    'is_email_verified': None,
+                    'uuid': '0178cc4f-de6d-0000-2ab5-2f87f8e20c59'},
+     'dashboard_tiles': [],
+     'dashboards': [],
+     'deleted': False,
+     'derived_name': None,
+     'description': None,
+     'effective_privilege_level': 37,
+     'effective_restriction_level': 21,
+     'favorited': False,
+     'filters': {'date_from': '-7d',
+                 'display': 'ActionsLineGraph',
+                 'events': [{'id': '$pageview',
+                             'math': None,
+                             'math_property': None,
+                             'name': '$pageview',
+                             'order': 0,
+                             'properties': [],
+                             'type': 'events'}],
+                 'funnel_window_days': 14,
+                 'insight': 'TRENDS',
+                 'interval': 'day'},
+     'filters_hash': 'cache_3db196ab930b7d6ba6a0a7fd63121de8',
+     'id': 213707,
+     'is_cached': False,
+     'is_sample': False,
+     'last_modified_at': '2021-11-11T11:16:32.135374Z',
+     'last_modified_by': None,
+     'last_refresh': None,
+     'name': None,
+     'next_allowed_client_refresh': None,
+     'order': None,
+     'query': None,
+     'result': None,
+     'saved': False,
+     'short_id': 'E3zJbZDu',
+     'tags': [],
+     'timezone': None,
+     'updated_at': '2021-11-11T11:16:32.135374Z'}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 36 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+===== 1 failed, 2 passed, 37 deselected, 37 warnings in 146.39s (0:02:26) ======

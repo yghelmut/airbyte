@@ -1,0 +1,1293 @@
+../../../../connectors/source-spacex-api/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-spacex-api
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff8e7fb640>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='launches', json_schema={'$schema'...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff8dfdb910>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='launches', data={'fairings': {'reused': False, 'recovery_attempt': True,...: 'C105', 'status': 'unknown', 'type': 'Dragon 1.1', 'id': '5e9e2c5bf3591859a63b2668'}, emitted_at=1679412170136), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='launches', json_schema={'$schema'...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('capsules', 'crew', 'company', 'cores', 'dragons', 'landpads', 'payloads', 'roadster', 'rockets', 'ships', 'starlink').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe capsules stream has the following schema errors:\nAdditional properties are not allowed ('water_landings', 'serial', 'reuse_count', 'land_landings', 'last_update', 'type', 'launches', 'status' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'capsules': {'properties': {'dragon': {'description': 'Refers '\n                                                                          'to '\n                                                                          'Dragon',\n                                                           'type': 'string',\n                                                           'x-ref': 'Dragon'},\n                                                'land_landings': {'default': 0,\n                                                                  'type': 'number'},\n                                                'last_update': {'default': None,\n                                                                'type': ['string',\n                                                                         'null']},\n                                                'launches': {'items': {'description': 'Refers '\n                                                                                      'to '\n                                                                                      'Launch',\n                                                                       'type': 'string',\n                                                                       'x-ref': 'Launch'},\n                                                             'type': 'array'},\n                                                'reuse_count': {'default': 0,\n                                                                'type': 'number'},\n                                                'serial': {'type': 'string'},\n                                                'status': {'enum': ['unknown',\n                                                                    'active',\n                                                                    'retired',\n                                                                    'destroyed'],\n                                                           'type': 'string'},\n                                                'type': {'enum': ['Dragon '\n                                                                  '1.0',\n                                                                  'Dragon '\n                                                                  '1.1',\n                                                                  'Dragon '\n                                                                  '2.0'],\n                                                         'type': 'string'},\n                                                'water_landings': {'default': 0,\n                                                                   'type': 'number'}},\n                                 'required': ['serial', 'status', 'type'],\n                                 'title': 'capsules',\n                                 'type': 'object'},\n                    'id': {'pattern': '^[0-9a-fA-F]{24}$',\n                           'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'id': '62615d180ec008379be596f1',\n     'land_landings': 0,\n     'last_update': None,\n     'launches': ['6243ade2af52800c6e919255'],\n     'reuse_count': 0,\n     'serial': 'C212',\n     'status': 'active',\n     'type': 'Dragon 2.0',\n     'water_landings': 0}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe crew stream has the following schema errors:\nAdditional properties are not allowed ('agency', 'image', 'name', 'wikipedia', 'launches', 'status' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'crew': {'properties': {'agency': {'default': None,\n                                                       'type': ['string',\n                                                                'null']},\n                                            'image': {'default': None,\n                                                      'type': ['string',\n                                                               'null']},\n                                            'launches': {'items': {'type': 'string'},\n                                                         'type': 'array'},\n                                            'name': {'default': None,\n                                                     'type': ['string',\n                                                              'null']},\n                                            'status': {'enum': ['active',\n                                                                'inactive',\n                                                                'retired',\n                                                                'unknown'],\n                                                       'type': 'string'},\n                                            'wikipedia': {'default': None,\n                                                          'type': ['string',\n                                                                   'null']}},\n                             'required': ['status'],\n                             'title': 'crew',\n                             'type': 'object'},\n                    'id': {'pattern': '^[0-9a-fA-F]{24}$',\n                           'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'agency': 'Roscosmos',\n     'id': '62dd7253202306255024d13f',\n     'image': 'https://i.imgur.com/tKCaih3.png',\n     'launches': ['62dd70d5202306255024d139'],\n     'name': 'Anna Kikina',\n     'status': 'active',\n     'wikipedia': 'https://en.wikipedia.org/wiki/Anna_Kikina'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe company stream has the following schema errors:\nAdditional properties are not allowed ('test_sites', 'employees', 'ceo', 'vehicles', 'cto', 'founder', 'summary', 'headquarters', 'launch_sites', 'name', 'cto_propulsion', 'coo', 'valuation', 'links', 'founded' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'company': {'properties': {'ceo': {'type': 'string'},\n                                               'coo': {'type': 'string'},\n                                               'cto': {'type': 'string'},\n                                               'cto_propulsion': {'type': 'string'},\n                                               'employees': {'type': 'number'},\n                                               'founded': {'type': 'number'},\n                                               'founder': {'type': 'string'},\n                                               'headquarters': {'properties': {'address': {'type': 'string'},\n                                                                               'city': {'type': 'string'},\n                                                                               'state': {'type': 'string'}},\n                                                                'title': 'headquarters',\n                                                                'type': 'object'},\n                                               'launch_sites': {'type': 'number'},\n                                               'links': {'properties': {'elon_twitter': {'type': 'string'},\n                                                                        'flickr': {'type': 'string'},\n                                                                        'twitter': {'type': 'string'},\n                                                                        'website': {'type': 'string'}},\n                                                         'title': 'links',\n                                                         'type': 'object'},\n                                               'name': {'type': 'string'},\n                                               'summary': {'type': 'string'},\n                                               'test_sites': {'type': 'number'},\n                                               'valuation': {'type': 'number'},\n                                               'vehicles': {'type': 'number'}},\n                                'title': 'company',\n                                'type': 'object'},\n                    'id': {'pattern': '^[0-9a-fA-F]{24}$',\n                           'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'ceo': 'Elon Musk',\n     'coo': 'Gwynne Shotwell',\n     'cto': 'Elon Musk',\n     'cto_propulsion': 'Tom Mueller',\n     'employees': 9500,\n     'founded': 2002,\n     'founder': 'Elon Musk',\n     'headquarters': {'address': 'Rocket Road',\n                      'city': 'Hawthorne',\n                      'state': 'California'},\n     'id': '5eb75edc42fea42237d7f3ed',\n     'launch_sites': 3,\n     'links': {'elon_twitter': 'https://twitter.com/elonmusk',\n               'flickr': 'https://www.flickr.com/photos/spacex/',\n               'twitter': 'https://twitter.com/SpaceX',\n               'website': 'https://www.spacex.com/'},\n     'name': 'SpaceX',\n     'summary': 'SpaceX designs, manufactures and launches advanced '\n                'rockets and spacecraft. The company was founded in 2002 '\n                'to revolutionize space technology, with the ultimate goal '\n                'of enabling people to live on other planets.',\n     'test_sites': 3,\n     'valuation': 74000000000,\n     'vehicles': 4}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe cores stream has the following schema errors:\nAdditional properties are not allowed ('rtls_landings', 'asds_landings', 'block', 'serial', 'reuse_count', 'rtls_attempts', 'asds_attempts', 'last_update', 'launches', 'status' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'cores': {'properties': {'asds_attempts': {'default': 0,\n                                                               'type': 'number'},\n                                             'asds_landings': {'default': 0,\n                                                               'type': 'number'},\n                                             'block': {'default': None,\n                                                       'type': ['number',\n                                                                'null']},\n                                             'last_update': {'default': None,\n                                                             'type': ['string',\n                                                                      'null']},\n                                             'launches': {'items': {'type': 'string'},\n                                                          'type': 'array'},\n                                             'reuse_count': {'default': 0,\n                                                             'type': 'number'},\n                                             'rtls_attempts': {'default': 0,\n                                                               'type': 'number'},\n                                             'rtls_landings': {'default': 0,\n                                                               'type': 'number'},\n                                             'serial': {'type': 'string'},\n                                             'status': {'enum': ['active',\n                                                                 'inactive',\n                                                                 'unknown',\n                                                                 'expended',\n                                                                 'lost',\n                                                                 'retired'],\n                                                        'type': 'string'}},\n                              'required': ['serial', 'status'],\n                              'title': 'cores',\n                              'type': 'object'},\n                    'id': {'pattern': '^[0-9a-fA-F]{24}$',\n                           'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'asds_attempts': 1,\n     'asds_landings': 1,\n     'block': 5,\n     'id': '633d9da635a71d1d9c66797b',\n     'last_update': 'Landed on JRTI as of Oct 5, 2022',\n     'launches': ['62dd70d5202306255024d139'],\n     'reuse_count': 0,\n     'rtls_attempts': 0,\n     'rtls_landings': 0,\n     'serial': 'B1077',\n     'status': 'active'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe dragons stream has the following schema errors:\nAdditional properties are not allowed ('height_w_trunk', 'launch_payload_vol', 'launch_payload_mass', 'sidewall_angle_deg', 'type', 'description', 'dry_mass_kg', 'dry_mass_lb', 'crew_capacity', 'return_payload_vol', 'heat_shield', 'diameter', 'orbit_duration_yr', 'pressurized_capsule', 'return_payload_mass', 'wikipedia', 'active', 'first_flight', 'trunk', 'thrusters', 'name', 'flickr_images' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'dragons': {'properties': {'active': {'type': 'boolean'},\n                                               'crew_capacity': {'type': 'number'},\n                                               'description': {'type': 'string'},\n                                               'diameter': {'properties': {'feet': {'type': 'number'},\n                                                                           'meters': {'type': 'number'}},\n                                                            'title': 'diameter',\n                                                            'type': 'object'},\n                                               'dry_mass_kg': {'type': 'number'},\n                                               'dry_mass_lb': {'type': 'number'},\n                                               'first_flight': {'default': None,\n                                                                'type': ['string',\n                                                                         'null']},\n                                               'flickr_images': {'items': {'type': 'string'},\n                                                                 'type': 'array'},\n                                               'heat_shield': {'properties': {'dev_partner': {'type': 'string'},\n                                                                              'material': {'type': 'string'},\n                                                                              'size_meters': {'type': 'number'},\n                                                                              'temp_degrees': {'type': 'number'}},\n                                                               'required': ['material',\n                                                                            'size_meters'],\n                                                               'title': 'heat_shield',\n                                                               'type': 'object'},\n                                               'height_w_trunk': {'properties': {'feet': {'type': 'number'},\n                                                                                 'meters': {'type': 'number'}},\n                                                                  'title': 'height_w_trunk',\n                                                                  'type': 'object'},\n                                               'launch_payload_mass': {'properties': {'kg': {'type': 'number'},\n                                                                                      'lb': {'type': 'number'}},\n                                                                       'title': 'launch_payload_mass',\n                                                                       'type': 'object'},\n                                               'launch_payload_vol': {'properties': {'cubic_feet': {'type': 'number'},\n                                                                                     'cubic_meters': {'type': 'number'}},\n                                                                      'title': 'launch_payload_vol',\n                                                                      'type': 'object'},\n                                               'name': {'type': 'string'},\n                                               'orbit_duration_yr': {'type': 'number'},\n                                               'pressurized_capsule': {'properties': {'payload_volume': {'properties': {'cubic_feet': {'type': 'number'},\n                                                                                                                        'cubic_meters': {'type': 'number'}},\n                                                                                                         'title': 'payload_volume',\n                                                                                                         'type': 'object'}},\n                                                                       'title': 'pressurized_capsule',\n                                                                       'type': 'object'},\n                                               'return_payload_mass': {'properties': {'kg': {'type': 'number'},\n                                                                                      'lb': {'type': 'number'}},\n                                                                       'title': 'return_payload_mass',\n                                                                       'type': 'object'},\n                                               'return_payload_vol': {'properties': {'cubic_feet': {'type': 'number'},\n                                                                                     'cubic_meters': {'type': 'number'}},\n                                                                      'title': 'return_payload_vol',\n                                                                      'type': 'object'},\n                                               'sidewall_angle_deg': {'type': 'number'},\n                                               'thrusters': {'items': {'type': 'string'},\n                                                             'type': 'array'},\n                                               'trunk': {'properties': {'cargo': {'properties': {'solar_array': {'type': 'number'},\n                                                                                                 'unpressurized_cargo': {'type': 'boolean'}},\n                                                                                  'title': 'cargo',\n                                                                                  'type': 'object'},\n                                                                        'trunk_volume': {'properties': {'cubic_feet': {'type': 'number'},\n                                                                                                        'cubic_meters': {'type': 'number'}},\n                                                                                         'title': 'trunk_volume',\n                                                                                         'type': 'object'}},\n                                                         'title': 'trunk',\n                                                         'type': 'object'},\n                                               'type': {'type': 'string'},\n                                               'wikipedia': {'type': 'string'}},\n                                'required': ['name',\n                                             'type',\n                                             'active',\n                                             'crew_capacity',\n                                             'sidewall_angle_deg',\n                                             'orbit_duration_yr',\n                                             'dry_mass_kg',\n                                             'dry_mass_lb'],\n                                'title': 'dragons',\n                                'type': 'object'},\n                    'id': {'pattern': '^[0-9a-fA-F]{24}$',\n                           'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'active': True,\n     'crew_capacity': 7,\n     'description': 'Dragon 2 (also Crew Dragon, Dragon V2, or formerly '\n                    'DragonRider) is the second version of the SpaceX '\n                    'Dragon spacecraft, which will be a human-rated '\n                    'vehicle. It includes a set of four side-mounted '\n                    'thruster pods with two SuperDraco engines each, which '\n                    'can serve as a launch escape system or launch abort '\n                    'system (LAS). In addition, it has much larger '\n                    'windows, new flight computers and avionics, and '\n                    'redesigned solar arrays, and a modified outer mold '\n                    'line from the initial cargo Dragon that has been '\n                    'flying for several years.',\n     'diameter': {'feet': 12, 'meters': 3.7},\n     'dry_mass_kg': 6350,\n     'dry_mass_lb': 14000,\n     'first_flight': '2019-03-02',\n     'flickr_images': ['https://farm8.staticflickr.com/7647/16581815487_6d56cb32e1_b.jpg',\n                       'https://farm1.staticflickr.com/780/21119686299_c88f63e350_b.jpg',\n                       'https://farm9.staticflickr.com/8588/16661791299_a236e2f5dc_b.jpg'],\n     'heat_shield': {'dev_partner': 'NASA',\n                     'material': 'PICA-X',\n                     'size_meters': 3.6,\n                     'temp_degrees': 3000},\n     'height_w_trunk': {'feet': 23.6, 'meters': 7.2},\n     'id': '5e9d058859b1ffd8e2ad5f90',\n     'launch_payload_mass': {'kg': 6000, 'lb': 13228},\n     'launch_payload_vol': {'cubic_feet': 883, 'cubic_meters': 25},\n     'name': 'Dragon 2',\n     'orbit_duration_yr': 2,\n     'pressurized_capsule': {'payload_volume': {'cubic_feet': 388,\n                                                'cubic_meters': 11}},\n     'return_payload_mass': {'kg': 3000, 'lb': 6614},\n     'return_payload_vol': {'cubic_feet': 388, 'cubic_meters': 11},\n     'sidewall_angle_deg': 15,\n     'thrusters': [{'amount': 18,\n                    'fuel_1': 'nitrogen tetroxide',\n                    'fuel_2': 'monomethylhydrazine',\n                    'isp': 300,\n                    'pods': 4,\n                    'thrust': {'kN': 0.4, 'lbf': 90},\n                    'type': 'Draco'},\n                   {'amount': 8,\n                    'fuel_1': 'dinitrogen tetroxide',\n                    'fuel_2': 'monomethylhydrazine',\n                    'isp': 235,\n                    'pods': 4,\n                    'thrust': {'kN': 71, 'lbf': 16000},\n                    'type': 'SuperDraco'}],\n     'trunk': {'cargo': {'solar_array': 2, 'unpressurized_cargo': True},\n               'trunk_volume': {'cubic_feet': 494, 'cubic_meters': 14}},\n     'type': 'capsule',\n     'wikipedia': 'https://en.wikipedia.org/wiki/Dragon_2'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe landpads stream has the following schema errors:\nAdditional properties are not allowed ('latitude', 'images', 'region', 'landing_attempts', 'locality', 'landing_successes', 'longitude', 'details', 'name', 'full_name', 'wikipedia', 'type', 'launches', 'status' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'id': {'pattern': '^[0-9a-fA-F]{24}$',\n                           'type': 'string'},\n                    'landpads': {'properties': {'details': {'default': None,\n                                                            'type': ['string',\n                                                                     'null']},\n                                                'full_name': {'default': None,\n                                                              'type': ['string',\n                                                                       'null']},\n                                                'images': {'properties': {'large': {'items': {'type': 'string'},\n                                                                                    'type': 'array'}},\n                                                           'title': 'images',\n                                                           'type': 'object'},\n                                                'landing_attempts': {'default': 0,\n                                                                     'type': 'number'},\n                                                'landing_successes': {'default': 0,\n                                                                      'type': 'number'},\n                                                'latitude': {'default': None,\n                                                             'type': ['number',\n                                                                      'null']},\n                                                'launches': {'items': {'type': 'string'},\n                                                             'type': 'array'},\n                                                'locality': {'default': None,\n                                                             'type': ['string',\n                                                                      'null']},\n                                                'longitude': {'default': None,\n                                                              'type': ['number',\n                                                                       'null']},\n                                                'name': {'default': None,\n                                                         'type': ['string',\n                                                                  'null']},\n                                                'region': {'default': None,\n                                                           'type': ['string',\n                                                                    'null']},\n                                                'status': {'enum': ['active',\n                                                                    'inactive',\n                                                                    'unknown',\n                                                                    'retired',\n                                                                    'lost',\n                                                                    'under '\n                                                                    'construction'],\n                                                           'type': 'string'},\n                                                'type': {'default': None,\n                                                         'type': ['string',\n                                                                  'null']},\n                                                'wikipedia': {'default': None,\n                                                              'type': ['string',\n                                                                       'null']}},\n                                 'required': ['status'],\n                                 'title': 'landpads',\n                                 'type': 'object'}},\n     'type': 'object'}\n\nOn instance:\n    {'details': 'The fourth ASDS barge was announced to be under '\n                'construction in February 2018 and it will become the '\n                'second active east coast-based ASDS. It will be '\n                'homeported at Port Canaveral. This future simultaneously '\n                'usable ASDS, along with OCISLY, is called A Shortfall of '\n                'Gravitas (ASoG) and like the rest of the fleet, its '\n                'naming is based on names used in the Culture series. The '\n                'droneship is expected to be operational in mid-2019.',\n     'full_name': 'A Shortfall of Gravitas',\n     'id': '5e9e3033383ecb075134e7cd',\n     'images': {'large': ['https://i.imgur.com/PkrS8vQ.png']},\n     'landing_attempts': 21,\n     'landing_successes': 21,\n     'latitude': 33.7291858,\n     'launches': ['5fe3b11eb3467846b324216c',\n                  '5fe3b15eb3467846b324216d',\n                  '6161c94c6db1a92bfba85349',\n                  '5fe3afc1b3467846b3242164',\n                  '61d5eca1f88e4c5fc91f1eb7',\n                  '61e048bbbe8d8b66799018d0',\n                  '61e048ffbe8d8b66799018d1',\n                  '61fc01dae0dc5662b76489a7',\n                  '61fc0243e0dc5662b76489ae',\n                  '61eefaa89eb1064137a1bd73',\n                  '6243ade2af52800c6e919255',\n                  '62582a855988f159024b964c',\n                  '62615ebc0ec008379be596fa',\n                  '6278481757b51b752c5c5a5f',\n                  '6243aea5af52800c6e91925c',\n                  '6243ae40af52800c6e919259',\n                  '62a9f12820413d2695d88716',\n                  '62a9f8b320413d2695d8871b',\n                  '62f3b5200f55c50e192a4e6c',\n                  '62f3b5290f55c50e192a4e6d',\n                  '62a9f89a20413d2695d8871a'],\n     'locality': 'Port Canaveral',\n     'longitude': -118.262015,\n     'name': 'ASOG',\n     'region': 'Florida',\n     'status': 'active',\n     'type': 'ASDS',\n     'wikipedia': 'https://en.wikipedia.org/wiki/Autonomous_spaceport_drone_ship'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe payloads stream has the following schema errors:\nAdditional properties are not allowed ('orbit', 'manufacturers', 'lifespan_years', 'reused', 'type', 'mean_anomaly', 'epoch', 'longitude', 'period_min', 'arg_of_pericenter', 'reference_system', 'raan', 'customers', 'apoapsis_km', 'regime', 'dragon', 'eccentricity', 'nationalities', 'mass_lbs', 'mean_motion', 'launch', 'semi_major_axis_km', 'periapsis_km', 'inclination_deg', 'mass_kg', 'name', 'norad_ids' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'id': {'pattern': '^[0-9a-fA-F]{24}$',\n                           'type': 'string'},\n                    'payload': {'properties': {'apoapsis_km': {'default': None,\n                                                               'type': ['number',\n                                                                        'null']},\n                                               'arg_of_pericenter': {'default': None,\n                                                                     'type': ['number',\n                                                                              'null']},\n                                               'customers': {'items': {'type': 'string'},\n                                                             'type': 'array'},\n                                               'dragon': {'properties': {'capsule': {'default': None,\n                                                                                     'type': ['string',\n                                                                                              'null']},\n                                                                         'flight_time_sec': {'default': None,\n                                                                                             'type': ['number',\n                                                                                                      'null']},\n                                                                         'land_landing': {'default': None,\n                                                                                          'type': ['boolean',\n                                                                                                   'null']},\n                                                                         'manifest': {'default': None,\n                                                                                      'type': ['string',\n                                                                                               'null']},\n                                                                         'mass_returned_kg': {'default': None,\n                                                                                              'type': ['number',\n                                                                                                       'null']},\n                                                                         'mass_returned_lbs': {'default': None,\n                                                                                               'type': ['number',\n                                                                                                        'null']},\n                                                                         'water_landing': {'default': None,\n                                                                                           'type': ['boolean',\n                                                                                                    'null']}},\n                                                          'title': 'dragon',\n                                                          'type': 'object'},\n                                               'eccentricity': {'default': None,\n                                                                'type': ['number',\n                                                                         'null']},\n                                               'epoch': {'default': None,\n                                                         'type': ['string',\n                                                                  'null']},\n                                               'inclination_deg': {'default': None,\n                                                                   'type': ['number',\n                                                                            'null']},\n                                               'launch': {'default': None,\n                                                          'type': ['string',\n                                                                   'null']},\n                                               'lifespan_years': {'default': None,\n                                                                  'type': ['number',\n                                                                           'null']},\n                                               'longitude': {'default': None,\n                                                             'type': ['number',\n                                                                      'null']},\n                                               'manufacturers': {'items': {'type': 'string'},\n                                                                 'type': 'array'},\n                                               'mass_kg': {'default': None,\n                                                           'type': ['number',\n                                                                    'null']},\n                                               'mass_lbs': {'default': None,\n                                                            'type': ['number',\n                                                                     'null']},\n                                               'mean_anomaly': {'default': None,\n                                                                'type': ['number',\n                                                                         'null']},\n                                               'mean_motion': {'default': None,\n                                                               'type': ['number',\n                                                                        'null']},\n                                               'name': {'default': None,\n                                                        'type': ['string',\n                                                                 'null']},\n                                               'nationalities': {'items': {'type': 'string'},\n                                                                 'type': 'array'},\n                                               'norad_ids': {'items': {'type': 'number'},\n                                                             'type': 'array'},\n                                               'orbit': {'default': None,\n                                                         'type': ['string',\n                                                                  'null']},\n                                               'periapsis_km': {'default': None,\n                                                                'type': ['number',\n                                                                         'null']},\n                                               'period_min': {'default': None,\n                                                              'type': ['number',\n                                                                       'null']},\n                                               'raan': {'default': None,\n                                                        'type': ['number',\n                                                                 'null']},\n                                               'reference_system': {'default': None,\n                                                                    'type': ['string',\n                                                                             'null']},\n                                               'regime': {'default': None,\n                                                          'type': ['string',\n                                                                   'null']},\n                                               'reused': {'default': False,\n                                                          'type': 'boolean'},\n                                               'semi_major_axis_km': {'default': None,\n                                                                      'type': ['number',\n                                                                               'null']},\n                                               'type': {'default': None,\n                                                        'type': ['string',\n                                                                 'null']}},\n                                'title': 'payload',\n                                'type': 'object'}},\n     'type': 'object'}\n\nOn instance:\n    {'apoapsis_km': None,\n     'arg_of_pericenter': None,\n     'customers': ['AST & Science'],\n     'dragon': {'capsule': None,\n                'flight_time_sec': None,\n                'land_landing': None,\n                'manifest': None,\n                'mass_returned_kg': None,\n                'mass_returned_lbs': None,\n                'water_landing': None},\n     'eccentricity': None,\n     'epoch': None,\n     'id': '63161872ffc78f3b8567071e',\n     'inclination_deg': None,\n     'launch': '62a9f89a20413d2695d8871a',\n     'lifespan_years': None,\n     'longitude': None,\n     'manufacturers': ['AST & Science'],\n     'mass_kg': 1500,\n     'mass_lbs': 3306,\n     'mean_anomaly': None,\n     'mean_motion': None,\n     'name': 'BlueWalker 3',\n     'nationalities': ['United States'],\n     'norad_ids': [],\n     'orbit': 'VLEO',\n     'periapsis_km': None,\n     'period_min': None,\n     'raan': None,\n     'reference_system': 'geocentric',\n     'regime': 'very-low-earth',\n     'reused': False,\n     'semi_major_axis_km': None,\n     'type': 'Satellite'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe roadster stream has the following schema errors:\nAdditional properties are not allowed ('launch_date_utc', 'orbit_type', 'mars_distance_km', 'earth_distance_km', 'earth_distance_mi', 'launch_date_unix', 'semi_major_axis_au', 'video', 'longitude', 'periapsis_au', 'periapsis_arg', 'launch_mass_lbs', 'launch_mass_kg', 'speed_mph', 'inclination', 'norad_id', 'period_days', 'apoapsis_au', 'epoch_jd', 'mars_distance_mi', 'wikipedia', 'eccentricity', 'speed_kph', 'details', 'name', 'flickr_images' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'id': {'pattern': '^[0-9a-fA-F]{24}$',\n                           'type': 'string'},\n                    'roadster': {'properties': {'apoapsis_au': {'type': 'number'},\n                                                'details': {'type': 'string'},\n                                                'earth_distance_km': {'type': 'number'},\n                                                'earth_distance_mi': {'type': 'number'},\n                                                'eccentricity': {'type': 'number'},\n                                                'epoch_jd': {'type': 'number'},\n                                                'flickr_images': {'items': {'type': 'string'},\n                                                                  'type': 'array'},\n                                                'inclination': {'type': 'number'},\n                                                'launch_date_unix': {'type': 'number'},\n                                                'launch_date_utc': {'type': 'string'},\n                                                'launch_mass_kg': {'type': 'number'},\n                                                'launch_mass_lbs': {'type': 'number'},\n                                                'longitude': {'type': 'number'},\n                                                'mars_distance_km': {'type': 'number'},\n                                                'mars_distance_mi': {'type': 'number'},\n                                                'name': {'type': 'string'},\n                                                'norad_id': {'type': 'number'},\n                                                'orbit_type': {'type': 'string'},\n                                                'periapsis_arg': {'type': 'number'},\n                                                'periapsis_au': {'type': 'number'},\n                                                'period_days': {'type': 'number'},\n                                                'semi_major_axis_au': {'type': 'number'},\n                                                'speed_kph': {'type': 'number'},\n                                                'speed_mph': {'type': 'number'},\n                                                'video': {'type': 'string'},\n                                                'wikipedia': {'type': 'string'}},\n                                 'title': 'roadster',\n                                 'type': 'object'}},\n     'type': 'object'}\n\nOn instance:\n    {'apoapsis_au': 1.664332332453025,\n     'details': \"Elon Musk's Tesla Roadster is an electric sports car that \"\n                'served as the dummy payload for the February 2018 Falcon '\n                'Heavy test flight and is now an artificial satellite of '\n                'the Sun. Starman, a mannequin dressed in a spacesuit, '\n                \"occupies the driver's seat. The car and rocket are \"\n                'products of Tesla and SpaceX. This 2008-model Roadster '\n                'was previously used by Musk for commuting, and is the '\n                'only consumer car sent into space.',\n     'earth_distance_km': 320593735.82924163,\n     'earth_distance_mi': 199207650.2259517,\n     'eccentricity': 0.2559348215918733,\n     'epoch_jd': 2459914.263888889,\n     'flickr_images': ['https://farm5.staticflickr.com/4615/40143096241_11128929df_b.jpg',\n                       'https://farm5.staticflickr.com/4702/40110298232_91b32d0cc0_b.jpg',\n                       'https://farm5.staticflickr.com/4676/40110297852_5e794b3258_b.jpg',\n                       'https://farm5.staticflickr.com/4745/40110304192_6e3e9a7a1b_b.jpg'],\n     'id': '5eb75f0842fea42237d7f3f4',\n     'inclination': 1.075052357364693,\n     'launch_date_unix': 1517949900,\n     'launch_date_utc': '2018-02-06T20:45:00.000Z',\n     'launch_mass_kg': 1350,\n     'launch_mass_lbs': 2976,\n     'longitude': 316.9112133411523,\n     'mars_distance_km': 395640511.90355814,\n     'mars_distance_mi': 245839540.52202582,\n     'name': \"Elon Musk's Tesla Roadster\",\n     'norad_id': 43205,\n     'orbit_type': 'heliocentric',\n     'periapsis_arg': 177.75981116285,\n     'periapsis_au': 0.986015924224046,\n     'period_days': 557.1958197697352,\n     'semi_major_axis_au': 57.70686413577451,\n     'speed_kph': 9520.88362029108,\n     'speed_mph': 5916.000976023889,\n     'video': 'https://youtu.be/wbSwFU6tY1c',\n     'wikipedia': 'https://en.wikipedia.org/wiki/Elon_Musk%27s_Tesla_Roadster'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe rockets stream has the following schema errors:\nAdditional properties are not allowed ('country', 'boosters', 'second_stage', 'type', 'description', 'cost_per_launch', 'success_rate_pct', 'diameter', 'engines', 'payload_weights', 'height', 'stages', 'company', 'wikipedia', 'first_stage', 'mass', 'active', 'first_flight', 'landing_legs', 'name', 'flickr_images' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'id': {'pattern': '^[0-9a-fA-F]{24}$',\n                           'type': 'string'},\n                    'rockets': {'properties': {'active': {'type': 'boolean'},\n                                               'boosters': {'type': 'number'},\n                                               'company': {'type': 'string'},\n                                               'cost_per_launch': {'type': 'number'},\n                                               'country': {'type': 'string'},\n                                               'description': {'type': 'string'},\n                                               'diameter': {'properties': {'feet': {'type': 'number'},\n                                                                           'meters': {'type': 'number'}},\n                                                            'title': 'diameter',\n                                                            'type': 'object'},\n                                               'engines': {'properties': {'engine_loss_max': {'type': 'number'},\n                                                                          'isp': {'properties': {'sea_level': {'type': 'number'},\n                                                                                                 'vacuum': {'type': 'number'}},\n                                                                                  'title': 'isp',\n                                                                                  'type': 'object'},\n                                                                          'layout': {'type': 'string'},\n                                                                          'number': {'type': 'number'},\n                                                                          'propellant_1': {'type': 'string'},\n                                                                          'propellant_2': {'type': 'string'},\n                                                                          'thrust_sea_level': {'properties': {'kN': {'type': 'number'},\n                                                                                                              'lbf': {'type': 'number'}},\n                                                                                               'title': 'thrust_sea_level',\n                                                                                               'type': 'object'},\n                                                                          'thrust_to_weight': {'type': 'number'},\n                                                                          'thrust_vacuum': {'properties': {'kN': {'type': 'number'},\n                                                                                                           'lbf': {'type': 'number'}},\n                                                                                            'title': 'thrust_vacuum',\n                                                                                            'type': 'object'},\n                                                                          'type': {'type': 'string'},\n                                                                          'version': {'type': 'string'}},\n                                                           'title': 'engines',\n                                                           'type': 'object'},\n                                               'first_flight': {'type': 'string'},\n                                               'first_stage': {'properties': {'burn_time_sec': {'type': 'number'},\n                                                                              'engines': {'type': 'number'},\n                                                                              'fuel_amount_tons': {'type': 'number'},\n                                                                              'reusable': {'type': 'boolean'},\n                                                                              'thrust_sea_level': {'properties': {'kN': {'type': 'number'},\n                                                                                                                  'lbf': {'type': 'number'}},\n                                                                                                   'title': 'thrust_sea_level',\n                                                                                                   'type': 'object'},\n                                                                              'thrust_vacuum': {'properties': {'kN': {'type': 'number'},\n                                                                                                               'lbf': {'type': 'number'}},\n                                                                                                'title': 'thrust_vacuum',\n                                                                                                'type': 'object'}},\n                                                               'title': 'first_stage',\n                                                               'type': 'object'},\n                                               'flickr_images': {'items': {'type': 'string'},\n                                                                 'type': 'array'},\n                                               'height': {'properties': {'feet': {'type': 'number'},\n                                                                         'meters': {'type': 'number'}},\n                                                          'title': 'height',\n                                                          'type': 'object'},\n                                               'landing_legs': {'properties': {'material': {'items': {'type': 'number'},\n                                                                                            'type': 'array'},\n                                                                               'number': {'type': 'number'}},\n                                                                'title': 'landing_legs',\n                                                                'type': 'object'},\n                                               'mass': {'properties': {'kg': {'type': 'number'},\n                                                                       'lb': {'type': 'number'}},\n                                                        'title': 'mass',\n                                                        'type': 'object'},\n                                               'name': {'type': 'string'},\n                                               'payload_weights': {'items': {'type': 'number'},\n                                                                   'type': 'array'},\n                                               'second_stage': {'properties': {'burn_time_sec': {'type': 'number'},\n                                                                               'engines': {'type': 'number'},\n                                                                               'fuel_amount_tons': {'type': 'number'},\n                                                                               'payloads': {'properties': {'composite_fairing': {'properties': {'diameter': {'properties': {'feet': {'type': 'number'},\n                                                                                                                                                                            'meters': {'type': 'number'}},\n                                                                                                                                                             'title': 'diameter',\n                                                                                                                                                             'type': 'object'},\n                                                                                                                                                'height': {'properties': {'feet': {'type': 'number'},\n                                                                                                                                                                          'meters': {'type': 'number'}},\n                                                                                                                                                           'title': 'height',\n                                                                                                                                                           'type': 'object'}},\n                                                                                                                                 'title': 'composite_fairing',\n                                                                                                                                 'type': 'object'},\n                                                                                                           'option_1': {'type': 'string'}},\n                                                                                            'title': 'payloads',\n                                                                                            'type': 'object'},\n                                                                               'reusable': {'type': 'boolean'},\n                                                                               'thrust': {'properties': {'kN': {'type': 'number'},\n                                                                                                         'lbf': {'type': 'number'}},\n                                                                                          'title': 'thrust',\n                                                                                          'type': 'object'}},\n                                                                'title': 'second_stage',\n                                                                'type': 'object'},\n                                               'stages': {'type': 'number'},\n                                               'success_rate_pct': {'type': 'number'},\n                                               'type': {'type': 'string'},\n                                               'wikipedia': {'type': 'string'}},\n                                'title': 'rockets',\n                                'type': 'object'}},\n     'type': 'object'}\n\nOn instance:\n    {'active': False,\n     'boosters': 0,\n     'company': 'SpaceX',\n     'cost_per_launch': 7000000,\n     'country': 'United States',\n     'description': 'Starship and Super Heavy Rocket represent a fully '\n                    'reusable transportation system designed to service '\n                    'all Earth orbit needs as well as the Moon and Mars. '\n                    'This two-stage vehicle \u2014 composed of the Super Heavy '\n                    'rocket (booster) and Starship (ship) \u2014 will '\n                    'eventually replace Falcon 9, Falcon Heavy and Dragon.',\n     'diameter': {'feet': 30, 'meters': 9},\n     'engines': {'engine_loss_max': None,\n                 'isp': {'sea_level': 330, 'vacuum': 380},\n                 'layout': None,\n                 'number': 37,\n                 'propellant_1': 'liquid oxygen',\n                 'propellant_2': 'liquid methane',\n                 'thrust_sea_level': {'kN': 1780, 'lbf': 400000},\n                 'thrust_to_weight': 107,\n                 'thrust_vacuum': {'kN': 1960, 'lbf': 440000},\n                 'type': 'raptor',\n                 'version': ''},\n     'first_flight': '2021-12-01',\n     'first_stage': {'burn_time_sec': None,\n                     'engines': 37,\n                     'fuel_amount_tons': 3300,\n                     'reusable': True,\n                     'thrust_sea_level': {'kN': 128000, 'lbf': 28775544},\n                     'thrust_vacuum': {'kN': 138000, 'lbf': 31023634}},\n     'flickr_images': ['https://live.staticflickr.com/65535/48954138962_ee541e6755_b.jpg',\n                       'https://live.staticflickr.com/65535/48953946911_e60c5bcc5c_b.jpg',\n                       'https://live.staticflickr.com/65535/48954138922_9c42173f08_b.jpg',\n                       'https://live.staticflickr.com/65535/48953947006_313f01ec93_b.jpg'],\n     'height': {'feet': 387, 'meters': 118},\n     'id': '5e9d0d96eda699382d09d1ee',\n     'landing_legs': {'material': 'stainless steel', 'number': 6},\n     'mass': {'kg': 1335000, 'lb': 2943000},\n     'name': 'Starship',\n     'payload_weights': [{'id': 'leo',\n                          'kg': 150000,\n                          'lb': 330000,\n                          'name': 'Low Earth Orbit'},\n                         {'id': 'mars',\n                          'kg': 100000,\n                          'lb': 220000,\n                          'name': 'Mars Orbit'},\n                         {'id': 'moon',\n                          'kg': 100000,\n                          'lb': 220000,\n                          'name': 'Moon Orbit'}],\n     'second_stage': {'burn_time_sec': None,\n                      'engines': 6,\n                      'fuel_amount_tons': 1200,\n                      'payloads': {'composite_fairing': {'diameter': {'feet': None,\n                                                                      'meters': None},\n                                                         'height': {'feet': None,\n                                                                    'meters': None}},\n                                   'option_1': 'Spaceship'},\n                      'reusable': True,\n                      'thrust': {'kN': 1957, 'lbf': 440000}},\n     'stages': 2,\n     'success_rate_pct': 0,\n     'type': 'rocket',\n     'wikipedia': 'https://en.wikipedia.org/wiki/SpaceX_Starship'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe ships stream has the following schema errors:\nAdditional properties are not allowed ('link', 'speed_kn', 'year_built', 'type', 'launches', 'latitude', 'class', 'longitude', 'course_deg', 'status', 'last_ais_update', 'imo', 'image', 'model', 'active', 'mass_lbs', 'home_port', 'legacy_id', 'roles', 'mmsi', 'mass_kg', 'abs', 'name' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'id': {'pattern': '^[0-9a-fA-F]{24}$',\n                           'type': 'string'},\n                    'ships': {'properties': {'abs': {'default': None,\n                                                     'type': ['number',\n                                                              'null']},\n                                             'active': {'type': 'boolean'},\n                                             'class': {'default': None,\n                                                       'type': ['number',\n                                                                'null']},\n                                             'course_deg': {'default': None,\n                                                            'type': ['number',\n                                                                     'null']},\n                                             'home_port': {'default': None,\n                                                           'type': ['string',\n                                                                    'null']},\n                                             'image': {'default': None,\n                                                       'type': ['string',\n                                                                'null']},\n                                             'imo': {'default': None,\n                                                     'type': ['number',\n                                                              'null']},\n                                             'last_ais_update': {'default': None,\n                                                                 'type': ['string',\n                                                                          'null']},\n                                             'latitude': {'default': None,\n                                                          'type': ['number',\n                                                                   'null']},\n                                             'launches': {'items': {'type': 'string'},\n                                                          'type': 'array'},\n                                             'legacy_id': {'default': None,\n                                                           'type': ['string',\n                                                                    'null']},\n                                             'link': {'default': None,\n                                                      'type': ['string',\n                                                               'null']},\n                                             'longitude': {'default': None,\n                                                           'type': ['number',\n                                                                    'null']},\n                                             'mass_kg': {'default': None,\n                                                         'type': ['number',\n                                                                  'null']},\n                                             'mass_lbs': {'default': None,\n                                                          'type': ['number',\n                                                                   'null']},\n                                             'mmsi': {'default': None,\n                                                      'type': ['number',\n                                                               'null']},\n                                             'model': {'default': None,\n                                                       'type': ['string',\n                                                                'null']},\n                                             'name': {'type': 'string'},\n                                             'roles': {'items': {'type': 'string'},\n                                                       'type': 'array'},\n                                             'speed_kn': {'default': None,\n                                                          'type': ['number',\n                                                                   'null']},\n                                             'status': {'default': None,\n                                                        'type': ['string',\n                                                                 'null']},\n                                             'type': {'default': None,\n                                                      'type': ['string',\n                                                               'null']},\n                                             'year_built': {'default': None,\n                                                            'type': ['number',\n                                                                     'null']}},\n                              'required': ['name', 'active'],\n                              'title': 'ships',\n                              'type': 'object'}},\n     'type': 'object'}\n\nOn instance:\n    {'abs': 1220625,\n     'active': True,\n     'class': 9195228,\n     'course_deg': None,\n     'home_port': 'Port Canaveral',\n     'id': '618fad7e563d69573ed8caa9',\n     'image': 'https://i.imgur.com/Wr1slIc.png',\n     'imo': 9529695,\n     'last_ais_update': None,\n     'latitude': None,\n     'launches': ['618faad2563d69573ed8ca9d',\n                  '6161c94c6db1a92bfba85349',\n                  '5fe3afc1b3467846b3242164',\n                  '6243ada6af52800c6e919253'],\n     'legacy_id': None,\n     'link': 'https://www.marinetraffic.com/en/ais/details/ships/shipid:454731/mmsi:368456000/imo:9529695/vessel:BOB',\n     'longitude': None,\n     'mass_kg': 2719740,\n     'mass_lbs': 5996000,\n     'mmsi': 368456000,\n     'model': None,\n     'name': 'Bob',\n     'roles': ['Fairing Recovery', 'Support Ship'],\n     'speed_kn': None,\n     'status': None,\n     'type': 'Cargo',\n     'year_built': 2009}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe starlink stream has the following schema errors:\nAdditional properties are not allowed ('latitude', 'launch', 'height_km', 'version', 'longitude', 'spaceTrack', 'velocity_kms' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'id': {'pattern': '^[0-9a-fA-F]{24}$',\n                           'type': 'string'},\n                    'starlink': {'properties': {'height_km': {'default': None,\n                                                              'type': ['number',\n                                                                       'null']},\n                                                'latitude': {'default': None,\n                                                             'type': ['number',\n                                                                      'null']},\n                                                'launch': {'default': None,\n                                                           'type': ['string',\n                                                                    'null']},\n                                                'longitude': {'default': None,\n                                                              'type': ['number',\n                                                                       'null']},\n                                                'spaceTrack': {'properties': {'APOAPSIS': {'default': None,\n                                                                                           'type': ['number',\n                                                                                                    'null']},\n                                                                              'ARG_OF_PERICENTER': {'default': None,\n                                                                                                    'type': ['number',\n                                                                                                             'null']},\n                                                                              'BSTAR': {'default': None,\n                                                                                        'type': ['number',\n                                                                                                 'null']},\n                                                                              'CCSDS_OMM_VERS': {'default': None,\n                                                                                                 'type': ['string',\n                                                                                                          'null']},\n                                                                              'CENTER_NAME': {'default': None,\n                                                                                              'type': ['string',\n                                                                                                       'null']},\n                                                                              'CLASSIFICATION_TYPE': {'default': None,\n                                                                                                      'type': ['string',\n                                                                                                               'null']},\n                                                                              'COMMENT': {'default': None,\n                                                                                          'type': ['string',\n                                                                                                   'null']},\n                                                                              'COUNTRY_CODE': {'default': None,\n                                                                                               'type': ['string',\n                                                                                                        'null']},\n                                                                              'CREATION_DATE': {'default': None,\n                                                                                                'type': ['string',\n                                                                                                         'null']},\n                                                                              'DECAYED': {'default': None,\n                                                                                          'type': ['number',\n                                                                                                   'null']},\n                                                                              'DECAY_DATE': {'default': None,\n                                                                                             'type': ['string',\n                                                                                                      'null']},\n                                                                              'ECCENTRICITY': {'default': None,\n                                                                                               'type': ['number',\n                                                                                                        'null']},\n                                                                              'ELEMENT_SET_NO': {'default': None,\n                                                                                                 'type': ['number',\n                                                                                                          'null']},\n                                                                              'EPHEMERIS_TYPE': {'default': None,\n                                                                                                 'type': ['number',\n                                                                                                          'null']},\n                                                                              'EPOCH': {'default': None,\n                                                                                        'type': ['string',\n                                                                                                 'null']},\n                                                                              'FILE': {'default': None,\n                                                                                       'type': ['number',\n                                                                                                'null']},\n                                                                              'GP_ID': {'default': None,\n                                                                                        'type': ['number',\n                                                                                                 'null']},\n                                                                              'INCLINATION': {'default': None,\n                                                                                              'type': ['number',\n                                                                                                       'null']},\n                                                                              'LAUNCH_DATE': {'default': None,\n                                                                                              'type': ['string',\n                                                                                                       'null']},\n                                                                              'MEAN_ANOMALY': {'default': None,\n                                                                                               'type': ['number',\n                                                                                                        'null']},\n                                                                              'MEAN_ELEMENT_THEORY': {'default': None,\n                                                                                                      'type': ['string',\n                                                                                                               'null']},\n                                                                              'MEAN_MOTION': {'default': None,\n                                                                                              'type': ['number',\n                                                                                                       'null']},\n                                                                              'MEAN_MOTION_DDOT': {'default': None,\n                                                                                                   'type': ['number',\n                                                                                                            'null']},\n                                                                              'MEAN_MOTION_DOT': {'default': None,\n                                                                                                  'type': ['number',\n                                                                                                           'null']},\n                                                                              'NORAD_CAT_ID': {'default': None,\n                                                                                               'type': ['number',\n                                                                                                        'null']},\n                                                                              'OBJECT_ID': {'default': None,\n                                                                                            'type': ['string',\n                                                                                                     'null']},\n                                                                              'OBJECT_NAME': {'default': None,\n                                                                                              'type': ['string',\n                                                                                                       'null']},\n                                                                              'OBJECT_TYPE': {'default': None,\n                                                                                              'type': ['string',\n                                                                                                       'null']},\n                                                                              'ORIGINATOR': {'default': None,\n                                                                                             'type': ['string',\n                                                                                                      'null']},\n                                                                              'PERIAPSIS': {'default': None,\n                                                                                            'type': ['number',\n                                                                                                     'null']},\n                                                                              'PERIOD': {'default': None,\n                                                                                         'type': ['number',\n                                                                                                  'null']},\n                                                                              'RA_OF_ASC_NODE': {'default': None,\n                                                                                                 'type': ['number',\n                                                                                                          'null']},\n                                                                              'RCS_SIZE': {'default': None,\n                                                                                           'type': ['string',\n                                                                                                    'null']},\n                                                                              'REF_FRAME': {'default': None,\n                                                                                            'type': ['string',\n                                                                                                     'null']},\n                                                                              'REV_AT_EPOCH': {'default': None,\n                                                                                               'type': ['number',\n                                                                                                        'null']},\n                                                                              'SEMIMAJOR_AXIS': {'default': None,\n                                                                                                 'type': ['number',\n                                                                                                          'null']},\n                                                                              'SITE': {'default': None,\n                                                                                       'type': ['string',\n                                                                                                'null']},\n                                                                              'TIME_SYSTEM': {'default': None,\n                                                                                              'type': ['string',\n                                                                                                       'null']},\n                                                                              'TLE_LINE0': {'default': None,\n                                                                                            'type': ['string',\n                                                                                                     'null']},\n                                                                              'TLE_LINE1': {'default': None,\n                                                                                            'type': ['string',\n                                                                                                     'null']},\n                                                                              'TLE_LINE2': {'default': None,\n                                                                                            'type': ['string',\n                                                                                                     'null']}},\n                                                               'title': 'spaceTrack',\n                                                               'type': 'object'},\n                                                'velocity_kms': {'default': None,\n                                                                 'type': ['number',\n                                                                          'null']},\n                                                'version': {'default': None,\n                                                            'type': ['string',\n                                                                     'null']}},\n                                 'title': 'starlink',\n                                 'type': 'object'}},\n     'type': 'object'}\n\nOn instance:\n    {'height_km': 355.3961915646414,\n     'id': '63655b77358d5951a1c69e41',\n     'latitude': 44.069184034047474,\n     'launch': None,\n     'longitude': 137.73100427035686,\n     'spaceTrack': {'APOAPSIS': 352.293,\n                    'ARG_OF_PERICENTER': 2.9089,\n                    'BSTAR': -0.00042661,\n                    'CCSDS_OMM_VERS': '2.0',\n                    'CENTER_NAME': 'EARTH',\n                    'CLASSIFICATION_TYPE': 'U',\n                    'COMMENT': 'GENERATED VIA SPACE-TRACK.ORG API',\n                    'COUNTRY_CODE': 'US',\n                    'CREATION_DATE': '2022-11-30T17:18:05',\n                    'DECAYED': 0,\n                    'DECAY_DATE': None,\n                    'ECCENTRICITY': 0.0003828,\n                    'ELEMENT_SET_NO': 999,\n                    'EPHEMERIS_TYPE': 0,\n                    'EPOCH': '2022-11-30T14:00:01.999872',\n                    'FILE': 3675646,\n                    'GP_ID': 219178033,\n                    'INCLINATION': 53.2161,\n                    'LAUNCH_DATE': '2022-10-28',\n                    'MEAN_ANOMALY': 349.4668,\n                    'MEAN_ELEMENT_THEORY': 'SGP4',\n                    'MEAN_MOTION': 15.73214925,\n                    'MEAN_MOTION_DDOT': 0,\n                    'MEAN_MOTION_DOT': -0.00060135,\n                    'NORAD_CAT_ID': 54179,\n                    'OBJECT_ID': '2022-141Y',\n                    'OBJECT_NAME': 'STARLINK-5122',\n                    'OBJECT_TYPE': 'PAYLOAD',\n                    'ORIGINATOR': '18 SPCS',\n                    'PERIAPSIS': 347.142,\n                    'PERIOD': 91.532,\n                    'RA_OF_ASC_NODE': 337.9252,\n                    'RCS_SIZE': 'LARGE',\n                    'REF_FRAME': 'TEME',\n                    'REV_AT_EPOCH': 130,\n                    'SEMIMAJOR_AXIS': 6727.853,\n                    'SITE': 'AFWTR',\n                    'TIME_SYSTEM': 'UTC',\n                    'TLE_LINE0': '0 STARLINK-5122',\n                    'TLE_LINE1': '1 54179U 22141Y   22334.58335648 '\n                                 '-.00060135  00000-0 -42661-3 0  9991',\n                    'TLE_LINE2': '2 54179  53.2161 337.9252 0003828   '\n                                 '2.9089 349.4668 15.73214925  1309'},\n     'velocity_kms': 7.700826623718739,\n     'version': None}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The capsules stream has the following schema errors:
+Additional properties are not allowed ('water_landings', 'serial', 'reuse_count', 'land_landings', 'last_update', 'type', 'launches', 'status' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'capsules': {'properties': {'dragon': {'description': 'Refers '
+                                                                          'to '
+                                                                          'Dragon',
+                                                           'type': 'string',
+                                                           'x-ref': 'Dragon'},
+                                                'land_landings': {'default': 0,
+                                                                  'type': 'number'},
+                                                'last_update': {'default': None,
+                                                                'type': ['string',
+                                                                         'null']},
+                                                'launches': {'items': {'description': 'Refers '
+                                                                                      'to '
+                                                                                      'Launch',
+                                                                       'type': 'string',
+                                                                       'x-ref': 'Launch'},
+                                                             'type': 'array'},
+                                                'reuse_count': {'default': 0,
+                                                                'type': 'number'},
+                                                'serial': {'type': 'string'},
+                                                'status': {'enum': ['unknown',
+                                                                    'active',
+                                                                    'retired',
+                                                                    'destroyed'],
+                                                           'type': 'string'},
+                                                'type': {'enum': ['Dragon '
+                                                                  '1.0',
+                                                                  'Dragon '
+                                                                  '1.1',
+                                                                  'Dragon '
+                                                                  '2.0'],
+                                                         'type': 'string'},
+                                                'water_landings': {'default': 0,
+                                                                   'type': 'number'}},
+                                 'required': ['serial', 'status', 'type'],
+                                 'title': 'capsules',
+                                 'type': 'object'},
+                    'id': {'pattern': '^[0-9a-fA-F]{24}$',
+                           'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'id': '62615d180ec008379be596f1',
+     'land_landings': 0,
+     'last_update': None,
+     'launches': ['6243ade2af52800c6e919255'],
+     'reuse_count': 0,
+     'serial': 'C212',
+     'status': 'active',
+     'type': 'Dragon 2.0',
+     'water_landings': 0}
+ERROR    root:test_core.py:662 
+The crew stream has the following schema errors:
+Additional properties are not allowed ('agency', 'image', 'name', 'wikipedia', 'launches', 'status' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'crew': {'properties': {'agency': {'default': None,
+                                                       'type': ['string',
+                                                                'null']},
+                                            'image': {'default': None,
+                                                      'type': ['string',
+                                                               'null']},
+                                            'launches': {'items': {'type': 'string'},
+                                                         'type': 'array'},
+                                            'name': {'default': None,
+                                                     'type': ['string',
+                                                              'null']},
+                                            'status': {'enum': ['active',
+                                                                'inactive',
+                                                                'retired',
+                                                                'unknown'],
+                                                       'type': 'string'},
+                                            'wikipedia': {'default': None,
+                                                          'type': ['string',
+                                                                   'null']}},
+                             'required': ['status'],
+                             'title': 'crew',
+                             'type': 'object'},
+                    'id': {'pattern': '^[0-9a-fA-F]{24}$',
+                           'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'agency': 'Roscosmos',
+     'id': '62dd7253202306255024d13f',
+     'image': 'https://i.imgur.com/tKCaih3.png',
+     'launches': ['62dd70d5202306255024d139'],
+     'name': 'Anna Kikina',
+     'status': 'active',
+     'wikipedia': 'https://en.wikipedia.org/wiki/Anna_Kikina'}
+ERROR    root:test_core.py:662 
+The company stream has the following schema errors:
+Additional properties are not allowed ('test_sites', 'employees', 'ceo', 'vehicles', 'cto', 'founder', 'summary', 'headquarters', 'launch_sites', 'name', 'cto_propulsion', 'coo', 'valuation', 'links', 'founded' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'company': {'properties': {'ceo': {'type': 'string'},
+                                               'coo': {'type': 'string'},
+                                               'cto': {'type': 'string'},
+                                               'cto_propulsion': {'type': 'string'},
+                                               'employees': {'type': 'number'},
+                                               'founded': {'type': 'number'},
+                                               'founder': {'type': 'string'},
+                                               'headquarters': {'properties': {'address': {'type': 'string'},
+                                                                               'city': {'type': 'string'},
+                                                                               'state': {'type': 'string'}},
+                                                                'title': 'headquarters',
+                                                                'type': 'object'},
+                                               'launch_sites': {'type': 'number'},
+                                               'links': {'properties': {'elon_twitter': {'type': 'string'},
+                                                                        'flickr': {'type': 'string'},
+                                                                        'twitter': {'type': 'string'},
+                                                                        'website': {'type': 'string'}},
+                                                         'title': 'links',
+                                                         'type': 'object'},
+                                               'name': {'type': 'string'},
+                                               'summary': {'type': 'string'},
+                                               'test_sites': {'type': 'number'},
+                                               'valuation': {'type': 'number'},
+                                               'vehicles': {'type': 'number'}},
+                                'title': 'company',
+                                'type': 'object'},
+                    'id': {'pattern': '^[0-9a-fA-F]{24}$',
+                           'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'ceo': 'Elon Musk',
+     'coo': 'Gwynne Shotwell',
+     'cto': 'Elon Musk',
+     'cto_propulsion': 'Tom Mueller',
+     'employees': 9500,
+     'founded': 2002,
+     'founder': 'Elon Musk',
+     'headquarters': {'address': 'Rocket Road',
+                      'city': 'Hawthorne',
+                      'state': 'California'},
+     'id': '5eb75edc42fea42237d7f3ed',
+     'launch_sites': 3,
+     'links': {'elon_twitter': 'https://twitter.com/elonmusk',
+               'flickr': 'https://www.flickr.com/photos/spacex/',
+               'twitter': 'https://twitter.com/SpaceX',
+               'website': 'https://www.spacex.com/'},
+     'name': 'SpaceX',
+     'summary': 'SpaceX designs, manufactures and launches advanced '
+                'rockets and spacecraft. The company was founded in 2002 '
+                'to revolutionize space technology, with the ultimate goal '
+                'of enabling people to live on other planets.',
+     'test_sites': 3,
+     'valuation': 74000000000,
+     'vehicles': 4}
+ERROR    root:test_core.py:662 
+The cores stream has the following schema errors:
+Additional properties are not allowed ('rtls_landings', 'asds_landings', 'block', 'serial', 'reuse_count', 'rtls_attempts', 'asds_attempts', 'last_update', 'launches', 'status' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'cores': {'properties': {'asds_attempts': {'default': 0,
+                                                               'type': 'number'},
+                                             'asds_landings': {'default': 0,
+                                                               'type': 'number'},
+                                             'block': {'default': None,
+                                                       'type': ['number',
+                                                                'null']},
+                                             'last_update': {'default': None,
+                                                             'type': ['string',
+                                                                      'null']},
+                                             'launches': {'items': {'type': 'string'},
+                                                          'type': 'array'},
+                                             'reuse_count': {'default': 0,
+                                                             'type': 'number'},
+                                             'rtls_attempts': {'default': 0,
+                                                               'type': 'number'},
+                                             'rtls_landings': {'default': 0,
+                                                               'type': 'number'},
+                                             'serial': {'type': 'string'},
+                                             'status': {'enum': ['active',
+                                                                 'inactive',
+                                                                 'unknown',
+                                                                 'expended',
+                                                                 'lost',
+                                                                 'retired'],
+                                                        'type': 'string'}},
+                              'required': ['serial', 'status'],
+                              'title': 'cores',
+                              'type': 'object'},
+                    'id': {'pattern': '^[0-9a-fA-F]{24}$',
+                           'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'asds_attempts': 1,
+     'asds_landings': 1,
+     'block': 5,
+     'id': '633d9da635a71d1d9c66797b',
+     'last_update': 'Landed on JRTI as of Oct 5, 2022',
+     'launches': ['62dd70d5202306255024d139'],
+     'reuse_count': 0,
+     'rtls_attempts': 0,
+     'rtls_landings': 0,
+     'serial': 'B1077',
+     'status': 'active'}
+ERROR    root:test_core.py:662 
+The dragons stream has the following schema errors:
+Additional properties are not allowed ('height_w_trunk', 'launch_payload_vol', 'launch_payload_mass', 'sidewall_angle_deg', 'type', 'description', 'dry_mass_kg', 'dry_mass_lb', 'crew_capacity', 'return_payload_vol', 'heat_shield', 'diameter', 'orbit_duration_yr', 'pressurized_capsule', 'return_payload_mass', 'wikipedia', 'active', 'first_flight', 'trunk', 'thrusters', 'name', 'flickr_images' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'dragons': {'properties': {'active': {'type': 'boolean'},
+                                               'crew_capacity': {'type': 'number'},
+                                               'description': {'type': 'string'},
+                                               'diameter': {'properties': {'feet': {'type': 'number'},
+                                                                           'meters': {'type': 'number'}},
+                                                            'title': 'diameter',
+                                                            'type': 'object'},
+                                               'dry_mass_kg': {'type': 'number'},
+                                               'dry_mass_lb': {'type': 'number'},
+                                               'first_flight': {'default': None,
+                                                                'type': ['string',
+                                                                         'null']},
+                                               'flickr_images': {'items': {'type': 'string'},
+                                                                 'type': 'array'},
+                                               'heat_shield': {'properties': {'dev_partner': {'type': 'string'},
+                                                                              'material': {'type': 'string'},
+                                                                              'size_meters': {'type': 'number'},
+                                                                              'temp_degrees': {'type': 'number'}},
+                                                               'required': ['material',
+                                                                            'size_meters'],
+                                                               'title': 'heat_shield',
+                                                               'type': 'object'},
+                                               'height_w_trunk': {'properties': {'feet': {'type': 'number'},
+                                                                                 'meters': {'type': 'number'}},
+                                                                  'title': 'height_w_trunk',
+                                                                  'type': 'object'},
+                                               'launch_payload_mass': {'properties': {'kg': {'type': 'number'},
+                                                                                      'lb': {'type': 'number'}},
+                                                                       'title': 'launch_payload_mass',
+                                                                       'type': 'object'},
+                                               'launch_payload_vol': {'properties': {'cubic_feet': {'type': 'number'},
+                                                                                     'cubic_meters': {'type': 'number'}},
+                                                                      'title': 'launch_payload_vol',
+                                                                      'type': 'object'},
+                                               'name': {'type': 'string'},
+                                               'orbit_duration_yr': {'type': 'number'},
+                                               'pressurized_capsule': {'properties': {'payload_volume': {'properties': {'cubic_feet': {'type': 'number'},
+                                                                                                                        'cubic_meters': {'type': 'number'}},
+                                                                                                         'title': 'payload_volume',
+                                                                                                         'type': 'object'}},
+                                                                       'title': 'pressurized_capsule',
+                                                                       'type': 'object'},
+                                               'return_payload_mass': {'properties': {'kg': {'type': 'number'},
+                                                                                      'lb': {'type': 'number'}},
+                                                                       'title': 'return_payload_mass',
+                                                                       'type': 'object'},
+                                               'return_payload_vol': {'properties': {'cubic_feet': {'type': 'number'},
+                                                                                     'cubic_meters': {'type': 'number'}},
+                                                                      'title': 'return_payload_vol',
+                                                                      'type': 'object'},
+                                               'sidewall_angle_deg': {'type': 'number'},
+                                               'thrusters': {'items': {'type': 'string'},
+                                                             'type': 'array'},
+                                               'trunk': {'properties': {'cargo': {'properties': {'solar_array': {'type': 'number'},
+                                                                                                 'unpressurized_cargo': {'type': 'boolean'}},
+                                                                                  'title': 'cargo',
+                                                                                  'type': 'object'},
+                                                                        'trunk_volume': {'properties': {'cubic_feet': {'type': 'number'},
+                                                                                                        'cubic_meters': {'type': 'number'}},
+                                                                                         'title': 'trunk_volume',
+                                                                                         'type': 'object'}},
+                                                         'title': 'trunk',
+                                                         'type': 'object'},
+                                               'type': {'type': 'string'},
+                                               'wikipedia': {'type': 'string'}},
+                                'required': ['name',
+                                             'type',
+                                             'active',
+                                             'crew_capacity',
+                                             'sidewall_angle_deg',
+                                             'orbit_duration_yr',
+                                             'dry_mass_kg',
+                                             'dry_mass_lb'],
+                                'title': 'dragons',
+                                'type': 'object'},
+                    'id': {'pattern': '^[0-9a-fA-F]{24}$',
+                           'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'active': True,
+     'crew_capacity': 7,
+     'description': 'Dragon 2 (also Crew Dragon, Dragon V2, or formerly '
+                    'DragonRider) is the second version of the SpaceX '
+                    'Dragon spacecraft, which will be a human-rated '
+                    'vehicle. It includes a set of four side-mounted '
+                    'thruster pods with two SuperDraco engines each, which '
+                    'can serve as a launch escape system or launch abort '
+                    'system (LAS). In addition, it has much larger '
+                    'windows, new flight computers and avionics, and '
+                    'redesigned solar arrays, and a modified outer mold '
+                    'line from the initial cargo Dragon that has been '
+                    'flying for several years.',
+     'diameter': {'feet': 12, 'meters': 3.7},
+     'dry_mass_kg': 6350,
+     'dry_mass_lb': 14000,
+     'first_flight': '2019-03-02',
+     'flickr_images': ['https://farm8.staticflickr.com/7647/16581815487_6d56cb32e1_b.jpg',
+                       'https://farm1.staticflickr.com/780/21119686299_c88f63e350_b.jpg',
+                       'https://farm9.staticflickr.com/8588/16661791299_a236e2f5dc_b.jpg'],
+     'heat_shield': {'dev_partner': 'NASA',
+                     'material': 'PICA-X',
+                     'size_meters': 3.6,
+                     'temp_degrees': 3000},
+     'height_w_trunk': {'feet': 23.6, 'meters': 7.2},
+     'id': '5e9d058859b1ffd8e2ad5f90',
+     'launch_payload_mass': {'kg': 6000, 'lb': 13228},
+     'launch_payload_vol': {'cubic_feet': 883, 'cubic_meters': 25},
+     'name': 'Dragon 2',
+     'orbit_duration_yr': 2,
+     'pressurized_capsule': {'payload_volume': {'cubic_feet': 388,
+                                                'cubic_meters': 11}},
+     'return_payload_mass': {'kg': 3000, 'lb': 6614},
+     'return_payload_vol': {'cubic_feet': 388, 'cubic_meters': 11},
+     'sidewall_angle_deg': 15,
+     'thrusters': [{'amount': 18,
+                    'fuel_1': 'nitrogen tetroxide',
+                    'fuel_2': 'monomethylhydrazine',
+                    'isp': 300,
+                    'pods': 4,
+                    'thrust': {'kN': 0.4, 'lbf': 90},
+                    'type': 'Draco'},
+                   {'amount': 8,
+                    'fuel_1': 'dinitrogen tetroxide',
+                    'fuel_2': 'monomethylhydrazine',
+                    'isp': 235,
+                    'pods': 4,
+                    'thrust': {'kN': 71, 'lbf': 16000},
+                    'type': 'SuperDraco'}],
+     'trunk': {'cargo': {'solar_array': 2, 'unpressurized_cargo': True},
+               'trunk_volume': {'cubic_feet': 494, 'cubic_meters': 14}},
+     'type': 'capsule',
+     'wikipedia': 'https://en.wikipedia.org/wiki/Dragon_2'}
+ERROR    root:test_core.py:662 
+The landpads stream has the following schema errors:
+Additional properties are not allowed ('latitude', 'images', 'region', 'landing_attempts', 'locality', 'landing_successes', 'longitude', 'details', 'name', 'full_name', 'wikipedia', 'type', 'launches', 'status' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'id': {'pattern': '^[0-9a-fA-F]{24}$',
+                           'type': 'string'},
+                    'landpads': {'properties': {'details': {'default': None,
+                                                            'type': ['string',
+                                                                     'null']},
+                                                'full_name': {'default': None,
+                                                              'type': ['string',
+                                                                       'null']},
+                                                'images': {'properties': {'large': {'items': {'type': 'string'},
+                                                                                    'type': 'array'}},
+                                                           'title': 'images',
+                                                           'type': 'object'},
+                                                'landing_attempts': {'default': 0,
+                                                                     'type': 'number'},
+                                                'landing_successes': {'default': 0,
+                                                                      'type': 'number'},
+                                                'latitude': {'default': None,
+                                                             'type': ['number',
+                                                                      'null']},
+                                                'launches': {'items': {'type': 'string'},
+                                                             'type': 'array'},
+                                                'locality': {'default': None,
+                                                             'type': ['string',
+                                                                      'null']},
+                                                'longitude': {'default': None,
+                                                              'type': ['number',
+                                                                       'null']},
+                                                'name': {'default': None,
+                                                         'type': ['string',
+                                                                  'null']},
+                                                'region': {'default': None,
+                                                           'type': ['string',
+                                                                    'null']},
+                                                'status': {'enum': ['active',
+                                                                    'inactive',
+                                                                    'unknown',
+                                                                    'retired',
+                                                                    'lost',
+                                                                    'under '
+                                                                    'construction'],
+                                                           'type': 'string'},
+                                                'type': {'default': None,
+                                                         'type': ['string',
+                                                                  'null']},
+                                                'wikipedia': {'default': None,
+                                                              'type': ['string',
+                                                                       'null']}},
+                                 'required': ['status'],
+                                 'title': 'landpads',
+                                 'type': 'object'}},
+     'type': 'object'}
+
+On instance:
+    {'details': 'The fourth ASDS barge was announced to be under '
+                'construction in February 2018 and it will become the '
+                'second active east coast-based ASDS. It will be '
+                'homeported at Port Canaveral. This future simultaneously '
+                'usable ASDS, along with OCISLY, is called A Shortfall of '
+                'Gravitas (ASoG) and like the rest of the fleet, its '
+                'naming is based on names used in the Culture series. The '
+                'droneship is expected to be operational in mid-2019.',
+     'full_name': 'A Shortfall of Gravitas',
+     'id': '5e9e3033383ecb075134e7cd',
+     'images': {'large': ['https://i.imgur.com/PkrS8vQ.png']},
+     'landing_attempts': 21,
+     'landing_successes': 21,
+     'latitude': 33.7291858,
+     'launches': ['5fe3b11eb3467846b324216c',
+                  '5fe3b15eb3467846b324216d',
+                  '6161c94c6db1a92bfba85349',
+                  '5fe3afc1b3467846b3242164',
+                  '61d5eca1f88e4c5fc91f1eb7',
+                  '61e048bbbe8d8b66799018d0',
+                  '61e048ffbe8d8b66799018d1',
+                  '61fc01dae0dc5662b76489a7',
+                  '61fc0243e0dc5662b76489ae',
+                  '61eefaa89eb1064137a1bd73',
+                  '6243ade2af52800c6e919255',
+                  '62582a855988f159024b964c',
+                  '62615ebc0ec008379be596fa',
+                  '6278481757b51b752c5c5a5f',
+                  '6243aea5af52800c6e91925c',
+                  '6243ae40af52800c6e919259',
+                  '62a9f12820413d2695d88716',
+                  '62a9f8b320413d2695d8871b',
+                  '62f3b5200f55c50e192a4e6c',
+                  '62f3b5290f55c50e192a4e6d',
+                  '62a9f89a20413d2695d8871a'],
+     'locality': 'Port Canaveral',
+     'longitude': -118.262015,
+     'name': 'ASOG',
+     'region': 'Florida',
+     'status': 'active',
+     'type': 'ASDS',
+     'wikipedia': 'https://en.wikipedia.org/wiki/Autonomous_spaceport_drone_ship'}
+ERROR    root:test_core.py:662 
+The payloads stream has the following schema errors:
+Additional properties are not allowed ('orbit', 'manufacturers', 'lifespan_years', 'reused', 'type', 'mean_anomaly', 'epoch', 'longitude', 'period_min', 'arg_of_pericenter', 'reference_system', 'raan', 'customers', 'apoapsis_km', 'regime', 'dragon', 'eccentricity', 'nationalities', 'mass_lbs', 'mean_motion', 'launch', 'semi_major_axis_km', 'periapsis_km', 'inclination_deg', 'mass_kg', 'name', 'norad_ids' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'id': {'pattern': '^[0-9a-fA-F]{24}$',
+                           'type': 'string'},
+                    'payload': {'properties': {'apoapsis_km': {'default': None,
+                                                               'type': ['number',
+                                                                        'null']},
+                                               'arg_of_pericenter': {'default': None,
+                                                                     'type': ['number',
+                                                                              'null']},
+                                               'customers': {'items': {'type': 'string'},
+                                                             'type': 'array'},
+                                               'dragon': {'properties': {'capsule': {'default': None,
+                                                                                     'type': ['string',
+                                                                                              'null']},
+                                                                         'flight_time_sec': {'default': None,
+                                                                                             'type': ['number',
+                                                                                                      'null']},
+                                                                         'land_landing': {'default': None,
+                                                                                          'type': ['boolean',
+                                                                                                   'null']},
+                                                                         'manifest': {'default': None,
+                                                                                      'type': ['string',
+                                                                                               'null']},
+                                                                         'mass_returned_kg': {'default': None,
+                                                                                              'type': ['number',
+                                                                                                       'null']},
+                                                                         'mass_returned_lbs': {'default': None,
+                                                                                               'type': ['number',
+                                                                                                        'null']},
+                                                                         'water_landing': {'default': None,
+                                                                                           'type': ['boolean',
+                                                                                                    'null']}},
+                                                          'title': 'dragon',
+                                                          'type': 'object'},
+                                               'eccentricity': {'default': None,
+                                                                'type': ['number',
+                                                                         'null']},
+                                               'epoch': {'default': None,
+                                                         'type': ['string',
+                                                                  'null']},
+                                               'inclination_deg': {'default': None,
+                                                                   'type': ['number',
+                                                                            'null']},
+                                               'launch': {'default': None,
+                                                          'type': ['string',
+                                                                   'null']},
+                                               'lifespan_years': {'default': None,
+                                                                  'type': ['number',
+                                                                           'null']},
+                                               'longitude': {'default': None,
+                                                             'type': ['number',
+                                                                      'null']},
+                                               'manufacturers': {'items': {'type': 'string'},
+                                                                 'type': 'array'},
+                                               'mass_kg': {'default': None,
+                                                           'type': ['number',
+                                                                    'null']},
+                                               'mass_lbs': {'default': None,
+                                                            'type': ['number',
+                                                                     'null']},
+                                               'mean_anomaly': {'default': None,
+                                                                'type': ['number',
+                                                                         'null']},
+                                               'mean_motion': {'default': None,
+                                                               'type': ['number',
+                                                                        'null']},
+                                               'name': {'default': None,
+                                                        'type': ['string',
+                                                                 'null']},
+                                               'nationalities': {'items': {'type': 'string'},
+                                                                 'type': 'array'},
+                                               'norad_ids': {'items': {'type': 'number'},
+                                                             'type': 'array'},
+                                               'orbit': {'default': None,
+                                                         'type': ['string',
+                                                                  'null']},
+                                               'periapsis_km': {'default': None,
+                                                                'type': ['number',
+                                                                         'null']},
+                                               'period_min': {'default': None,
+                                                              'type': ['number',
+                                                                       'null']},
+                                               'raan': {'default': None,
+                                                        'type': ['number',
+                                                                 'null']},
+                                               'reference_system': {'default': None,
+                                                                    'type': ['string',
+                                                                             'null']},
+                                               'regime': {'default': None,
+                                                          'type': ['string',
+                                                                   'null']},
+                                               'reused': {'default': False,
+                                                          'type': 'boolean'},
+                                               'semi_major_axis_km': {'default': None,
+                                                                      'type': ['number',
+                                                                               'null']},
+                                               'type': {'default': None,
+                                                        'type': ['string',
+                                                                 'null']}},
+                                'title': 'payload',
+                                'type': 'object'}},
+     'type': 'object'}
+
+On instance:
+    {'apoapsis_km': None,
+     'arg_of_pericenter': None,
+     'customers': ['AST & Science'],
+     'dragon': {'capsule': None,
+                'flight_time_sec': None,
+                'land_landing': None,
+                'manifest': None,
+                'mass_returned_kg': None,
+                'mass_returned_lbs': None,
+                'water_landing': None},
+     'eccentricity': None,
+     'epoch': None,
+     'id': '63161872ffc78f3b8567071e',
+     'inclination_deg': None,
+     'launch': '62a9f89a20413d2695d8871a',
+     'lifespan_years': None,
+     'longitude': None,
+     'manufacturers': ['AST & Science'],
+     'mass_kg': 1500,
+     'mass_lbs': 3306,
+     'mean_anomaly': None,
+     'mean_motion': None,
+     'name': 'BlueWalker 3',
+     'nationalities': ['United States'],
+     'norad_ids': [],
+     'orbit': 'VLEO',
+     'periapsis_km': None,
+     'period_min': None,
+     'raan': None,
+     'reference_system': 'geocentric',
+     'regime': 'very-low-earth',
+     'reused': False,
+     'semi_major_axis_km': None,
+     'type': 'Satellite'}
+ERROR    root:test_core.py:662 
+The roadster stream has the following schema errors:
+Additional properties are not allowed ('launch_date_utc', 'orbit_type', 'mars_distance_km', 'earth_distance_km', 'earth_distance_mi', 'launch_date_unix', 'semi_major_axis_au', 'video', 'longitude', 'periapsis_au', 'periapsis_arg', 'launch_mass_lbs', 'launch_mass_kg', 'speed_mph', 'inclination', 'norad_id', 'period_days', 'apoapsis_au', 'epoch_jd', 'mars_distance_mi', 'wikipedia', 'eccentricity', 'speed_kph', 'details', 'name', 'flickr_images' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'id': {'pattern': '^[0-9a-fA-F]{24}$',
+                           'type': 'string'},
+                    'roadster': {'properties': {'apoapsis_au': {'type': 'number'},
+                                                'details': {'type': 'string'},
+                                                'earth_distance_km': {'type': 'number'},
+                                                'earth_distance_mi': {'type': 'number'},
+                                                'eccentricity': {'type': 'number'},
+                                                'epoch_jd': {'type': 'number'},
+                                                'flickr_images': {'items': {'type': 'string'},
+                                                                  'type': 'array'},
+                                                'inclination': {'type': 'number'},
+                                                'launch_date_unix': {'type': 'number'},
+                                                'launch_date_utc': {'type': 'string'},
+                                                'launch_mass_kg': {'type': 'number'},
+                                                'launch_mass_lbs': {'type': 'number'},
+                                                'longitude': {'type': 'number'},
+                                                'mars_distance_km': {'type': 'number'},
+                                                'mars_distance_mi': {'type': 'number'},
+                                                'name': {'type': 'string'},
+                                                'norad_id': {'type': 'number'},
+                                                'orbit_type': {'type': 'string'},
+                                                'periapsis_arg': {'type': 'number'},
+                                                'periapsis_au': {'type': 'number'},
+                                                'period_days': {'type': 'number'},
+                                                'semi_major_axis_au': {'type': 'number'},
+                                                'speed_kph': {'type': 'number'},
+                                                'speed_mph': {'type': 'number'},
+                                                'video': {'type': 'string'},
+                                                'wikipedia': {'type': 'string'}},
+                                 'title': 'roadster',
+                                 'type': 'object'}},
+     'type': 'object'}
+
+On instance:
+    {'apoapsis_au': 1.664332332453025,
+     'details': "Elon Musk's Tesla Roadster is an electric sports car that "
+                'served as the dummy payload for the February 2018 Falcon '
+                'Heavy test flight and is now an artificial satellite of '
+                'the Sun. Starman, a mannequin dressed in a spacesuit, '
+                "occupies the driver's seat. The car and rocket are "
+                'products of Tesla and SpaceX. This 2008-model Roadster '
+                'was previously used by Musk for commuting, and is the '
+                'only consumer car sent into space.',
+     'earth_distance_km': 320593735.82924163,
+     'earth_distance_mi': 199207650.2259517,
+     'eccentricity': 0.2559348215918733,
+     'epoch_jd': 2459914.263888889,
+     'flickr_images': ['https://farm5.staticflickr.com/4615/40143096241_11128929df_b.jpg',
+                       'https://farm5.staticflickr.com/4702/40110298232_91b32d0cc0_b.jpg',
+                       'https://farm5.staticflickr.com/4676/40110297852_5e794b3258_b.jpg',
+                       'https://farm5.staticflickr.com/4745/40110304192_6e3e9a7a1b_b.jpg'],
+     'id': '5eb75f0842fea42237d7f3f4',
+     'inclination': 1.075052357364693,
+     'launch_date_unix': 1517949900,
+     'launch_date_utc': '2018-02-06T20:45:00.000Z',
+     'launch_mass_kg': 1350,
+     'launch_mass_lbs': 2976,
+     'longitude': 316.9112133411523,
+     'mars_distance_km': 395640511.90355814,
+     'mars_distance_mi': 245839540.52202582,
+     'name': "Elon Musk's Tesla Roadster",
+     'norad_id': 43205,
+     'orbit_type': 'heliocentric',
+     'periapsis_arg': 177.75981116285,
+     'periapsis_au': 0.986015924224046,
+     'period_days': 557.1958197697352,
+     'semi_major_axis_au': 57.70686413577451,
+     'speed_kph': 9520.88362029108,
+     'speed_mph': 5916.000976023889,
+     'video': 'https://youtu.be/wbSwFU6tY1c',
+     'wikipedia': 'https://en.wikipedia.org/wiki/Elon_Musk%27s_Tesla_Roadster'}
+ERROR    root:test_core.py:662 
+The rockets stream has the following schema errors:
+Additional properties are not allowed ('country', 'boosters', 'second_stage', 'type', 'description', 'cost_per_launch', 'success_rate_pct', 'diameter', 'engines', 'payload_weights', 'height', 'stages', 'company', 'wikipedia', 'first_stage', 'mass', 'active', 'first_flight', 'landing_legs', 'name', 'flickr_images' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'id': {'pattern': '^[0-9a-fA-F]{24}$',
+                           'type': 'string'},
+                    'rockets': {'properties': {'active': {'type': 'boolean'},
+                                               'boosters': {'type': 'number'},
+                                               'company': {'type': 'string'},
+                                               'cost_per_launch': {'type': 'number'},
+                                               'country': {'type': 'string'},
+                                               'description': {'type': 'string'},
+                                               'diameter': {'properties': {'feet': {'type': 'number'},
+                                                                           'meters': {'type': 'number'}},
+                                                            'title': 'diameter',
+                                                            'type': 'object'},
+                                               'engines': {'properties': {'engine_loss_max': {'type': 'number'},
+                                                                          'isp': {'properties': {'sea_level': {'type': 'number'},
+                                                                                                 'vacuum': {'type': 'number'}},
+                                                                                  'title': 'isp',
+                                                                                  'type': 'object'},
+                                                                          'layout': {'type': 'string'},
+                                                                          'number': {'type': 'number'},
+                                                                          'propellant_1': {'type': 'string'},
+                                                                          'propellant_2': {'type': 'string'},
+                                                                          'thrust_sea_level': {'properties': {'kN': {'type': 'number'},
+                                                                                                              'lbf': {'type': 'number'}},
+                                                                                               'title': 'thrust_sea_level',
+                                                                                               'type': 'object'},
+                                                                          'thrust_to_weight': {'type': 'number'},
+                                                                          'thrust_vacuum': {'properties': {'kN': {'type': 'number'},
+                                                                                                           'lbf': {'type': 'number'}},
+                                                                                            'title': 'thrust_vacuum',
+                                                                                            'type': 'object'},
+                                                                          'type': {'type': 'string'},
+                                                                          'version': {'type': 'string'}},
+                                                           'title': 'engines',
+                                                           'type': 'object'},
+                                               'first_flight': {'type': 'string'},
+                                               'first_stage': {'properties': {'burn_time_sec': {'type': 'number'},
+                                                                              'engines': {'type': 'number'},
+                                                                              'fuel_amount_tons': {'type': 'number'},
+                                                                              'reusable': {'type': 'boolean'},
+                                                                              'thrust_sea_level': {'properties': {'kN': {'type': 'number'},
+                                                                                                                  'lbf': {'type': 'number'}},
+                                                                                                   'title': 'thrust_sea_level',
+                                                                                                   'type': 'object'},
+                                                                              'thrust_vacuum': {'properties': {'kN': {'type': 'number'},
+                                                                                                               'lbf': {'type': 'number'}},
+                                                                                                'title': 'thrust_vacuum',
+                                                                                                'type': 'object'}},
+                                                               'title': 'first_stage',
+                                                               'type': 'object'},
+                                               'flickr_images': {'items': {'type': 'string'},
+                                                                 'type': 'array'},
+                                               'height': {'properties': {'feet': {'type': 'number'},
+                                                                         'meters': {'type': 'number'}},
+                                                          'title': 'height',
+                                                          'type': 'object'},
+                                               'landing_legs': {'properties': {'material': {'items': {'type': 'number'},
+                                                                                            'type': 'array'},
+                                                                               'number': {'type': 'number'}},
+                                                                'title': 'landing_legs',
+                                                                'type': 'object'},
+                                               'mass': {'properties': {'kg': {'type': 'number'},
+                                                                       'lb': {'type': 'number'}},
+                                                        'title': 'mass',
+                                                        'type': 'object'},
+                                               'name': {'type': 'string'},
+                                               'payload_weights': {'items': {'type': 'number'},
+                                                                   'type': 'array'},
+                                               'second_stage': {'properties': {'burn_time_sec': {'type': 'number'},
+                                                                               'engines': {'type': 'number'},
+                                                                               'fuel_amount_tons': {'type': 'number'},
+                                                                               'payloads': {'properties': {'composite_fairing': {'properties': {'diameter': {'properties': {'feet': {'type': 'number'},
+                                                                                                                                                                            'meters': {'type': 'number'}},
+                                                                                                                                                             'title': 'diameter',
+                                                                                                                                                             'type': 'object'},
+                                                                                                                                                'height': {'properties': {'feet': {'type': 'number'},
+                                                                                                                                                                          'meters': {'type': 'number'}},
+                                                                                                                                                           'title': 'height',
+                                                                                                                                                           'type': 'object'}},
+                                                                                                                                 'title': 'composite_fairing',
+                                                                                                                                 'type': 'object'},
+                                                                                                           'option_1': {'type': 'string'}},
+                                                                                            'title': 'payloads',
+                                                                                            'type': 'object'},
+                                                                               'reusable': {'type': 'boolean'},
+                                                                               'thrust': {'properties': {'kN': {'type': 'number'},
+                                                                                                         'lbf': {'type': 'number'}},
+                                                                                          'title': 'thrust',
+                                                                                          'type': 'object'}},
+                                                                'title': 'second_stage',
+                                                                'type': 'object'},
+                                               'stages': {'type': 'number'},
+                                               'success_rate_pct': {'type': 'number'},
+                                               'type': {'type': 'string'},
+                                               'wikipedia': {'type': 'string'}},
+                                'title': 'rockets',
+                                'type': 'object'}},
+     'type': 'object'}
+
+On instance:
+    {'active': False,
+     'boosters': 0,
+     'company': 'SpaceX',
+     'cost_per_launch': 7000000,
+     'country': 'United States',
+     'description': 'Starship and Super Heavy Rocket represent a fully '
+                    'reusable transportation system designed to service '
+                    'all Earth orbit needs as well as the Moon and Mars. '
+                    'This two-stage vehicle — composed of the Super Heavy '
+                    'rocket (booster) and Starship (ship) — will '
+                    'eventually replace Falcon 9, Falcon Heavy and Dragon.',
+     'diameter': {'feet': 30, 'meters': 9},
+     'engines': {'engine_loss_max': None,
+                 'isp': {'sea_level': 330, 'vacuum': 380},
+                 'layout': None,
+                 'number': 37,
+                 'propellant_1': 'liquid oxygen',
+                 'propellant_2': 'liquid methane',
+                 'thrust_sea_level': {'kN': 1780, 'lbf': 400000},
+                 'thrust_to_weight': 107,
+                 'thrust_vacuum': {'kN': 1960, 'lbf': 440000},
+                 'type': 'raptor',
+                 'version': ''},
+     'first_flight': '2021-12-01',
+     'first_stage': {'burn_time_sec': None,
+                     'engines': 37,
+                     'fuel_amount_tons': 3300,
+                     'reusable': True,
+                     'thrust_sea_level': {'kN': 128000, 'lbf': 28775544},
+                     'thrust_vacuum': {'kN': 138000, 'lbf': 31023634}},
+     'flickr_images': ['https://live.staticflickr.com/65535/48954138962_ee541e6755_b.jpg',
+                       'https://live.staticflickr.com/65535/48953946911_e60c5bcc5c_b.jpg',
+                       'https://live.staticflickr.com/65535/48954138922_9c42173f08_b.jpg',
+                       'https://live.staticflickr.com/65535/48953947006_313f01ec93_b.jpg'],
+     'height': {'feet': 387, 'meters': 118},
+     'id': '5e9d0d96eda699382d09d1ee',
+     'landing_legs': {'material': 'stainless steel', 'number': 6},
+     'mass': {'kg': 1335000, 'lb': 2943000},
+     'name': 'Starship',
+     'payload_weights': [{'id': 'leo',
+                          'kg': 150000,
+                          'lb': 330000,
+                          'name': 'Low Earth Orbit'},
+                         {'id': 'mars',
+                          'kg': 100000,
+                          'lb': 220000,
+                          'name': 'Mars Orbit'},
+                         {'id': 'moon',
+                          'kg': 100000,
+                          'lb': 220000,
+                          'name': 'Moon Orbit'}],
+     'second_stage': {'burn_time_sec': None,
+                      'engines': 6,
+                      'fuel_amount_tons': 1200,
+                      'payloads': {'composite_fairing': {'diameter': {'feet': None,
+                                                                      'meters': None},
+                                                         'height': {'feet': None,
+                                                                    'meters': None}},
+                                   'option_1': 'Spaceship'},
+                      'reusable': True,
+                      'thrust': {'kN': 1957, 'lbf': 440000}},
+     'stages': 2,
+     'success_rate_pct': 0,
+     'type': 'rocket',
+     'wikipedia': 'https://en.wikipedia.org/wiki/SpaceX_Starship'}
+ERROR    root:test_core.py:662 
+The ships stream has the following schema errors:
+Additional properties are not allowed ('link', 'speed_kn', 'year_built', 'type', 'launches', 'latitude', 'class', 'longitude', 'course_deg', 'status', 'last_ais_update', 'imo', 'image', 'model', 'active', 'mass_lbs', 'home_port', 'legacy_id', 'roles', 'mmsi', 'mass_kg', 'abs', 'name' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'id': {'pattern': '^[0-9a-fA-F]{24}$',
+                           'type': 'string'},
+                    'ships': {'properties': {'abs': {'default': None,
+                                                     'type': ['number',
+                                                              'null']},
+                                             'active': {'type': 'boolean'},
+                                             'class': {'default': None,
+                                                       'type': ['number',
+                                                                'null']},
+                                             'course_deg': {'default': None,
+                                                            'type': ['number',
+                                                                     'null']},
+                                             'home_port': {'default': None,
+                                                           'type': ['string',
+                                                                    'null']},
+                                             'image': {'default': None,
+                                                       'type': ['string',
+                                                                'null']},
+                                             'imo': {'default': None,
+                                                     'type': ['number',
+                                                              'null']},
+                                             'last_ais_update': {'default': None,
+                                                                 'type': ['string',
+                                                                          'null']},
+                                             'latitude': {'default': None,
+                                                          'type': ['number',
+                                                                   'null']},
+                                             'launches': {'items': {'type': 'string'},
+                                                          'type': 'array'},
+                                             'legacy_id': {'default': None,
+                                                           'type': ['string',
+                                                                    'null']},
+                                             'link': {'default': None,
+                                                      'type': ['string',
+                                                               'null']},
+                                             'longitude': {'default': None,
+                                                           'type': ['number',
+                                                                    'null']},
+                                             'mass_kg': {'default': None,
+                                                         'type': ['number',
+                                                                  'null']},
+                                             'mass_lbs': {'default': None,
+                                                          'type': ['number',
+                                                                   'null']},
+                                             'mmsi': {'default': None,
+                                                      'type': ['number',
+                                                               'null']},
+                                             'model': {'default': None,
+                                                       'type': ['string',
+                                                                'null']},
+                                             'name': {'type': 'string'},
+                                             'roles': {'items': {'type': 'string'},
+                                                       'type': 'array'},
+                                             'speed_kn': {'default': None,
+                                                          'type': ['number',
+                                                                   'null']},
+                                             'status': {'default': None,
+                                                        'type': ['string',
+                                                                 'null']},
+                                             'type': {'default': None,
+                                                      'type': ['string',
+                                                               'null']},
+                                             'year_built': {'default': None,
+                                                            'type': ['number',
+                                                                     'null']}},
+                              'required': ['name', 'active'],
+                              'title': 'ships',
+                              'type': 'object'}},
+     'type': 'object'}
+
+On instance:
+    {'abs': 1220625,
+     'active': True,
+     'class': 9195228,
+     'course_deg': None,
+     'home_port': 'Port Canaveral',
+     'id': '618fad7e563d69573ed8caa9',
+     'image': 'https://i.imgur.com/Wr1slIc.png',
+     'imo': 9529695,
+     'last_ais_update': None,
+     'latitude': None,
+     'launches': ['618faad2563d69573ed8ca9d',
+                  '6161c94c6db1a92bfba85349',
+                  '5fe3afc1b3467846b3242164',
+                  '6243ada6af52800c6e919253'],
+     'legacy_id': None,
+     'link': 'https://www.marinetraffic.com/en/ais/details/ships/shipid:454731/mmsi:368456000/imo:9529695/vessel:BOB',
+     'longitude': None,
+     'mass_kg': 2719740,
+     'mass_lbs': 5996000,
+     'mmsi': 368456000,
+     'model': None,
+     'name': 'Bob',
+     'roles': ['Fairing Recovery', 'Support Ship'],
+     'speed_kn': None,
+     'status': None,
+     'type': 'Cargo',
+     'year_built': 2009}
+ERROR    root:test_core.py:662 
+The starlink stream has the following schema errors:
+Additional properties are not allowed ('latitude', 'launch', 'height_km', 'version', 'longitude', 'spaceTrack', 'velocity_kms' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'id': {'pattern': '^[0-9a-fA-F]{24}$',
+                           'type': 'string'},
+                    'starlink': {'properties': {'height_km': {'default': None,
+                                                              'type': ['number',
+                                                                       'null']},
+                                                'latitude': {'default': None,
+                                                             'type': ['number',
+                                                                      'null']},
+                                                'launch': {'default': None,
+                                                           'type': ['string',
+                                                                    'null']},
+                                                'longitude': {'default': None,
+                                                              'type': ['number',
+                                                                       'null']},
+                                                'spaceTrack': {'properties': {'APOAPSIS': {'default': None,
+                                                                                           'type': ['number',
+                                                                                                    'null']},
+                                                                              'ARG_OF_PERICENTER': {'default': None,
+                                                                                                    'type': ['number',
+                                                                                                             'null']},
+                                                                              'BSTAR': {'default': None,
+                                                                                        'type': ['number',
+                                                                                                 'null']},
+                                                                              'CCSDS_OMM_VERS': {'default': None,
+                                                                                                 'type': ['string',
+                                                                                                          'null']},
+                                                                              'CENTER_NAME': {'default': None,
+                                                                                              'type': ['string',
+                                                                                                       'null']},
+                                                                              'CLASSIFICATION_TYPE': {'default': None,
+                                                                                                      'type': ['string',
+                                                                                                               'null']},
+                                                                              'COMMENT': {'default': None,
+                                                                                          'type': ['string',
+                                                                                                   'null']},
+                                                                              'COUNTRY_CODE': {'default': None,
+                                                                                               'type': ['string',
+                                                                                                        'null']},
+                                                                              'CREATION_DATE': {'default': None,
+                                                                                                'type': ['string',
+                                                                                                         'null']},
+                                                                              'DECAYED': {'default': None,
+                                                                                          'type': ['number',
+                                                                                                   'null']},
+                                                                              'DECAY_DATE': {'default': None,
+                                                                                             'type': ['string',
+                                                                                                      'null']},
+                                                                              'ECCENTRICITY': {'default': None,
+                                                                                               'type': ['number',
+                                                                                                        'null']},
+                                                                              'ELEMENT_SET_NO': {'default': None,
+                                                                                                 'type': ['number',
+                                                                                                          'null']},
+                                                                              'EPHEMERIS_TYPE': {'default': None,
+                                                                                                 'type': ['number',
+                                                                                                          'null']},
+                                                                              'EPOCH': {'default': None,
+                                                                                        'type': ['string',
+                                                                                                 'null']},
+                                                                              'FILE': {'default': None,
+                                                                                       'type': ['number',
+                                                                                                'null']},
+                                                                              'GP_ID': {'default': None,
+                                                                                        'type': ['number',
+                                                                                                 'null']},
+                                                                              'INCLINATION': {'default': None,
+                                                                                              'type': ['number',
+                                                                                                       'null']},
+                                                                              'LAUNCH_DATE': {'default': None,
+                                                                                              'type': ['string',
+                                                                                                       'null']},
+                                                                              'MEAN_ANOMALY': {'default': None,
+                                                                                               'type': ['number',
+                                                                                                        'null']},
+                                                                              'MEAN_ELEMENT_THEORY': {'default': None,
+                                                                                                      'type': ['string',
+                                                                                                               'null']},
+                                                                              'MEAN_MOTION': {'default': None,
+                                                                                              'type': ['number',
+                                                                                                       'null']},
+                                                                              'MEAN_MOTION_DDOT': {'default': None,
+                                                                                                   'type': ['number',
+                                                                                                            'null']},
+                                                                              'MEAN_MOTION_DOT': {'default': None,
+                                                                                                  'type': ['number',
+                                                                                                           'null']},
+                                                                              'NORAD_CAT_ID': {'default': None,
+                                                                                               'type': ['number',
+                                                                                                        'null']},
+                                                                              'OBJECT_ID': {'default': None,
+                                                                                            'type': ['string',
+                                                                                                     'null']},
+                                                                              'OBJECT_NAME': {'default': None,
+                                                                                              'type': ['string',
+                                                                                                       'null']},
+                                                                              'OBJECT_TYPE': {'default': None,
+                                                                                              'type': ['string',
+                                                                                                       'null']},
+                                                                              'ORIGINATOR': {'default': None,
+                                                                                             'type': ['string',
+                                                                                                      'null']},
+                                                                              'PERIAPSIS': {'default': None,
+                                                                                            'type': ['number',
+                                                                                                     'null']},
+                                                                              'PERIOD': {'default': None,
+                                                                                         'type': ['number',
+                                                                                                  'null']},
+                                                                              'RA_OF_ASC_NODE': {'default': None,
+                                                                                                 'type': ['number',
+                                                                                                          'null']},
+                                                                              'RCS_SIZE': {'default': None,
+                                                                                           'type': ['string',
+                                                                                                    'null']},
+                                                                              'REF_FRAME': {'default': None,
+                                                                                            'type': ['string',
+                                                                                                     'null']},
+                                                                              'REV_AT_EPOCH': {'default': None,
+                                                                                               'type': ['number',
+                                                                                                        'null']},
+                                                                              'SEMIMAJOR_AXIS': {'default': None,
+                                                                                                 'type': ['number',
+                                                                                                          'null']},
+                                                                              'SITE': {'default': None,
+                                                                                       'type': ['string',
+                                                                                                'null']},
+                                                                              'TIME_SYSTEM': {'default': None,
+                                                                                              'type': ['string',
+                                                                                                       'null']},
+                                                                              'TLE_LINE0': {'default': None,
+                                                                                            'type': ['string',
+                                                                                                     'null']},
+                                                                              'TLE_LINE1': {'default': None,
+                                                                                            'type': ['string',
+                                                                                                     'null']},
+                                                                              'TLE_LINE2': {'default': None,
+                                                                                            'type': ['string',
+                                                                                                     'null']}},
+                                                               'title': 'spaceTrack',
+                                                               'type': 'object'},
+                                                'velocity_kms': {'default': None,
+                                                                 'type': ['number',
+                                                                          'null']},
+                                                'version': {'default': None,
+                                                            'type': ['string',
+                                                                     'null']}},
+                                 'title': 'starlink',
+                                 'type': 'object'}},
+     'type': 'object'}
+
+On instance:
+    {'height_km': 355.3961915646414,
+     'id': '63655b77358d5951a1c69e41',
+     'latitude': 44.069184034047474,
+     'launch': None,
+     'longitude': 137.73100427035686,
+     'spaceTrack': {'APOAPSIS': 352.293,
+                    'ARG_OF_PERICENTER': 2.9089,
+                    'BSTAR': -0.00042661,
+                    'CCSDS_OMM_VERS': '2.0',
+                    'CENTER_NAME': 'EARTH',
+                    'CLASSIFICATION_TYPE': 'U',
+                    'COMMENT': 'GENERATED VIA SPACE-TRACK.ORG API',
+                    'COUNTRY_CODE': 'US',
+                    'CREATION_DATE': '2022-11-30T17:18:05',
+                    'DECAYED': 0,
+                    'DECAY_DATE': None,
+                    'ECCENTRICITY': 0.0003828,
+                    'ELEMENT_SET_NO': 999,
+                    'EPHEMERIS_TYPE': 0,
+                    'EPOCH': '2022-11-30T14:00:01.999872',
+                    'FILE': 3675646,
+                    'GP_ID': 219178033,
+                    'INCLINATION': 53.2161,
+                    'LAUNCH_DATE': '2022-10-28',
+                    'MEAN_ANOMALY': 349.4668,
+                    'MEAN_ELEMENT_THEORY': 'SGP4',
+                    'MEAN_MOTION': 15.73214925,
+                    'MEAN_MOTION_DDOT': 0,
+                    'MEAN_MOTION_DOT': -0.00060135,
+                    'NORAD_CAT_ID': 54179,
+                    'OBJECT_ID': '2022-141Y',
+                    'OBJECT_NAME': 'STARLINK-5122',
+                    'OBJECT_TYPE': 'PAYLOAD',
+                    'ORIGINATOR': '18 SPCS',
+                    'PERIAPSIS': 347.142,
+                    'PERIOD': 91.532,
+                    'RA_OF_ASC_NODE': 337.9252,
+                    'RCS_SIZE': 'LARGE',
+                    'REF_FRAME': 'TEME',
+                    'REV_AT_EPOCH': 130,
+                    'SEMIMAJOR_AXIS': 6727.853,
+                    'SITE': 'AFWTR',
+                    'TIME_SYSTEM': 'UTC',
+                    'TLE_LINE0': '0 STARLINK-5122',
+                    'TLE_LINE1': '1 54179U 22141Y   22334.58335648 '
+                                 '-.00060135  00000-0 -42661-3 0  9991',
+                    'TLE_LINE2': '2 54179  53.2161 337.9252 0003828   '
+                                 '2.9089 349.4668 15.73214925  1309'},
+     'velocity_kms': 7.700826623718739,
+     'version': None}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+========== 1 failed, 1 skipped, 33 deselected, 35 warnings in 12.12s ===========

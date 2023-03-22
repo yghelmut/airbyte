@@ -1,0 +1,254 @@
+../../../../connectors/source-recreation/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-recreation
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffb09b8880>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='tours', json_schema={'$schema': '...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffb07a4a00>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='tours', data={'ATTRIBUTES': [{'AttributeName': 'Accessibility', 'Attribu... 'OrgType': 'Federal Agency', 'OrgURLAddress': 'http://www.blm.gov', 'OrgURLText': ''}, emitted_at=1679408854978), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='tours', json_schema={'$schema': '...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('events', 'campsites').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe events stream has the following schema errors:\nAdditional properties are not allowed ('EventRegistrationRequired', 'SponsorClassType', 'EventStartDate', 'EventEmail', 'EntityID', 'EventAgeGroup', 'SponsorPhone', 'EventTypeDescription', 'EventURLAddress', 'EventEndDate', 'SponsorName', 'EventFeeDescription', 'Description', 'SponsorURLAddress', 'EventComments', 'EventFrequencyRateDescription', 'SponsorEmail', 'EventScopeDescription', 'EventADAAccess', 'EventURLText', 'EntityType', 'SponsorURLText', 'LastUpdatedDate' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-04/schema#',\n     'additionalProperties': False,\n     'properties': {'EventID': {'type': 'string'},\n                    'EventName': {'type': 'string'},\n                    'ResourceLink': {'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'Description': '',\n     'EntityID': '2996',\n     'EntityType': 'Asset',\n     'EventADAAccess': '',\n     'EventAgeGroup': '',\n     'EventComments': '',\n     'EventEmail': '',\n     'EventEndDate': '2019-07-02',\n     'EventFeeDescription': '',\n     'EventFrequencyRateDescription': '',\n     'EventID': '10007854',\n     'EventName': 'Get Into Your Sanctuary - annual event',\n     'EventRegistrationRequired': False,\n     'EventScopeDescription': '',\n     'EventStartDate': '2019-07-02',\n     'EventTypeDescription': '',\n     'EventURLAddress': 'https://sanctuaries.noaa.gov/visit/giys.html',\n     'EventURLText': 'https://sanctuaries.noaa.gov/visit/giys.html',\n     'LastUpdatedDate': '2019-07-02',\n     'SponsorClassType': '',\n     'SponsorEmail': '',\n     'SponsorName': '',\n     'SponsorPhone': '',\n     'SponsorURLAddress': '',\n     'SponsorURLText': ''}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe campsites stream has the following schema errors:\nAdditional properties are not allowed ('CampsiteReservable' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-04/schema#',\n     'additionalProperties': False,\n     'properties': {'ATTRIBUTES': {'items': {'properties': {'AttributeID': {'type': 'integer'},\n                                                            'AttributeName': {'type': 'string'},\n                                                            'AttributeValue': {'type': 'string'}},\n                                             'type': 'object'},\n                                   'type': 'array'},\n                    'CampsiteAccessible': {'type': 'boolean'},\n                    'CampsiteID': {'type': 'string'},\n                    'CampsiteLatitude': {'type': 'number'},\n                    'CampsiteLongitude': {'type': 'number'},\n                    'CampsiteName': {'type': 'string'},\n                    'CampsiteType': {'type': 'string'},\n                    'CreatedDate': {'type': 'string'},\n                    'ENTITYMEDIA': {'items': {'properties': {'Credits': {'type': 'string'},\n                                                             'Description': {'type': 'string'},\n                                                             'EmbedCode': {'type': 'string'},\n                                                             'EntityID': {'type': 'string'},\n                                                             'EntityMediaID': {'type': 'string'},\n                                                             'EntityType': {'type': 'string'},\n                                                             'Height': {'type': 'integer'},\n                                                             'IsGallery': {'type': 'boolean'},\n                                                             'IsPreview': {'type': 'boolean'},\n                                                             'IsPrimary': {'type': 'boolean'},\n                                                             'MediaType': {'type': 'string'},\n                                                             'Subtitle': {'type': 'string'},\n                                                             'Title': {'type': 'string'},\n                                                             'URL': {'type': 'string'},\n                                                             'Width': {'type': 'integer'}},\n                                              'type': 'object'},\n                                    'type': 'array'},\n                    'FacilityID': {'type': 'string'},\n                    'LastUpdatedDate': {'type': 'string'},\n                    'Loop': {'type': 'string'},\n                    'PERMITTEDEQUIPMENT': {'items': {'properties': {'EquipmentName': {'type': 'string'},\n                                                                    'MaxLength': {'type': 'integer'}},\n                                                     'type': 'object'},\n                                           'type': 'array'},\n                    'TypeOfUse': {'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'ATTRIBUTES': [{'AttributeName': 'Placed on Map',\n                     'AttributeValue': '1'},\n                    {'AttributeName': 'Checkin Time',\n                     'AttributeValue': '3:00 PM'},\n                    {'AttributeName': 'Min Num of People',\n                     'AttributeValue': '1'},\n                    {'AttributeName': 'Electricity Hookup',\n                     'AttributeValue': '30 amp'},\n                    {'AttributeName': 'Max Num of People',\n                     'AttributeValue': '50'},\n                    {'AttributeName': 'Shade', 'AttributeValue': 'Yes'},\n                    {'AttributeName': 'Checkout Time',\n                     'AttributeValue': '9:00 PM'},\n                    {'AttributeName': 'Pets Allowed',\n                     'AttributeValue': 'Yes'},\n                    {'AttributeName': 'Max Vehicle Length',\n                     'AttributeValue': '0'},\n                    {'AttributeName': 'Driveway Surface',\n                     'AttributeValue': 'Paved'},\n                    {'AttributeName': 'Driveway Entry',\n                     'AttributeValue': 'Back-In'},\n                    {'AttributeName': 'IS EQUIPMENT MANDATORY',\n                     'AttributeValue': ''},\n                    {'AttributeName': 'Capacity/Size Rating',\n                     'AttributeValue': 'Single'},\n                    {'AttributeName': 'Campfire Allowed',\n                     'AttributeValue': 'Yes'},\n                    {'AttributeName': 'Max Num of Vehicles',\n                     'AttributeValue': '2'},\n                    {'AttributeName': 'Water Hookup',\n                     'AttributeValue': 'Yes'}],\n     'CampsiteAccessible': False,\n     'CampsiteID': '10090059',\n     'CampsiteLatitude': 0,\n     'CampsiteLongitude': 0,\n     'CampsiteName': 'Choctaw Shelter PM',\n     'CampsiteReservable': True,\n     'CampsiteType': 'GROUP SHELTER ELECTRIC',\n     'CreatedDate': '2020-10-22',\n     'ENTITYMEDIA': [{'Credits': 'USACE ',\n                      'Description': 'Shelter',\n                      'EmbedCode': '',\n                      'EntityID': '10090059',\n                      'EntityMediaID': '40c4536e-5cf1-4e3d-bb13-48e001c7e1f3',\n                      'EntityType': 'Campsite',\n                      'Height': 525,\n                      'IsGallery': False,\n                      'IsPreview': True,\n                      'IsPrimary': True,\n                      'MediaType': 'Image',\n                      'Subtitle': '',\n                      'Title': 'Shelter',\n                      'URL': 'https://cdn.recreation.gov/public/2021/04/06/18/46/10090059_311a3064-cc9e-4787-8554-63f82dcd9a0e_700.jpeg',\n                      'Width': 700},\n                     {'Credits': 'USACE ',\n                      'Description': 'Shelter',\n                      'EmbedCode': '',\n                      'EntityID': '10090059',\n                      'EntityMediaID': '6a01f37b-2c62-4006-ad00-29167d15e0c5',\n                      'EntityType': 'Campsite',\n                      'Height': 525,\n                      'IsGallery': True,\n                      'IsPreview': False,\n                      'IsPrimary': False,\n                      'MediaType': 'Image',\n                      'Subtitle': '',\n                      'Title': 'Shelter',\n                      'URL': 'https://cdn.recreation.gov/public/2021/04/06/18/47/10090059_4a2e02ee-b200-4da6-a6d9-45e81ddadc97_700.jpeg',\n                      'Width': 700},\n                     {'Credits': 'USACE ',\n                      'Description': 'Shelter',\n                      'EmbedCode': '',\n                      'EntityID': '10090059',\n                      'EntityMediaID': 'ded12374-e46b-464b-b517-c9bbfcc53b61',\n                      'EntityType': 'Campsite',\n                      'Height': 525,\n                      'IsGallery': True,\n                      'IsPreview': False,\n                      'IsPrimary': False,\n                      'MediaType': 'Image',\n                      'Subtitle': '',\n                      'Title': 'Shelter',\n                      'URL': 'https://cdn.recreation.gov/public/2021/04/06/18/47/10090059_dae79983-ff18-4dc8-9a58-0db2b81184b6_700.jpeg',\n                      'Width': 700}],\n     'FacilityID': '232549',\n     'LastUpdatedDate': '2021-04-07',\n     'Loop': 'Choctaw',\n     'PERMITTEDEQUIPMENT': [],\n     'TypeOfUse': 'Day'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The events stream has the following schema errors:
+Additional properties are not allowed ('EventRegistrationRequired', 'SponsorClassType', 'EventStartDate', 'EventEmail', 'EntityID', 'EventAgeGroup', 'SponsorPhone', 'EventTypeDescription', 'EventURLAddress', 'EventEndDate', 'SponsorName', 'EventFeeDescription', 'Description', 'SponsorURLAddress', 'EventComments', 'EventFrequencyRateDescription', 'SponsorEmail', 'EventScopeDescription', 'EventADAAccess', 'EventURLText', 'EntityType', 'SponsorURLText', 'LastUpdatedDate' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-04/schema#',
+     'additionalProperties': False,
+     'properties': {'EventID': {'type': 'string'},
+                    'EventName': {'type': 'string'},
+                    'ResourceLink': {'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'Description': '',
+     'EntityID': '2996',
+     'EntityType': 'Asset',
+     'EventADAAccess': '',
+     'EventAgeGroup': '',
+     'EventComments': '',
+     'EventEmail': '',
+     'EventEndDate': '2019-07-02',
+     'EventFeeDescription': '',
+     'EventFrequencyRateDescription': '',
+     'EventID': '10007854',
+     'EventName': 'Get Into Your Sanctuary - annual event',
+     'EventRegistrationRequired': False,
+     'EventScopeDescription': '',
+     'EventStartDate': '2019-07-02',
+     'EventTypeDescription': '',
+     'EventURLAddress': 'https://sanctuaries.noaa.gov/visit/giys.html',
+     'EventURLText': 'https://sanctuaries.noaa.gov/visit/giys.html',
+     'LastUpdatedDate': '2019-07-02',
+     'SponsorClassType': '',
+     'SponsorEmail': '',
+     'SponsorName': '',
+     'SponsorPhone': '',
+     'SponsorURLAddress': '',
+     'SponsorURLText': ''}
+ERROR    root:test_core.py:662 
+The campsites stream has the following schema errors:
+Additional properties are not allowed ('CampsiteReservable' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-04/schema#',
+     'additionalProperties': False,
+     'properties': {'ATTRIBUTES': {'items': {'properties': {'AttributeID': {'type': 'integer'},
+                                                            'AttributeName': {'type': 'string'},
+                                                            'AttributeValue': {'type': 'string'}},
+                                             'type': 'object'},
+                                   'type': 'array'},
+                    'CampsiteAccessible': {'type': 'boolean'},
+                    'CampsiteID': {'type': 'string'},
+                    'CampsiteLatitude': {'type': 'number'},
+                    'CampsiteLongitude': {'type': 'number'},
+                    'CampsiteName': {'type': 'string'},
+                    'CampsiteType': {'type': 'string'},
+                    'CreatedDate': {'type': 'string'},
+                    'ENTITYMEDIA': {'items': {'properties': {'Credits': {'type': 'string'},
+                                                             'Description': {'type': 'string'},
+                                                             'EmbedCode': {'type': 'string'},
+                                                             'EntityID': {'type': 'string'},
+                                                             'EntityMediaID': {'type': 'string'},
+                                                             'EntityType': {'type': 'string'},
+                                                             'Height': {'type': 'integer'},
+                                                             'IsGallery': {'type': 'boolean'},
+                                                             'IsPreview': {'type': 'boolean'},
+                                                             'IsPrimary': {'type': 'boolean'},
+                                                             'MediaType': {'type': 'string'},
+                                                             'Subtitle': {'type': 'string'},
+                                                             'Title': {'type': 'string'},
+                                                             'URL': {'type': 'string'},
+                                                             'Width': {'type': 'integer'}},
+                                              'type': 'object'},
+                                    'type': 'array'},
+                    'FacilityID': {'type': 'string'},
+                    'LastUpdatedDate': {'type': 'string'},
+                    'Loop': {'type': 'string'},
+                    'PERMITTEDEQUIPMENT': {'items': {'properties': {'EquipmentName': {'type': 'string'},
+                                                                    'MaxLength': {'type': 'integer'}},
+                                                     'type': 'object'},
+                                           'type': 'array'},
+                    'TypeOfUse': {'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'ATTRIBUTES': [{'AttributeName': 'Placed on Map',
+                     'AttributeValue': '1'},
+                    {'AttributeName': 'Checkin Time',
+                     'AttributeValue': '3:00 PM'},
+                    {'AttributeName': 'Min Num of People',
+                     'AttributeValue': '1'},
+                    {'AttributeName': 'Electricity Hookup',
+                     'AttributeValue': '30 amp'},
+                    {'AttributeName': 'Max Num of People',
+                     'AttributeValue': '50'},
+                    {'AttributeName': 'Shade', 'AttributeValue': 'Yes'},
+                    {'AttributeName': 'Checkout Time',
+                     'AttributeValue': '9:00 PM'},
+                    {'AttributeName': 'Pets Allowed',
+                     'AttributeValue': 'Yes'},
+                    {'AttributeName': 'Max Vehicle Length',
+                     'AttributeValue': '0'},
+                    {'AttributeName': 'Driveway Surface',
+                     'AttributeValue': 'Paved'},
+                    {'AttributeName': 'Driveway Entry',
+                     'AttributeValue': 'Back-In'},
+                    {'AttributeName': 'IS EQUIPMENT MANDATORY',
+                     'AttributeValue': ''},
+                    {'AttributeName': 'Capacity/Size Rating',
+                     'AttributeValue': 'Single'},
+                    {'AttributeName': 'Campfire Allowed',
+                     'AttributeValue': 'Yes'},
+                    {'AttributeName': 'Max Num of Vehicles',
+                     'AttributeValue': '2'},
+                    {'AttributeName': 'Water Hookup',
+                     'AttributeValue': 'Yes'}],
+     'CampsiteAccessible': False,
+     'CampsiteID': '10090059',
+     'CampsiteLatitude': 0,
+     'CampsiteLongitude': 0,
+     'CampsiteName': 'Choctaw Shelter PM',
+     'CampsiteReservable': True,
+     'CampsiteType': 'GROUP SHELTER ELECTRIC',
+     'CreatedDate': '2020-10-22',
+     'ENTITYMEDIA': [{'Credits': 'USACE ',
+                      'Description': 'Shelter',
+                      'EmbedCode': '',
+                      'EntityID': '10090059',
+                      'EntityMediaID': '40c4536e-5cf1-4e3d-bb13-48e001c7e1f3',
+                      'EntityType': 'Campsite',
+                      'Height': 525,
+                      'IsGallery': False,
+                      'IsPreview': True,
+                      'IsPrimary': True,
+                      'MediaType': 'Image',
+                      'Subtitle': '',
+                      'Title': 'Shelter',
+                      'URL': 'https://cdn.recreation.gov/public/2021/04/06/18/46/10090059_311a3064-cc9e-4787-8554-63f82dcd9a0e_700.jpeg',
+                      'Width': 700},
+                     {'Credits': 'USACE ',
+                      'Description': 'Shelter',
+                      'EmbedCode': '',
+                      'EntityID': '10090059',
+                      'EntityMediaID': '6a01f37b-2c62-4006-ad00-29167d15e0c5',
+                      'EntityType': 'Campsite',
+                      'Height': 525,
+                      'IsGallery': True,
+                      'IsPreview': False,
+                      'IsPrimary': False,
+                      'MediaType': 'Image',
+                      'Subtitle': '',
+                      'Title': 'Shelter',
+                      'URL': 'https://cdn.recreation.gov/public/2021/04/06/18/47/10090059_4a2e02ee-b200-4da6-a6d9-45e81ddadc97_700.jpeg',
+                      'Width': 700},
+                     {'Credits': 'USACE ',
+                      'Description': 'Shelter',
+                      'EmbedCode': '',
+                      'EntityID': '10090059',
+                      'EntityMediaID': 'ded12374-e46b-464b-b517-c9bbfcc53b61',
+                      'EntityType': 'Campsite',
+                      'Height': 525,
+                      'IsGallery': True,
+                      'IsPreview': False,
+                      'IsPrimary': False,
+                      'MediaType': 'Image',
+                      'Subtitle': '',
+                      'Title': 'Shelter',
+                      'URL': 'https://cdn.recreation.gov/public/2021/04/06/18/47/10090059_dae79983-ff18-4dc8-9a58-0db2b81184b6_700.jpeg',
+                      'Width': 700}],
+     'FacilityID': '232549',
+     'LastUpdatedDate': '2021-04-07',
+     'Loop': 'Choctaw',
+     'PERMITTEDEQUIPMENT': [],
+     'TypeOfUse': 'Day'}
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+================= 1 failed, 1 skipped, 33 deselected in 11.88s =================

@@ -1,0 +1,357 @@
+../../../../connectors/source-zendesk-talk/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-zendesk-talk
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 47 items / 45 deselected / 2 selected
+
+../../test_input/test_core.py F                                          [ 50%]
+../../test_input/test_incremental.py .                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffa61977f0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='account_overview', json_schema={'...ull_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=[['id']])])
+expect_records_config = ExpectedRecordsConfig(bypass_reason=None, path=PosixPath('integration_tests/expected_records.jsonl'), extra_fields=False, exact_order=False, extra_records=True)
+should_validate_schema = True, should_validate_data_points = False
+should_fail_on_extra_columns = True, empty_streams = set()
+ignored_fields = {'account_overview': [IgnoredFieldsConfiguration(name='current_timestamp', bypass_reason='Depend on current time')], '...me')], 'greetings': [IgnoredFieldsConfiguration(name='audio_url', bypass_reason='In url present auto generated hash')]}
+expected_records_by_stream = defaultdict(<class 'list'>, {'addresses': [{'id': 360000047935, 'name': 'Fake Zendesk 1001', 'street': '1019 Market St... 'longest_wait_time': 0, 'callbacks_waiting': 0, 'embeddable_callbacks_waiting': 0, 'current_timestamp': 1677599291}]})
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffa6194f40>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='account_overview', data={'average_call_duration': 0, 'average_callback_w...ia', 'country_code': 'US', 'provider_reference': 'AD1b03f6250ae793c562f9290a47404e5b'}, emitted_at=1679429299765), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='account_overview', json_schema={'...ull_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=[['id']])])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('agents_activity', 'agents_overview', 'calls', 'ivr_menus', 'ivr_routes').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe agents_activity stream has the following schema errors:\nAdditional properties are not allowed ('transfers_only_time' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'accepted_third_party_conferences': {'type': ['null',\n                                                                  'integer']},\n                    'accepted_transfers': {'type': ['null', 'integer']},\n                    'agent_id': {'type': ['null', 'integer']},\n                    'agent_state': {'type': ['null', 'string']},\n                    'available_time': {'type': ['null', 'integer']},\n                    'avatar_url': {'type': ['null', 'string']},\n                    'average_hold_time': {'type': ['null', 'integer']},\n                    'average_talk_time': {'type': ['null', 'integer']},\n                    'average_wrap_up_time': {'type': ['null', 'integer']},\n                    'away_time': {'type': ['null', 'integer']},\n                    'call_status': {'type': ['null', 'string']},\n                    'calls_accepted': {'type': ['null', 'integer']},\n                    'calls_denied': {'type': ['null', 'integer']},\n                    'calls_missed': {'type': ['null', 'integer']},\n                    'calls_put_on_hold': {'type': ['null', 'integer']},\n                    'forwarding_number': {'type': ['null', 'string']},\n                    'name': {'type': ['null', 'string']},\n                    'online_time': {'type': ['null', 'integer']},\n                    'started_third_party_conferences': {'type': ['null',\n                                                                 'integer']},\n                    'started_transfers': {'type': ['null', 'integer']},\n                    'total_call_duration': {'type': ['null', 'integer']},\n                    'total_hold_time': {'type': ['null', 'integer']},\n                    'total_talk_time': {'type': ['null', 'integer']},\n                    'total_wrap_up_time': {'type': ['null', 'integer']},\n                    'via': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'accepted_third_party_conferences': 0,\n     'accepted_transfers': 0,\n     'agent_id': 360786799676,\n     'agent_state': 'offline',\n     'available_time': 0,\n     'avatar_url': 'https://d3v-airbyte.zendesk.com/images/2016/default-avatar-80.png',\n     'average_hold_time': 0,\n     'average_talk_time': 0,\n     'average_wrap_up_time': 0,\n     'away_time': 0,\n     'call_status': None,\n     'calls_accepted': 0,\n     'calls_denied': 0,\n     'calls_missed': 0,\n     'calls_put_on_hold': 0,\n     'forwarding_number': None,\n     'name': 'Team Airbyte',\n     'online_time': 0,\n     'started_third_party_conferences': 0,\n     'started_transfers': 0,\n     'total_call_duration': 0,\n     'total_hold_time': 0,\n     'total_talk_time': 0,\n     'total_wrap_up_time': 0,\n     'transfers_only_time': 0,\n     'via': 'client'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe agents_overview stream has the following schema errors:\nAdditional properties are not allowed ('average_transfers_only_time' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'average_accepted_transfers': {'type': ['null',\n                                                            'integer']},\n                    'average_available_time': {'type': ['null', 'integer']},\n                    'average_away_time': {'type': ['null', 'integer']},\n                    'average_calls_accepted': {'type': ['null', 'integer']},\n                    'average_calls_denied': {'type': ['null', 'integer']},\n                    'average_calls_missed': {'type': ['null', 'integer']},\n                    'average_calls_put_on_hold': {'type': ['null',\n                                                           'integer']},\n                    'average_hold_time': {'type': ['null', 'integer']},\n                    'average_online_time': {'type': ['null', 'integer']},\n                    'average_started_transfers': {'type': ['null',\n                                                           'integer']},\n                    'average_talk_time': {'type': ['null', 'integer']},\n                    'average_wrap_up_time': {'type': ['null', 'integer']},\n                    'current_timestamp': {'type': 'integer'},\n                    'total_accepted_transfers': {'type': ['null',\n                                                          'integer']},\n                    'total_calls_accepted': {'type': ['null', 'integer']},\n                    'total_calls_denied': {'type': ['null', 'integer']},\n                    'total_calls_missed': {'type': ['null', 'integer']},\n                    'total_calls_put_on_hold': {'type': ['null',\n                                                         'integer']},\n                    'total_hold_time': {'type': ['null', 'integer']},\n                    'total_started_transfers': {'type': ['null',\n                                                         'integer']},\n                    'total_talk_time': {'type': ['null', 'integer']},\n                    'total_wrap_up_time': {'type': ['null', 'integer']}},\n     'type': 'object'}\n\nOn instance:\n    {'average_accepted_transfers': 0,\n     'average_available_time': 0,\n     'average_away_time': 0,\n     'average_calls_accepted': 0,\n     'average_calls_denied': 0,\n     'average_calls_missed': 0,\n     'average_calls_put_on_hold': 0,\n     'average_hold_time': 0,\n     'average_online_time': 0,\n     'average_started_transfers': 0,\n     'average_talk_time': 0,\n     'average_transfers_only_time': 0,\n     'average_wrap_up_time': 0,\n     'current_timestamp': 1679429300,\n     'total_accepted_transfers': 0,\n     'total_calls_accepted': 0,\n     'total_calls_denied': 0,\n     'total_calls_missed': 0,\n     'total_calls_put_on_hold': 0,\n     'total_hold_time': 0,\n     'total_started_transfers': 0,\n     'total_talk_time': 0,\n     'total_wrap_up_time': 0}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe calls stream has the following schema errors:\nAdditional properties are not allowed ('exceeded_queue_wait_time', 'line_id', 'call_channel', 'customer_id', 'line_type', 'line' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'agent_id': {'type': ['null', 'integer']},\n                    'call_charge': {'type': ['null', 'string']},\n                    'call_group_id': {'type': ['null', 'integer']},\n                    'call_recording_consent': {'type': ['null', 'string']},\n                    'call_recording_consent_action': {'type': ['null',\n                                                               'string']},\n                    'call_recording_consent_keypress': {'type': ['null',\n                                                                 'string']},\n                    'callback': {'type': ['null', 'boolean']},\n                    'callback_source': {'type': ['null', 'string']},\n                    'completion_status': {'type': ['null', 'string']},\n                    'consultation_time': {'type': ['null', 'integer']},\n                    'created_at': {'type': ['null', 'string']},\n                    'customer_requested_voicemail': {'type': ['null',\n                                                              'boolean']},\n                    'default_group': {'type': ['null', 'boolean']},\n                    'direction': {'type': ['null', 'string']},\n                    'duration': {'type': ['null', 'integer']},\n                    'exceeded_queue_time': {'type': ['null', 'boolean']},\n                    'hold_time': {'type': ['null', 'integer']},\n                    'id': {'type': ['null', 'integer']},\n                    'ivr_action': {'type': ['null', 'string']},\n                    'ivr_destination_group_name': {'type': ['null',\n                                                            'string']},\n                    'ivr_hops': {'type': ['null', 'integer']},\n                    'ivr_routed_to': {'type': ['null', 'string']},\n                    'ivr_time_spent': {'type': ['null', 'integer']},\n                    'minutes_billed': {'type': ['null', 'integer']},\n                    'not_recording_time': {'type': ['null', 'integer']},\n                    'outside_business_hours': {'type': ['null', 'boolean']},\n                    'overflowed': {'type': ['null', 'boolean']},\n                    'overflowed_to': {'type': ['null', 'string']},\n                    'phone_number': {'type': ['null', 'string']},\n                    'phone_number_id': {'type': ['null', 'integer']},\n                    'quality_issues': {'type': ['null', 'array']},\n                    'recording_control_interactions': {'type': ['null',\n                                                                'integer']},\n                    'recording_time': {'type': ['null', 'integer']},\n                    'talk_time': {'type': ['null', 'integer']},\n                    'ticket_id': {'type': ['null', 'integer']},\n                    'time_to_answer': {'type': ['null', 'integer']},\n                    'updated_at': {'format': 'date-time',\n                                   'type': ['null', 'string']},\n                    'voicemail': {'type': ['null', 'boolean']},\n                    'wait_time': {'type': ['null', 'integer']},\n                    'wrap_up_time': {'type': ['null', 'integer']}},\n     'type': 'object'}\n\nOn instance:\n    {'agent_id': None,\n     'call_channel': 'phone',\n     'call_charge': '0.009',\n     'call_group_id': None,\n     'call_recording_consent': 'always',\n     'call_recording_consent_action': None,\n     'call_recording_consent_keypress': None,\n     'callback': False,\n     'callback_source': None,\n     'completion_status': 'completed',\n     'consultation_time': 0,\n     'created_at': '2023-02-27T15:54:04Z',\n     'customer_id': None,\n     'customer_requested_voicemail': False,\n     'default_group': False,\n     'direction': 'inbound',\n     'duration': 15,\n     'exceeded_queue_wait_time': False,\n     'hold_time': 0,\n     'id': 6479438361615,\n     'ivr_action': None,\n     'ivr_destination_group_name': None,\n     'ivr_hops': None,\n     'ivr_routed_to': None,\n     'ivr_time_spent': None,\n     'line': '+12059531462',\n     'line_id': 360000121575,\n     'line_type': 'phone',\n     'minutes_billed': 1,\n     'not_recording_time': 0,\n     'outside_business_hours': False,\n     'overflowed': False,\n     'overflowed_to': None,\n     'phone_number': '+12059531462',\n     'phone_number_id': 360000121575,\n     'quality_issues': ['silence'],\n     'recording_control_interactions': 0,\n     'recording_time': 0,\n     'talk_time': 0,\n     'ticket_id': None,\n     'time_to_answer': None,\n     'updated_at': '2023-02-27T18:00:49Z',\n     'voicemail': False,\n     'wait_time': 0,\n     'wrap_up_time': 0}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe ivr_menus stream has the following schema errors:\nAdditional properties are not allowed ('routes' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'default': {'type': ['null', 'boolean']},\n                    'greeting_id': {'type': ['null', 'integer']},\n                    'id': {'type': ['null', 'integer']},\n                    'ivr_id': {'type': ['null', 'integer']},\n                    'name': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'default': True,\n     'greeting_id': None,\n     'id': 360000020775,\n     'ivr_id': 360000014015,\n     'name': 'Main menu',\n     'routes': []}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe ivr_routes stream has the following schema errors:\nAdditional properties are not allowed ('name', 'greeting_id', 'routes', 'default' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'action': {'type': ['null', 'string']},\n                    'greeting': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'integer']},\n                    'ivr_id': {'type': ['null', 'integer']},\n                    'ivr_menu_id': {'type': ['null', 'integer']},\n                    'keypress': {'type': ['null', 'string']},\n                    'option_text': {'type': ['null', 'string']},\n                    'options': {'type': ['null', 'object']},\n                    'overflow_options': {'type': ['null', 'array']}},\n     'type': 'object'}\n\nOn instance:\n    {'default': True,\n     'greeting_id': None,\n     'id': 360000020775,\n     'ivr_id': 360000014015,\n     'ivr_menu_id': 360000020775,\n     'name': 'Main menu',\n     'routes': []}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The agents_activity stream has the following schema errors:
+Additional properties are not allowed ('transfers_only_time' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'accepted_third_party_conferences': {'type': ['null',
+                                                                  'integer']},
+                    'accepted_transfers': {'type': ['null', 'integer']},
+                    'agent_id': {'type': ['null', 'integer']},
+                    'agent_state': {'type': ['null', 'string']},
+                    'available_time': {'type': ['null', 'integer']},
+                    'avatar_url': {'type': ['null', 'string']},
+                    'average_hold_time': {'type': ['null', 'integer']},
+                    'average_talk_time': {'type': ['null', 'integer']},
+                    'average_wrap_up_time': {'type': ['null', 'integer']},
+                    'away_time': {'type': ['null', 'integer']},
+                    'call_status': {'type': ['null', 'string']},
+                    'calls_accepted': {'type': ['null', 'integer']},
+                    'calls_denied': {'type': ['null', 'integer']},
+                    'calls_missed': {'type': ['null', 'integer']},
+                    'calls_put_on_hold': {'type': ['null', 'integer']},
+                    'forwarding_number': {'type': ['null', 'string']},
+                    'name': {'type': ['null', 'string']},
+                    'online_time': {'type': ['null', 'integer']},
+                    'started_third_party_conferences': {'type': ['null',
+                                                                 'integer']},
+                    'started_transfers': {'type': ['null', 'integer']},
+                    'total_call_duration': {'type': ['null', 'integer']},
+                    'total_hold_time': {'type': ['null', 'integer']},
+                    'total_talk_time': {'type': ['null', 'integer']},
+                    'total_wrap_up_time': {'type': ['null', 'integer']},
+                    'via': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'accepted_third_party_conferences': 0,
+     'accepted_transfers': 0,
+     'agent_id': 360786799676,
+     'agent_state': 'offline',
+     'available_time': 0,
+     'avatar_url': 'https://d3v-airbyte.zendesk.com/images/2016/default-avatar-80.png',
+     'average_hold_time': 0,
+     'average_talk_time': 0,
+     'average_wrap_up_time': 0,
+     'away_time': 0,
+     'call_status': None,
+     'calls_accepted': 0,
+     'calls_denied': 0,
+     'calls_missed': 0,
+     'calls_put_on_hold': 0,
+     'forwarding_number': None,
+     'name': 'Team Airbyte',
+     'online_time': 0,
+     'started_third_party_conferences': 0,
+     'started_transfers': 0,
+     'total_call_duration': 0,
+     'total_hold_time': 0,
+     'total_talk_time': 0,
+     'total_wrap_up_time': 0,
+     'transfers_only_time': 0,
+     'via': 'client'}
+ERROR    root:test_core.py:662 
+The agents_overview stream has the following schema errors:
+Additional properties are not allowed ('average_transfers_only_time' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'average_accepted_transfers': {'type': ['null',
+                                                            'integer']},
+                    'average_available_time': {'type': ['null', 'integer']},
+                    'average_away_time': {'type': ['null', 'integer']},
+                    'average_calls_accepted': {'type': ['null', 'integer']},
+                    'average_calls_denied': {'type': ['null', 'integer']},
+                    'average_calls_missed': {'type': ['null', 'integer']},
+                    'average_calls_put_on_hold': {'type': ['null',
+                                                           'integer']},
+                    'average_hold_time': {'type': ['null', 'integer']},
+                    'average_online_time': {'type': ['null', 'integer']},
+                    'average_started_transfers': {'type': ['null',
+                                                           'integer']},
+                    'average_talk_time': {'type': ['null', 'integer']},
+                    'average_wrap_up_time': {'type': ['null', 'integer']},
+                    'current_timestamp': {'type': 'integer'},
+                    'total_accepted_transfers': {'type': ['null',
+                                                          'integer']},
+                    'total_calls_accepted': {'type': ['null', 'integer']},
+                    'total_calls_denied': {'type': ['null', 'integer']},
+                    'total_calls_missed': {'type': ['null', 'integer']},
+                    'total_calls_put_on_hold': {'type': ['null',
+                                                         'integer']},
+                    'total_hold_time': {'type': ['null', 'integer']},
+                    'total_started_transfers': {'type': ['null',
+                                                         'integer']},
+                    'total_talk_time': {'type': ['null', 'integer']},
+                    'total_wrap_up_time': {'type': ['null', 'integer']}},
+     'type': 'object'}
+
+On instance:
+    {'average_accepted_transfers': 0,
+     'average_available_time': 0,
+     'average_away_time': 0,
+     'average_calls_accepted': 0,
+     'average_calls_denied': 0,
+     'average_calls_missed': 0,
+     'average_calls_put_on_hold': 0,
+     'average_hold_time': 0,
+     'average_online_time': 0,
+     'average_started_transfers': 0,
+     'average_talk_time': 0,
+     'average_transfers_only_time': 0,
+     'average_wrap_up_time': 0,
+     'current_timestamp': 1679429300,
+     'total_accepted_transfers': 0,
+     'total_calls_accepted': 0,
+     'total_calls_denied': 0,
+     'total_calls_missed': 0,
+     'total_calls_put_on_hold': 0,
+     'total_hold_time': 0,
+     'total_started_transfers': 0,
+     'total_talk_time': 0,
+     'total_wrap_up_time': 0}
+ERROR    root:test_core.py:662 
+The calls stream has the following schema errors:
+Additional properties are not allowed ('exceeded_queue_wait_time', 'line_id', 'call_channel', 'customer_id', 'line_type', 'line' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'agent_id': {'type': ['null', 'integer']},
+                    'call_charge': {'type': ['null', 'string']},
+                    'call_group_id': {'type': ['null', 'integer']},
+                    'call_recording_consent': {'type': ['null', 'string']},
+                    'call_recording_consent_action': {'type': ['null',
+                                                               'string']},
+                    'call_recording_consent_keypress': {'type': ['null',
+                                                                 'string']},
+                    'callback': {'type': ['null', 'boolean']},
+                    'callback_source': {'type': ['null', 'string']},
+                    'completion_status': {'type': ['null', 'string']},
+                    'consultation_time': {'type': ['null', 'integer']},
+                    'created_at': {'type': ['null', 'string']},
+                    'customer_requested_voicemail': {'type': ['null',
+                                                              'boolean']},
+                    'default_group': {'type': ['null', 'boolean']},
+                    'direction': {'type': ['null', 'string']},
+                    'duration': {'type': ['null', 'integer']},
+                    'exceeded_queue_time': {'type': ['null', 'boolean']},
+                    'hold_time': {'type': ['null', 'integer']},
+                    'id': {'type': ['null', 'integer']},
+                    'ivr_action': {'type': ['null', 'string']},
+                    'ivr_destination_group_name': {'type': ['null',
+                                                            'string']},
+                    'ivr_hops': {'type': ['null', 'integer']},
+                    'ivr_routed_to': {'type': ['null', 'string']},
+                    'ivr_time_spent': {'type': ['null', 'integer']},
+                    'minutes_billed': {'type': ['null', 'integer']},
+                    'not_recording_time': {'type': ['null', 'integer']},
+                    'outside_business_hours': {'type': ['null', 'boolean']},
+                    'overflowed': {'type': ['null', 'boolean']},
+                    'overflowed_to': {'type': ['null', 'string']},
+                    'phone_number': {'type': ['null', 'string']},
+                    'phone_number_id': {'type': ['null', 'integer']},
+                    'quality_issues': {'type': ['null', 'array']},
+                    'recording_control_interactions': {'type': ['null',
+                                                                'integer']},
+                    'recording_time': {'type': ['null', 'integer']},
+                    'talk_time': {'type': ['null', 'integer']},
+                    'ticket_id': {'type': ['null', 'integer']},
+                    'time_to_answer': {'type': ['null', 'integer']},
+                    'updated_at': {'format': 'date-time',
+                                   'type': ['null', 'string']},
+                    'voicemail': {'type': ['null', 'boolean']},
+                    'wait_time': {'type': ['null', 'integer']},
+                    'wrap_up_time': {'type': ['null', 'integer']}},
+     'type': 'object'}
+
+On instance:
+    {'agent_id': None,
+     'call_channel': 'phone',
+     'call_charge': '0.009',
+     'call_group_id': None,
+     'call_recording_consent': 'always',
+     'call_recording_consent_action': None,
+     'call_recording_consent_keypress': None,
+     'callback': False,
+     'callback_source': None,
+     'completion_status': 'completed',
+     'consultation_time': 0,
+     'created_at': '2023-02-27T15:54:04Z',
+     'customer_id': None,
+     'customer_requested_voicemail': False,
+     'default_group': False,
+     'direction': 'inbound',
+     'duration': 15,
+     'exceeded_queue_wait_time': False,
+     'hold_time': 0,
+     'id': 6479438361615,
+     'ivr_action': None,
+     'ivr_destination_group_name': None,
+     'ivr_hops': None,
+     'ivr_routed_to': None,
+     'ivr_time_spent': None,
+     'line': '+12059531462',
+     'line_id': 360000121575,
+     'line_type': 'phone',
+     'minutes_billed': 1,
+     'not_recording_time': 0,
+     'outside_business_hours': False,
+     'overflowed': False,
+     'overflowed_to': None,
+     'phone_number': '+12059531462',
+     'phone_number_id': 360000121575,
+     'quality_issues': ['silence'],
+     'recording_control_interactions': 0,
+     'recording_time': 0,
+     'talk_time': 0,
+     'ticket_id': None,
+     'time_to_answer': None,
+     'updated_at': '2023-02-27T18:00:49Z',
+     'voicemail': False,
+     'wait_time': 0,
+     'wrap_up_time': 0}
+ERROR    root:test_core.py:662 
+The ivr_menus stream has the following schema errors:
+Additional properties are not allowed ('routes' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'default': {'type': ['null', 'boolean']},
+                    'greeting_id': {'type': ['null', 'integer']},
+                    'id': {'type': ['null', 'integer']},
+                    'ivr_id': {'type': ['null', 'integer']},
+                    'name': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'default': True,
+     'greeting_id': None,
+     'id': 360000020775,
+     'ivr_id': 360000014015,
+     'name': 'Main menu',
+     'routes': []}
+ERROR    root:test_core.py:662 
+The ivr_routes stream has the following schema errors:
+Additional properties are not allowed ('name', 'greeting_id', 'routes', 'default' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'action': {'type': ['null', 'string']},
+                    'greeting': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'integer']},
+                    'ivr_id': {'type': ['null', 'integer']},
+                    'ivr_menu_id': {'type': ['null', 'integer']},
+                    'keypress': {'type': ['null', 'string']},
+                    'option_text': {'type': ['null', 'string']},
+                    'options': {'type': ['null', 'object']},
+                    'overflow_options': {'type': ['null', 'array']}},
+     'type': 'object'}
+
+On instance:
+    {'default': True,
+     'greeting_id': None,
+     'id': 360000020775,
+     'ivr_id': 360000014015,
+     'ivr_menu_id': 360000020775,
+     'name': 'Main menu',
+     'routes': []}
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+================= 1 failed, 1 passed, 45 deselected in 32.61s ==================

@@ -1,0 +1,152 @@
+../../../../connectors/source-emailoctopus/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-emailoctopus
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff8881fc70>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='campaigns', json_schema={'type': ...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff8847f490>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='campaigns', data={'id': '40205efe-5f94-11ed-aa11-7d1ac831a909', 'status'...ending': 0, 'subscribed': 0, 'unsubscribed': 0}, 'created_at': '2022-11-07T23:03:46+00:00'}, emitted_at=1679404955135)]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='campaigns', json_schema={'type': ...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('campaigns',).
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe campaigns stream has the following schema errors:\nAdditional properties are not allowed ('content' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'description': 'Details of all campaigns.',\n     'properties': {'created_at': {'description': 'When the campaign was '\n                                                  'created, in ISO 8601 '\n                                                  'format.',\n                                   'title': 'Campaign Created At',\n                                   'type': 'string'},\n                    'from': {'description': 'The sender of the campaign.',\n                             'properties': {'email_address': {'description': 'The '\n                                                                             'email '\n                                                                             'address '\n                                                                             'the '\n                                                                             'campaign '\n                                                                             'was '\n                                                                             'sent '\n                                                                             'from.',\n                                                              'title': 'Sender '\n                                                                       'Email '\n                                                                       'Address',\n                                                              'type': 'string'},\n                                            'name': {'description': 'The '\n                                                                    'name '\n                                                                    'the '\n                                                                    'campaign '\n                                                                    'was '\n                                                                    'sent '\n                                                                    'from.',\n                                                     'title': 'Sender Name',\n                                                     'type': 'string'}},\n                             'title': 'From',\n                             'type': 'object'},\n                    'id': {'description': 'The identifier of the campaign.',\n                           'title': 'Campaign ID',\n                           'type': 'string'},\n                    'name': {'description': 'The name of the campaign.',\n                             'title': 'Campaign Name',\n                             'type': ['string', 'null']},\n                    'sent_at': {'description': 'When the campaign was '\n                                               'sent, in ISO 8601 format.',\n                                'title': 'Campaign Sent At',\n                                'type': 'string'},\n                    'status': {'description': 'The status of the campaign '\n                                              '(DRAFT/SENDING/SENT/ERROR).',\n                               'title': 'Status',\n                               'type': 'string'},\n                    'subject': {'description': 'The subject of the '\n                                               'campaign.',\n                                'title': 'Subject',\n                                'type': ['string', 'null']},\n                    'to': {'description': 'The ids of the lists the '\n                                          'campaign was sent to.',\n                           'items': {'type': 'string'},\n                           'title': 'To',\n                           'type': 'array'}},\n     'title': 'Campaigns',\n     'type': 'object'}\n\nOn instance:\n    {'content': {},\n     'created_at': '2022-11-07T23:04:44+00:00',\n     'from': {'email_address': 'integration-test@airbyte.io',\n              'name': 'Airbyte Integration Test'},\n     'id': '91546616-5ef0-11ed-90c7-fbeacb2ee1eb',\n     'name': None,\n     'sent_at': '2022-11-08T12:48:27+00:00',\n     'status': 'SENT',\n     'subject': 'Hello my first campaign',\n     'to': ['71f5d39a-5ef0-11ed-a32e-bf712dd1e085']}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The campaigns stream has the following schema errors:
+Additional properties are not allowed ('content' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'description': 'Details of all campaigns.',
+     'properties': {'created_at': {'description': 'When the campaign was '
+                                                  'created, in ISO 8601 '
+                                                  'format.',
+                                   'title': 'Campaign Created At',
+                                   'type': 'string'},
+                    'from': {'description': 'The sender of the campaign.',
+                             'properties': {'email_address': {'description': 'The '
+                                                                             'email '
+                                                                             'address '
+                                                                             'the '
+                                                                             'campaign '
+                                                                             'was '
+                                                                             'sent '
+                                                                             'from.',
+                                                              'title': 'Sender '
+                                                                       'Email '
+                                                                       'Address',
+                                                              'type': 'string'},
+                                            'name': {'description': 'The '
+                                                                    'name '
+                                                                    'the '
+                                                                    'campaign '
+                                                                    'was '
+                                                                    'sent '
+                                                                    'from.',
+                                                     'title': 'Sender Name',
+                                                     'type': 'string'}},
+                             'title': 'From',
+                             'type': 'object'},
+                    'id': {'description': 'The identifier of the campaign.',
+                           'title': 'Campaign ID',
+                           'type': 'string'},
+                    'name': {'description': 'The name of the campaign.',
+                             'title': 'Campaign Name',
+                             'type': ['string', 'null']},
+                    'sent_at': {'description': 'When the campaign was '
+                                               'sent, in ISO 8601 format.',
+                                'title': 'Campaign Sent At',
+                                'type': 'string'},
+                    'status': {'description': 'The status of the campaign '
+                                              '(DRAFT/SENDING/SENT/ERROR).',
+                               'title': 'Status',
+                               'type': 'string'},
+                    'subject': {'description': 'The subject of the '
+                                               'campaign.',
+                                'title': 'Subject',
+                                'type': ['string', 'null']},
+                    'to': {'description': 'The ids of the lists the '
+                                          'campaign was sent to.',
+                           'items': {'type': 'string'},
+                           'title': 'To',
+                           'type': 'array'}},
+     'title': 'Campaigns',
+     'type': 'object'}
+
+On instance:
+    {'content': {},
+     'created_at': '2022-11-07T23:04:44+00:00',
+     'from': {'email_address': 'integration-test@airbyte.io',
+              'name': 'Airbyte Integration Test'},
+     'id': '91546616-5ef0-11ed-90c7-fbeacb2ee1eb',
+     'name': None,
+     'sent_at': '2022-11-08T12:48:27+00:00',
+     'status': 'SENT',
+     'subject': 'Hello my first campaign',
+     'to': ['71f5d39a-5ef0-11ed-a32e-bf712dd1e085']}
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: This connector does not implement incremental sync
+================= 1 failed, 1 skipped, 33 deselected in 5.77s ==================

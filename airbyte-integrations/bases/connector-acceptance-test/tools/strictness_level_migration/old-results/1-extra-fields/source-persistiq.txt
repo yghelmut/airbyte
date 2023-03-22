@@ -1,0 +1,192 @@
+../../../../connectors/source-persistiq/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-persistiq
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffb358a340>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='campaigns', json_schema={'$schema...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = ExpectedRecordsConfig(bypass_reason=None, path=PosixPath('integration_tests/expected_campaigns_stream.txt'), extra_fields=False, exact_order=False, extra_records=True)
+should_validate_schema = True, should_validate_data_points = False
+should_fail_on_extra_columns = True, empty_streams = set(), ignored_fields = {}
+expected_records_by_stream = defaultdict(<class 'list'>, {'campaigns': [{'id': 'c_3kqMZZ', 'name': 'Schedule Meetings with Reps (sample campaign)',...rospects_opened': 0, 'prospects_replied': 0, 'prospects_bounced': 0, 'prospects_optedout': 0, 'total_prospects': 3}}]})
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffb2d84190>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='campaigns', data={'id': 'Ya1mVEM3kqMZZl2oWwdz', 'name': 'Schedule Meetin...: False, 'optedout': False, 'sent_count': 0, 'replied_count': 0, 'last_sent_at': None}, emitted_at=1679408225165), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='campaigns', json_schema={'$schema...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('leads',).
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe leads stream has the following schema errors:\nAdditional properties are not allowed ('creator_id' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'bounced': {'type': ['null', 'boolean']},\n                    'data': {'address': {'type': ['null', 'string']},\n                             'city': {'type': ['null', 'string']},\n                             'company_name': {'type': ['null', 'string']},\n                             'email': {'format': 'email',\n                                       'type': ['null', 'string']},\n                             'facebook': {'type': ['null', 'string']},\n                             'first_name': {'type': ['null', 'string']},\n                             'industry': {'type': ['null', 'string']},\n                             'last_name': {'type': ['null', 'string']},\n                             'linkedin': {'type': ['null', 'string']},\n                             'phone': {'type': ['null', 'string']},\n                             'salesforce_id': {'type': ['null', 'string']},\n                             'snippet': {'type': ['null', 'string']},\n                             'snippet1': {'type': ['null', 'string']},\n                             'snippet2': {'type': ['null', 'string']},\n                             'snippet3': {'type': ['null', 'string']},\n                             'snippet4': {'type': ['null', 'string']},\n                             'state': {'type': ['null', 'string']},\n                             'title': {'type': ['null', 'string']},\n                             'twitch_name': {'type': ['null', 'string']},\n                             'twitter': {'type': ['null', 'string']}},\n                    'id': {'type': ['string']},\n                    'last_sent_at': {'type': ['null', 'string']},\n                    'optedout': {'type': ['null', 'boolean']},\n                    'owner_id': {'type': ['string']},\n                    'replied_count': {'type': ['null', 'integer']},\n                    'sent_count': {'type': ['null', 'integer']},\n                    'status': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'bounced': False,\n     'creator_id': 'wbdV5Y4pdKWk3KBXPZOx',\n     'data': {'address': None,\n              'city': None,\n              'company_name': None,\n              'country': None,\n              'email': 'integration-test@airbyte.io',\n              'facebook': None,\n              'first_name': None,\n              'industry': None,\n              'last_name': None,\n              'linkedin': None,\n              'phone': None,\n              'salesforce_id': None,\n              'snippet': None,\n              'snippet2': None,\n              'snippet3': None,\n              'snippet4': None,\n              'state': None,\n              'title': None,\n              'twitter': None},\n     'id': 'GevmwOpQWMVvjNob26X9',\n     'last_sent_at': None,\n     'optedout': False,\n     'owner_id': 'wbdV5Y4pdKWk3KBXPZOx',\n     'replied_count': 0,\n     'sent_count': 0,\n     'status': 'open'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The leads stream has the following schema errors:
+Additional properties are not allowed ('creator_id' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'bounced': {'type': ['null', 'boolean']},
+                    'data': {'address': {'type': ['null', 'string']},
+                             'city': {'type': ['null', 'string']},
+                             'company_name': {'type': ['null', 'string']},
+                             'email': {'format': 'email',
+                                       'type': ['null', 'string']},
+                             'facebook': {'type': ['null', 'string']},
+                             'first_name': {'type': ['null', 'string']},
+                             'industry': {'type': ['null', 'string']},
+                             'last_name': {'type': ['null', 'string']},
+                             'linkedin': {'type': ['null', 'string']},
+                             'phone': {'type': ['null', 'string']},
+                             'salesforce_id': {'type': ['null', 'string']},
+                             'snippet': {'type': ['null', 'string']},
+                             'snippet1': {'type': ['null', 'string']},
+                             'snippet2': {'type': ['null', 'string']},
+                             'snippet3': {'type': ['null', 'string']},
+                             'snippet4': {'type': ['null', 'string']},
+                             'state': {'type': ['null', 'string']},
+                             'title': {'type': ['null', 'string']},
+                             'twitch_name': {'type': ['null', 'string']},
+                             'twitter': {'type': ['null', 'string']}},
+                    'id': {'type': ['string']},
+                    'last_sent_at': {'type': ['null', 'string']},
+                    'optedout': {'type': ['null', 'boolean']},
+                    'owner_id': {'type': ['string']},
+                    'replied_count': {'type': ['null', 'integer']},
+                    'sent_count': {'type': ['null', 'integer']},
+                    'status': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'bounced': False,
+     'creator_id': 'wbdV5Y4pdKWk3KBXPZOx',
+     'data': {'address': None,
+              'city': None,
+              'company_name': None,
+              'country': None,
+              'email': 'integration-test@airbyte.io',
+              'facebook': None,
+              'first_name': None,
+              'industry': None,
+              'last_name': None,
+              'linkedin': None,
+              'phone': None,
+              'salesforce_id': None,
+              'snippet': None,
+              'snippet2': None,
+              'snippet3': None,
+              'snippet4': None,
+              'state': None,
+              'title': None,
+              'twitter': None},
+     'id': 'GevmwOpQWMVvjNob26X9',
+     'last_sent_at': None,
+     'optedout': False,
+     'owner_id': 'wbdV5Y4pdKWk3KBXPZOx',
+     'replied_count': 0,
+     'sent_count': 0,
+     'status': 'open'}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+=========== 1 failed, 1 skipped, 33 deselected, 35 warnings in 4.20s ===========

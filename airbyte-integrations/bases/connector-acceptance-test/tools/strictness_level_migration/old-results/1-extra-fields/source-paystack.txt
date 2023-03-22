@@ -1,0 +1,514 @@
+../../../../connectors/source-paystack/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-paystack
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 37 items / 35 deselected / 2 selected
+
+../../test_input/test_core.py F                                          [ 50%]
+../../test_input/test_incremental.py .                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff8ddb3250>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='customers', json_schema={'type': ...cremental'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='settlements', bypass_reason=None), EmptyStreamConfiguration(name='disputes', bypass_re...reamConfiguration(name='invoices', bypass_reason=None), EmptyStreamConfiguration(name='transfers', bypass_reason=None)}
+ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff8de6fb80>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='customers', data={'integration': 697720, 'first_name': 'User8', 'last_na...945, 'createdAt': '2023-03-16T09:01:03.000Z', 'updatedAt': '2023-03-16T09:01:03.000Z'}, emitted_at=1679408149527), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='customers', json_schema={'type': ...cremental'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('invoices', 'refunds', 'transactions', 'transfers').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe invoices stream has the following schema errors:\nAdditional properties are not allowed ('discount', 'split_code' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'amount': {'type': ['null', 'integer']},\n                    'created_at': {'format': 'date-time',\n                                   'type': ['null', 'string']},\n                    'currency': {'type': ['null', 'string']},\n                    'customer': {'properties': {},\n                                 'type': ['null', 'object']},\n                    'description': {'type': ['null', 'string']},\n                    'domain': {'type': ['null', 'string']},\n                    'due_date': {'format': 'date-time',\n                                 'type': ['null', 'string']},\n                    'has_invoice': {'type': ['null', 'boolean']},\n                    'id': {'type': ['null', 'integer']},\n                    'integration': {'type': ['null', 'integer']},\n                    'invoice_number': {'type': ['null', 'integer']},\n                    'line_items': {'items': {'properties': {'amount': {'type': ['null',\n                                                                                'integer']},\n                                                            'name': {'type': ['null',\n                                                                              'string']},\n                                                            'quantity': {'type': ['null',\n                                                                                  'integer']}},\n                                             'type': ['null', 'object']},\n                                   'type': ['null', 'array']},\n                    'metadata': {'properties': {},\n                                 'type': ['null', 'object']},\n                    'notifications': {'items': {'properties': {'channel': {'type': ['null',\n                                                                                    'string']},\n                                                               'sent_at': {'type': ['null',\n                                                                                    'string']}},\n                                                'type': ['null', 'object']},\n                                      'type': ['null', 'array']},\n                    'offline_reference': {'type': ['null', 'string']},\n                    'paid': {'type': ['null', 'boolean']},\n                    'paid_at': {'format': 'date-time',\n                                'type': ['null', 'string']},\n                    'pdf_url': {'type': ['null', 'string']},\n                    'request_code': {'type': ['null', 'string']},\n                    'status': {'type': ['null', 'string']},\n                    'tax': {'items': {'properties': {'amount': {'type': ['null',\n                                                                         'integer']},\n                                                     'name': {'type': ['null',\n                                                                       'string']}},\n                                      'type': ['null', 'object']},\n                            'type': ['null', 'array']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'amount': 42000,\n     'created_at': '2021-11-01T13:08:03.000Z',\n     'currency': 'ZAR',\n     'customer': {'customer_code': 'CUS_3dqnlubtclnwo25',\n                  'email': 'customer@email.com',\n                  'first_name': None,\n                  'id': 60193749,\n                  'international_format_phone': None,\n                  'last_name': None,\n                  'metadata': None,\n                  'phone': None,\n                  'risk_action': 'default'},\n     'description': 'a test invoice',\n     'discount': None,\n     'domain': 'test',\n     'due_date': '2021-12-12T00:00:00.000Z',\n     'has_invoice': True,\n     'id': 8215475,\n     'integration': 697720,\n     'invoice_number': 1,\n     'line_items': [{'amount': 20000, 'name': 'item 1'},\n                    {'amount': 20000, 'name': 'item 2'}],\n     'metadata': None,\n     'notifications': [{'channel': 'email',\n                        'sent_at': '2021-11-01T13:08:05.275Z'}],\n     'offline_reference': '6977208215475',\n     'paid': False,\n     'paid_at': None,\n     'pdf_url': 'https://api.paystack.co/files/invoices/697720/1ir0em38py0vqlu0jkhef33pb.pdf',\n     'request_code': 'PRQ_5wyip64qizmpwxj',\n     'split_code': None,\n     'status': 'pending',\n     'tax': [{'amount': 2000, 'name': 'VAT'}]}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe refunds stream has the following schema errors:\n1 is not of type 'null', 'boolean'\n\nFailed validating 'type' in schema['properties']['fully_deducted']:\n    {'type': ['null', 'boolean']}\n\nOn instance['fully_deducted']:\n    1\n--------------------------------------------------------------------------------\nAdditional properties are not allowed ('bank_reference', 'refund_type', 'transaction_reference', 'customer', 'collect_account_number', 'session_id', 'transaction_amount', 'refund_channel', 'initiated_by', 'reason' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'amount': {'type': ['null', 'integer']},\n                    'createdAt': {'format': 'date-time',\n                                  'type': ['null', 'string']},\n                    'currency': {'type': ['null', 'string']},\n                    'customer_note': {'type': ['null', 'string']},\n                    'deducted_amount': {'type': ['null', 'integer']},\n                    'dispute': {'properties': {},\n                                'type': ['null', 'object']},\n                    'domain': {'type': ['null', 'string']},\n                    'fully_deducted': {'type': ['null', 'boolean']},\n                    'id': {'type': ['null', 'integer']},\n                    'integration': {'type': ['null', 'integer']},\n                    'merchant_note': {'type': ['null', 'string']},\n                    'refunded_at': {'format': 'date-time',\n                                    'type': ['null', 'string']},\n                    'refunded_by': {'type': ['null', 'string']},\n                    'settlement': {'properties': {},\n                                   'type': ['null', 'object']},\n                    'status': {'type': ['null', 'string']},\n                    'transaction': {'type': ['null', 'integer']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'amount': 500000,\n     'bank_reference': None,\n     'collect_account_number': False,\n     'createdAt': '2021-11-01T15:55:57.000Z',\n     'currency': 'ZAR',\n     'customer': {'customer_code': 'CUS_3e1cn4wzkhal2da',\n                  'email': 'linda.frost@gmail.com',\n                  'first_name': 'Linda',\n                  'id': 60192836,\n                  'international_format_phone': '+12025550191',\n                  'last_name': 'Frost',\n                  'metadata': '{}',\n                  'phone': '12025550191',\n                  'risk_action': 'default'},\n     'customer_note': 'customer text',\n     'deducted_amount': 500000,\n     'dispute': None,\n     'domain': 'test',\n     'fully_deducted': 1,\n     'id': 2843789,\n     'initiated_by': 'integration-test@airbyte.io',\n     'integration': 697720,\n     'merchant_note': 'mechant text',\n     'reason': 'PROCESSED',\n     'refund_channel': 'Original Payment',\n     'refund_type': 'Full',\n     'refunded_at': None,\n     'refunded_by': 'integration-test@airbyte.io',\n     'session_id': None,\n     'settlement': None,\n     'status': 'processed',\n     'transaction': 1422674256,\n     'transaction_amount': 500000,\n     'transaction_reference': 'fhq8hf4t4l4gyfi'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe transactions stream has the following schema errors:\nAdditional properties are not allowed ('pos_transaction_data' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'amount': {'type': ['null', 'integer']},\n                    'authorization': {'properties': {},\n                                      'type': ['null', 'object']},\n                    'channel': {'type': ['null', 'string']},\n                    'createdAt': {'format': 'date-time',\n                                  'type': ['null', 'string']},\n                    'created_at': {'format': 'date-time',\n                                   'type': ['null', 'string']},\n                    'currency': {'type': ['null', 'string']},\n                    'customer': {'properties': {},\n                                 'type': ['null', 'object']},\n                    'domain': {'type': ['null', 'string']},\n                    'fees': {'type': ['null', 'integer']},\n                    'fees_split': {'type': ['null', 'string']},\n                    'gateway_response': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'integer']},\n                    'ip_address': {'type': ['null', 'string']},\n                    'log': {'properties': {'attempts': {'type': ['null',\n                                                                 'integer']},\n                                           'errors': {'type': ['null',\n                                                               'integer']},\n                                           'history': {'items': {'properties': {'message': {'type': ['null',\n                                                                                                     'string']},\n                                                                                'time': {'type': ['null',\n                                                                                                  'integer']},\n                                                                                'type': {'type': ['null',\n                                                                                                  'string']}},\n                                                                 'type': ['null',\n                                                                          'object']},\n                                                       'type': ['null',\n                                                                'array']},\n                                           'input': {'items': {},\n                                                     'type': ['null',\n                                                              'array']},\n                                           'mobile': {'type': ['null',\n                                                               'boolean']},\n                                           'start_time': {'type': ['null',\n                                                                   'integer']},\n                                           'success': {'type': ['null',\n                                                                'boolean']},\n                                           'time_spent': {'type': ['null',\n                                                                   'integer']}},\n                            'type': ['null', 'object']},\n                    'message': {'type': ['null', 'string']},\n                    'metadata': {'properties': {'referrer': {'type': ['null',\n                                                                      'string']}},\n                                 'type': ['null', 'object']},\n                    'order_id': {'type': ['null', 'integer']},\n                    'paidAt': {'format': 'date-time',\n                               'type': ['null', 'string']},\n                    'paid_at': {'format': 'date-time',\n                                'type': ['null', 'string']},\n                    'plan': {'properties': {}, 'type': ['null', 'object']},\n                    'reference': {'type': ['null', 'string']},\n                    'requested_amount': {'type': ['null', 'integer']},\n                    'source': {'properties': {'entry_point': {'type': ['null',\n                                                                       'string']},\n                                              'identifier': {'type': ['null',\n                                                                      'string']},\n                                              'source': {'type': ['null',\n                                                                  'string']},\n                                              'type': {'type': ['null',\n                                                                'string']}},\n                               'type': ['null', 'object']},\n                    'split': {'properties': {}, 'type': ['null', 'object']},\n                    'status': {'type': ['null', 'string']},\n                    'subaccount': {'properties': {},\n                                   'type': ['null', 'object']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'amount': 500000,\n     'authorization': {'account_name': None,\n                       'authorization_code': None,\n                       'bank': None,\n                       'bin': None,\n                       'brand': None,\n                       'card_type': None,\n                       'channel': None,\n                       'country_code': None,\n                       'exp_month': None,\n                       'exp_year': None,\n                       'last4': None,\n                       'reusable': False,\n                       'signature': None},\n     'channel': 'card',\n     'createdAt': '2021-11-01T12:52:04.000Z',\n     'created_at': '2021-11-01T12:52:04.000Z',\n     'currency': 'ZAR',\n     'customer': {'customer_code': 'CUS_3dqnlubtclnwo25',\n                  'email': 'customer@email.com',\n                  'first_name': None,\n                  'id': 60193749,\n                  'last_name': None,\n                  'metadata': None,\n                  'phone': None,\n                  'risk_action': 'default'},\n     'domain': 'test',\n     'fees': None,\n     'fees_split': None,\n     'gateway_response': 'The transaction was not completed',\n     'id': 1422480214,\n     'ip_address': '77.222.156.81, 172.68.239.218',\n     'log': None,\n     'message': None,\n     'metadata': {'custom_fields': [{'display_name': 'Mobile Number',\n                                     'value': '+2348012345678',\n                                     'variable_name': 'mobile_number'}]},\n     'order_id': None,\n     'paidAt': None,\n     'paid_at': None,\n     'plan': {},\n     'pos_transaction_data': None,\n     'reference': 'XXXREF',\n     'requested_amount': 500000,\n     'source': {'entry_point': 'transaction_initialize',\n                'identifier': None,\n                'source': 'merchant_api',\n                'type': 'api'},\n     'split': {},\n     'status': 'abandoned',\n     'subaccount': {}}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe transfers stream has the following schema errors:\nAdditional properties are not allowed ('request', 'fees_breakdown', 'fee_charged', 'transferred_at', 'reference', 'source_details', 'titan_code', 'session', 'failures' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'amount': {'type': ['null', 'integer']},\n                    'createdAt': {'format': 'date-time',\n                                  'type': ['null', 'string']},\n                    'currency': {'type': ['null', 'string']},\n                    'domain': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'integer']},\n                    'integration': {'type': ['null', 'integer']},\n                    'reason': {'type': ['null', 'string']},\n                    'recipient': {'properties': {'active': {'type': ['null',\n                                                                     'boolean']},\n                                                 'createdAt': {'format': 'date-time',\n                                                               'type': ['null',\n                                                                        'string']},\n                                                 'currency': {'type': ['null',\n                                                                       'string']},\n                                                 'description': {'type': ['null',\n                                                                          'string']},\n                                                 'details': {'properties': {'account_name': {'type': ['null',\n                                                                                                      'string']},\n                                                                            'account_number': {'type': ['null',\n                                                                                                        'string']},\n                                                                            'bank_code': {'type': ['null',\n                                                                                                   'string']},\n                                                                            'bank_name': {'type': ['null',\n                                                                                                   'string']}},\n                                                             'type': ['null',\n                                                                      'object']},\n                                                 'domain': {'type': ['null',\n                                                                     'string']},\n                                                 'id': {'type': ['null',\n                                                                 'integer']},\n                                                 'integration': {'type': ['null',\n                                                                          'integer']},\n                                                 'metadata': {'properties': {},\n                                                              'type': ['null',\n                                                                       'object']},\n                                                 'name': {'type': ['null',\n                                                                   'string']},\n                                                 'recipient_code': {'type': ['null',\n                                                                             'string']},\n                                                 'type': {'type': ['null',\n                                                                   'string']},\n                                                 'updatedAt': {'format': 'date-time',\n                                                               'type': ['null',\n                                                                        'string']}},\n                                  'type': ['null', 'object']},\n                    'source': {'type': ['null', 'string']},\n                    'status': {'type': ['null', 'string']},\n                    'transfer_code': {'type': ['null', 'string']},\n                    'updatedAt': {'format': 'date-time',\n                                  'type': ['null', 'string']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'amount': 100000,\n     'createdAt': '2023-03-16T09:24:03.000Z',\n     'currency': 'ZAR',\n     'domain': 'test',\n     'failures': None,\n     'fee_charged': 0,\n     'fees_breakdown': None,\n     'id': 260547149,\n     'integration': 697720,\n     'reason': 'Test',\n     'recipient': {'active': True,\n                   'createdAt': '2023-03-16T09:24:02.000Z',\n                   'currency': 'ZAR',\n                   'description': None,\n                   'details': {'account_name': None,\n                               'account_number': '00000000123',\n                               'authorization_code': None,\n                               'bank_code': '430000',\n                               'bank_name': 'African Bank Limited'},\n                   'domain': 'test',\n                   'email': 'user1.sample@zohomail.eu',\n                   'id': 50647534,\n                   'integration': 697720,\n                   'isDeleted': False,\n                   'is_deleted': False,\n                   'metadata': None,\n                   'name': 'Test Bank Account 1',\n                   'recipient_code': 'RCP_4qdn82s44cwtf3n',\n                   'type': 'basa',\n                   'updatedAt': '2023-03-16T09:24:02.000Z'},\n     'reference': '6ur52n0269tfkqut0nez',\n     'request': 237350052,\n     'session': {'id': None, 'provider': None},\n     'source': 'balance',\n     'source_details': None,\n     'status': 'success',\n     'titan_code': None,\n     'transfer_code': 'TRF_n3z36ix0f4zshwgm',\n     'transferred_at': None,\n     'updatedAt': '2023-03-16T09:24:39.000Z'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The invoices stream has the following schema errors:
+Additional properties are not allowed ('discount', 'split_code' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'amount': {'type': ['null', 'integer']},
+                    'created_at': {'format': 'date-time',
+                                   'type': ['null', 'string']},
+                    'currency': {'type': ['null', 'string']},
+                    'customer': {'properties': {},
+                                 'type': ['null', 'object']},
+                    'description': {'type': ['null', 'string']},
+                    'domain': {'type': ['null', 'string']},
+                    'due_date': {'format': 'date-time',
+                                 'type': ['null', 'string']},
+                    'has_invoice': {'type': ['null', 'boolean']},
+                    'id': {'type': ['null', 'integer']},
+                    'integration': {'type': ['null', 'integer']},
+                    'invoice_number': {'type': ['null', 'integer']},
+                    'line_items': {'items': {'properties': {'amount': {'type': ['null',
+                                                                                'integer']},
+                                                            'name': {'type': ['null',
+                                                                              'string']},
+                                                            'quantity': {'type': ['null',
+                                                                                  'integer']}},
+                                             'type': ['null', 'object']},
+                                   'type': ['null', 'array']},
+                    'metadata': {'properties': {},
+                                 'type': ['null', 'object']},
+                    'notifications': {'items': {'properties': {'channel': {'type': ['null',
+                                                                                    'string']},
+                                                               'sent_at': {'type': ['null',
+                                                                                    'string']}},
+                                                'type': ['null', 'object']},
+                                      'type': ['null', 'array']},
+                    'offline_reference': {'type': ['null', 'string']},
+                    'paid': {'type': ['null', 'boolean']},
+                    'paid_at': {'format': 'date-time',
+                                'type': ['null', 'string']},
+                    'pdf_url': {'type': ['null', 'string']},
+                    'request_code': {'type': ['null', 'string']},
+                    'status': {'type': ['null', 'string']},
+                    'tax': {'items': {'properties': {'amount': {'type': ['null',
+                                                                         'integer']},
+                                                     'name': {'type': ['null',
+                                                                       'string']}},
+                                      'type': ['null', 'object']},
+                            'type': ['null', 'array']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'amount': 42000,
+     'created_at': '2021-11-01T13:08:03.000Z',
+     'currency': 'ZAR',
+     'customer': {'customer_code': 'CUS_3dqnlubtclnwo25',
+                  'email': 'customer@email.com',
+                  'first_name': None,
+                  'id': 60193749,
+                  'international_format_phone': None,
+                  'last_name': None,
+                  'metadata': None,
+                  'phone': None,
+                  'risk_action': 'default'},
+     'description': 'a test invoice',
+     'discount': None,
+     'domain': 'test',
+     'due_date': '2021-12-12T00:00:00.000Z',
+     'has_invoice': True,
+     'id': 8215475,
+     'integration': 697720,
+     'invoice_number': 1,
+     'line_items': [{'amount': 20000, 'name': 'item 1'},
+                    {'amount': 20000, 'name': 'item 2'}],
+     'metadata': None,
+     'notifications': [{'channel': 'email',
+                        'sent_at': '2021-11-01T13:08:05.275Z'}],
+     'offline_reference': '6977208215475',
+     'paid': False,
+     'paid_at': None,
+     'pdf_url': 'https://api.paystack.co/files/invoices/697720/1ir0em38py0vqlu0jkhef33pb.pdf',
+     'request_code': 'PRQ_5wyip64qizmpwxj',
+     'split_code': None,
+     'status': 'pending',
+     'tax': [{'amount': 2000, 'name': 'VAT'}]}
+ERROR    root:test_core.py:662 
+The refunds stream has the following schema errors:
+1 is not of type 'null', 'boolean'
+
+Failed validating 'type' in schema['properties']['fully_deducted']:
+    {'type': ['null', 'boolean']}
+
+On instance['fully_deducted']:
+    1
+--------------------------------------------------------------------------------
+Additional properties are not allowed ('bank_reference', 'refund_type', 'transaction_reference', 'customer', 'collect_account_number', 'session_id', 'transaction_amount', 'refund_channel', 'initiated_by', 'reason' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'amount': {'type': ['null', 'integer']},
+                    'createdAt': {'format': 'date-time',
+                                  'type': ['null', 'string']},
+                    'currency': {'type': ['null', 'string']},
+                    'customer_note': {'type': ['null', 'string']},
+                    'deducted_amount': {'type': ['null', 'integer']},
+                    'dispute': {'properties': {},
+                                'type': ['null', 'object']},
+                    'domain': {'type': ['null', 'string']},
+                    'fully_deducted': {'type': ['null', 'boolean']},
+                    'id': {'type': ['null', 'integer']},
+                    'integration': {'type': ['null', 'integer']},
+                    'merchant_note': {'type': ['null', 'string']},
+                    'refunded_at': {'format': 'date-time',
+                                    'type': ['null', 'string']},
+                    'refunded_by': {'type': ['null', 'string']},
+                    'settlement': {'properties': {},
+                                   'type': ['null', 'object']},
+                    'status': {'type': ['null', 'string']},
+                    'transaction': {'type': ['null', 'integer']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'amount': 500000,
+     'bank_reference': None,
+     'collect_account_number': False,
+     'createdAt': '2021-11-01T15:55:57.000Z',
+     'currency': 'ZAR',
+     'customer': {'customer_code': 'CUS_3e1cn4wzkhal2da',
+                  'email': 'linda.frost@gmail.com',
+                  'first_name': 'Linda',
+                  'id': 60192836,
+                  'international_format_phone': '+12025550191',
+                  'last_name': 'Frost',
+                  'metadata': '{}',
+                  'phone': '12025550191',
+                  'risk_action': 'default'},
+     'customer_note': 'customer text',
+     'deducted_amount': 500000,
+     'dispute': None,
+     'domain': 'test',
+     'fully_deducted': 1,
+     'id': 2843789,
+     'initiated_by': 'integration-test@airbyte.io',
+     'integration': 697720,
+     'merchant_note': 'mechant text',
+     'reason': 'PROCESSED',
+     'refund_channel': 'Original Payment',
+     'refund_type': 'Full',
+     'refunded_at': None,
+     'refunded_by': 'integration-test@airbyte.io',
+     'session_id': None,
+     'settlement': None,
+     'status': 'processed',
+     'transaction': 1422674256,
+     'transaction_amount': 500000,
+     'transaction_reference': 'fhq8hf4t4l4gyfi'}
+ERROR    root:test_core.py:662 
+The transactions stream has the following schema errors:
+Additional properties are not allowed ('pos_transaction_data' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'amount': {'type': ['null', 'integer']},
+                    'authorization': {'properties': {},
+                                      'type': ['null', 'object']},
+                    'channel': {'type': ['null', 'string']},
+                    'createdAt': {'format': 'date-time',
+                                  'type': ['null', 'string']},
+                    'created_at': {'format': 'date-time',
+                                   'type': ['null', 'string']},
+                    'currency': {'type': ['null', 'string']},
+                    'customer': {'properties': {},
+                                 'type': ['null', 'object']},
+                    'domain': {'type': ['null', 'string']},
+                    'fees': {'type': ['null', 'integer']},
+                    'fees_split': {'type': ['null', 'string']},
+                    'gateway_response': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'integer']},
+                    'ip_address': {'type': ['null', 'string']},
+                    'log': {'properties': {'attempts': {'type': ['null',
+                                                                 'integer']},
+                                           'errors': {'type': ['null',
+                                                               'integer']},
+                                           'history': {'items': {'properties': {'message': {'type': ['null',
+                                                                                                     'string']},
+                                                                                'time': {'type': ['null',
+                                                                                                  'integer']},
+                                                                                'type': {'type': ['null',
+                                                                                                  'string']}},
+                                                                 'type': ['null',
+                                                                          'object']},
+                                                       'type': ['null',
+                                                                'array']},
+                                           'input': {'items': {},
+                                                     'type': ['null',
+                                                              'array']},
+                                           'mobile': {'type': ['null',
+                                                               'boolean']},
+                                           'start_time': {'type': ['null',
+                                                                   'integer']},
+                                           'success': {'type': ['null',
+                                                                'boolean']},
+                                           'time_spent': {'type': ['null',
+                                                                   'integer']}},
+                            'type': ['null', 'object']},
+                    'message': {'type': ['null', 'string']},
+                    'metadata': {'properties': {'referrer': {'type': ['null',
+                                                                      'string']}},
+                                 'type': ['null', 'object']},
+                    'order_id': {'type': ['null', 'integer']},
+                    'paidAt': {'format': 'date-time',
+                               'type': ['null', 'string']},
+                    'paid_at': {'format': 'date-time',
+                                'type': ['null', 'string']},
+                    'plan': {'properties': {}, 'type': ['null', 'object']},
+                    'reference': {'type': ['null', 'string']},
+                    'requested_amount': {'type': ['null', 'integer']},
+                    'source': {'properties': {'entry_point': {'type': ['null',
+                                                                       'string']},
+                                              'identifier': {'type': ['null',
+                                                                      'string']},
+                                              'source': {'type': ['null',
+                                                                  'string']},
+                                              'type': {'type': ['null',
+                                                                'string']}},
+                               'type': ['null', 'object']},
+                    'split': {'properties': {}, 'type': ['null', 'object']},
+                    'status': {'type': ['null', 'string']},
+                    'subaccount': {'properties': {},
+                                   'type': ['null', 'object']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'amount': 500000,
+     'authorization': {'account_name': None,
+                       'authorization_code': None,
+                       'bank': None,
+                       'bin': None,
+                       'brand': None,
+                       'card_type': None,
+                       'channel': None,
+                       'country_code': None,
+                       'exp_month': None,
+                       'exp_year': None,
+                       'last4': None,
+                       'reusable': False,
+                       'signature': None},
+     'channel': 'card',
+     'createdAt': '2021-11-01T12:52:04.000Z',
+     'created_at': '2021-11-01T12:52:04.000Z',
+     'currency': 'ZAR',
+     'customer': {'customer_code': 'CUS_3dqnlubtclnwo25',
+                  'email': 'customer@email.com',
+                  'first_name': None,
+                  'id': 60193749,
+                  'last_name': None,
+                  'metadata': None,
+                  'phone': None,
+                  'risk_action': 'default'},
+     'domain': 'test',
+     'fees': None,
+     'fees_split': None,
+     'gateway_response': 'The transaction was not completed',
+     'id': 1422480214,
+     'ip_address': '77.222.156.81, 172.68.239.218',
+     'log': None,
+     'message': None,
+     'metadata': {'custom_fields': [{'display_name': 'Mobile Number',
+                                     'value': '+2348012345678',
+                                     'variable_name': 'mobile_number'}]},
+     'order_id': None,
+     'paidAt': None,
+     'paid_at': None,
+     'plan': {},
+     'pos_transaction_data': None,
+     'reference': 'XXXREF',
+     'requested_amount': 500000,
+     'source': {'entry_point': 'transaction_initialize',
+                'identifier': None,
+                'source': 'merchant_api',
+                'type': 'api'},
+     'split': {},
+     'status': 'abandoned',
+     'subaccount': {}}
+ERROR    root:test_core.py:662 
+The transfers stream has the following schema errors:
+Additional properties are not allowed ('request', 'fees_breakdown', 'fee_charged', 'transferred_at', 'reference', 'source_details', 'titan_code', 'session', 'failures' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'amount': {'type': ['null', 'integer']},
+                    'createdAt': {'format': 'date-time',
+                                  'type': ['null', 'string']},
+                    'currency': {'type': ['null', 'string']},
+                    'domain': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'integer']},
+                    'integration': {'type': ['null', 'integer']},
+                    'reason': {'type': ['null', 'string']},
+                    'recipient': {'properties': {'active': {'type': ['null',
+                                                                     'boolean']},
+                                                 'createdAt': {'format': 'date-time',
+                                                               'type': ['null',
+                                                                        'string']},
+                                                 'currency': {'type': ['null',
+                                                                       'string']},
+                                                 'description': {'type': ['null',
+                                                                          'string']},
+                                                 'details': {'properties': {'account_name': {'type': ['null',
+                                                                                                      'string']},
+                                                                            'account_number': {'type': ['null',
+                                                                                                        'string']},
+                                                                            'bank_code': {'type': ['null',
+                                                                                                   'string']},
+                                                                            'bank_name': {'type': ['null',
+                                                                                                   'string']}},
+                                                             'type': ['null',
+                                                                      'object']},
+                                                 'domain': {'type': ['null',
+                                                                     'string']},
+                                                 'id': {'type': ['null',
+                                                                 'integer']},
+                                                 'integration': {'type': ['null',
+                                                                          'integer']},
+                                                 'metadata': {'properties': {},
+                                                              'type': ['null',
+                                                                       'object']},
+                                                 'name': {'type': ['null',
+                                                                   'string']},
+                                                 'recipient_code': {'type': ['null',
+                                                                             'string']},
+                                                 'type': {'type': ['null',
+                                                                   'string']},
+                                                 'updatedAt': {'format': 'date-time',
+                                                               'type': ['null',
+                                                                        'string']}},
+                                  'type': ['null', 'object']},
+                    'source': {'type': ['null', 'string']},
+                    'status': {'type': ['null', 'string']},
+                    'transfer_code': {'type': ['null', 'string']},
+                    'updatedAt': {'format': 'date-time',
+                                  'type': ['null', 'string']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'amount': 100000,
+     'createdAt': '2023-03-16T09:24:03.000Z',
+     'currency': 'ZAR',
+     'domain': 'test',
+     'failures': None,
+     'fee_charged': 0,
+     'fees_breakdown': None,
+     'id': 260547149,
+     'integration': 697720,
+     'reason': 'Test',
+     'recipient': {'active': True,
+                   'createdAt': '2023-03-16T09:24:02.000Z',
+                   'currency': 'ZAR',
+                   'description': None,
+                   'details': {'account_name': None,
+                               'account_number': '00000000123',
+                               'authorization_code': None,
+                               'bank_code': '430000',
+                               'bank_name': 'African Bank Limited'},
+                   'domain': 'test',
+                   'email': 'user1.sample@zohomail.eu',
+                   'id': 50647534,
+                   'integration': 697720,
+                   'isDeleted': False,
+                   'is_deleted': False,
+                   'metadata': None,
+                   'name': 'Test Bank Account 1',
+                   'recipient_code': 'RCP_4qdn82s44cwtf3n',
+                   'type': 'basa',
+                   'updatedAt': '2023-03-16T09:24:02.000Z'},
+     'reference': '6ur52n0269tfkqut0nez',
+     'request': 237350052,
+     'session': {'id': None, 'provider': None},
+     'source': 'balance',
+     'source_details': None,
+     'status': 'success',
+     'titan_code': None,
+     'transfer_code': 'TRF_n3z36ix0f4zshwgm',
+     'transferred_at': None,
+     'updatedAt': '2023-03-16T09:24:39.000Z'}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 36 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+===== 1 failed, 1 passed, 35 deselected, 37 warnings in 102.95s (0:01:42) ======

@@ -1,0 +1,526 @@
+../../../../connectors/source-tiktok-marketing/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-tiktok-marketing
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 90 items / 87 deselected / 3 selected
+
+../../test_input/test_core.py F.                                         [ 66%]
+../../test_input/test_incremental.py s                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff82829940>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='advertisers', json_schema={'type'...eld=['stat_time_day'], destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=[['advertiser_id']])])
+expect_records_config = ExpectedRecordsConfig(bypass_reason=None, path=PosixPath('integration_tests/expected_records.jsonl'), extra_fields=False, exact_order=False, extra_records=True)
+should_validate_schema = True, should_validate_data_points = False
+should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='ads_reports_hourly', bypass_reason='Tested with daily granularity.'), EmptyStreamConfi...larity.'), EmptyStreamConfiguration(name='advertisers_reports_hourly', bypass_reason='Tested with daily granularity.')}
+ignored_fields = {}
+expected_records_by_stream = defaultdict(<class 'list'>, {'advertisers': [{'status': 'STATUS_LIMIT', 'brand': None, 'industry': '291905', 'promotio... {'gender': 'MALE', 'advertiser_id': 7002238017842757633, 'age': 'AGE_25_34'}, 'advertiser_id': 7002238017842757633}]})
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff8282a4c0>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='advertisers', data={'license_url': None, 'status': 'STATUS_LIMIT', 'comp...rand_safety_postbid_partner': 'UNSET', 'viewability_vast_url': None, 'video_id': None}, emitted_at=1679413456600), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='advertisers', json_schema={'type'...eld=['stat_time_day'], destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=[['advertiser_id']])])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('advertisers', 'ads', 'ad_groups', 'campaigns').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The configured catalog was built with the discovered catalog from which the following empty streams were removed: ads_reports_hourly, ad_groups_reports_hourly, campaigns_reports_hourly, advertisers_reports_hourly."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:common.py:149 The configured catalog was built with the discovered catalog from which the following empty streams were removed: ads_reports_hourly, ad_groups_reports_hourly, campaigns_reports_hourly, advertisers_reports_hourly.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe advertisers stream has the following schema errors:\nAdditional properties are not allowed ('promotion_center_city', 'license_city', 'telephone', 'license_province', 'display_timezone', 'promotion_center_province', 'brand' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'address': {'type': ['null', 'string']},\n                    'balance': {'type': 'number'},\n                    'company': {'type': ['null', 'string']},\n                    'contacter': {'type': ['null', 'string']},\n                    'country': {'type': ['null', 'string']},\n                    'create_time': {'type': 'integer'},\n                    'currency': {'type': ['null', 'string']},\n                    'description': {'type': ['null', 'string']},\n                    'email': {'type': ['null', 'string']},\n                    'id': {'type': 'integer'},\n                    'industry': {'type': ['null', 'string']},\n                    'language': {'type': ['null', 'string']},\n                    'license_no': {'type': ['null', 'string']},\n                    'license_url': {'type': ['null', 'string']},\n                    'name': {'type': 'string'},\n                    'phonenumber': {'type': ['null', 'string']},\n                    'promotion_area': {'type': ['null', 'string']},\n                    'reason': {'type': ['null', 'string']},\n                    'role': {'type': ['null', 'string']},\n                    'status': {'type': ['null', 'string']},\n                    'timezone': {'type': ['null', 'string']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'address': '350 29th avenue, San Francisco',\n     'balance': 10,\n     'brand': None,\n     'company': 'Airbyte',\n     'contacter': 'Ai***te',\n     'country': 'US',\n     'create_time': 1630335591,\n     'currency': 'USD',\n     'description': 'https://',\n     'display_timezone': 'America/Los_Angeles',\n     'email': 'i***************@**********',\n     'id': 7002238017842757633,\n     'industry': '291905',\n     'language': 'en',\n     'license_city': None,\n     'license_no': '',\n     'license_province': None,\n     'license_url': None,\n     'name': 'Airbyte0830',\n     'phonenumber': '+13477****53',\n     'promotion_area': '0',\n     'promotion_center_city': None,\n     'promotion_center_province': None,\n     'reason': '',\n     'role': 'ROLE_ADVERTISER',\n     'status': 'STATUS_ENABLE',\n     'telephone': '+14156****85',\n     'timezone': 'Etc/GMT+8'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe ads stream has the following schema errors:\nAdditional properties are not allowed ('brand_safety_vast_url', 'creative_type', 'external_action', 'viewability_postbid_partner', 'identity_id', 'avatar_icon_web_uri', 'viewability_vast_url', 'product_ids', 'brand_safety_postbid_partner', 'identity_type' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'ad_format': {'type': ['null', 'string']},\n                    'ad_id': {'type': 'integer'},\n                    'ad_name': {'type': 'string'},\n                    'ad_text': {'type': ['null', 'string']},\n                    'ad_texts': {'items': {'type': 'string'},\n                                 'type': ['null', 'array']},\n                    'adgroup_id': {'type': 'integer'},\n                    'adgroup_name': {'type': 'string'},\n                    'advertiser_id': {'type': 'integer'},\n                    'app_name': {'type': ['null', 'string']},\n                    'call_to_action': {'type': ['null', 'string']},\n                    'call_to_action_id': {'type': ['null', 'string']},\n                    'campaign_id': {'type': 'integer'},\n                    'campaign_name': {'type': 'string'},\n                    'card_id': {'type': ['null', 'integer']},\n                    'click_tracking_url': {'type': ['null', 'string']},\n                    'create_time': {'type': 'string'},\n                    'disclaimer_clickable_texts': {'properties': {'text': {'type': ['null',\n                                                                                    'string']},\n                                                                  'url': {'type': ['null',\n                                                                                   'string']}},\n                                                   'type': ['null',\n                                                            'object']},\n                    'disclaimer_text': {'properties': {'text': {'type': ['null',\n                                                                         'string']}},\n                                        'type': ['null', 'object']},\n                    'disclaimer_type': {'type': ['null', 'string']},\n                    'display_name': {'type': ['null', 'string']},\n                    'dpa_fallback_type': {'type': ['null', 'string']},\n                    'dpa_open_url_type': {'type': ['null', 'string']},\n                    'dpa_video_tpl_id': {'type': ['null', 'string']},\n                    'fallback_type': {'type': ['null', 'string']},\n                    'image_ids': {'items': {'type': 'string'},\n                                  'type': ['null', 'array']},\n                    'image_mode': {'type': ['null', 'string']},\n                    'impression_tracking_url': {'type': ['null', 'string']},\n                    'is_aco': {'type': ['null', 'boolean']},\n                    'is_creative_authorized': {'type': ['null', 'boolean']},\n                    'is_new_structure': {'type': ['null', 'boolean']},\n                    'item_duet_status': {'type': ['null', 'string']},\n                    'item_stitch_status': {'type': ['null', 'string']},\n                    'landing_page_url': {'type': ['null', 'string']},\n                    'landing_page_urls': {'items': {'type': 'string'},\n                                          'type': ['null', 'array']},\n                    'modify_time': {'type': 'string'},\n                    'open_url': {'type': ['null', 'string']},\n                    'open_url_type': {'type': ['null', 'string']},\n                    'opt_status': {'type': ['null', 'string']},\n                    'page_id': {'type': ['number', 'null']},\n                    'playable_url': {'type': ['null', 'string']},\n                    'premium_badge_id': {'type': ['null', 'string']},\n                    'profile_image': {'type': ['null', 'string']},\n                    'promotional_music_disabled': {'type': ['null',\n                                                            'boolean']},\n                    'status': {'type': 'string'},\n                    'tiktok_item_id': {'type': ['null', 'string']},\n                    'vast_moat': {'type': ['null', 'boolean']},\n                    'video_id': {'type': ['null', 'string']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'ad_format': 'SINGLE_VIDEO',\n     'ad_id': 1714073085256738,\n     'ad_name': 'Optimized Version 1_202110192111_2021-10-19 21:11:39',\n     'ad_text': 'Open Source ETL',\n     'ad_texts': None,\n     'adgroup_id': 1714073022392322,\n     'adgroup_name': 'Ad Group20211019111040',\n     'advertiser_id': 7002238017842757633,\n     'app_name': '',\n     'avatar_icon_web_uri': '',\n     'brand_safety_postbid_partner': 'UNSET',\n     'brand_safety_vast_url': None,\n     'call_to_action': 'READ_MORE',\n     'call_to_action_id': None,\n     'campaign_id': 1714073078669329,\n     'campaign_name': 'Website Traffic20211019110444',\n     'card_id': None,\n     'click_tracking_url': None,\n     'create_time': '2021-10-19 18:18:09',\n     'creative_type': None,\n     'display_name': 'Airbyte',\n     'external_action': None,\n     'fallback_type': 'UNSET',\n     'identity_id': '',\n     'identity_type': 'UNSET',\n     'image_ids': ['v0201/d25dc9be82074c848949be13effd5bbd'],\n     'impression_tracking_url': None,\n     'is_aco': False,\n     'is_creative_authorized': True,\n     'is_new_structure': True,\n     'landing_page_url': 'https://airbyte.io',\n     'landing_page_urls': None,\n     'modify_time': '2021-10-20 08:05:14',\n     'open_url': '',\n     'open_url_type': 'NORMAL',\n     'opt_status': 'DISABLE',\n     'page_id': None,\n     'playable_url': '',\n     'product_ids': [],\n     'profile_image': '',\n     'status': 'AD_STATUS_CAMPAIGN_DISABLE',\n     'vast_moat': False,\n     'video_id': 'v10033g50000c5ngl53c77ubdn0nprqg',\n     'viewability_postbid_partner': 'UNSET',\n     'viewability_vast_url': None}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe ad_groups stream has the following schema errors:\nAdditional properties are not allowed ('keywords', 'enable_search_result', 'display_mode', 'conversion_id', 'category', 'feed_type', 'scheduled_budget', 'automated_targeting', 'app_type', 'campaign_name', 'is_share_disable', 'ios14_quota_type', 'bid_display_mode', 'daily_retention_ratio', 'schedule_infos' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'action_categories': {'items': {'type': 'string'},\n                                          'type': ['array', 'null']},\n                    'action_days': {'type': ['null', 'integer']},\n                    'action_v2': {'items': {'properties': {'action_categories': {'items': {'type': 'integer'},\n                                                                                 'type': ['array',\n                                                                                          'null']},\n                                                           'action_period': {'type': ['number',\n                                                                                      'null']},\n                                                           'action_scene': {'type': ['string',\n                                                                                     'null']},\n                                                           'user_actions ': {'items': {'type': 'string'},\n                                                                             'type': ['array',\n                                                                                      'null']}},\n                                            'type': ['object', 'null']},\n                                  'type': ['null', 'array']},\n                    'adgroup_id': {'type': 'integer'},\n                    'adgroup_name': {'type': 'string'},\n                    'advertiser_id': {'type': 'integer'},\n                    'age': {'items': {'type': 'string'},\n                            'type': ['array', 'null']},\n                    'android_osv': {'type': ['string', 'null']},\n                    'app_download_url': {'type': ['string', 'null']},\n                    'app_id': {'type': ['integer', 'null']},\n                    'audience': {'items': {'type': 'integer'},\n                                 'type': 'array'},\n                    'audience_rule': {'type': ['object', 'null']},\n                    'audience_type': {'type': ['string', 'null']},\n                    'bid': {'type': 'number'},\n                    'bid_type': {'type': ['string', 'null']},\n                    'billing_event': {'type': ['string', 'null']},\n                    'brand_safety': {'type': ['string', 'null']},\n                    'brand_safety_partner': {'type': ['string', 'null']},\n                    'budget': {'type': 'number'},\n                    'budget_mode': {'type': 'string'},\n                    'buy_impression': {'type': ['number', 'null']},\n                    'buy_reach': {'type': ['number', 'null']},\n                    'campaign_id': {'type': 'integer'},\n                    'carriers': {'items': {'type': 'string'},\n                                 'type': ['array', 'null']},\n                    'carriers_v2': {'items': {'type': 'integer'},\n                                    'type': ['array', 'null']},\n                    'catalog_authorized_bc': {'type': ['null', 'integer']},\n                    'catalog_id': {'type': ['null', 'integer']},\n                    'connection_type': {'items': {'type': 'string'},\n                                        'type': 'array'},\n                    'conversion_bid': {'type': 'number'},\n                    'conversion_window': {'type': ['string', 'null']},\n                    'cpv_video_duration': {'type': ['string', 'null']},\n                    'create_time': {'type': 'string'},\n                    'creative_material_mode': {'type': 'string'},\n                    'dayparting': {'type': ['string', 'null']},\n                    'deep_bid_type': {'type': ['string', 'null']},\n                    'deep_cpabid': {'type': 'number'},\n                    'deep_external_action': {'type': ['string', 'null']},\n                    'device_models': {'items': {'type': 'integer'},\n                                      'type': ['array', 'null']},\n                    'device_price': {'items': {'type': 'number'},\n                                     'type': ['array', 'null']},\n                    'dpa_retargeting_type': {'type': ['string', 'null']},\n                    'enable_inventory_filter': {'type': ['null',\n                                                         'boolean']},\n                    'exclude_custom_actions': {'items': {'type': 'object'},\n                                               'type': ['array', 'null']},\n                    'excluded_audience': {'items': {'type': 'integer'},\n                                          'type': 'array'},\n                    'external_action': {'type': ['string', 'null']},\n                    'external_type': {'enum': ['APP_ANDROID',\n                                               'APP_IOS',\n                                               'WEBSITE',\n                                               'LEAD_GENERATION',\n                                               'WEBSITE_OR_DISPLAY'],\n                                      'type': 'string'},\n                    'frequency': {'type': ['integer', 'null']},\n                    'frequency_schedule': {'type': ['integer', 'null']},\n                    'gender': {'type': ['string', 'null']},\n                    'include_custom_actions': {'items': {'type': 'object'},\n                                               'type': ['array', 'null']},\n                    'interest_category_v2': {'items': {'type': 'integer'},\n                                             'type': 'array'},\n                    'interest_keywords': {'items': {'type': 'integer'},\n                                          'type': 'array'},\n                    'ios_osv': {'type': ['string', 'null']},\n                    'ios_quota_type': {'type': ['string', 'null']},\n                    'ios_target_device': {'type': ['string', 'null']},\n                    'is_comment_disable': {'type': 'integer'},\n                    'is_hfss': {'type': 'boolean'},\n                    'is_new_structure': {'type': 'boolean'},\n                    'languages': {'items': {'type': 'string'},\n                                  'type': 'array'},\n                    'location': {'items': {'type': 'integer'},\n                                 'type': 'array'},\n                    'modify_time': {'type': 'string'},\n                    'operation_system': {'items': {'type': 'string'},\n                                         'type': 'array'},\n                    'opt_status': {'type': 'string'},\n                    'optimize_goal': {'type': 'string'},\n                    'pacing': {'type': ['string', 'null']},\n                    'package': {'type': ['string', 'null']},\n                    'pangle_audience_package_exclude': {'items': {'type': 'number'},\n                                                        'type': ['array',\n                                                                 'null']},\n                    'pangle_audience_package_include': {'items': {'type': 'number'},\n                                                        'type': ['array',\n                                                                 'null']},\n                    'pangle_block_app_list_id': {'items': {'type': 'string'},\n                                                 'type': ['array', 'null']},\n                    'pixel_id': {'type': ['integer', 'null']},\n                    'placement': {'items': {'type': 'string'},\n                                  'type': ['null', 'array']},\n                    'placement_type': {'enum': ['PLACEMENT_TYPE_AUTOMATIC',\n                                                'PLACEMENT_TYPE_NORMAL'],\n                                       'type': 'string'},\n                    'product_set_id': {'type': ['null', 'integer']},\n                    'promotion_website_type': {'type': ['string', 'null']},\n                    'rf_buy_type': {'type': ['string', 'null']},\n                    'rf_predict_cpr': {'type': ['number', 'null']},\n                    'rf_predict_frequency': {'type': ['number', 'null']},\n                    'roas_bid': {'type': ['number', 'null']},\n                    'schedule_end_time': {'format': 'date-time',\n                                          'type': 'string'},\n                    'schedule_start_time': {'format': 'date-time',\n                                            'type': 'string'},\n                    'schedule_type': {'type': 'string'},\n                    'skip_learning_phase': {'type': 'integer'},\n                    'split_test_adgroup_ids': {'items': {'type': 'number'},\n                                               'type': ['array', 'null']},\n                    'statistic_type': {'type': ['string', 'null']},\n                    'status': {'type': 'string'},\n                    'targeting_expansion': {'properties': {'enable_expansion': {'type': 'boolean'},\n                                                           'expansion_types': {'items': {'type': 'string'},\n                                                                               'type': ['array',\n                                                                                        'null']}},\n                                            'type': ['object', 'null']},\n                    'video_actions': {'items': {'type': 'string'},\n                                      'type': ['array', 'null']},\n                    'video_download': {'type': 'string'}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'action_v2': [],\n     'adgroup_id': 1714073022392322,\n     'adgroup_name': 'Ad Group20211019111040',\n     'advertiser_id': 7002238017842757633,\n     'age': ['AGE_25_34', 'AGE_35_44', 'AGE_45_54'],\n     'app_download_url': None,\n     'app_id': None,\n     'app_type': None,\n     'audience': [],\n     'automated_targeting': 'OFF',\n     'bid': 0,\n     'bid_display_mode': 'CPMV',\n     'bid_type': 'BID_TYPE_NO_BID',\n     'billing_event': 'CPC',\n     'brand_safety': 'NO_BRAND_SAFETY',\n     'brand_safety_partner': None,\n     'budget': 50,\n     'budget_mode': 'BUDGET_MODE_DAY',\n     'buy_impression': None,\n     'buy_reach': None,\n     'campaign_id': 1714073078669329,\n     'campaign_name': 'Website Traffic20211019110444',\n     'category': 0,\n     'connection_type': [],\n     'conversion_bid': 0,\n     'conversion_id': 0,\n     'conversion_window': None,\n     'create_time': '2021-10-19 18:18:09',\n     'creative_material_mode': 'CUSTOM',\n     'daily_retention_ratio': None,\n     'dayparting': '000000000000000000000000011111111111111110000000000000000000000000000000011111110000000000000000000000000000000000000000011111111111111110000000000000000000000000000000011111111111111110000000000000000000000000000000001111111111111110000000000000000000000000000000011111111111111110000000000000000000000000000000011111111111111110000000',\n     'deep_bid_type': None,\n     'deep_cpabid': 0,\n     'deep_external_action': None,\n     'device_models': [],\n     'device_price': [],\n     'display_mode': None,\n     'enable_inventory_filter': False,\n     'enable_search_result': False,\n     'exclude_custom_actions': [],\n     'excluded_audience': [],\n     'external_action': None,\n     'external_type': 'WEBSITE',\n     'feed_type': None,\n     'frequency': None,\n     'frequency_schedule': None,\n     'gender': 'GENDER_MALE',\n     'include_custom_actions': [],\n     'interest_category_v2': [],\n     'interest_keywords': [],\n     'ios14_quota_type': 'UNOCCUPIED',\n     'is_comment_disable': 0,\n     'is_hfss': False,\n     'is_new_structure': True,\n     'is_share_disable': False,\n     'keywords': None,\n     'languages': ['en'],\n     'location': [5332921],\n     'modify_time': '2021-10-20 08:05:14',\n     'operation_system': [],\n     'opt_status': 'DISABLE',\n     'optimize_goal': 'CLICK',\n     'pacing': 'PACING_MODE_SMOOTH',\n     'pixel_id': None,\n     'placement': None,\n     'placement_type': 'PLACEMENT_TYPE_AUTOMATIC',\n     'rf_buy_type': None,\n     'rf_predict_cpr': None,\n     'rf_predict_frequency': None,\n     'schedule_end_time': '2021-11-24 19:10:40',\n     'schedule_infos': None,\n     'schedule_start_time': '2021-10-19 19:10:40',\n     'schedule_type': 'SCHEDULE_START_END',\n     'scheduled_budget': 0.0,\n     'skip_learning_phase': 0,\n     'statistic_type': None,\n     'status': 'ADGROUP_STATUS_CAMPAIGN_DISABLE',\n     'video_download': 'ALLOW_DOWNLOAD'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe campaigns stream has the following schema errors:\nAdditional properties are not allowed ('roas_bid', 'is_smart_performance_campaign' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'advertiser_id': {'type': 'integer'},\n                    'bid_type': {'type': ['null', 'string']},\n                    'budget': {'type': 'number'},\n                    'budget_mode': {'type': 'string'},\n                    'budget_optimize_switch': {'type': ['null', 'number']},\n                    'campaign_id': {'type': 'integer'},\n                    'campaign_name': {'type': 'string'},\n                    'campaign_type': {'type': 'string'},\n                    'create_time': {'type': 'string'},\n                    'deep_bid_type': {'type': ['null', 'string']},\n                    'is_new_structure': {'type': 'boolean'},\n                    'modify_time': {'type': 'string'},\n                    'objective': {'type': ['null', 'string']},\n                    'objective_type': {'type': ['null', 'string']},\n                    'opt_status': {'type': ['null', 'string']},\n                    'optimize_goal': {'type': ['null', 'string']},\n                    'split_test_variable': {'type': ['null', 'string']},\n                    'status': {'type': 'string'}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'advertiser_id': 7002238017842757633,\n     'budget': 50,\n     'budget_mode': 'BUDGET_MODE_DAY',\n     'campaign_id': 1714073078669329,\n     'campaign_name': 'Website Traffic20211019110444',\n     'campaign_type': 'REGULAR_CAMPAIGN',\n     'create_time': '2021-10-19 18:18:08',\n     'deep_bid_type': None,\n     'is_new_structure': True,\n     'is_smart_performance_campaign': False,\n     'modify_time': '2022-03-28 12:01:56',\n     'objective': 'LANDING_PAGE',\n     'objective_type': 'TRAFFIC',\n     'opt_status': 'DISABLE',\n     'roas_bid': 0.0,\n     'status': 'CAMPAIGN_STATUS_DISABLE'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The advertisers stream has the following schema errors:
+Additional properties are not allowed ('promotion_center_city', 'license_city', 'telephone', 'license_province', 'display_timezone', 'promotion_center_province', 'brand' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'address': {'type': ['null', 'string']},
+                    'balance': {'type': 'number'},
+                    'company': {'type': ['null', 'string']},
+                    'contacter': {'type': ['null', 'string']},
+                    'country': {'type': ['null', 'string']},
+                    'create_time': {'type': 'integer'},
+                    'currency': {'type': ['null', 'string']},
+                    'description': {'type': ['null', 'string']},
+                    'email': {'type': ['null', 'string']},
+                    'id': {'type': 'integer'},
+                    'industry': {'type': ['null', 'string']},
+                    'language': {'type': ['null', 'string']},
+                    'license_no': {'type': ['null', 'string']},
+                    'license_url': {'type': ['null', 'string']},
+                    'name': {'type': 'string'},
+                    'phonenumber': {'type': ['null', 'string']},
+                    'promotion_area': {'type': ['null', 'string']},
+                    'reason': {'type': ['null', 'string']},
+                    'role': {'type': ['null', 'string']},
+                    'status': {'type': ['null', 'string']},
+                    'timezone': {'type': ['null', 'string']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'address': '350 29th avenue, San Francisco',
+     'balance': 10,
+     'brand': None,
+     'company': 'Airbyte',
+     'contacter': 'Ai***te',
+     'country': 'US',
+     'create_time': 1630335591,
+     'currency': 'USD',
+     'description': 'https://',
+     'display_timezone': 'America/Los_Angeles',
+     'email': 'i***************@**********',
+     'id': 7002238017842757633,
+     'industry': '291905',
+     'language': 'en',
+     'license_city': None,
+     'license_no': '',
+     'license_province': None,
+     'license_url': None,
+     'name': 'Airbyte0830',
+     'phonenumber': '+13477****53',
+     'promotion_area': '0',
+     'promotion_center_city': None,
+     'promotion_center_province': None,
+     'reason': '',
+     'role': 'ROLE_ADVERTISER',
+     'status': 'STATUS_ENABLE',
+     'telephone': '+14156****85',
+     'timezone': 'Etc/GMT+8'}
+ERROR    root:test_core.py:662 
+The ads stream has the following schema errors:
+Additional properties are not allowed ('brand_safety_vast_url', 'creative_type', 'external_action', 'viewability_postbid_partner', 'identity_id', 'avatar_icon_web_uri', 'viewability_vast_url', 'product_ids', 'brand_safety_postbid_partner', 'identity_type' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'ad_format': {'type': ['null', 'string']},
+                    'ad_id': {'type': 'integer'},
+                    'ad_name': {'type': 'string'},
+                    'ad_text': {'type': ['null', 'string']},
+                    'ad_texts': {'items': {'type': 'string'},
+                                 'type': ['null', 'array']},
+                    'adgroup_id': {'type': 'integer'},
+                    'adgroup_name': {'type': 'string'},
+                    'advertiser_id': {'type': 'integer'},
+                    'app_name': {'type': ['null', 'string']},
+                    'call_to_action': {'type': ['null', 'string']},
+                    'call_to_action_id': {'type': ['null', 'string']},
+                    'campaign_id': {'type': 'integer'},
+                    'campaign_name': {'type': 'string'},
+                    'card_id': {'type': ['null', 'integer']},
+                    'click_tracking_url': {'type': ['null', 'string']},
+                    'create_time': {'type': 'string'},
+                    'disclaimer_clickable_texts': {'properties': {'text': {'type': ['null',
+                                                                                    'string']},
+                                                                  'url': {'type': ['null',
+                                                                                   'string']}},
+                                                   'type': ['null',
+                                                            'object']},
+                    'disclaimer_text': {'properties': {'text': {'type': ['null',
+                                                                         'string']}},
+                                        'type': ['null', 'object']},
+                    'disclaimer_type': {'type': ['null', 'string']},
+                    'display_name': {'type': ['null', 'string']},
+                    'dpa_fallback_type': {'type': ['null', 'string']},
+                    'dpa_open_url_type': {'type': ['null', 'string']},
+                    'dpa_video_tpl_id': {'type': ['null', 'string']},
+                    'fallback_type': {'type': ['null', 'string']},
+                    'image_ids': {'items': {'type': 'string'},
+                                  'type': ['null', 'array']},
+                    'image_mode': {'type': ['null', 'string']},
+                    'impression_tracking_url': {'type': ['null', 'string']},
+                    'is_aco': {'type': ['null', 'boolean']},
+                    'is_creative_authorized': {'type': ['null', 'boolean']},
+                    'is_new_structure': {'type': ['null', 'boolean']},
+                    'item_duet_status': {'type': ['null', 'string']},
+                    'item_stitch_status': {'type': ['null', 'string']},
+                    'landing_page_url': {'type': ['null', 'string']},
+                    'landing_page_urls': {'items': {'type': 'string'},
+                                          'type': ['null', 'array']},
+                    'modify_time': {'type': 'string'},
+                    'open_url': {'type': ['null', 'string']},
+                    'open_url_type': {'type': ['null', 'string']},
+                    'opt_status': {'type': ['null', 'string']},
+                    'page_id': {'type': ['number', 'null']},
+                    'playable_url': {'type': ['null', 'string']},
+                    'premium_badge_id': {'type': ['null', 'string']},
+                    'profile_image': {'type': ['null', 'string']},
+                    'promotional_music_disabled': {'type': ['null',
+                                                            'boolean']},
+                    'status': {'type': 'string'},
+                    'tiktok_item_id': {'type': ['null', 'string']},
+                    'vast_moat': {'type': ['null', 'boolean']},
+                    'video_id': {'type': ['null', 'string']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'ad_format': 'SINGLE_VIDEO',
+     'ad_id': 1714073085256738,
+     'ad_name': 'Optimized Version 1_202110192111_2021-10-19 21:11:39',
+     'ad_text': 'Open Source ETL',
+     'ad_texts': None,
+     'adgroup_id': 1714073022392322,
+     'adgroup_name': 'Ad Group20211019111040',
+     'advertiser_id': 7002238017842757633,
+     'app_name': '',
+     'avatar_icon_web_uri': '',
+     'brand_safety_postbid_partner': 'UNSET',
+     'brand_safety_vast_url': None,
+     'call_to_action': 'READ_MORE',
+     'call_to_action_id': None,
+     'campaign_id': 1714073078669329,
+     'campaign_name': 'Website Traffic20211019110444',
+     'card_id': None,
+     'click_tracking_url': None,
+     'create_time': '2021-10-19 18:18:09',
+     'creative_type': None,
+     'display_name': 'Airbyte',
+     'external_action': None,
+     'fallback_type': 'UNSET',
+     'identity_id': '',
+     'identity_type': 'UNSET',
+     'image_ids': ['v0201/d25dc9be82074c848949be13effd5bbd'],
+     'impression_tracking_url': None,
+     'is_aco': False,
+     'is_creative_authorized': True,
+     'is_new_structure': True,
+     'landing_page_url': 'https://airbyte.io',
+     'landing_page_urls': None,
+     'modify_time': '2021-10-20 08:05:14',
+     'open_url': '',
+     'open_url_type': 'NORMAL',
+     'opt_status': 'DISABLE',
+     'page_id': None,
+     'playable_url': '',
+     'product_ids': [],
+     'profile_image': '',
+     'status': 'AD_STATUS_CAMPAIGN_DISABLE',
+     'vast_moat': False,
+     'video_id': 'v10033g50000c5ngl53c77ubdn0nprqg',
+     'viewability_postbid_partner': 'UNSET',
+     'viewability_vast_url': None}
+ERROR    root:test_core.py:662 
+The ad_groups stream has the following schema errors:
+Additional properties are not allowed ('keywords', 'enable_search_result', 'display_mode', 'conversion_id', 'category', 'feed_type', 'scheduled_budget', 'automated_targeting', 'app_type', 'campaign_name', 'is_share_disable', 'ios14_quota_type', 'bid_display_mode', 'daily_retention_ratio', 'schedule_infos' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'action_categories': {'items': {'type': 'string'},
+                                          'type': ['array', 'null']},
+                    'action_days': {'type': ['null', 'integer']},
+                    'action_v2': {'items': {'properties': {'action_categories': {'items': {'type': 'integer'},
+                                                                                 'type': ['array',
+                                                                                          'null']},
+                                                           'action_period': {'type': ['number',
+                                                                                      'null']},
+                                                           'action_scene': {'type': ['string',
+                                                                                     'null']},
+                                                           'user_actions ': {'items': {'type': 'string'},
+                                                                             'type': ['array',
+                                                                                      'null']}},
+                                            'type': ['object', 'null']},
+                                  'type': ['null', 'array']},
+                    'adgroup_id': {'type': 'integer'},
+                    'adgroup_name': {'type': 'string'},
+                    'advertiser_id': {'type': 'integer'},
+                    'age': {'items': {'type': 'string'},
+                            'type': ['array', 'null']},
+                    'android_osv': {'type': ['string', 'null']},
+                    'app_download_url': {'type': ['string', 'null']},
+                    'app_id': {'type': ['integer', 'null']},
+                    'audience': {'items': {'type': 'integer'},
+                                 'type': 'array'},
+                    'audience_rule': {'type': ['object', 'null']},
+                    'audience_type': {'type': ['string', 'null']},
+                    'bid': {'type': 'number'},
+                    'bid_type': {'type': ['string', 'null']},
+                    'billing_event': {'type': ['string', 'null']},
+                    'brand_safety': {'type': ['string', 'null']},
+                    'brand_safety_partner': {'type': ['string', 'null']},
+                    'budget': {'type': 'number'},
+                    'budget_mode': {'type': 'string'},
+                    'buy_impression': {'type': ['number', 'null']},
+                    'buy_reach': {'type': ['number', 'null']},
+                    'campaign_id': {'type': 'integer'},
+                    'carriers': {'items': {'type': 'string'},
+                                 'type': ['array', 'null']},
+                    'carriers_v2': {'items': {'type': 'integer'},
+                                    'type': ['array', 'null']},
+                    'catalog_authorized_bc': {'type': ['null', 'integer']},
+                    'catalog_id': {'type': ['null', 'integer']},
+                    'connection_type': {'items': {'type': 'string'},
+                                        'type': 'array'},
+                    'conversion_bid': {'type': 'number'},
+                    'conversion_window': {'type': ['string', 'null']},
+                    'cpv_video_duration': {'type': ['string', 'null']},
+                    'create_time': {'type': 'string'},
+                    'creative_material_mode': {'type': 'string'},
+                    'dayparting': {'type': ['string', 'null']},
+                    'deep_bid_type': {'type': ['string', 'null']},
+                    'deep_cpabid': {'type': 'number'},
+                    'deep_external_action': {'type': ['string', 'null']},
+                    'device_models': {'items': {'type': 'integer'},
+                                      'type': ['array', 'null']},
+                    'device_price': {'items': {'type': 'number'},
+                                     'type': ['array', 'null']},
+                    'dpa_retargeting_type': {'type': ['string', 'null']},
+                    'enable_inventory_filter': {'type': ['null',
+                                                         'boolean']},
+                    'exclude_custom_actions': {'items': {'type': 'object'},
+                                               'type': ['array', 'null']},
+                    'excluded_audience': {'items': {'type': 'integer'},
+                                          'type': 'array'},
+                    'external_action': {'type': ['string', 'null']},
+                    'external_type': {'enum': ['APP_ANDROID',
+                                               'APP_IOS',
+                                               'WEBSITE',
+                                               'LEAD_GENERATION',
+                                               'WEBSITE_OR_DISPLAY'],
+                                      'type': 'string'},
+                    'frequency': {'type': ['integer', 'null']},
+                    'frequency_schedule': {'type': ['integer', 'null']},
+                    'gender': {'type': ['string', 'null']},
+                    'include_custom_actions': {'items': {'type': 'object'},
+                                               'type': ['array', 'null']},
+                    'interest_category_v2': {'items': {'type': 'integer'},
+                                             'type': 'array'},
+                    'interest_keywords': {'items': {'type': 'integer'},
+                                          'type': 'array'},
+                    'ios_osv': {'type': ['string', 'null']},
+                    'ios_quota_type': {'type': ['string', 'null']},
+                    'ios_target_device': {'type': ['string', 'null']},
+                    'is_comment_disable': {'type': 'integer'},
+                    'is_hfss': {'type': 'boolean'},
+                    'is_new_structure': {'type': 'boolean'},
+                    'languages': {'items': {'type': 'string'},
+                                  'type': 'array'},
+                    'location': {'items': {'type': 'integer'},
+                                 'type': 'array'},
+                    'modify_time': {'type': 'string'},
+                    'operation_system': {'items': {'type': 'string'},
+                                         'type': 'array'},
+                    'opt_status': {'type': 'string'},
+                    'optimize_goal': {'type': 'string'},
+                    'pacing': {'type': ['string', 'null']},
+                    'package': {'type': ['string', 'null']},
+                    'pangle_audience_package_exclude': {'items': {'type': 'number'},
+                                                        'type': ['array',
+                                                                 'null']},
+                    'pangle_audience_package_include': {'items': {'type': 'number'},
+                                                        'type': ['array',
+                                                                 'null']},
+                    'pangle_block_app_list_id': {'items': {'type': 'string'},
+                                                 'type': ['array', 'null']},
+                    'pixel_id': {'type': ['integer', 'null']},
+                    'placement': {'items': {'type': 'string'},
+                                  'type': ['null', 'array']},
+                    'placement_type': {'enum': ['PLACEMENT_TYPE_AUTOMATIC',
+                                                'PLACEMENT_TYPE_NORMAL'],
+                                       'type': 'string'},
+                    'product_set_id': {'type': ['null', 'integer']},
+                    'promotion_website_type': {'type': ['string', 'null']},
+                    'rf_buy_type': {'type': ['string', 'null']},
+                    'rf_predict_cpr': {'type': ['number', 'null']},
+                    'rf_predict_frequency': {'type': ['number', 'null']},
+                    'roas_bid': {'type': ['number', 'null']},
+                    'schedule_end_time': {'format': 'date-time',
+                                          'type': 'string'},
+                    'schedule_start_time': {'format': 'date-time',
+                                            'type': 'string'},
+                    'schedule_type': {'type': 'string'},
+                    'skip_learning_phase': {'type': 'integer'},
+                    'split_test_adgroup_ids': {'items': {'type': 'number'},
+                                               'type': ['array', 'null']},
+                    'statistic_type': {'type': ['string', 'null']},
+                    'status': {'type': 'string'},
+                    'targeting_expansion': {'properties': {'enable_expansion': {'type': 'boolean'},
+                                                           'expansion_types': {'items': {'type': 'string'},
+                                                                               'type': ['array',
+                                                                                        'null']}},
+                                            'type': ['object', 'null']},
+                    'video_actions': {'items': {'type': 'string'},
+                                      'type': ['array', 'null']},
+                    'video_download': {'type': 'string'}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'action_v2': [],
+     'adgroup_id': 1714073022392322,
+     'adgroup_name': 'Ad Group20211019111040',
+     'advertiser_id': 7002238017842757633,
+     'age': ['AGE_25_34', 'AGE_35_44', 'AGE_45_54'],
+     'app_download_url': None,
+     'app_id': None,
+     'app_type': None,
+     'audience': [],
+     'automated_targeting': 'OFF',
+     'bid': 0,
+     'bid_display_mode': 'CPMV',
+     'bid_type': 'BID_TYPE_NO_BID',
+     'billing_event': 'CPC',
+     'brand_safety': 'NO_BRAND_SAFETY',
+     'brand_safety_partner': None,
+     'budget': 50,
+     'budget_mode': 'BUDGET_MODE_DAY',
+     'buy_impression': None,
+     'buy_reach': None,
+     'campaign_id': 1714073078669329,
+     'campaign_name': 'Website Traffic20211019110444',
+     'category': 0,
+     'connection_type': [],
+     'conversion_bid': 0,
+     'conversion_id': 0,
+     'conversion_window': None,
+     'create_time': '2021-10-19 18:18:09',
+     'creative_material_mode': 'CUSTOM',
+     'daily_retention_ratio': None,
+     'dayparting': '000000000000000000000000011111111111111110000000000000000000000000000000011111110000000000000000000000000000000000000000011111111111111110000000000000000000000000000000011111111111111110000000000000000000000000000000001111111111111110000000000000000000000000000000011111111111111110000000000000000000000000000000011111111111111110000000',
+     'deep_bid_type': None,
+     'deep_cpabid': 0,
+     'deep_external_action': None,
+     'device_models': [],
+     'device_price': [],
+     'display_mode': None,
+     'enable_inventory_filter': False,
+     'enable_search_result': False,
+     'exclude_custom_actions': [],
+     'excluded_audience': [],
+     'external_action': None,
+     'external_type': 'WEBSITE',
+     'feed_type': None,
+     'frequency': None,
+     'frequency_schedule': None,
+     'gender': 'GENDER_MALE',
+     'include_custom_actions': [],
+     'interest_category_v2': [],
+     'interest_keywords': [],
+     'ios14_quota_type': 'UNOCCUPIED',
+     'is_comment_disable': 0,
+     'is_hfss': False,
+     'is_new_structure': True,
+     'is_share_disable': False,
+     'keywords': None,
+     'languages': ['en'],
+     'location': [5332921],
+     'modify_time': '2021-10-20 08:05:14',
+     'operation_system': [],
+     'opt_status': 'DISABLE',
+     'optimize_goal': 'CLICK',
+     'pacing': 'PACING_MODE_SMOOTH',
+     'pixel_id': None,
+     'placement': None,
+     'placement_type': 'PLACEMENT_TYPE_AUTOMATIC',
+     'rf_buy_type': None,
+     'rf_predict_cpr': None,
+     'rf_predict_frequency': None,
+     'schedule_end_time': '2021-11-24 19:10:40',
+     'schedule_infos': None,
+     'schedule_start_time': '2021-10-19 19:10:40',
+     'schedule_type': 'SCHEDULE_START_END',
+     'scheduled_budget': 0.0,
+     'skip_learning_phase': 0,
+     'statistic_type': None,
+     'status': 'ADGROUP_STATUS_CAMPAIGN_DISABLE',
+     'video_download': 'ALLOW_DOWNLOAD'}
+ERROR    root:test_core.py:662 
+The campaigns stream has the following schema errors:
+Additional properties are not allowed ('roas_bid', 'is_smart_performance_campaign' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'advertiser_id': {'type': 'integer'},
+                    'bid_type': {'type': ['null', 'string']},
+                    'budget': {'type': 'number'},
+                    'budget_mode': {'type': 'string'},
+                    'budget_optimize_switch': {'type': ['null', 'number']},
+                    'campaign_id': {'type': 'integer'},
+                    'campaign_name': {'type': 'string'},
+                    'campaign_type': {'type': 'string'},
+                    'create_time': {'type': 'string'},
+                    'deep_bid_type': {'type': ['null', 'string']},
+                    'is_new_structure': {'type': 'boolean'},
+                    'modify_time': {'type': 'string'},
+                    'objective': {'type': ['null', 'string']},
+                    'objective_type': {'type': ['null', 'string']},
+                    'opt_status': {'type': ['null', 'string']},
+                    'optimize_goal': {'type': ['null', 'string']},
+                    'split_test_variable': {'type': ['null', 'string']},
+                    'status': {'type': 'string'}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'advertiser_id': 7002238017842757633,
+     'budget': 50,
+     'budget_mode': 'BUDGET_MODE_DAY',
+     'campaign_id': 1714073078669329,
+     'campaign_name': 'Website Traffic20211019110444',
+     'campaign_type': 'REGULAR_CAMPAIGN',
+     'create_time': '2021-10-19 18:18:08',
+     'deep_bid_type': None,
+     'is_new_structure': True,
+     'is_smart_performance_campaign': False,
+     'modify_time': '2022-03-28 12:01:56',
+     'objective': 'LANDING_PAGE',
+     'objective_type': 'TRAFFIC',
+     'opt_status': 'DISABLE',
+     'roas_bid': 0.0,
+     'status': 'CAMPAIGN_STATUS_DISABLE'}
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/tests/test_incremental.py:212: Skipping new incremental test based on acceptance-test-config.yml
+====== 1 failed, 1 passed, 1 skipped, 87 deselected in 798.72s (0:13:18) =======

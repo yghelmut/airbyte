@@ -1,0 +1,508 @@
+../../../../connectors/source-hubplanner/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-hubplanner
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff9ef9e220>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='billing_rates', json_schema={'$sc...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='holidays', bypass_reason=None)}
+ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff9ec4aee0>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='billing_rates', data={'_id': '6262ef15519e6c184753d40c', 'rate': 100, 'c...': {'defaultRateId': None}, 'internal': {'defaultRateId': None}}, 'deletedById': None}, emitted_at=1679405820275), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='billing_rates', json_schema={'$sc...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('bookings', 'projects', 'resources').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe bookings stream has the following schema errors:\nAdditional properties are not allowed ('deletedById', 'billable' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'_id': {'type': ['null', 'string']},\n                    'allDay': {'type': ['null', 'boolean']},\n                    'backgroundColor': {'type': ['null', 'string']},\n                    'bookingCreatorId': {'type': ['null', 'string']},\n                    'bookingRate': {'properties': {'external': {'properties': {'defaultRateId': {'type': ['null',\n                                                                                                          'integer']}},\n                                                                'type': ['null',\n                                                                         'object']},\n                                                   'internal': {'properties': {'defaultRateId': {'type': ['null',\n                                                                                                          'integer']}},\n                                                                'type': ['null',\n                                                                         'object']}},\n                                    'type': ['null', 'object']},\n                    'categoryName': {'type': ['null', 'string']},\n                    'categoryTemplateId': {'type': ['null', 'string']},\n                    'createdDate': {'format': 'date-time',\n                                    'type': ['null', 'string']},\n                    'customFields': {'items': {'properties': {'_id': {'type': 'string'},\n                                                              'choices': {'items': {'properties': {'_id': {'type': 'string'},\n                                                                                                   'choiceId': {'type': 'string'},\n                                                                                                   'value': {'type': ['null',\n                                                                                                                      'string']}},\n                                                                                    'type': ['null',\n                                                                                             'object']},\n                                                                          'type': ['null',\n                                                                                   'array']},\n                                                              'templateId': {'type': 'string'},\n                                                              'templateLabel': {'type': ['null',\n                                                                                         'string']},\n                                                              'templateType': {'type': 'string'},\n                                                              'value': {'type': ['null',\n                                                                                 'string']}},\n                                               'type': ['null', 'object']},\n                                     'type': ['null', 'array']},\n                    'details': {'properties': {'bookedMinutes': {'type': ['null',\n                                                                          'integer']},\n                                               'budgetBookedAmount': {'type': ['null',\n                                                                               'integer']},\n                                               'holidayCount': {'type': ['null',\n                                                                         'integer']},\n                                               'offDaysCount': {'type': ['null',\n                                                                         'integer']},\n                                               'workDaysCount': {'type': ['null',\n                                                                          'integer']},\n                                               'workWeekDetails': {'items': {'type': ['null',\n                                                                                      'integer']},\n                                                                   'type': ['null',\n                                                                            'array']}},\n                                'type': ['null', 'object']},\n                    'end': {'type': 'string'},\n                    'lastUpdatedById': {'type': ['null', 'string']},\n                    'metadata': {'type': ['null', 'string']},\n                    'note': {'type': ['null', 'string']},\n                    'project': {'type': 'string'},\n                    'resource': {'type': 'string'},\n                    'scale': {'type': ['null', 'string']},\n                    'start': {'type': 'string'},\n                    'state': {'type': ['null', 'string']},\n                    'stateValue': {'type': ['null', 'integer']},\n                    'title': {'type': ['null', 'string']},\n                    'type': {'type': ['null', 'string']},\n                    'updatedDate': {'format': 'date-time',\n                                    'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'_id': '6273d680bb34b216da45ccf6',\n     'allDay': True,\n     'backgroundColor': '',\n     'billable': None,\n     'bookingCreatorId': '6262ef15519e6c184753d4e7',\n     'bookingRate': {'external': {'defaultRateId': None},\n                     'internal': {'defaultRateId': None}},\n     'categoryName': 'General',\n     'categoryTemplateId': '6262ef15519e6c184753d410',\n     'createdDate': '2022-05-05T13:52:00.680Z',\n     'customFields': [],\n     'deletedById': None,\n     'details': {'bookedMinutes': 6720,\n                 'budgetBookedAmount': 0,\n                 'holidayCount': 0,\n                 'offDaysCount': 0,\n                 'workDaysCount': 14,\n                 'workWeekDetails': [0, 3, 3, 3, 3, 2, 0]},\n     'end': '2022-08-18T18:00',\n     'metadata': '',\n     'note': '',\n     'project': '6262ef15519e6c184753d432',\n     'resource': '6262ef15519e6c184753d4e7',\n     'scale': 'SCALE_DAY',\n     'start': '2022-08-01T09:00',\n     'state': 'STATE_PERCENTAGE',\n     'stateValue': 100,\n     'title': '',\n     'type': 'WAITING_FOR_APPROVAL',\n     'updatedDate': '2022-05-05T13:52:00.680Z'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe projects stream has the following schema errors:\nAdditional properties are not allowed ('customers', 'private', 'billable', 'defaultCategory' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'_id': {'type': ['null', 'string']},\n                    'backgroundColor': {'type': ['null', 'string']},\n                    'budget': {'properties': {'cashAmount': {'properties': {'active': {'type': ['null',\n                                                                                                'boolean']},\n                                                                            'amount': {'type': ['null',\n                                                                                                'number']},\n                                                                            'billingRate': {'properties': {'id': {'type': ['null',\n                                                                                                                           'string']},\n                                                                                                           'rate': {'type': ['null',\n                                                                                                                             'number']},\n                                                                                                           'useDefault': {'type': ['null',\n                                                                                                                                   'boolean']}},\n                                                                                            'type': ['null',\n                                                                                                     'object']},\n                                                                            'currency': {'type': ['null',\n                                                                                                  'string']}},\n                                                             'type': ['null',\n                                                                      'object']},\n                                              'hasBudget': {'type': ['null',\n                                                                     'boolean']},\n                                              'projectHours': {'properties': {'active': {'type': ['null',\n                                                                                                  'boolean']},\n                                                                              'hours': {'type': ['null',\n                                                                                                 'number']}},\n                                                               'type': ['null',\n                                                                        'object']}},\n                               'type': ['null', 'object']},\n                    'budgetCashAmount': {'type': ['null', 'number']},\n                    'budgetCurrency': {'type': ['null', 'string']},\n                    'budgetHours': {'type': ['null', 'number']},\n                    'companyBillingRateId': {'type': ['null', 'string']},\n                    'createdDate': {'format': 'date-time',\n                                    'type': ['null', 'string']},\n                    'customFields': {'items': {'properties': {'_id': {'type': 'string'},\n                                                              'choices': {'items': {'properties': {'_id': {'type': 'string'},\n                                                                                                   'choiceId': {'type': 'string'},\n                                                                                                   'value': {'type': ['null',\n                                                                                                                      'string']}},\n                                                                                    'type': ['null',\n                                                                                             'object']},\n                                                                          'type': ['null',\n                                                                                   'array']},\n                                                              'templateId': {'type': 'string'},\n                                                              'templateLabel': {'type': ['null',\n                                                                                         'string']},\n                                                              'templateType': {'type': 'string'},\n                                                              'value': {'type': ['null',\n                                                                                 'string']}},\n                                               'type': ['null', 'object']},\n                                     'type': ['null', 'array']},\n                    'end': {'type': ['null', 'string']},\n                    'includeBookedTimeGrid': {'type': ['null', 'boolean']},\n                    'includeBookedTimeReports': {'type': ['null',\n                                                          'boolean']},\n                    'links': {'properties': {}, 'type': ['null', 'object']},\n                    'metadata': {'type': ['null', 'string']},\n                    'name': {'type': 'string'},\n                    'note': {'type': ['null', 'string']},\n                    'notes': {'type': ['null', 'string']},\n                    'projectCode': {'type': ['null', 'string']},\n                    'projectManagers': {'items': {'type': ['null',\n                                                           'string']},\n                                        'type': ['null', 'array']},\n                    'projectRate': {'properties': {'external': {'properties': {'customRates': {'items': {'properties': {'_id': {'type': ['null',\n                                                                                                                                         'string']},\n                                                                                                                        'id': {'type': ['null',\n                                                                                                                                        'string']},\n                                                                                                                        'resourceId': {'type': ['null',\n                                                                                                                                                'string']}},\n                                                                                                         'type': ['null',\n                                                                                                                  'object']},\n                                                                                               'type': ['null',\n                                                                                                        'array']},\n                                                                               'defaultRateId': {'type': ['null',\n                                                                                                          'string']}},\n                                                                'type': ['null',\n                                                                         'object']},\n                                                   'internal': {'properties': {'customRates': {'items': {'properties': {'_id': {'type': ['null',\n                                                                                                                                         'string']},\n                                                                                                                        'id': {'type': ['null',\n                                                                                                                                        'string']},\n                                                                                                                        'resourceId': {'type': ['null',\n                                                                                                                                                'string']}},\n                                                                                                         'type': ['null',\n                                                                                                                  'object']},\n                                                                                               'type': ['null',\n                                                                                                        'array']},\n                                                                               'defaultRateId': {'type': ['null',\n                                                                                                          'string']}},\n                                                                'type': ['null',\n                                                                         'object']}},\n                                    'type': ['null', 'object']},\n                    'resourceRates': {'items': {'properties': {'companyBillingRate': {'type': ['null',\n                                                                                               'number']},\n                                                               'companyBillingRateId': {'type': ['null',\n                                                                                                 'string']},\n                                                               'resource': {'type': ['null',\n                                                                                     'string']}},\n                                                'type': ['null', 'object']},\n                                      'type': ['null', 'array']},\n                    'resources': {'items': {'type': ['null', 'string']},\n                                  'type': ['null', 'array']},\n                    'start': {'type': ['null', 'string']},\n                    'status': {'type': ['null', 'string']},\n                    'tags': {'items': {'type': ['null', 'object']},\n                             'type': ['null', 'array']},\n                    'timeEntryApproval': {'type': ['null', 'boolean']},\n                    'timeEntryEnabled': {'type': ['null', 'boolean']},\n                    'timeEntryLocked': {'type': ['null', 'boolean']},\n                    'timeEntryNoteRequired': {'type': ['null', 'boolean']},\n                    'updatedDate': {'format': 'date-time',\n                                    'type': ['null', 'string']},\n                    'useProjectDays': {'type': ['null', 'boolean']},\n                    'useProjectDuration': {'type': ['null', 'boolean']},\n                    'useStatusColor': {'type': ['null', 'boolean']},\n                    'workDays': {'items': {'type': ['null', 'boolean']},\n                                 'type': ['null', 'array']}},\n     'type': 'object'}\n\nOn instance:\n    {'_id': '6273d287bb34b216da453f98',\n     'backgroundColor': '#134B57',\n     'billable': True,\n     'budget': {'cashAmount': {'active': True,\n                               'amount': 2500,\n                               'billingRate': {'id': '6262ef15519e6c184753d40c',\n                                               'rate': 100,\n                                               'useDefault': False},\n                               'currency': 'USD'},\n                'hasBudget': True,\n                'projectHours': {'active': True, 'hours': 2500}},\n     'budgetCashAmount': 2500,\n     'budgetCurrency': 'USD',\n     'budgetHours': 2500,\n     'companyBillingRateId': '6262ef15519e6c184753d40c',\n     'createdDate': '2022-05-05T13:35:03.067Z',\n     'customFields': [],\n     'customers': [{'_id': '6273d287bb34b216da453f99',\n                    'customerId': '6273d1e72889dd7e07348ad1',\n                    'name': 'Eugenia Ponsford'}],\n     'defaultCategory': '6262ef15519e6c184753d410',\n     'end': '2022-03-31',\n     'includeBookedTimeGrid': True,\n     'includeBookedTimeReports': True,\n     'links': {'iconLink1': 'fa-link',\n               'iconLink2': 'fa-link',\n               'iconLink3': 'fa-link',\n               'iconLink4': 'fa-link',\n               'iconLink5': 'fa-link',\n               'link1': '',\n               'link2': '',\n               'link3': '',\n               'link4': '',\n               'link5': ''},\n     'metadata': '',\n     'name': 'Thoughtbridge',\n     'note': '',\n     'private': True,\n     'projectCode': 'Thoughtbridge',\n     'projectManagers': ['6273cb6fa56eb0308a058095'],\n     'projectRate': {'external': {'customRates': [],\n                                  'defaultRateId': '6262ef15519e6c184753d40c'},\n                     'internal': {'customRates': [],\n                                  'defaultRateId': '6262ef15519e6c184753d40c'}},\n     'resourceRates': [],\n     'resources': ['6273cb6fa56eb0308a058095',\n                   '6273cb96a56eb0308a0584ad',\n                   '6273cba82889dd7e0733c0ef',\n                   '6273cb804f781839d0285b1b',\n                   '6273cbc5bb34b216da446ce3'],\n     'start': '2022-03-01',\n     'status': 'STATUS_ARCHIVED',\n     'tags': [{'_id': '6273d287bb34b216da453f9a',\n               'tagId': '6273d1edbb34b216da452fdc',\n               'value': 'thoughtbridge'}],\n     'timeEntryApproval': False,\n     'timeEntryEnabled': True,\n     'timeEntryLocked': False,\n     'timeEntryNoteRequired': False,\n     'updatedDate': '2022-05-05T13:38:17.732Z',\n     'useProjectDays': False,\n     'useProjectDuration': True,\n     'useStatusColor': True,\n     'workDays': [False, True, True, True, True, True, False]}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe resources stream has the following schema errors:\nAdditional properties are not allowed ('billable' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'_id': {'type': ['null', 'string']},\n                    'billing': {'properties': {'rate': {'type': ['null',\n                                                                 'number']},\n                                               'useDefault': {'type': ['null',\n                                                                       'boolean']}},\n                                'type': ['null', 'object']},\n                    'createdDate': {'format': 'date-time',\n                                    'type': ['null', 'string']},\n                    'customFields': {'items': {'properties': {'_id': {'type': 'string'},\n                                                              'choices': {'items': {'properties': {'_id': {'type': 'string'},\n                                                                                                   'choiceId': {'type': 'string'},\n                                                                                                   'value': {'type': ['null',\n                                                                                                                      'string']}},\n                                                                                    'type': ['null',\n                                                                                             'object']},\n                                                                          'type': ['null',\n                                                                                   'array']},\n                                                              'templateId': {'type': 'string'},\n                                                              'templateLabel': {'type': ['null',\n                                                                                         'string']},\n                                                              'templateType': {'type': 'string'},\n                                                              'value': {'type': ['null',\n                                                                                 'string']}},\n                                               'type': ['null', 'object']},\n                                     'type': ['null', 'array']},\n                    'email': {'type': ['null', 'string']},\n                    'firstName': {'type': 'string'},\n                    'isProjectManager': {'type': ['null', 'boolean']},\n                    'lastName': {'type': ['null', 'string']},\n                    'links': {'properties': {}, 'type': ['null', 'object']},\n                    'metadata': {'type': ['null', 'string']},\n                    'note': {'type': ['null', 'string']},\n                    'resourceRates': {'properties': {'external': {'items': {'properties': {},\n                                                                            'type': ['null',\n                                                                                     'object']},\n                                                                  'type': ['null',\n                                                                           'array']},\n                                                     'internal': {'items': {'properties': {},\n                                                                            'type': ['null',\n                                                                                     'object']},\n                                                                  'type': ['null',\n                                                                           'array']}},\n                                      'type': ['null', 'object']},\n                    'role': {'type': ['null', 'string']},\n                    'status': {'type': ['null', 'string']},\n                    'tags': {'items': {'type': ['null', 'object']},\n                             'type': ['null', 'array']},\n                    'updatedDate': {'format': 'date-time',\n                                    'type': ['null', 'string']},\n                    'useCustomAvailability': {'type': ['null', 'boolean']}},\n     'type': 'object'}\n\nOn instance:\n    {'_id': '6273cb25bb34b216da445c0a',\n     'billable': True,\n     'billing': {'rate': 0, 'useDefault': True},\n     'createdDate': '2022-05-05T13:03:33.289Z',\n     'customFields': [],\n     'email': 'xthebesh@hp.com',\n     'firstName': 'Ximenes',\n     'isProjectManager': False,\n     'lastName': 'Thebes',\n     'links': {'iconLink1': 'fa-link',\n               'iconLink2': 'fa-link',\n               'iconLink3': 'fa-link',\n               'iconLink4': 'fa-link',\n               'iconLink5': 'fa-link',\n               'link1': '',\n               'link2': '',\n               'link3': '',\n               'link4': '',\n               'link5': ''},\n     'metadata': '',\n     'note': '',\n     'resourceRates': {'external': [], 'internal': []},\n     'role': 'ROLE_TEAM',\n     'status': 'STATUS_ACTIVE',\n     'tags': [],\n     'updatedDate': None,\n     'useCustomAvailability': False}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The bookings stream has the following schema errors:
+Additional properties are not allowed ('deletedById', 'billable' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'_id': {'type': ['null', 'string']},
+                    'allDay': {'type': ['null', 'boolean']},
+                    'backgroundColor': {'type': ['null', 'string']},
+                    'bookingCreatorId': {'type': ['null', 'string']},
+                    'bookingRate': {'properties': {'external': {'properties': {'defaultRateId': {'type': ['null',
+                                                                                                          'integer']}},
+                                                                'type': ['null',
+                                                                         'object']},
+                                                   'internal': {'properties': {'defaultRateId': {'type': ['null',
+                                                                                                          'integer']}},
+                                                                'type': ['null',
+                                                                         'object']}},
+                                    'type': ['null', 'object']},
+                    'categoryName': {'type': ['null', 'string']},
+                    'categoryTemplateId': {'type': ['null', 'string']},
+                    'createdDate': {'format': 'date-time',
+                                    'type': ['null', 'string']},
+                    'customFields': {'items': {'properties': {'_id': {'type': 'string'},
+                                                              'choices': {'items': {'properties': {'_id': {'type': 'string'},
+                                                                                                   'choiceId': {'type': 'string'},
+                                                                                                   'value': {'type': ['null',
+                                                                                                                      'string']}},
+                                                                                    'type': ['null',
+                                                                                             'object']},
+                                                                          'type': ['null',
+                                                                                   'array']},
+                                                              'templateId': {'type': 'string'},
+                                                              'templateLabel': {'type': ['null',
+                                                                                         'string']},
+                                                              'templateType': {'type': 'string'},
+                                                              'value': {'type': ['null',
+                                                                                 'string']}},
+                                               'type': ['null', 'object']},
+                                     'type': ['null', 'array']},
+                    'details': {'properties': {'bookedMinutes': {'type': ['null',
+                                                                          'integer']},
+                                               'budgetBookedAmount': {'type': ['null',
+                                                                               'integer']},
+                                               'holidayCount': {'type': ['null',
+                                                                         'integer']},
+                                               'offDaysCount': {'type': ['null',
+                                                                         'integer']},
+                                               'workDaysCount': {'type': ['null',
+                                                                          'integer']},
+                                               'workWeekDetails': {'items': {'type': ['null',
+                                                                                      'integer']},
+                                                                   'type': ['null',
+                                                                            'array']}},
+                                'type': ['null', 'object']},
+                    'end': {'type': 'string'},
+                    'lastUpdatedById': {'type': ['null', 'string']},
+                    'metadata': {'type': ['null', 'string']},
+                    'note': {'type': ['null', 'string']},
+                    'project': {'type': 'string'},
+                    'resource': {'type': 'string'},
+                    'scale': {'type': ['null', 'string']},
+                    'start': {'type': 'string'},
+                    'state': {'type': ['null', 'string']},
+                    'stateValue': {'type': ['null', 'integer']},
+                    'title': {'type': ['null', 'string']},
+                    'type': {'type': ['null', 'string']},
+                    'updatedDate': {'format': 'date-time',
+                                    'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'_id': '6273d680bb34b216da45ccf6',
+     'allDay': True,
+     'backgroundColor': '',
+     'billable': None,
+     'bookingCreatorId': '6262ef15519e6c184753d4e7',
+     'bookingRate': {'external': {'defaultRateId': None},
+                     'internal': {'defaultRateId': None}},
+     'categoryName': 'General',
+     'categoryTemplateId': '6262ef15519e6c184753d410',
+     'createdDate': '2022-05-05T13:52:00.680Z',
+     'customFields': [],
+     'deletedById': None,
+     'details': {'bookedMinutes': 6720,
+                 'budgetBookedAmount': 0,
+                 'holidayCount': 0,
+                 'offDaysCount': 0,
+                 'workDaysCount': 14,
+                 'workWeekDetails': [0, 3, 3, 3, 3, 2, 0]},
+     'end': '2022-08-18T18:00',
+     'metadata': '',
+     'note': '',
+     'project': '6262ef15519e6c184753d432',
+     'resource': '6262ef15519e6c184753d4e7',
+     'scale': 'SCALE_DAY',
+     'start': '2022-08-01T09:00',
+     'state': 'STATE_PERCENTAGE',
+     'stateValue': 100,
+     'title': '',
+     'type': 'WAITING_FOR_APPROVAL',
+     'updatedDate': '2022-05-05T13:52:00.680Z'}
+ERROR    root:test_core.py:662 
+The projects stream has the following schema errors:
+Additional properties are not allowed ('customers', 'private', 'billable', 'defaultCategory' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'_id': {'type': ['null', 'string']},
+                    'backgroundColor': {'type': ['null', 'string']},
+                    'budget': {'properties': {'cashAmount': {'properties': {'active': {'type': ['null',
+                                                                                                'boolean']},
+                                                                            'amount': {'type': ['null',
+                                                                                                'number']},
+                                                                            'billingRate': {'properties': {'id': {'type': ['null',
+                                                                                                                           'string']},
+                                                                                                           'rate': {'type': ['null',
+                                                                                                                             'number']},
+                                                                                                           'useDefault': {'type': ['null',
+                                                                                                                                   'boolean']}},
+                                                                                            'type': ['null',
+                                                                                                     'object']},
+                                                                            'currency': {'type': ['null',
+                                                                                                  'string']}},
+                                                             'type': ['null',
+                                                                      'object']},
+                                              'hasBudget': {'type': ['null',
+                                                                     'boolean']},
+                                              'projectHours': {'properties': {'active': {'type': ['null',
+                                                                                                  'boolean']},
+                                                                              'hours': {'type': ['null',
+                                                                                                 'number']}},
+                                                               'type': ['null',
+                                                                        'object']}},
+                               'type': ['null', 'object']},
+                    'budgetCashAmount': {'type': ['null', 'number']},
+                    'budgetCurrency': {'type': ['null', 'string']},
+                    'budgetHours': {'type': ['null', 'number']},
+                    'companyBillingRateId': {'type': ['null', 'string']},
+                    'createdDate': {'format': 'date-time',
+                                    'type': ['null', 'string']},
+                    'customFields': {'items': {'properties': {'_id': {'type': 'string'},
+                                                              'choices': {'items': {'properties': {'_id': {'type': 'string'},
+                                                                                                   'choiceId': {'type': 'string'},
+                                                                                                   'value': {'type': ['null',
+                                                                                                                      'string']}},
+                                                                                    'type': ['null',
+                                                                                             'object']},
+                                                                          'type': ['null',
+                                                                                   'array']},
+                                                              'templateId': {'type': 'string'},
+                                                              'templateLabel': {'type': ['null',
+                                                                                         'string']},
+                                                              'templateType': {'type': 'string'},
+                                                              'value': {'type': ['null',
+                                                                                 'string']}},
+                                               'type': ['null', 'object']},
+                                     'type': ['null', 'array']},
+                    'end': {'type': ['null', 'string']},
+                    'includeBookedTimeGrid': {'type': ['null', 'boolean']},
+                    'includeBookedTimeReports': {'type': ['null',
+                                                          'boolean']},
+                    'links': {'properties': {}, 'type': ['null', 'object']},
+                    'metadata': {'type': ['null', 'string']},
+                    'name': {'type': 'string'},
+                    'note': {'type': ['null', 'string']},
+                    'notes': {'type': ['null', 'string']},
+                    'projectCode': {'type': ['null', 'string']},
+                    'projectManagers': {'items': {'type': ['null',
+                                                           'string']},
+                                        'type': ['null', 'array']},
+                    'projectRate': {'properties': {'external': {'properties': {'customRates': {'items': {'properties': {'_id': {'type': ['null',
+                                                                                                                                         'string']},
+                                                                                                                        'id': {'type': ['null',
+                                                                                                                                        'string']},
+                                                                                                                        'resourceId': {'type': ['null',
+                                                                                                                                                'string']}},
+                                                                                                         'type': ['null',
+                                                                                                                  'object']},
+                                                                                               'type': ['null',
+                                                                                                        'array']},
+                                                                               'defaultRateId': {'type': ['null',
+                                                                                                          'string']}},
+                                                                'type': ['null',
+                                                                         'object']},
+                                                   'internal': {'properties': {'customRates': {'items': {'properties': {'_id': {'type': ['null',
+                                                                                                                                         'string']},
+                                                                                                                        'id': {'type': ['null',
+                                                                                                                                        'string']},
+                                                                                                                        'resourceId': {'type': ['null',
+                                                                                                                                                'string']}},
+                                                                                                         'type': ['null',
+                                                                                                                  'object']},
+                                                                                               'type': ['null',
+                                                                                                        'array']},
+                                                                               'defaultRateId': {'type': ['null',
+                                                                                                          'string']}},
+                                                                'type': ['null',
+                                                                         'object']}},
+                                    'type': ['null', 'object']},
+                    'resourceRates': {'items': {'properties': {'companyBillingRate': {'type': ['null',
+                                                                                               'number']},
+                                                               'companyBillingRateId': {'type': ['null',
+                                                                                                 'string']},
+                                                               'resource': {'type': ['null',
+                                                                                     'string']}},
+                                                'type': ['null', 'object']},
+                                      'type': ['null', 'array']},
+                    'resources': {'items': {'type': ['null', 'string']},
+                                  'type': ['null', 'array']},
+                    'start': {'type': ['null', 'string']},
+                    'status': {'type': ['null', 'string']},
+                    'tags': {'items': {'type': ['null', 'object']},
+                             'type': ['null', 'array']},
+                    'timeEntryApproval': {'type': ['null', 'boolean']},
+                    'timeEntryEnabled': {'type': ['null', 'boolean']},
+                    'timeEntryLocked': {'type': ['null', 'boolean']},
+                    'timeEntryNoteRequired': {'type': ['null', 'boolean']},
+                    'updatedDate': {'format': 'date-time',
+                                    'type': ['null', 'string']},
+                    'useProjectDays': {'type': ['null', 'boolean']},
+                    'useProjectDuration': {'type': ['null', 'boolean']},
+                    'useStatusColor': {'type': ['null', 'boolean']},
+                    'workDays': {'items': {'type': ['null', 'boolean']},
+                                 'type': ['null', 'array']}},
+     'type': 'object'}
+
+On instance:
+    {'_id': '6273d287bb34b216da453f98',
+     'backgroundColor': '#134B57',
+     'billable': True,
+     'budget': {'cashAmount': {'active': True,
+                               'amount': 2500,
+                               'billingRate': {'id': '6262ef15519e6c184753d40c',
+                                               'rate': 100,
+                                               'useDefault': False},
+                               'currency': 'USD'},
+                'hasBudget': True,
+                'projectHours': {'active': True, 'hours': 2500}},
+     'budgetCashAmount': 2500,
+     'budgetCurrency': 'USD',
+     'budgetHours': 2500,
+     'companyBillingRateId': '6262ef15519e6c184753d40c',
+     'createdDate': '2022-05-05T13:35:03.067Z',
+     'customFields': [],
+     'customers': [{'_id': '6273d287bb34b216da453f99',
+                    'customerId': '6273d1e72889dd7e07348ad1',
+                    'name': 'Eugenia Ponsford'}],
+     'defaultCategory': '6262ef15519e6c184753d410',
+     'end': '2022-03-31',
+     'includeBookedTimeGrid': True,
+     'includeBookedTimeReports': True,
+     'links': {'iconLink1': 'fa-link',
+               'iconLink2': 'fa-link',
+               'iconLink3': 'fa-link',
+               'iconLink4': 'fa-link',
+               'iconLink5': 'fa-link',
+               'link1': '',
+               'link2': '',
+               'link3': '',
+               'link4': '',
+               'link5': ''},
+     'metadata': '',
+     'name': 'Thoughtbridge',
+     'note': '',
+     'private': True,
+     'projectCode': 'Thoughtbridge',
+     'projectManagers': ['6273cb6fa56eb0308a058095'],
+     'projectRate': {'external': {'customRates': [],
+                                  'defaultRateId': '6262ef15519e6c184753d40c'},
+                     'internal': {'customRates': [],
+                                  'defaultRateId': '6262ef15519e6c184753d40c'}},
+     'resourceRates': [],
+     'resources': ['6273cb6fa56eb0308a058095',
+                   '6273cb96a56eb0308a0584ad',
+                   '6273cba82889dd7e0733c0ef',
+                   '6273cb804f781839d0285b1b',
+                   '6273cbc5bb34b216da446ce3'],
+     'start': '2022-03-01',
+     'status': 'STATUS_ARCHIVED',
+     'tags': [{'_id': '6273d287bb34b216da453f9a',
+               'tagId': '6273d1edbb34b216da452fdc',
+               'value': 'thoughtbridge'}],
+     'timeEntryApproval': False,
+     'timeEntryEnabled': True,
+     'timeEntryLocked': False,
+     'timeEntryNoteRequired': False,
+     'updatedDate': '2022-05-05T13:38:17.732Z',
+     'useProjectDays': False,
+     'useProjectDuration': True,
+     'useStatusColor': True,
+     'workDays': [False, True, True, True, True, True, False]}
+ERROR    root:test_core.py:662 
+The resources stream has the following schema errors:
+Additional properties are not allowed ('billable' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'_id': {'type': ['null', 'string']},
+                    'billing': {'properties': {'rate': {'type': ['null',
+                                                                 'number']},
+                                               'useDefault': {'type': ['null',
+                                                                       'boolean']}},
+                                'type': ['null', 'object']},
+                    'createdDate': {'format': 'date-time',
+                                    'type': ['null', 'string']},
+                    'customFields': {'items': {'properties': {'_id': {'type': 'string'},
+                                                              'choices': {'items': {'properties': {'_id': {'type': 'string'},
+                                                                                                   'choiceId': {'type': 'string'},
+                                                                                                   'value': {'type': ['null',
+                                                                                                                      'string']}},
+                                                                                    'type': ['null',
+                                                                                             'object']},
+                                                                          'type': ['null',
+                                                                                   'array']},
+                                                              'templateId': {'type': 'string'},
+                                                              'templateLabel': {'type': ['null',
+                                                                                         'string']},
+                                                              'templateType': {'type': 'string'},
+                                                              'value': {'type': ['null',
+                                                                                 'string']}},
+                                               'type': ['null', 'object']},
+                                     'type': ['null', 'array']},
+                    'email': {'type': ['null', 'string']},
+                    'firstName': {'type': 'string'},
+                    'isProjectManager': {'type': ['null', 'boolean']},
+                    'lastName': {'type': ['null', 'string']},
+                    'links': {'properties': {}, 'type': ['null', 'object']},
+                    'metadata': {'type': ['null', 'string']},
+                    'note': {'type': ['null', 'string']},
+                    'resourceRates': {'properties': {'external': {'items': {'properties': {},
+                                                                            'type': ['null',
+                                                                                     'object']},
+                                                                  'type': ['null',
+                                                                           'array']},
+                                                     'internal': {'items': {'properties': {},
+                                                                            'type': ['null',
+                                                                                     'object']},
+                                                                  'type': ['null',
+                                                                           'array']}},
+                                      'type': ['null', 'object']},
+                    'role': {'type': ['null', 'string']},
+                    'status': {'type': ['null', 'string']},
+                    'tags': {'items': {'type': ['null', 'object']},
+                             'type': ['null', 'array']},
+                    'updatedDate': {'format': 'date-time',
+                                    'type': ['null', 'string']},
+                    'useCustomAvailability': {'type': ['null', 'boolean']}},
+     'type': 'object'}
+
+On instance:
+    {'_id': '6273cb25bb34b216da445c0a',
+     'billable': True,
+     'billing': {'rate': 0, 'useDefault': True},
+     'createdDate': '2022-05-05T13:03:33.289Z',
+     'customFields': [],
+     'email': 'xthebesh@hp.com',
+     'firstName': 'Ximenes',
+     'isProjectManager': False,
+     'lastName': 'Thebes',
+     'links': {'iconLink1': 'fa-link',
+               'iconLink2': 'fa-link',
+               'iconLink3': 'fa-link',
+               'iconLink4': 'fa-link',
+               'iconLink5': 'fa-link',
+               'link1': '',
+               'link2': '',
+               'link3': '',
+               'link4': '',
+               'link5': ''},
+     'metadata': '',
+     'note': '',
+     'resourceRates': {'external': [], 'internal': []},
+     'role': 'ROLE_TEAM',
+     'status': 'STATUS_ACTIVE',
+     'tags': [],
+     'updatedDate': None,
+     'useCustomAvailability': False}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+=========== 1 failed, 1 skipped, 33 deselected, 35 warnings in 8.37s ===========

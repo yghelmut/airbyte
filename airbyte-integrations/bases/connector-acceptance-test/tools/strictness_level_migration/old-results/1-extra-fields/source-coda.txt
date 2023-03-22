@@ -1,0 +1,245 @@
+../../../../connectors/source-coda/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-coda
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff8a71a760>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='docs', json_schema={'$schema': 'h...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='formulas', bypass_reason='no records'), EmptyStreamConfiguration(name='permissions', bypass_reason='no records')}
+ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff89bd0fd0>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='docs', data={'id': 'oo3lQUeh9w', 'type': 'doc', 'href': 'https://coda.io...byteRecordMessage(namespace=None, stream='categories', data={'name': 'Product design'}, emitted_at=1679404675140), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='docs', json_schema={'$schema': 'h...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('docs', 'pages').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe docs stream has the following schema errors:\nAdditional properties are not allowed ('ownerName' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'browserLink': {'type': 'string'},\n                    'createdAt': {'type': 'string'},\n                    'docSize': {'properties': {'overApiSizeLimit': {'type': 'boolean'},\n                                               'pageCount': {'type': 'integer'},\n                                               'tableViewCount': {'type': 'integer'},\n                                               'totalRowCount': {'type': 'integer'}},\n                                'type': 'object'},\n                    'folder': {'properties': {'browserLink': {'type': 'string'},\n                                              'id': {'type': 'string'},\n                                              'name': {'type': 'string'},\n                                              'type': {'type': 'string'}},\n                               'type': 'object'},\n                    'folderId': {'type': 'string'},\n                    'href': {'type': 'string'},\n                    'icon': {'properties': {'browserLink': {'type': 'string'},\n                                            'name': {'type': 'string'},\n                                            'type': {'type': 'string'}},\n                             'type': 'object'},\n                    'id': {'type': 'string'},\n                    'name': {'type': 'string'},\n                    'owner': {'type': 'string'},\n                    'owner_name': {'type': 'string'},\n                    'published': {'properties': {'browserLink': {'type': 'string'},\n                                                 'categories': {'items': {'type': 'string'},\n                                                                'type': 'string'},\n                                                 'description': {'type': 'string'},\n                                                 'discoverable': {'type': 'boolean'},\n                                                 'earnCredit': {'type': 'boolean'},\n                                                 'imageLink': {'type': 'string'},\n                                                 'mode': {'type': 'string'}},\n                                  'type': 'object'},\n                    'sourceDoc': {'properties': {'browserLink': {'type': 'string'},\n                                                 'href': {'type': 'string'},\n                                                 'totalRowCount': {'type': 'string'},\n                                                 'type': {'type': 'string'}},\n                                  'type': 'object'},\n                    'type': {'type': 'string'},\n                    'updatedAt': {'type': 'string'},\n                    'workspace': {'properties': {'browserLink': {'type': 'string'},\n                                                 'id': {'type': 'string'},\n                                                 'name': {'type': 'string'},\n                                                 'organizationId': {'type': 'string'},\n                                                 'type': {'type': 'string'}},\n                                  'type': 'object'},\n                    'workspaceId': {'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'browserLink': 'https://coda.io/d/_ddStS3qWXwN',\n     'createdAt': '2022-11-16T17:30:57.671Z',\n     'docSize': {'overApiSizeLimit': False,\n                 'pageCount': 2,\n                 'tableAndViewCount': 1,\n                 'totalRowCount': 3},\n     'folder': {'browserLink': 'https://coda.io/docs?folderId=fl-OqV6WVkmLh',\n                'id': 'fl-OqV6WVkmLh',\n                'name': 'My docs',\n                'type': 'folder'},\n     'folderId': 'fl-OqV6WVkmLh',\n     'href': 'https://coda.io/apis/v1/docs/dStS3qWXwN',\n     'icon': {'browserLink': 'https://cdn.coda.io/icons/png/color/todo-list-128.png',\n              'name': 'todo-list',\n              'type': 'image/png'},\n     'id': 'dStS3qWXwN',\n     'name': 'To-do list',\n     'owner': 'integration-test@airbyte.io',\n     'ownerName': 'Integration Airbyte',\n     'sourceDoc': {'browserLink': 'https://coda.io/d/_dNHzsq4VNYq',\n                   'href': 'https://coda.io/apis/v1/docs/NHzsq4VNYq',\n                   'id': 'NHzsq4VNYq',\n                   'type': 'doc'},\n     'type': 'doc',\n     'updatedAt': '2022-11-16T17:49:02.029Z',\n     'workspace': {'browserLink': 'https://coda.io/docs?workspaceId=ws-GQ9uAxhf-C',\n                   'id': 'ws-GQ9uAxhf-C',\n                   'name': 'airbyte.io',\n                   'type': 'workspace'},\n     'workspaceId': 'ws-GQ9uAxhf-C'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe pages stream has the following schema errors:\nAdditional properties are not allowed ('updatedBy', 'createdBy', 'authors', 'createdAt', 'updatedAt' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'browserLink': {'type': 'string'},\n                    'children': {'authors': {'createdAt': {'type': 'string'},\n                                             'createdBy': {'properties': {'@context': {'type': 'string'},\n                                                                          '@type': {'type': 'string'},\n                                                                          'additionalType': {'type': 'string'},\n                                                                          'email': {'type': 'string'},\n                                                                          'name': {'type': 'string'}},\n                                                           'type': 'object'},\n                                             'items': {'properties': {'@context': {'type': 'string'},\n                                                                      '@type': {'type': 'string'},\n                                                                      'additionalType': {'type': 'string'},\n                                                                      'email': {'type': 'string'},\n                                                                      'name': {'type': 'string'}},\n                                                       'type': 'object'},\n                                             'type': 'array',\n                                             'updatedBy': {'properties': {'@context': {'type': 'string'},\n                                                                          '@type': {'type': 'string'},\n                                                                          'additionalType': {'type': 'string'},\n                                                                          'email': {'type': 'string'},\n                                                                          'name': {'type': 'string'}},\n                                                           'type': 'object'}},\n                                 'items': {'properties': {'browserLink': {'type': 'string'},\n                                                          'href': {'type': 'string'},\n                                                          'id': {'type': 'string'},\n                                                          'name': {'type': 'string'},\n                                                          'type': {'type': 'string'}},\n                                           'type': 'object'},\n                                 'type': 'array'},\n                    'href': {'type': 'string'},\n                    'icon': {'properties': {'browserLink': {'type': 'string'},\n                                            'name': {'type': 'string'},\n                                            'type': {'type': 'string'}},\n                             'type': 'object'},\n                    'id': {'type': 'string'},\n                    'image': {'properties': {'browserLink': {'type': 'string'},\n                                             'height': {'type': 'number'},\n                                             'type': {'type': 'string'},\n                                             'width': {'type': 'number'}},\n                              'type': 'object'},\n                    'name': {'type': 'string'},\n                    'parent': {'properties': {'browserLink': {'type': 'string'},\n                                              'href': {'type': 'string'},\n                                              'id': {'type': 'string'},\n                                              'name': {'type': 'string'},\n                                              'type': {'type': 'string'}},\n                               'type': 'object'},\n                    'subtitle': {'type': 'string'},\n                    'type': {'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'authors': [{'@context': 'http://schema.org/',\n                  '@type': 'Person',\n                  'email': 'integration-test@airbyte.io',\n                  'name': 'Integration Airbyte'}],\n     'browserLink': 'https://coda.io/d/_ddStS3qWXwN/_suclT',\n     'children': [],\n     'createdAt': '2022-11-16T17:49:02.029Z',\n     'createdBy': {'@context': 'http://schema.org/',\n                   '@type': 'Person',\n                   'email': 'integration-test@airbyte.io',\n                   'name': 'Integration Airbyte'},\n     'href': 'https://coda.io/apis/v1/docs/dStS3qWXwN/pages/canvas-pHBsUKpclT',\n     'id': 'canvas-pHBsUKpclT',\n     'name': 'Untitled',\n     'subtitle': '',\n     'type': 'page',\n     'updatedAt': '2022-11-16T17:49:02.029Z',\n     'updatedBy': {'@context': 'http://schema.org/',\n                   '@type': 'Person',\n                   'email': 'integration-test@airbyte.io',\n                   'name': 'Integration Airbyte'}}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The docs stream has the following schema errors:
+Additional properties are not allowed ('ownerName' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'browserLink': {'type': 'string'},
+                    'createdAt': {'type': 'string'},
+                    'docSize': {'properties': {'overApiSizeLimit': {'type': 'boolean'},
+                                               'pageCount': {'type': 'integer'},
+                                               'tableViewCount': {'type': 'integer'},
+                                               'totalRowCount': {'type': 'integer'}},
+                                'type': 'object'},
+                    'folder': {'properties': {'browserLink': {'type': 'string'},
+                                              'id': {'type': 'string'},
+                                              'name': {'type': 'string'},
+                                              'type': {'type': 'string'}},
+                               'type': 'object'},
+                    'folderId': {'type': 'string'},
+                    'href': {'type': 'string'},
+                    'icon': {'properties': {'browserLink': {'type': 'string'},
+                                            'name': {'type': 'string'},
+                                            'type': {'type': 'string'}},
+                             'type': 'object'},
+                    'id': {'type': 'string'},
+                    'name': {'type': 'string'},
+                    'owner': {'type': 'string'},
+                    'owner_name': {'type': 'string'},
+                    'published': {'properties': {'browserLink': {'type': 'string'},
+                                                 'categories': {'items': {'type': 'string'},
+                                                                'type': 'string'},
+                                                 'description': {'type': 'string'},
+                                                 'discoverable': {'type': 'boolean'},
+                                                 'earnCredit': {'type': 'boolean'},
+                                                 'imageLink': {'type': 'string'},
+                                                 'mode': {'type': 'string'}},
+                                  'type': 'object'},
+                    'sourceDoc': {'properties': {'browserLink': {'type': 'string'},
+                                                 'href': {'type': 'string'},
+                                                 'totalRowCount': {'type': 'string'},
+                                                 'type': {'type': 'string'}},
+                                  'type': 'object'},
+                    'type': {'type': 'string'},
+                    'updatedAt': {'type': 'string'},
+                    'workspace': {'properties': {'browserLink': {'type': 'string'},
+                                                 'id': {'type': 'string'},
+                                                 'name': {'type': 'string'},
+                                                 'organizationId': {'type': 'string'},
+                                                 'type': {'type': 'string'}},
+                                  'type': 'object'},
+                    'workspaceId': {'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'browserLink': 'https://coda.io/d/_ddStS3qWXwN',
+     'createdAt': '2022-11-16T17:30:57.671Z',
+     'docSize': {'overApiSizeLimit': False,
+                 'pageCount': 2,
+                 'tableAndViewCount': 1,
+                 'totalRowCount': 3},
+     'folder': {'browserLink': 'https://coda.io/docs?folderId=fl-OqV6WVkmLh',
+                'id': 'fl-OqV6WVkmLh',
+                'name': 'My docs',
+                'type': 'folder'},
+     'folderId': 'fl-OqV6WVkmLh',
+     'href': 'https://coda.io/apis/v1/docs/dStS3qWXwN',
+     'icon': {'browserLink': 'https://cdn.coda.io/icons/png/color/todo-list-128.png',
+              'name': 'todo-list',
+              'type': 'image/png'},
+     'id': 'dStS3qWXwN',
+     'name': 'To-do list',
+     'owner': 'integration-test@airbyte.io',
+     'ownerName': 'Integration Airbyte',
+     'sourceDoc': {'browserLink': 'https://coda.io/d/_dNHzsq4VNYq',
+                   'href': 'https://coda.io/apis/v1/docs/NHzsq4VNYq',
+                   'id': 'NHzsq4VNYq',
+                   'type': 'doc'},
+     'type': 'doc',
+     'updatedAt': '2022-11-16T17:49:02.029Z',
+     'workspace': {'browserLink': 'https://coda.io/docs?workspaceId=ws-GQ9uAxhf-C',
+                   'id': 'ws-GQ9uAxhf-C',
+                   'name': 'airbyte.io',
+                   'type': 'workspace'},
+     'workspaceId': 'ws-GQ9uAxhf-C'}
+ERROR    root:test_core.py:662 
+The pages stream has the following schema errors:
+Additional properties are not allowed ('updatedBy', 'createdBy', 'authors', 'createdAt', 'updatedAt' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'browserLink': {'type': 'string'},
+                    'children': {'authors': {'createdAt': {'type': 'string'},
+                                             'createdBy': {'properties': {'@context': {'type': 'string'},
+                                                                          '@type': {'type': 'string'},
+                                                                          'additionalType': {'type': 'string'},
+                                                                          'email': {'type': 'string'},
+                                                                          'name': {'type': 'string'}},
+                                                           'type': 'object'},
+                                             'items': {'properties': {'@context': {'type': 'string'},
+                                                                      '@type': {'type': 'string'},
+                                                                      'additionalType': {'type': 'string'},
+                                                                      'email': {'type': 'string'},
+                                                                      'name': {'type': 'string'}},
+                                                       'type': 'object'},
+                                             'type': 'array',
+                                             'updatedBy': {'properties': {'@context': {'type': 'string'},
+                                                                          '@type': {'type': 'string'},
+                                                                          'additionalType': {'type': 'string'},
+                                                                          'email': {'type': 'string'},
+                                                                          'name': {'type': 'string'}},
+                                                           'type': 'object'}},
+                                 'items': {'properties': {'browserLink': {'type': 'string'},
+                                                          'href': {'type': 'string'},
+                                                          'id': {'type': 'string'},
+                                                          'name': {'type': 'string'},
+                                                          'type': {'type': 'string'}},
+                                           'type': 'object'},
+                                 'type': 'array'},
+                    'href': {'type': 'string'},
+                    'icon': {'properties': {'browserLink': {'type': 'string'},
+                                            'name': {'type': 'string'},
+                                            'type': {'type': 'string'}},
+                             'type': 'object'},
+                    'id': {'type': 'string'},
+                    'image': {'properties': {'browserLink': {'type': 'string'},
+                                             'height': {'type': 'number'},
+                                             'type': {'type': 'string'},
+                                             'width': {'type': 'number'}},
+                              'type': 'object'},
+                    'name': {'type': 'string'},
+                    'parent': {'properties': {'browserLink': {'type': 'string'},
+                                              'href': {'type': 'string'},
+                                              'id': {'type': 'string'},
+                                              'name': {'type': 'string'},
+                                              'type': {'type': 'string'}},
+                               'type': 'object'},
+                    'subtitle': {'type': 'string'},
+                    'type': {'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'authors': [{'@context': 'http://schema.org/',
+                  '@type': 'Person',
+                  'email': 'integration-test@airbyte.io',
+                  'name': 'Integration Airbyte'}],
+     'browserLink': 'https://coda.io/d/_ddStS3qWXwN/_suclT',
+     'children': [],
+     'createdAt': '2022-11-16T17:49:02.029Z',
+     'createdBy': {'@context': 'http://schema.org/',
+                   '@type': 'Person',
+                   'email': 'integration-test@airbyte.io',
+                   'name': 'Integration Airbyte'},
+     'href': 'https://coda.io/apis/v1/docs/dStS3qWXwN/pages/canvas-pHBsUKpclT',
+     'id': 'canvas-pHBsUKpclT',
+     'name': 'Untitled',
+     'subtitle': '',
+     'type': 'page',
+     'updatedAt': '2022-11-16T17:49:02.029Z',
+     'updatedBy': {'@context': 'http://schema.org/',
+                   '@type': 'Person',
+                   'email': 'integration-test@airbyte.io',
+                   'name': 'Integration Airbyte'}}
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: This connector does not implement incremental sync
+================= 1 failed, 1 skipped, 33 deselected in 30.11s =================

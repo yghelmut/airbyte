@@ -1,0 +1,578 @@
+../../../../connectors/source-prestashop/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-prestashop
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 37 items / 35 deselected / 2 selected
+
+../../test_input/test_core.py F                                          [ 50%]
+../../test_input/test_incremental.py .                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff9abfce80>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='addresses', json_schema={'$schema...: 'full_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+expect_records_config = ExpectedRecordsConfig(bypass_reason=None, path=PosixPath('integration_tests/expected_records.jsonl'), extra_fields=False, exact_order=False, extra_records=True)
+should_validate_schema = True, should_validate_data_points = False
+should_fail_on_extra_columns = True, empty_streams = set(), ignored_fields = {}
+expected_records_by_stream = defaultdict(<class 'list'>, {'addresses': [{'id': 1, 'id_customer': '1', 'id_manufacturer': '0', 'id_supplier': '0', '... '2', 'delimiter1': '0.000000', 'delimiter2': '10000.000000'}], 'zones': [{'id': 1, 'name': 'Europe', 'active': '1'}]})
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff99ecccd0>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='addresses', data={'id': 1, 'id_customer': '1', 'id_manufacturer': '0', '... 'deleted': '0', 'date_add': '2022-05-17 17:50:33', 'date_upd': '2022-05-17 17:50:33'}, emitted_at=1679408779488), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='addresses', json_schema={'$schema...: 'full_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('combinations', 'configurations', 'customers', 'employees', 'orders', 'products', 'shop_groups', 'shops', 'translated_configurations').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe combinations stream has the following schema errors:\n300 is not of type 'string'\n\nFailed validating 'type' in schema['properties']['quantity']:\n    {'type': 'string'}\n\nOn instance['quantity']:\n    300\n--------------------------------------------------------------------------------\n'0000-00-00' is not a 'date'\n\nFailed validating 'format' in schema['properties']['available_date']:\n    {'format': 'date', 'type': ['null', 'string']}\n\nOn instance['available_date']:\n    '0000-00-00'"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe configurations stream has the following schema errors:\n0000-00-00 00:00:00 has invalid datetime format\n\nFailed validating 'format' in schema['properties']['date_add']:\n    {'format': 'date-time', 'type': 'string'}\n\nOn instance['date_add']:\n    '0000-00-00 00:00:00'"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe customers stream has the following schema errors:\n0000-00-00 00:00:00 has invalid datetime format\n\nFailed validating 'format' in schema['properties']['reset_password_validity']:\n    {'format': 'date-time', 'type': ['null', 'string']}\n\nOn instance['reset_password_validity']:\n    '0000-00-00 00:00:00'"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe employees stream has the following schema errors:\n'0000-00-00' is not a 'date'\n\nFailed validating 'format' in schema['properties']['stats_compare_from']:\n    {'format': 'date', 'type': ['null', 'string']}\n\nOn instance['stats_compare_from']:\n    '0000-00-00'\n--------------------------------------------------------------------------------\n'0000-00-00' is not a 'date'\n\nFailed validating 'format' in schema['properties']['stats_compare_to']:\n    {'format': 'date', 'type': ['null', 'string']}\n\nOn instance['stats_compare_to']:\n    '0000-00-00'\n--------------------------------------------------------------------------------\nAdditional properties are not allowed ('has_enabled_gravatar' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'active': {'type': 'string'},\n                    'bo_color': {'type': ['null', 'string']},\n                    'bo_css': {'type': ['null', 'string']},\n                    'bo_menu': {'type': 'string'},\n                    'bo_theme': {'type': ['null', 'string']},\n                    'bo_width': {'type': 'string'},\n                    'default_tab': {'type': 'string'},\n                    'email': {'type': 'string'},\n                    'firstname': {'type': 'string'},\n                    'id': {'type': 'integer'},\n                    'id_lang': {'type': 'string'},\n                    'id_last_customer': {'type': 'string'},\n                    'id_last_customer_message': {'type': 'string'},\n                    'id_last_order': {'type': 'string'},\n                    'id_profile': {'type': 'string'},\n                    'last_passwd_gen': {'type': 'string'},\n                    'lastname': {'type': 'string'},\n                    'passwd': {'type': 'string'},\n                    'preselect_date_range': {'type': ['null', 'string']},\n                    'reset_password_token': {'type': ['null', 'string']},\n                    'reset_password_validity': {'format': 'date-time',\n                                                'type': ['null', 'string']},\n                    'stats_compare_from': {'format': 'date',\n                                           'type': ['null', 'string']},\n                    'stats_compare_option': {'type': 'string'},\n                    'stats_compare_to': {'format': 'date',\n                                         'type': ['null', 'string']},\n                    'stats_date_from': {'format': 'date',\n                                        'type': ['null', 'string']},\n                    'stats_date_to': {'format': 'date',\n                                      'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'active': '1',\n     'bo_color': '',\n     'bo_css': 'theme.css',\n     'bo_menu': '1',\n     'bo_theme': '',\n     'bo_width': '0',\n     'default_tab': '117',\n     'email': 'integration-test@airbyte.io',\n     'firstname': 'Octavia',\n     'has_enabled_gravatar': '0',\n     'id': 2,\n     'id_lang': '1',\n     'id_last_customer': '2',\n     'id_last_customer_message': '0',\n     'id_last_order': '5',\n     'id_profile': '1',\n     'last_passwd_gen': '2022-07-19 12:28:19',\n     'lastname': 'Octopus',\n     'passwd': '$2y$10$clxGYOiCAOAV9.IUx.uIqOwFjL2l4Hnc0SC4xhrjXrDRQLgCu7f82',\n     'preselect_date_range': '',\n     'reset_password_token': '',\n     'reset_password_validity': '0000-00-00 00:00:00',\n     'stats_compare_from': '0000-00-00',\n     'stats_compare_option': '1',\n     'stats_compare_to': '0000-00-00',\n     'stats_date_from': '2022-06-19',\n     'stats_date_to': '2022-07-19'}\n--------------------------------------------------------------------------------\n0000-00-00 00:00:00 has invalid datetime format\n\nFailed validating 'format' in schema['properties']['reset_password_validity']:\n    {'format': 'date-time', 'type': ['null', 'string']}\n\nOn instance['reset_password_validity']:\n    '0000-00-00 00:00:00'"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe orders stream has the following schema errors:\nAdditional properties are not allowed ('note' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'associations': {'properties': {'order_rows': {'items': {'properties': {'id': {'type': 'string'},\n                                                                                            'id_customization': {'type': 'string'},\n                                                                                            'product_attribute_id': {'type': 'string'},\n                                                                                            'product_ean13': {'type': 'string'},\n                                                                                            'product_id': {'type': 'string'},\n                                                                                            'product_isbn': {'type': 'string'},\n                                                                                            'product_name': {'type': 'string'},\n                                                                                            'product_price': {'type': 'string'},\n                                                                                            'product_quantity': {'type': 'string'},\n                                                                                            'product_reference': {'type': 'string'},\n                                                                                            'product_upc': {'type': 'string'},\n                                                                                            'unit_price_tax_excl': {'type': 'string'},\n                                                                                            'unit_price_tax_incl': {'type': 'string'}},\n                                                                             'type': 'object'},\n                                                                   'type': 'array'}},\n                                     'type': 'object'},\n                    'carrier_tax_rate': {'type': 'string'},\n                    'conversion_rate': {'type': 'string'},\n                    'current_state': {'type': 'string'},\n                    'date_add': {'format': 'date-time', 'type': 'string'},\n                    'date_upd': {'format': 'date-time', 'type': 'string'},\n                    'delivery_date': {'type': 'string'},\n                    'delivery_number': {'type': 'string'},\n                    'gift': {'type': 'string'},\n                    'gift_message': {'type': 'string'},\n                    'id': {'type': 'integer'},\n                    'id_address_delivery': {'type': 'string'},\n                    'id_address_invoice': {'type': 'string'},\n                    'id_carrier': {'type': 'string'},\n                    'id_cart': {'type': 'string'},\n                    'id_currency': {'type': 'string'},\n                    'id_customer': {'type': 'string'},\n                    'id_lang': {'type': 'string'},\n                    'id_shop': {'type': 'string'},\n                    'id_shop_group': {'type': 'string'},\n                    'invoice_date': {'type': 'string'},\n                    'invoice_number': {'type': 'string'},\n                    'mobile_theme': {'type': 'string'},\n                    'module': {'type': 'string'},\n                    'payment': {'type': 'string'},\n                    'recyclable': {'type': 'string'},\n                    'reference': {'type': 'string'},\n                    'round_mode': {'type': 'string'},\n                    'round_type': {'type': 'string'},\n                    'secure_key': {'type': 'string'},\n                    'shipping_number': {'type': 'string'},\n                    'total_discounts': {'type': 'string'},\n                    'total_discounts_tax_excl': {'type': 'string'},\n                    'total_discounts_tax_incl': {'type': 'string'},\n                    'total_paid': {'type': 'string'},\n                    'total_paid_real': {'type': 'string'},\n                    'total_paid_tax_excl': {'type': 'string'},\n                    'total_paid_tax_incl': {'type': 'string'},\n                    'total_products': {'type': 'string'},\n                    'total_products_wt': {'type': 'string'},\n                    'total_shipping': {'type': 'string'},\n                    'total_shipping_tax_excl': {'type': 'string'},\n                    'total_shipping_tax_incl': {'type': 'string'},\n                    'total_wrapping': {'type': 'string'},\n                    'total_wrapping_tax_excl': {'type': 'string'},\n                    'total_wrapping_tax_incl': {'type': 'string'},\n                    'valid': {'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'associations': {'order_rows': [{'id': '7',\n                                      'id_customization': '0',\n                                      'product_attribute_id': '25',\n                                      'product_ean13': '',\n                                      'product_id': '10',\n                                      'product_isbn': '',\n                                      'product_name': 'Brown bear cushion '\n                                                      'Color : Black',\n                                      'product_price': '18.900000',\n                                      'product_quantity': '1',\n                                      'product_reference': 'demo_16',\n                                      'product_upc': '',\n                                      'unit_price_tax_excl': '18.900000',\n                                      'unit_price_tax_incl': '18.900000'}]},\n     'carrier_tax_rate': '0.000',\n     'conversion_rate': '1.000000',\n     'current_state': '10',\n     'date_add': '2022-05-17 17:50:34',\n     'date_upd': '2022-05-17 17:50:34',\n     'delivery_date': '0000-00-00 00:00:00',\n     'delivery_number': '0',\n     'gift': '0',\n     'gift_message': '',\n     'id': 5,\n     'id_address_delivery': '5',\n     'id_address_invoice': '5',\n     'id_carrier': '2',\n     'id_cart': '5',\n     'id_currency': '1',\n     'id_customer': '2',\n     'id_lang': '1',\n     'id_shop': '1',\n     'id_shop_group': '1',\n     'invoice_date': '0000-00-00 00:00:00',\n     'invoice_number': '0',\n     'mobile_theme': '0',\n     'module': 'ps_wirepayment',\n     'note': '',\n     'payment': 'Bank wire',\n     'recyclable': '0',\n     'reference': 'KHWLILZLL',\n     'round_mode': '0',\n     'round_type': '0',\n     'secure_key': 'b44a6d9efd7a0076a0fbce6b15eaf3b1',\n     'shipping_number': '',\n     'total_discounts': '0.000000',\n     'total_discounts_tax_excl': '0.000000',\n     'total_discounts_tax_incl': '0.000000',\n     'total_paid': '20.900000',\n     'total_paid_real': '0.000000',\n     'total_paid_tax_excl': '25.900000',\n     'total_paid_tax_incl': '27.300000',\n     'total_products': '18.900000',\n     'total_products_wt': '18.900000',\n     'total_shipping': '7.000000',\n     'total_shipping_tax_excl': '7.000000',\n     'total_shipping_tax_incl': '8.400000',\n     'total_wrapping': '0.000000',\n     'total_wrapping_tax_excl': '0.000000',\n     'total_wrapping_tax_incl': '0.000000',\n     'valid': '0'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe products stream has the following schema errors:\nAdditional properties are not allowed ('product_type' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'active': {'type': 'string'},\n                    'additional_delivery_times': {'type': 'string'},\n                    'additional_shipping_cost': {'type': 'string'},\n                    'advanced_stock_management': {'type': 'string'},\n                    'associations': {'properties': {'categories': {'items': {'properties': {'id': {'type': 'string'}},\n                                                                             'type': 'object'},\n                                                                   'type': 'array'},\n                                                    'images': {'items': {'properties': {'id': {'type': 'string'}},\n                                                                         'type': 'object'},\n                                                               'type': 'array'},\n                                                    'stock_availables': {'items': {'properties': {'id': {'type': 'string'},\n                                                                                                  'id_product_attribute': {'type': 'string'}},\n                                                                                   'type': 'object'},\n                                                                         'type': 'array'}},\n                                     'type': 'object'},\n                    'available_date': {'type': 'string'},\n                    'available_for_order': {'type': 'string'},\n                    'available_later': {'type': 'string'},\n                    'available_now': {'type': 'string'},\n                    'cache_default_attribute': {'type': 'string'},\n                    'cache_has_attachments': {'type': 'string'},\n                    'cache_is_pack': {'type': 'string'},\n                    'condition': {'type': 'string'},\n                    'customizable': {'type': 'string'},\n                    'date_add': {'format': 'date-time', 'type': 'string'},\n                    'date_upd': {'format': 'date-time', 'type': 'string'},\n                    'delivery_in_stock': {'type': 'string'},\n                    'delivery_out_stock': {'type': 'string'},\n                    'depth': {'type': 'string'},\n                    'description': {'type': 'string'},\n                    'description_short': {'type': 'string'},\n                    'ean13': {'type': 'string'},\n                    'ecotax': {'type': 'string'},\n                    'height': {'type': 'string'},\n                    'id': {'type': 'integer'},\n                    'id_category_default': {'type': 'string'},\n                    'id_default_combination': {'type': ['integer',\n                                                        'string']},\n                    'id_default_image': {'type': 'string'},\n                    'id_manufacturer': {'type': 'string'},\n                    'id_shop_default': {'type': 'string'},\n                    'id_supplier': {'type': 'string'},\n                    'id_tax_rules_group': {'type': 'string'},\n                    'id_type_redirected': {'type': 'string'},\n                    'indexed': {'type': 'string'},\n                    'is_virtual': {'type': 'string'},\n                    'isbn': {'type': 'string'},\n                    'link_rewrite': {'type': 'string'},\n                    'location': {'type': 'string'},\n                    'low_stock_alert': {'type': 'string'},\n                    'low_stock_threshold': {'type': ['null', 'string']},\n                    'manufacturer_name': {'type': ['string', 'boolean']},\n                    'meta_description': {'type': 'string'},\n                    'meta_keywords': {'type': 'string'},\n                    'meta_title': {'type': 'string'},\n                    'minimal_quantity': {'type': 'string'},\n                    'mpn': {'type': 'string'},\n                    'name': {'type': 'string'},\n                    'new': {'type': ['null', 'string']},\n                    'on_sale': {'type': 'string'},\n                    'online_only': {'type': 'string'},\n                    'pack_stock_type': {'type': 'string'},\n                    'position_in_category': {'type': 'string'},\n                    'price': {'type': 'string'},\n                    'quantity': {'type': 'string'},\n                    'quantity_discount': {'type': 'string'},\n                    'redirect_type': {'type': 'string'},\n                    'reference': {'type': 'string'},\n                    'show_condition': {'type': 'string'},\n                    'show_price': {'type': 'string'},\n                    'state': {'type': 'string'},\n                    'supplier_reference': {'type': 'string'},\n                    'text_fields': {'type': 'string'},\n                    'type': {'type': 'string'},\n                    'unit_price_ratio': {'type': 'string'},\n                    'unity': {'type': 'string'},\n                    'upc': {'type': 'string'},\n                    'uploadable_files': {'type': 'string'},\n                    'visibility': {'type': 'string'},\n                    'weight': {'type': 'string'},\n                    'wholesale_price': {'type': 'string'},\n                    'width': {'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'active': '1',\n     'additional_delivery_times': '1',\n     'additional_shipping_cost': '0.000000',\n     'advanced_stock_management': '0',\n     'associations': {'categories': [{'id': '2'}, {'id': '6'}, {'id': '8'}],\n                      'images': [{'id': '22'}],\n                      'product_features': [{'id': '1',\n                                            'id_feature_value': '3'}],\n                      'stock_availables': [{'id': '19',\n                                            'id_product_attribute': '0'}]},\n     'available_date': '0000-00-00',\n     'available_for_order': '1',\n     'available_later': '',\n     'available_now': '',\n     'cache_default_attribute': '0',\n     'cache_has_attachments': '0',\n     'cache_is_pack': '0',\n     'condition': 'new',\n     'customizable': '1',\n     'date_add': '2022-05-17 17:50:34',\n     'date_upd': '2022-05-17 17:50:34',\n     'delivery_in_stock': '',\n     'delivery_out_stock': '',\n     'depth': '0.000000',\n     'description': '<p>Customize your mug with the text of your choice. A '\n                    \"mood, a message, a quote... It's up to you! Maximum \"\n                    'number of characters: ---</p>',\n     'description_short': '<p>White Ceramic Mug. 325ml</p>',\n     'ean13': '',\n     'ecotax': '0.000000',\n     'height': '0.000000',\n     'id': 19,\n     'id_category_default': '8',\n     'id_default_combination': 0,\n     'id_default_image': '22',\n     'id_manufacturer': '1',\n     'id_shop_default': '1',\n     'id_supplier': '2',\n     'id_tax_rules_group': '9',\n     'id_type_redirected': '0',\n     'indexed': '1',\n     'is_virtual': '0',\n     'isbn': '',\n     'link_rewrite': 'customizable-mug',\n     'location': '',\n     'low_stock_alert': '0',\n     'low_stock_threshold': None,\n     'manufacturer_name': 'Studio Design',\n     'meta_description': '',\n     'meta_keywords': '',\n     'meta_title': '',\n     'minimal_quantity': '1',\n     'mpn': '',\n     'name': 'Customizable mug',\n     'new': None,\n     'on_sale': '0',\n     'online_only': '0',\n     'pack_stock_type': '3',\n     'position_in_category': '8',\n     'price': '13.900000',\n     'product_type': 'standard',\n     'quantity': '0',\n     'quantity_discount': '0',\n     'redirect_type': '301-category',\n     'reference': 'demo_14',\n     'show_condition': '0',\n     'show_price': '1',\n     'state': '1',\n     'supplier_reference': '',\n     'text_fields': '1',\n     'type': 'simple',\n     'unit_price_ratio': '0.000000',\n     'unity': '',\n     'upc': '',\n     'uploadable_files': '0',\n     'visibility': 'both',\n     'weight': '0.300000',\n     'wholesale_price': '0.000000',\n     'width': '0.000000'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe shop_groups stream has the following schema errors:\nAdditional properties are not allowed ('color' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'active': {'type': 'string'},\n                    'deleted': {'type': 'string'},\n                    'id': {'type': 'integer'},\n                    'name': {'type': 'string'},\n                    'share_customer': {'type': 'string'},\n                    'share_order': {'type': 'string'},\n                    'share_stock': {'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'active': '1',\n     'color': '',\n     'deleted': '0',\n     'id': 1,\n     'name': 'Default',\n     'share_customer': '0',\n     'share_order': '0',\n     'share_stock': '0'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe shops stream has the following schema errors:\nAdditional properties are not allowed ('color' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'active': {'type': 'string'},\n                    'deleted': {'type': 'string'},\n                    'id': {'type': 'integer'},\n                    'id_category': {'type': 'string'},\n                    'id_shop_group': {'type': 'string'},\n                    'name': {'type': 'string'},\n                    'theme_name': {'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'active': '1',\n     'color': '',\n     'deleted': '0',\n     'id': 1,\n     'id_category': '2',\n     'id_shop_group': '1',\n     'name': 'My shop',\n     'theme_name': 'classic'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe translated_configurations stream has the following schema errors:\n0000-00-00 00:00:00 has invalid datetime format\n\nFailed validating 'format' in schema['properties']['date_add']:\n    {'format': 'date-time', 'type': 'string'}\n\nOn instance['date_add']:\n    '0000-00-00 00:00:00'"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The combinations stream has the following schema errors:
+300 is not of type 'string'
+
+Failed validating 'type' in schema['properties']['quantity']:
+    {'type': 'string'}
+
+On instance['quantity']:
+    300
+--------------------------------------------------------------------------------
+'0000-00-00' is not a 'date'
+
+Failed validating 'format' in schema['properties']['available_date']:
+    {'format': 'date', 'type': ['null', 'string']}
+
+On instance['available_date']:
+    '0000-00-00'
+ERROR    root:test_core.py:662 
+The configurations stream has the following schema errors:
+0000-00-00 00:00:00 has invalid datetime format
+
+Failed validating 'format' in schema['properties']['date_add']:
+    {'format': 'date-time', 'type': 'string'}
+
+On instance['date_add']:
+    '0000-00-00 00:00:00'
+ERROR    root:test_core.py:662 
+The customers stream has the following schema errors:
+0000-00-00 00:00:00 has invalid datetime format
+
+Failed validating 'format' in schema['properties']['reset_password_validity']:
+    {'format': 'date-time', 'type': ['null', 'string']}
+
+On instance['reset_password_validity']:
+    '0000-00-00 00:00:00'
+ERROR    root:test_core.py:662 
+The employees stream has the following schema errors:
+'0000-00-00' is not a 'date'
+
+Failed validating 'format' in schema['properties']['stats_compare_from']:
+    {'format': 'date', 'type': ['null', 'string']}
+
+On instance['stats_compare_from']:
+    '0000-00-00'
+--------------------------------------------------------------------------------
+'0000-00-00' is not a 'date'
+
+Failed validating 'format' in schema['properties']['stats_compare_to']:
+    {'format': 'date', 'type': ['null', 'string']}
+
+On instance['stats_compare_to']:
+    '0000-00-00'
+--------------------------------------------------------------------------------
+Additional properties are not allowed ('has_enabled_gravatar' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'active': {'type': 'string'},
+                    'bo_color': {'type': ['null', 'string']},
+                    'bo_css': {'type': ['null', 'string']},
+                    'bo_menu': {'type': 'string'},
+                    'bo_theme': {'type': ['null', 'string']},
+                    'bo_width': {'type': 'string'},
+                    'default_tab': {'type': 'string'},
+                    'email': {'type': 'string'},
+                    'firstname': {'type': 'string'},
+                    'id': {'type': 'integer'},
+                    'id_lang': {'type': 'string'},
+                    'id_last_customer': {'type': 'string'},
+                    'id_last_customer_message': {'type': 'string'},
+                    'id_last_order': {'type': 'string'},
+                    'id_profile': {'type': 'string'},
+                    'last_passwd_gen': {'type': 'string'},
+                    'lastname': {'type': 'string'},
+                    'passwd': {'type': 'string'},
+                    'preselect_date_range': {'type': ['null', 'string']},
+                    'reset_password_token': {'type': ['null', 'string']},
+                    'reset_password_validity': {'format': 'date-time',
+                                                'type': ['null', 'string']},
+                    'stats_compare_from': {'format': 'date',
+                                           'type': ['null', 'string']},
+                    'stats_compare_option': {'type': 'string'},
+                    'stats_compare_to': {'format': 'date',
+                                         'type': ['null', 'string']},
+                    'stats_date_from': {'format': 'date',
+                                        'type': ['null', 'string']},
+                    'stats_date_to': {'format': 'date',
+                                      'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'active': '1',
+     'bo_color': '',
+     'bo_css': 'theme.css',
+     'bo_menu': '1',
+     'bo_theme': '',
+     'bo_width': '0',
+     'default_tab': '117',
+     'email': 'integration-test@airbyte.io',
+     'firstname': 'Octavia',
+     'has_enabled_gravatar': '0',
+     'id': 2,
+     'id_lang': '1',
+     'id_last_customer': '2',
+     'id_last_customer_message': '0',
+     'id_last_order': '5',
+     'id_profile': '1',
+     'last_passwd_gen': '2022-07-19 12:28:19',
+     'lastname': 'Octopus',
+     'passwd': '$2y$10$clxGYOiCAOAV9.IUx.uIqOwFjL2l4Hnc0SC4xhrjXrDRQLgCu7f82',
+     'preselect_date_range': '',
+     'reset_password_token': '',
+     'reset_password_validity': '0000-00-00 00:00:00',
+     'stats_compare_from': '0000-00-00',
+     'stats_compare_option': '1',
+     'stats_compare_to': '0000-00-00',
+     'stats_date_from': '2022-06-19',
+     'stats_date_to': '2022-07-19'}
+--------------------------------------------------------------------------------
+0000-00-00 00:00:00 has invalid datetime format
+
+Failed validating 'format' in schema['properties']['reset_password_validity']:
+    {'format': 'date-time', 'type': ['null', 'string']}
+
+On instance['reset_password_validity']:
+    '0000-00-00 00:00:00'
+ERROR    root:test_core.py:662 
+The orders stream has the following schema errors:
+Additional properties are not allowed ('note' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'associations': {'properties': {'order_rows': {'items': {'properties': {'id': {'type': 'string'},
+                                                                                            'id_customization': {'type': 'string'},
+                                                                                            'product_attribute_id': {'type': 'string'},
+                                                                                            'product_ean13': {'type': 'string'},
+                                                                                            'product_id': {'type': 'string'},
+                                                                                            'product_isbn': {'type': 'string'},
+                                                                                            'product_name': {'type': 'string'},
+                                                                                            'product_price': {'type': 'string'},
+                                                                                            'product_quantity': {'type': 'string'},
+                                                                                            'product_reference': {'type': 'string'},
+                                                                                            'product_upc': {'type': 'string'},
+                                                                                            'unit_price_tax_excl': {'type': 'string'},
+                                                                                            'unit_price_tax_incl': {'type': 'string'}},
+                                                                             'type': 'object'},
+                                                                   'type': 'array'}},
+                                     'type': 'object'},
+                    'carrier_tax_rate': {'type': 'string'},
+                    'conversion_rate': {'type': 'string'},
+                    'current_state': {'type': 'string'},
+                    'date_add': {'format': 'date-time', 'type': 'string'},
+                    'date_upd': {'format': 'date-time', 'type': 'string'},
+                    'delivery_date': {'type': 'string'},
+                    'delivery_number': {'type': 'string'},
+                    'gift': {'type': 'string'},
+                    'gift_message': {'type': 'string'},
+                    'id': {'type': 'integer'},
+                    'id_address_delivery': {'type': 'string'},
+                    'id_address_invoice': {'type': 'string'},
+                    'id_carrier': {'type': 'string'},
+                    'id_cart': {'type': 'string'},
+                    'id_currency': {'type': 'string'},
+                    'id_customer': {'type': 'string'},
+                    'id_lang': {'type': 'string'},
+                    'id_shop': {'type': 'string'},
+                    'id_shop_group': {'type': 'string'},
+                    'invoice_date': {'type': 'string'},
+                    'invoice_number': {'type': 'string'},
+                    'mobile_theme': {'type': 'string'},
+                    'module': {'type': 'string'},
+                    'payment': {'type': 'string'},
+                    'recyclable': {'type': 'string'},
+                    'reference': {'type': 'string'},
+                    'round_mode': {'type': 'string'},
+                    'round_type': {'type': 'string'},
+                    'secure_key': {'type': 'string'},
+                    'shipping_number': {'type': 'string'},
+                    'total_discounts': {'type': 'string'},
+                    'total_discounts_tax_excl': {'type': 'string'},
+                    'total_discounts_tax_incl': {'type': 'string'},
+                    'total_paid': {'type': 'string'},
+                    'total_paid_real': {'type': 'string'},
+                    'total_paid_tax_excl': {'type': 'string'},
+                    'total_paid_tax_incl': {'type': 'string'},
+                    'total_products': {'type': 'string'},
+                    'total_products_wt': {'type': 'string'},
+                    'total_shipping': {'type': 'string'},
+                    'total_shipping_tax_excl': {'type': 'string'},
+                    'total_shipping_tax_incl': {'type': 'string'},
+                    'total_wrapping': {'type': 'string'},
+                    'total_wrapping_tax_excl': {'type': 'string'},
+                    'total_wrapping_tax_incl': {'type': 'string'},
+                    'valid': {'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'associations': {'order_rows': [{'id': '7',
+                                      'id_customization': '0',
+                                      'product_attribute_id': '25',
+                                      'product_ean13': '',
+                                      'product_id': '10',
+                                      'product_isbn': '',
+                                      'product_name': 'Brown bear cushion '
+                                                      'Color : Black',
+                                      'product_price': '18.900000',
+                                      'product_quantity': '1',
+                                      'product_reference': 'demo_16',
+                                      'product_upc': '',
+                                      'unit_price_tax_excl': '18.900000',
+                                      'unit_price_tax_incl': '18.900000'}]},
+     'carrier_tax_rate': '0.000',
+     'conversion_rate': '1.000000',
+     'current_state': '10',
+     'date_add': '2022-05-17 17:50:34',
+     'date_upd': '2022-05-17 17:50:34',
+     'delivery_date': '0000-00-00 00:00:00',
+     'delivery_number': '0',
+     'gift': '0',
+     'gift_message': '',
+     'id': 5,
+     'id_address_delivery': '5',
+     'id_address_invoice': '5',
+     'id_carrier': '2',
+     'id_cart': '5',
+     'id_currency': '1',
+     'id_customer': '2',
+     'id_lang': '1',
+     'id_shop': '1',
+     'id_shop_group': '1',
+     'invoice_date': '0000-00-00 00:00:00',
+     'invoice_number': '0',
+     'mobile_theme': '0',
+     'module': 'ps_wirepayment',
+     'note': '',
+     'payment': 'Bank wire',
+     'recyclable': '0',
+     'reference': 'KHWLILZLL',
+     'round_mode': '0',
+     'round_type': '0',
+     'secure_key': 'b44a6d9efd7a0076a0fbce6b15eaf3b1',
+     'shipping_number': '',
+     'total_discounts': '0.000000',
+     'total_discounts_tax_excl': '0.000000',
+     'total_discounts_tax_incl': '0.000000',
+     'total_paid': '20.900000',
+     'total_paid_real': '0.000000',
+     'total_paid_tax_excl': '25.900000',
+     'total_paid_tax_incl': '27.300000',
+     'total_products': '18.900000',
+     'total_products_wt': '18.900000',
+     'total_shipping': '7.000000',
+     'total_shipping_tax_excl': '7.000000',
+     'total_shipping_tax_incl': '8.400000',
+     'total_wrapping': '0.000000',
+     'total_wrapping_tax_excl': '0.000000',
+     'total_wrapping_tax_incl': '0.000000',
+     'valid': '0'}
+ERROR    root:test_core.py:662 
+The products stream has the following schema errors:
+Additional properties are not allowed ('product_type' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'active': {'type': 'string'},
+                    'additional_delivery_times': {'type': 'string'},
+                    'additional_shipping_cost': {'type': 'string'},
+                    'advanced_stock_management': {'type': 'string'},
+                    'associations': {'properties': {'categories': {'items': {'properties': {'id': {'type': 'string'}},
+                                                                             'type': 'object'},
+                                                                   'type': 'array'},
+                                                    'images': {'items': {'properties': {'id': {'type': 'string'}},
+                                                                         'type': 'object'},
+                                                               'type': 'array'},
+                                                    'stock_availables': {'items': {'properties': {'id': {'type': 'string'},
+                                                                                                  'id_product_attribute': {'type': 'string'}},
+                                                                                   'type': 'object'},
+                                                                         'type': 'array'}},
+                                     'type': 'object'},
+                    'available_date': {'type': 'string'},
+                    'available_for_order': {'type': 'string'},
+                    'available_later': {'type': 'string'},
+                    'available_now': {'type': 'string'},
+                    'cache_default_attribute': {'type': 'string'},
+                    'cache_has_attachments': {'type': 'string'},
+                    'cache_is_pack': {'type': 'string'},
+                    'condition': {'type': 'string'},
+                    'customizable': {'type': 'string'},
+                    'date_add': {'format': 'date-time', 'type': 'string'},
+                    'date_upd': {'format': 'date-time', 'type': 'string'},
+                    'delivery_in_stock': {'type': 'string'},
+                    'delivery_out_stock': {'type': 'string'},
+                    'depth': {'type': 'string'},
+                    'description': {'type': 'string'},
+                    'description_short': {'type': 'string'},
+                    'ean13': {'type': 'string'},
+                    'ecotax': {'type': 'string'},
+                    'height': {'type': 'string'},
+                    'id': {'type': 'integer'},
+                    'id_category_default': {'type': 'string'},
+                    'id_default_combination': {'type': ['integer',
+                                                        'string']},
+                    'id_default_image': {'type': 'string'},
+                    'id_manufacturer': {'type': 'string'},
+                    'id_shop_default': {'type': 'string'},
+                    'id_supplier': {'type': 'string'},
+                    'id_tax_rules_group': {'type': 'string'},
+                    'id_type_redirected': {'type': 'string'},
+                    'indexed': {'type': 'string'},
+                    'is_virtual': {'type': 'string'},
+                    'isbn': {'type': 'string'},
+                    'link_rewrite': {'type': 'string'},
+                    'location': {'type': 'string'},
+                    'low_stock_alert': {'type': 'string'},
+                    'low_stock_threshold': {'type': ['null', 'string']},
+                    'manufacturer_name': {'type': ['string', 'boolean']},
+                    'meta_description': {'type': 'string'},
+                    'meta_keywords': {'type': 'string'},
+                    'meta_title': {'type': 'string'},
+                    'minimal_quantity': {'type': 'string'},
+                    'mpn': {'type': 'string'},
+                    'name': {'type': 'string'},
+                    'new': {'type': ['null', 'string']},
+                    'on_sale': {'type': 'string'},
+                    'online_only': {'type': 'string'},
+                    'pack_stock_type': {'type': 'string'},
+                    'position_in_category': {'type': 'string'},
+                    'price': {'type': 'string'},
+                    'quantity': {'type': 'string'},
+                    'quantity_discount': {'type': 'string'},
+                    'redirect_type': {'type': 'string'},
+                    'reference': {'type': 'string'},
+                    'show_condition': {'type': 'string'},
+                    'show_price': {'type': 'string'},
+                    'state': {'type': 'string'},
+                    'supplier_reference': {'type': 'string'},
+                    'text_fields': {'type': 'string'},
+                    'type': {'type': 'string'},
+                    'unit_price_ratio': {'type': 'string'},
+                    'unity': {'type': 'string'},
+                    'upc': {'type': 'string'},
+                    'uploadable_files': {'type': 'string'},
+                    'visibility': {'type': 'string'},
+                    'weight': {'type': 'string'},
+                    'wholesale_price': {'type': 'string'},
+                    'width': {'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'active': '1',
+     'additional_delivery_times': '1',
+     'additional_shipping_cost': '0.000000',
+     'advanced_stock_management': '0',
+     'associations': {'categories': [{'id': '2'}, {'id': '6'}, {'id': '8'}],
+                      'images': [{'id': '22'}],
+                      'product_features': [{'id': '1',
+                                            'id_feature_value': '3'}],
+                      'stock_availables': [{'id': '19',
+                                            'id_product_attribute': '0'}]},
+     'available_date': '0000-00-00',
+     'available_for_order': '1',
+     'available_later': '',
+     'available_now': '',
+     'cache_default_attribute': '0',
+     'cache_has_attachments': '0',
+     'cache_is_pack': '0',
+     'condition': 'new',
+     'customizable': '1',
+     'date_add': '2022-05-17 17:50:34',
+     'date_upd': '2022-05-17 17:50:34',
+     'delivery_in_stock': '',
+     'delivery_out_stock': '',
+     'depth': '0.000000',
+     'description': '<p>Customize your mug with the text of your choice. A '
+                    "mood, a message, a quote... It's up to you! Maximum "
+                    'number of characters: ---</p>',
+     'description_short': '<p>White Ceramic Mug. 325ml</p>',
+     'ean13': '',
+     'ecotax': '0.000000',
+     'height': '0.000000',
+     'id': 19,
+     'id_category_default': '8',
+     'id_default_combination': 0,
+     'id_default_image': '22',
+     'id_manufacturer': '1',
+     'id_shop_default': '1',
+     'id_supplier': '2',
+     'id_tax_rules_group': '9',
+     'id_type_redirected': '0',
+     'indexed': '1',
+     'is_virtual': '0',
+     'isbn': '',
+     'link_rewrite': 'customizable-mug',
+     'location': '',
+     'low_stock_alert': '0',
+     'low_stock_threshold': None,
+     'manufacturer_name': 'Studio Design',
+     'meta_description': '',
+     'meta_keywords': '',
+     'meta_title': '',
+     'minimal_quantity': '1',
+     'mpn': '',
+     'name': 'Customizable mug',
+     'new': None,
+     'on_sale': '0',
+     'online_only': '0',
+     'pack_stock_type': '3',
+     'position_in_category': '8',
+     'price': '13.900000',
+     'product_type': 'standard',
+     'quantity': '0',
+     'quantity_discount': '0',
+     'redirect_type': '301-category',
+     'reference': 'demo_14',
+     'show_condition': '0',
+     'show_price': '1',
+     'state': '1',
+     'supplier_reference': '',
+     'text_fields': '1',
+     'type': 'simple',
+     'unit_price_ratio': '0.000000',
+     'unity': '',
+     'upc': '',
+     'uploadable_files': '0',
+     'visibility': 'both',
+     'weight': '0.300000',
+     'wholesale_price': '0.000000',
+     'width': '0.000000'}
+ERROR    root:test_core.py:662 
+The shop_groups stream has the following schema errors:
+Additional properties are not allowed ('color' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'active': {'type': 'string'},
+                    'deleted': {'type': 'string'},
+                    'id': {'type': 'integer'},
+                    'name': {'type': 'string'},
+                    'share_customer': {'type': 'string'},
+                    'share_order': {'type': 'string'},
+                    'share_stock': {'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'active': '1',
+     'color': '',
+     'deleted': '0',
+     'id': 1,
+     'name': 'Default',
+     'share_customer': '0',
+     'share_order': '0',
+     'share_stock': '0'}
+ERROR    root:test_core.py:662 
+The shops stream has the following schema errors:
+Additional properties are not allowed ('color' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'active': {'type': 'string'},
+                    'deleted': {'type': 'string'},
+                    'id': {'type': 'integer'},
+                    'id_category': {'type': 'string'},
+                    'id_shop_group': {'type': 'string'},
+                    'name': {'type': 'string'},
+                    'theme_name': {'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'active': '1',
+     'color': '',
+     'deleted': '0',
+     'id': 1,
+     'id_category': '2',
+     'id_shop_group': '1',
+     'name': 'My shop',
+     'theme_name': 'classic'}
+ERROR    root:test_core.py:662 
+The translated_configurations stream has the following schema errors:
+0000-00-00 00:00:00 has invalid datetime format
+
+Failed validating 'format' in schema['properties']['date_add']:
+    {'format': 'date-time', 'type': 'string'}
+
+On instance['date_add']:
+    '0000-00-00 00:00:00'
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+============ 1 failed, 1 passed, 35 deselected in 371.28s (0:06:11) ============

@@ -1,0 +1,14 @@
+../../../../connectors/source-polygon-stock-api/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-polygon-stock-api
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py .                                          [100%]
+
+
+=========================== short test summary info ============================
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: This connector does not implement incremental sync
+================= 1 passed, 1 skipped, 33 deselected in 4.10s ==================

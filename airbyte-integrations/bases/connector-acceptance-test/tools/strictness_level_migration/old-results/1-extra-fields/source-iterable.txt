@@ -1,0 +1,485 @@
+../../../../connectors/source-iterable/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-iterable
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 37 items / 35 deselected / 2 selected
+
+../../test_input/test_core.py F                                          [ 50%]
+../../test_input/test_incremental.py .                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff97700d30>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='campaigns', json_schema={'propert...: 'full_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+expect_records_config = ExpectedRecordsConfig(bypass_reason=None, path=PosixPath('integration_tests/expected_records.jsonl'), extra_fields=False, exact_order=False, extra_records=True)
+should_validate_schema = True, should_validate_data_points = False
+should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='in_app_close', bypass_reason='Can not populate; need messaging service configured'), E...mptyStreamConfiguration(name='sms_received', bypass_reason='Can not populate; need messaging service configured'), ...}
+ignored_fields = {}
+expected_records_by_stream = defaultdict(<class 'list'>, {'campaigns': [{'id': 5967603, 'createdAt': 1674142638148, 'updatedAt': 1674477570545, 'st...: 'ListAPI', 'userId': 'new-fake-user-number-31', 'emailListIds': [949810], 'channelIds': [], 'messageTypeIds': []}}]})
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff97697eb0>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='campaigns', data={'id': 2220229, 'createdAt': 1618417387154, 'updatedAt'..., 'Unique Unsubscribes': 0, 'Unique Web Push Clicks': 0, 'Unique Web Pushes Sent': 0}}, emitted_at=1679407760013), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='campaigns', json_schema={'propert...: 'full_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('message_types', 'users', 'email_bounce', 'email_send', 'email_subscribe', 'email_unsubscribe').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The configured catalog was built with the discovered catalog from which the following empty streams were removed: in_app_close, sms_usage_info, email_send_skip, inbox_message_impression, in_app_send_skip, sms_received, in_app_delivery, sms_bounce, web_push_click, hosted_unsubscribe_click, inbox_session, in_app_click, in_app_open, sms_send_skip, in_app_send, email_complaint, push_uninstall, sms_click, purchase, custom_event, in_app_delete, web_push_send, push_open, push_send_skip, push_send, push_bounce, sms_send, web_push_send_skip."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:common.py:149 The configured catalog was built with the discovered catalog from which the following empty streams were removed: in_app_close, sms_usage_info, email_send_skip, inbox_message_impression, in_app_send_skip, sms_received, in_app_delivery, sms_bounce, web_push_click, hosted_unsubscribe_click, inbox_session, in_app_click, in_app_open, sms_send_skip, in_app_send, email_complaint, push_uninstall, sms_click, purchase, custom_event, in_app_delete, web_push_send, push_open, push_send_skip, push_send, push_bounce, sms_send, web_push_send_skip.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe message_types stream has the following schema errors:\nAdditional properties are not allowed ('createdAt', 'subscriptionPolicy', 'updatedAt' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'channelId': {'type': ['null', 'number']},\n                    'id': {'type': ['null', 'number']},\n                    'name': {'type': ['null', 'string']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'channelId': 39581,\n     'createdAt': 1610048394730,\n     'id': 47257,\n     'name': 'Marketing Message',\n     'subscriptionPolicy': 'OptOut',\n     'updatedAt': 1610048394730}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe users stream has the following schema errors:\nAdditional properties are not allowed ('itblInternal.emailDomain' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'accepts_marketing': {'type': ['null', 'boolean']},\n                    'address1': {'type': ['null', 'string']},\n                    'addresses': {'items': {'properties': {'address1': {'type': ['null',\n                                                                                 'string']},\n                                                           'address2': {'type': ['null',\n                                                                                 'string']},\n                                                           'city': {'type': ['null',\n                                                                             'string']},\n                                                           'company': {'type': ['null',\n                                                                                'string']},\n                                                           'country': {'type': ['null',\n                                                                                'string']},\n                                                           'country_code': {'type': ['null',\n                                                                                     'string']},\n                                                           'country_name': {'type': ['null',\n                                                                                     'string']},\n                                                           'default': {'type': ['null',\n                                                                                'boolean']},\n                                                           'first_name': {'type': ['null',\n                                                                                   'string']},\n                                                           'id': {'type': ['null',\n                                                                           'string']},\n                                                           'last_name': {'type': ['null',\n                                                                                  'string']},\n                                                           'name': {'type': ['null',\n                                                                             'string']},\n                                                           'phone': {'type': ['null',\n                                                                              'string']},\n                                                           'province': {'type': ['null',\n                                                                                 'string']},\n                                                           'province_code': {'type': ['null',\n                                                                                      'string']},\n                                                           'zip': {'type': ['null',\n                                                                            'string']}},\n                                            'type': ['null', 'object']},\n                                  'type': ['null', 'array']},\n                    'admin_graphql_api_id': {'type': ['null', 'string']},\n                    'aov': {'type': ['null', 'number']},\n                    'boughtSas': {'type': ['null', 'boolean']},\n                    'businessLines': {'items': {},\n                                      'type': ['null', 'array']},\n                    'city': {'type': ['null', 'string']},\n                    'country': {'type': ['null', 'string']},\n                    'default_address': {'properties': {'address1': {'type': ['null',\n                                                                             'string']},\n                                                       'address2': {'type': ['null',\n                                                                             'string']},\n                                                       'city': {'type': ['null',\n                                                                         'string']},\n                                                       'company': {'type': ['null',\n                                                                            'string']},\n                                                       'country': {'type': ['null',\n                                                                            'string']},\n                                                       'country_code': {'type': ['null',\n                                                                                 'string']},\n                                                       'country_name': {'type': ['null',\n                                                                                 'string']},\n                                                       'default': {'type': ['null',\n                                                                            'boolean']},\n                                                       'first_name': {'type': ['null',\n                                                                               'string']},\n                                                       'id': {'type': ['null',\n                                                                       'string']},\n                                                       'last_name': {'type': ['null',\n                                                                              'string']},\n                                                       'name': {'type': ['null',\n                                                                         'string']},\n                                                       'phone': {'type': ['null',\n                                                                          'string']},\n                                                       'province': {'type': ['null',\n                                                                             'string']},\n                                                       'province_code': {'type': ['null',\n                                                                                  'string']},\n                                                       'zip': {'type': ['null',\n                                                                        'string']}},\n                                        'type': ['null', 'object']},\n                    'email': {'type': ['null', 'string']},\n                    'emailAcquiredDate': {'format': 'date-time',\n                                          'type': ['null', 'string']},\n                    'emailListIds': {'items': {},\n                                     'type': ['null', 'array']},\n                    'emailSegmentStatus': {'type': ['null', 'string']},\n                    'firstCampaign': {'type': ['null', 'string']},\n                    'firstMedium': {'type': ['null', 'string']},\n                    'firstName': {'type': ['null', 'string']},\n                    'firstOrderCards': {'items': {},\n                                        'type': ['null', 'array']},\n                    'firstOrderDate': {'format': 'date-time',\n                                       'type': ['null', 'string']},\n                    'firstPurchaseDate': {'format': 'date-time',\n                                          'type': ['null', 'string']},\n                    'firstSource': {'type': ['null', 'string']},\n                    'first_name': {'type': ['null', 'string']},\n                    'hasAccount': {'type': ['null', 'boolean']},\n                    'hasReminder': {'type': ['null', 'boolean']},\n                    'id': {'type': ['null', 'string']},\n                    'itblInternal': {'properties': {'documentCreatedAt': {'format': 'date-time',\n                                                                          'type': ['null',\n                                                                                   'string']},\n                                                    'documentUpdatedAt': {'format': 'date-time',\n                                                                          'type': ['null',\n                                                                                   'string']},\n                                                    'emailDomain': {'type': ['null',\n                                                                             'string']}},\n                                     'type': ['null', 'object']},\n                    'lastInteractionTs': {'format': 'date-time',\n                                          'type': ['null', 'string']},\n                    'lastName': {'type': ['null', 'string']},\n                    'last_name': {'type': ['null', 'string']},\n                    'last_order_id': {'type': ['null', 'string']},\n                    'last_order_name': {'type': ['null', 'string']},\n                    'ltr': {'type': ['null', 'integer']},\n                    'mostRecentCampaign': {'type': ['null', 'string']},\n                    'mostRecentEmailList': {'type': ['null', 'string']},\n                    'mostRecentEmailSegment': {'type': ['null', 'string']},\n                    'mostRecentMedium': {'type': ['null', 'string']},\n                    'mostRecentOrderCards': {'items': {},\n                                             'type': ['null', 'array']},\n                    'mostRecentOrderDate': {'format': 'date-time',\n                                            'type': ['null', 'string']},\n                    'mostRecentSource': {'type': ['null', 'string']},\n                    'orders_count': {'type': ['null', 'integer']},\n                    'profileUpdatedAt': {'format': 'date-time',\n                                         'type': ['null', 'string']},\n                    'secondMostRecentOrderCards': {'items': {},\n                                                   'type': ['null',\n                                                            'array']},\n                    'secondMostRecentOrderDate': {'format': 'date-time',\n                                                  'type': ['null',\n                                                           'string']},\n                    'secondOrderCards': {'items': {},\n                                         'type': ['null', 'array']},\n                    'secondOrderDate': {'format': 'date-time',\n                                        'type': ['null', 'string']},\n                    'shopify_created_at': {'format': 'date-time',\n                                           'type': ['null', 'string']},\n                    'shopify_updated_at': {'format': 'date-time',\n                                           'type': ['null', 'string']},\n                    'signupDate': {'format': 'date-time',\n                                   'type': ['null', 'string']},\n                    'signupSource': {'type': ['null', 'string']},\n                    'state': {'type': ['null', 'string']},\n                    'subscribedMessageTypeIds': {'items': {},\n                                                 'type': ['null', 'array']},\n                    'tax_exempt': {'type': ['null', 'boolean']},\n                    'thirdMostRecentOrderCards': {'items': {},\n                                                  'type': ['null',\n                                                           'array']},\n                    'thirdMostRecentOrderDate': {'format': 'date-time',\n                                                 'type': ['null',\n                                                          'string']},\n                    'thirdOrderCards': {'items': {},\n                                        'type': ['null', 'array']},\n                    'thirdOrderDate': {'format': 'date-time',\n                                       'type': ['null', 'string']},\n                    'totalOrders': {'type': ['null', 'integer']},\n                    'total_spent': {'type': ['null', 'number']},\n                    'twelveMonthLtr': {'type': ['null', 'integer']},\n                    'unsubscribedChannelIds': {'items': {},\n                                               'type': ['null', 'array']},\n                    'unsubscribedMessageTypeIds': {'items': {},\n                                                   'type': ['null',\n                                                            'array']},\n                    'userId': {'type': ['null', 'string']},\n                    'verified_email': {'type': ['null', 'boolean']},\n                    'zip': {'type': ['null', 'string']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'email': 'fake-email-17@bmail.com',\n     'emailListIds': [],\n     'itblInternal.emailDomain': 'bmail.com',\n     'profileUpdatedAt': '2021-04-14T17:00:41+00:00',\n     'signupDate': '2021-04-14 16:52:23 +00:00',\n     'signupSource': 'ListAPI',\n     'unsubscribedChannelIds': [],\n     'unsubscribedMessageTypeIds': [],\n     'userId': 'new-fake-user-number-17'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe email_bounce stream has the following schema errors:\nAdditional properties are not allowed ('status' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'campaignId': {'type': ['null', 'integer']},\n                    'createdAt': {'format': 'date-time',\n                                  'type': ['null', 'string']},\n                    'email': {'type': ['null', 'string']},\n                    'itblInternal': {'properties': {'documentCreatedAt': {'format': 'date-time',\n                                                                          'type': ['null',\n                                                                                   'string']},\n                                                    'documentUpdatedAt': {'format': 'date-time',\n                                                                          'type': ['null',\n                                                                                   'string']}},\n                                     'type': ['null', 'object']},\n                    'messageId': {'type': ['null', 'string']},\n                    'recipientState': {'type': ['null', 'string']},\n                    'templateId': {'type': ['null', 'integer']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'campaignId': 2220229,\n     'createdAt': '2021-04-14T16:29:39+00:00',\n     'email': 'y.kurochkin-fake@zazmic.com',\n     'messageId': '5ab46e765ee449588bb9709fb4a68290',\n     'recipientState': 'HardBounce',\n     'status': '5.1.1',\n     'templateId': 3043605}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe email_send stream has the following schema errors:\nAdditional properties are not allowed ('catalogLookupCount', 'productRecommendationCount', 'catalogCollectionCount' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'campaignId': {'type': ['null', 'integer']},\n                    'channelId': {'type': ['null', 'integer']},\n                    'contentId': {'type': ['null', 'integer']},\n                    'createdAt': {'format': 'date-time',\n                                  'type': ['null', 'string']},\n                    'email': {'type': ['null', 'string']},\n                    'itblInternal': {'properties': {'documentCreatedAt': {'format': 'date-time',\n                                                                          'type': ['null',\n                                                                                   'string']},\n                                                    'documentUpdatedAt': {'format': 'date-time',\n                                                                          'type': ['null',\n                                                                                   'string']}},\n                                     'type': ['null', 'object']},\n                    'messageBusId': {'type': ['null', 'string']},\n                    'messageId': {'type': ['null', 'string']},\n                    'messageTypeId': {'type': ['null', 'integer']},\n                    'templateId': {'type': ['null', 'integer']},\n                    'transactionalData': {'properties': {'campaignId': {'type': ['null',\n                                                                                 'integer']},\n                                                         'categories': {'items': {},\n                                                                        'type': ['null',\n                                                                                 'array']},\n                                                         'compare_at_price': {'type': ['null',\n                                                                                       'number']},\n                                                         'createdAt': {'format': 'date-time',\n                                                                       'type': ['null',\n                                                                                'string']},\n                                                         'description': {'type': ['null',\n                                                                                  'string']},\n                                                         'discount': {'type': ['null',\n                                                                               'integer']},\n                                                         'email': {'type': ['null',\n                                                                            'string']},\n                                                         'eventName': {'type': ['null',\n                                                                                'string']},\n                                                         'eventUpdatedAt': {'format': 'date-time',\n                                                                            'type': ['null',\n                                                                                     'string']},\n                                                         'handle': {'type': ['null',\n                                                                             'string']},\n                                                         'id': {'type': ['null',\n                                                                         'string']},\n                                                         'imageUrl': {'type': ['null',\n                                                                               'string']},\n                                                         'inventory': {'type': ['null',\n                                                                                'integer']},\n                                                         'itblInternal': {'properties': {'documentCreatedAt': {'format': 'date-time',\n                                                                                                               'type': ['null',\n                                                                                                                        'string']},\n                                                                                         'documentUpdatedAt': {'format': 'date-time',\n                                                                                                               'type': ['null',\n                                                                                                                        'string']}},\n                                                                          'type': ['null',\n                                                                                   'object']},\n                                                         'name': {'type': ['null',\n                                                                           'string']},\n                                                         'price': {'type': ['null',\n                                                                            'integer']},\n                                                         'product_id': {'type': ['null',\n                                                                                 'string']},\n                                                         'product_type': {'type': ['null',\n                                                                                   'string']},\n                                                         'sku': {'type': ['null',\n                                                                          'string']},\n                                                         'templateId': {'type': ['null',\n                                                                                 'integer']},\n                                                         'url': {'type': ['null',\n                                                                          'string']},\n                                                         'vendor': {'type': ['null',\n                                                                             'string']}},\n                                          'type': ['null', 'object']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'campaignId': 2220229,\n     'catalogCollectionCount': 0,\n     'catalogLookupCount': 0,\n     'channelId': 39582,\n     'contentId': 12029221,\n     'createdAt': '2021-04-14T16:25:56+00:00',\n     'email': 'y.kurochkin@zazmic.com',\n     'messageBusId': '01000178d1341a2f-0b4e8650-bce6-4464-adcc-74408648c444-000000',\n     'messageId': 'acd3c6a275a445a8944457a25e218daa',\n     'messageTypeId': 47258,\n     'productRecommendationCount': 0,\n     'templateId': 3043605}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe email_subscribe stream has the following schema errors:\nAdditional properties are not allowed ('channelIds' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'createdAt': {'format': 'date-time',\n                                  'type': ['null', 'string']},\n                    'email': {'type': ['null', 'string']},\n                    'emailListId': {'type': ['null', 'integer']},\n                    'emailListIds': {'items': {},\n                                     'type': ['null', 'array']},\n                    'itblInternal': {'properties': {'documentCreatedAt': {'format': 'date-time',\n                                                                          'type': ['null',\n                                                                                   'string']},\n                                                    'documentUpdatedAt': {'format': 'date-time',\n                                                                          'type': ['null',\n                                                                                   'string']}},\n                                     'type': ['null', 'object']},\n                    'profileUpdatedAt': {'format': 'date-time',\n                                         'type': ['null', 'string']},\n                    'signupSource': {'type': ['null', 'string']},\n                    'workflowId': {'type': ['null', 'integer']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'channelIds': [39582, 39581],\n     'createdAt': '2021-04-08T14:23:30+00:00',\n     'email': 'y.kurochkin@zazmic.com',\n     'emailListIds': [],\n     'profileUpdatedAt': '2021-04-08 14:23:30 +00:00',\n     'signupSource': 'Import'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe email_unsubscribe stream has the following schema errors:\nAdditional properties are not allowed ('recipientState', 'status' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'campaignId': {'type': ['null', 'integer']},\n                    'channelId': {'type': ['null', 'integer']},\n                    'channelIds': {'items': {}, 'type': ['null', 'array']},\n                    'createdAt': {'format': 'date-time',\n                                  'type': ['null', 'string']},\n                    'email': {'type': ['null', 'string']},\n                    'emailListId': {'type': ['null', 'integer']},\n                    'emailListIds': {'items': {},\n                                     'type': ['null', 'array']},\n                    'itblInternal': {'properties': {'documentCreatedAt': {'format': 'date-time',\n                                                                          'type': ['null',\n                                                                                   'string']},\n                                                    'documentUpdatedAt': {'format': 'date-time',\n                                                                          'type': ['null',\n                                                                                   'string']}},\n                                     'type': ['null', 'object']},\n                    'messageId': {'type': ['null', 'string']},\n                    'templateId': {'type': ['null', 'integer']},\n                    'unsubSource': {'type': ['null', 'string']},\n                    'workflowId': {'type': ['null', 'integer']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'channelIds': [39582, 39581],\n     'createdAt': '2021-04-14T16:29:41+00:00',\n     'email': 'y.kurochkin-fake@zazmic.com',\n     'emailListIds': [],\n     'messageId': '5ab46e765ee449588bb9709fb4a68290',\n     'recipientState': 'HardBounce',\n     'status': '5.1.1',\n     'templateId': 3043605,\n     'unsubSource': 'HardBounce'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The message_types stream has the following schema errors:
+Additional properties are not allowed ('createdAt', 'subscriptionPolicy', 'updatedAt' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'channelId': {'type': ['null', 'number']},
+                    'id': {'type': ['null', 'number']},
+                    'name': {'type': ['null', 'string']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'channelId': 39581,
+     'createdAt': 1610048394730,
+     'id': 47257,
+     'name': 'Marketing Message',
+     'subscriptionPolicy': 'OptOut',
+     'updatedAt': 1610048394730}
+ERROR    root:test_core.py:662 
+The users stream has the following schema errors:
+Additional properties are not allowed ('itblInternal.emailDomain' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'accepts_marketing': {'type': ['null', 'boolean']},
+                    'address1': {'type': ['null', 'string']},
+                    'addresses': {'items': {'properties': {'address1': {'type': ['null',
+                                                                                 'string']},
+                                                           'address2': {'type': ['null',
+                                                                                 'string']},
+                                                           'city': {'type': ['null',
+                                                                             'string']},
+                                                           'company': {'type': ['null',
+                                                                                'string']},
+                                                           'country': {'type': ['null',
+                                                                                'string']},
+                                                           'country_code': {'type': ['null',
+                                                                                     'string']},
+                                                           'country_name': {'type': ['null',
+                                                                                     'string']},
+                                                           'default': {'type': ['null',
+                                                                                'boolean']},
+                                                           'first_name': {'type': ['null',
+                                                                                   'string']},
+                                                           'id': {'type': ['null',
+                                                                           'string']},
+                                                           'last_name': {'type': ['null',
+                                                                                  'string']},
+                                                           'name': {'type': ['null',
+                                                                             'string']},
+                                                           'phone': {'type': ['null',
+                                                                              'string']},
+                                                           'province': {'type': ['null',
+                                                                                 'string']},
+                                                           'province_code': {'type': ['null',
+                                                                                      'string']},
+                                                           'zip': {'type': ['null',
+                                                                            'string']}},
+                                            'type': ['null', 'object']},
+                                  'type': ['null', 'array']},
+                    'admin_graphql_api_id': {'type': ['null', 'string']},
+                    'aov': {'type': ['null', 'number']},
+                    'boughtSas': {'type': ['null', 'boolean']},
+                    'businessLines': {'items': {},
+                                      'type': ['null', 'array']},
+                    'city': {'type': ['null', 'string']},
+                    'country': {'type': ['null', 'string']},
+                    'default_address': {'properties': {'address1': {'type': ['null',
+                                                                             'string']},
+                                                       'address2': {'type': ['null',
+                                                                             'string']},
+                                                       'city': {'type': ['null',
+                                                                         'string']},
+                                                       'company': {'type': ['null',
+                                                                            'string']},
+                                                       'country': {'type': ['null',
+                                                                            'string']},
+                                                       'country_code': {'type': ['null',
+                                                                                 'string']},
+                                                       'country_name': {'type': ['null',
+                                                                                 'string']},
+                                                       'default': {'type': ['null',
+                                                                            'boolean']},
+                                                       'first_name': {'type': ['null',
+                                                                               'string']},
+                                                       'id': {'type': ['null',
+                                                                       'string']},
+                                                       'last_name': {'type': ['null',
+                                                                              'string']},
+                                                       'name': {'type': ['null',
+                                                                         'string']},
+                                                       'phone': {'type': ['null',
+                                                                          'string']},
+                                                       'province': {'type': ['null',
+                                                                             'string']},
+                                                       'province_code': {'type': ['null',
+                                                                                  'string']},
+                                                       'zip': {'type': ['null',
+                                                                        'string']}},
+                                        'type': ['null', 'object']},
+                    'email': {'type': ['null', 'string']},
+                    'emailAcquiredDate': {'format': 'date-time',
+                                          'type': ['null', 'string']},
+                    'emailListIds': {'items': {},
+                                     'type': ['null', 'array']},
+                    'emailSegmentStatus': {'type': ['null', 'string']},
+                    'firstCampaign': {'type': ['null', 'string']},
+                    'firstMedium': {'type': ['null', 'string']},
+                    'firstName': {'type': ['null', 'string']},
+                    'firstOrderCards': {'items': {},
+                                        'type': ['null', 'array']},
+                    'firstOrderDate': {'format': 'date-time',
+                                       'type': ['null', 'string']},
+                    'firstPurchaseDate': {'format': 'date-time',
+                                          'type': ['null', 'string']},
+                    'firstSource': {'type': ['null', 'string']},
+                    'first_name': {'type': ['null', 'string']},
+                    'hasAccount': {'type': ['null', 'boolean']},
+                    'hasReminder': {'type': ['null', 'boolean']},
+                    'id': {'type': ['null', 'string']},
+                    'itblInternal': {'properties': {'documentCreatedAt': {'format': 'date-time',
+                                                                          'type': ['null',
+                                                                                   'string']},
+                                                    'documentUpdatedAt': {'format': 'date-time',
+                                                                          'type': ['null',
+                                                                                   'string']},
+                                                    'emailDomain': {'type': ['null',
+                                                                             'string']}},
+                                     'type': ['null', 'object']},
+                    'lastInteractionTs': {'format': 'date-time',
+                                          'type': ['null', 'string']},
+                    'lastName': {'type': ['null', 'string']},
+                    'last_name': {'type': ['null', 'string']},
+                    'last_order_id': {'type': ['null', 'string']},
+                    'last_order_name': {'type': ['null', 'string']},
+                    'ltr': {'type': ['null', 'integer']},
+                    'mostRecentCampaign': {'type': ['null', 'string']},
+                    'mostRecentEmailList': {'type': ['null', 'string']},
+                    'mostRecentEmailSegment': {'type': ['null', 'string']},
+                    'mostRecentMedium': {'type': ['null', 'string']},
+                    'mostRecentOrderCards': {'items': {},
+                                             'type': ['null', 'array']},
+                    'mostRecentOrderDate': {'format': 'date-time',
+                                            'type': ['null', 'string']},
+                    'mostRecentSource': {'type': ['null', 'string']},
+                    'orders_count': {'type': ['null', 'integer']},
+                    'profileUpdatedAt': {'format': 'date-time',
+                                         'type': ['null', 'string']},
+                    'secondMostRecentOrderCards': {'items': {},
+                                                   'type': ['null',
+                                                            'array']},
+                    'secondMostRecentOrderDate': {'format': 'date-time',
+                                                  'type': ['null',
+                                                           'string']},
+                    'secondOrderCards': {'items': {},
+                                         'type': ['null', 'array']},
+                    'secondOrderDate': {'format': 'date-time',
+                                        'type': ['null', 'string']},
+                    'shopify_created_at': {'format': 'date-time',
+                                           'type': ['null', 'string']},
+                    'shopify_updated_at': {'format': 'date-time',
+                                           'type': ['null', 'string']},
+                    'signupDate': {'format': 'date-time',
+                                   'type': ['null', 'string']},
+                    'signupSource': {'type': ['null', 'string']},
+                    'state': {'type': ['null', 'string']},
+                    'subscribedMessageTypeIds': {'items': {},
+                                                 'type': ['null', 'array']},
+                    'tax_exempt': {'type': ['null', 'boolean']},
+                    'thirdMostRecentOrderCards': {'items': {},
+                                                  'type': ['null',
+                                                           'array']},
+                    'thirdMostRecentOrderDate': {'format': 'date-time',
+                                                 'type': ['null',
+                                                          'string']},
+                    'thirdOrderCards': {'items': {},
+                                        'type': ['null', 'array']},
+                    'thirdOrderDate': {'format': 'date-time',
+                                       'type': ['null', 'string']},
+                    'totalOrders': {'type': ['null', 'integer']},
+                    'total_spent': {'type': ['null', 'number']},
+                    'twelveMonthLtr': {'type': ['null', 'integer']},
+                    'unsubscribedChannelIds': {'items': {},
+                                               'type': ['null', 'array']},
+                    'unsubscribedMessageTypeIds': {'items': {},
+                                                   'type': ['null',
+                                                            'array']},
+                    'userId': {'type': ['null', 'string']},
+                    'verified_email': {'type': ['null', 'boolean']},
+                    'zip': {'type': ['null', 'string']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'email': 'fake-email-17@bmail.com',
+     'emailListIds': [],
+     'itblInternal.emailDomain': 'bmail.com',
+     'profileUpdatedAt': '2021-04-14T17:00:41+00:00',
+     'signupDate': '2021-04-14 16:52:23 +00:00',
+     'signupSource': 'ListAPI',
+     'unsubscribedChannelIds': [],
+     'unsubscribedMessageTypeIds': [],
+     'userId': 'new-fake-user-number-17'}
+ERROR    root:test_core.py:662 
+The email_bounce stream has the following schema errors:
+Additional properties are not allowed ('status' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'campaignId': {'type': ['null', 'integer']},
+                    'createdAt': {'format': 'date-time',
+                                  'type': ['null', 'string']},
+                    'email': {'type': ['null', 'string']},
+                    'itblInternal': {'properties': {'documentCreatedAt': {'format': 'date-time',
+                                                                          'type': ['null',
+                                                                                   'string']},
+                                                    'documentUpdatedAt': {'format': 'date-time',
+                                                                          'type': ['null',
+                                                                                   'string']}},
+                                     'type': ['null', 'object']},
+                    'messageId': {'type': ['null', 'string']},
+                    'recipientState': {'type': ['null', 'string']},
+                    'templateId': {'type': ['null', 'integer']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'campaignId': 2220229,
+     'createdAt': '2021-04-14T16:29:39+00:00',
+     'email': 'y.kurochkin-fake@zazmic.com',
+     'messageId': '5ab46e765ee449588bb9709fb4a68290',
+     'recipientState': 'HardBounce',
+     'status': '5.1.1',
+     'templateId': 3043605}
+ERROR    root:test_core.py:662 
+The email_send stream has the following schema errors:
+Additional properties are not allowed ('catalogLookupCount', 'productRecommendationCount', 'catalogCollectionCount' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'campaignId': {'type': ['null', 'integer']},
+                    'channelId': {'type': ['null', 'integer']},
+                    'contentId': {'type': ['null', 'integer']},
+                    'createdAt': {'format': 'date-time',
+                                  'type': ['null', 'string']},
+                    'email': {'type': ['null', 'string']},
+                    'itblInternal': {'properties': {'documentCreatedAt': {'format': 'date-time',
+                                                                          'type': ['null',
+                                                                                   'string']},
+                                                    'documentUpdatedAt': {'format': 'date-time',
+                                                                          'type': ['null',
+                                                                                   'string']}},
+                                     'type': ['null', 'object']},
+                    'messageBusId': {'type': ['null', 'string']},
+                    'messageId': {'type': ['null', 'string']},
+                    'messageTypeId': {'type': ['null', 'integer']},
+                    'templateId': {'type': ['null', 'integer']},
+                    'transactionalData': {'properties': {'campaignId': {'type': ['null',
+                                                                                 'integer']},
+                                                         'categories': {'items': {},
+                                                                        'type': ['null',
+                                                                                 'array']},
+                                                         'compare_at_price': {'type': ['null',
+                                                                                       'number']},
+                                                         'createdAt': {'format': 'date-time',
+                                                                       'type': ['null',
+                                                                                'string']},
+                                                         'description': {'type': ['null',
+                                                                                  'string']},
+                                                         'discount': {'type': ['null',
+                                                                               'integer']},
+                                                         'email': {'type': ['null',
+                                                                            'string']},
+                                                         'eventName': {'type': ['null',
+                                                                                'string']},
+                                                         'eventUpdatedAt': {'format': 'date-time',
+                                                                            'type': ['null',
+                                                                                     'string']},
+                                                         'handle': {'type': ['null',
+                                                                             'string']},
+                                                         'id': {'type': ['null',
+                                                                         'string']},
+                                                         'imageUrl': {'type': ['null',
+                                                                               'string']},
+                                                         'inventory': {'type': ['null',
+                                                                                'integer']},
+                                                         'itblInternal': {'properties': {'documentCreatedAt': {'format': 'date-time',
+                                                                                                               'type': ['null',
+                                                                                                                        'string']},
+                                                                                         'documentUpdatedAt': {'format': 'date-time',
+                                                                                                               'type': ['null',
+                                                                                                                        'string']}},
+                                                                          'type': ['null',
+                                                                                   'object']},
+                                                         'name': {'type': ['null',
+                                                                           'string']},
+                                                         'price': {'type': ['null',
+                                                                            'integer']},
+                                                         'product_id': {'type': ['null',
+                                                                                 'string']},
+                                                         'product_type': {'type': ['null',
+                                                                                   'string']},
+                                                         'sku': {'type': ['null',
+                                                                          'string']},
+                                                         'templateId': {'type': ['null',
+                                                                                 'integer']},
+                                                         'url': {'type': ['null',
+                                                                          'string']},
+                                                         'vendor': {'type': ['null',
+                                                                             'string']}},
+                                          'type': ['null', 'object']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'campaignId': 2220229,
+     'catalogCollectionCount': 0,
+     'catalogLookupCount': 0,
+     'channelId': 39582,
+     'contentId': 12029221,
+     'createdAt': '2021-04-14T16:25:56+00:00',
+     'email': 'y.kurochkin@zazmic.com',
+     'messageBusId': '01000178d1341a2f-0b4e8650-bce6-4464-adcc-74408648c444-000000',
+     'messageId': 'acd3c6a275a445a8944457a25e218daa',
+     'messageTypeId': 47258,
+     'productRecommendationCount': 0,
+     'templateId': 3043605}
+ERROR    root:test_core.py:662 
+The email_subscribe stream has the following schema errors:
+Additional properties are not allowed ('channelIds' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'createdAt': {'format': 'date-time',
+                                  'type': ['null', 'string']},
+                    'email': {'type': ['null', 'string']},
+                    'emailListId': {'type': ['null', 'integer']},
+                    'emailListIds': {'items': {},
+                                     'type': ['null', 'array']},
+                    'itblInternal': {'properties': {'documentCreatedAt': {'format': 'date-time',
+                                                                          'type': ['null',
+                                                                                   'string']},
+                                                    'documentUpdatedAt': {'format': 'date-time',
+                                                                          'type': ['null',
+                                                                                   'string']}},
+                                     'type': ['null', 'object']},
+                    'profileUpdatedAt': {'format': 'date-time',
+                                         'type': ['null', 'string']},
+                    'signupSource': {'type': ['null', 'string']},
+                    'workflowId': {'type': ['null', 'integer']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'channelIds': [39582, 39581],
+     'createdAt': '2021-04-08T14:23:30+00:00',
+     'email': 'y.kurochkin@zazmic.com',
+     'emailListIds': [],
+     'profileUpdatedAt': '2021-04-08 14:23:30 +00:00',
+     'signupSource': 'Import'}
+ERROR    root:test_core.py:662 
+The email_unsubscribe stream has the following schema errors:
+Additional properties are not allowed ('recipientState', 'status' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'campaignId': {'type': ['null', 'integer']},
+                    'channelId': {'type': ['null', 'integer']},
+                    'channelIds': {'items': {}, 'type': ['null', 'array']},
+                    'createdAt': {'format': 'date-time',
+                                  'type': ['null', 'string']},
+                    'email': {'type': ['null', 'string']},
+                    'emailListId': {'type': ['null', 'integer']},
+                    'emailListIds': {'items': {},
+                                     'type': ['null', 'array']},
+                    'itblInternal': {'properties': {'documentCreatedAt': {'format': 'date-time',
+                                                                          'type': ['null',
+                                                                                   'string']},
+                                                    'documentUpdatedAt': {'format': 'date-time',
+                                                                          'type': ['null',
+                                                                                   'string']}},
+                                     'type': ['null', 'object']},
+                    'messageId': {'type': ['null', 'string']},
+                    'templateId': {'type': ['null', 'integer']},
+                    'unsubSource': {'type': ['null', 'string']},
+                    'workflowId': {'type': ['null', 'integer']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'channelIds': [39582, 39581],
+     'createdAt': '2021-04-14T16:29:41+00:00',
+     'email': 'y.kurochkin-fake@zazmic.com',
+     'emailListIds': [],
+     'messageId': '5ab46e765ee449588bb9709fb4a68290',
+     'recipientState': 'HardBounce',
+     'status': '5.1.1',
+     'templateId': 3043605,
+     'unsubSource': 'HardBounce'}
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+============ 1 failed, 1 passed, 35 deselected in 990.66s (0:16:30) ============

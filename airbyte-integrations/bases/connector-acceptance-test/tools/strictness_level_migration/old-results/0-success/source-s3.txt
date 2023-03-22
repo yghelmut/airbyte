@@ -1,0 +1,13 @@
+../../../../connectors/source-s3/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-s3
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 101 items / 91 deselected / 10 selected
+
+../../test_input/test_core.py .....                                      [ 50%]
+../../test_input/test_incremental.py .....                               [100%]
+
+
+================ 10 passed, 91 deselected in 100.20s (0:01:40) =================

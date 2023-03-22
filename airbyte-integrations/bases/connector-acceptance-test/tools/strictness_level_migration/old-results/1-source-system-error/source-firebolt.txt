@@ -1,0 +1,154 @@
+../../../../connectors/source-firebolt/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-firebolt
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py E                                          [100%]
+
+
+==================================== ERRORS ====================================
+______________ ERROR at setup of TestBasicRead.test_read[inputs0] ______________
+
+connector_config = SecretDict(******)
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff9fe358b0>
+cached_schemas = {}, cache_discovered_catalog = True
+
+    @pytest.fixture(name="discovered_catalog")
+    def discovered_catalog_fixture(
+        connector_config, docker_runner: ConnectorRunner, cached_schemas, cache_discovered_catalog: bool
+    ) -> MutableMapping[str, AirbyteStream]:
+        """JSON schemas for each stream"""
+        cached_schemas = cached_schemas.setdefault(make_hashable(connector_config), {})
+        if not cache_discovered_catalog:
+            cached_schemas.clear()
+        if not cached_schemas:
+>           output = docker_runner.call_discover(config=connector_config)
+
+connector_acceptance_test/conftest.py:290: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+connector_acceptance_test/utils/connector_runner.py:91: in call_discover
+    output = list(self.run(cmd=cmd, config=config, **kwargs))
+connector_acceptance_test/utils/connector_runner.py:120: in run
+    for line in self.read(container, command=cmd, with_ext=raise_container_error):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'connector_acceptance_test.utils.connector_runner.ConnectorRunner'>
+container = <Container: ee0dc1536a>
+command = 'discover --config /data/tap_config.json', with_ext = True
+
+    @classmethod
+    def read(cls, container: Container, command: str = None, with_ext: bool = True) -> Iterable[str]:
+        """Reads connector's logs per line"""
+        buffer = b""
+        exception = ""
+        line = ""
+        for chunk in container.logs(stdout=True, stderr=True, stream=True, follow=True):
+    
+            buffer += chunk
+            while True:
+                # every chunk can include several lines
+                found = buffer.find(b"\n")
+                if found <= -1:
+                    break
+    
+                line = buffer[: found + 1].decode("utf-8")
+                if len(exception) > 0 or line.startswith("Traceback (most recent call last)"):
+                    exception += line
+                else:
+                    yield line
+                buffer = buffer[found + 1 :]
+    
+        if buffer:
+            # send the latest chunk if exists
+            line = buffer.decode("utf-8")
+            if exception:
+                exception += line
+            else:
+                yield line
+        try:
+            exit_status = container.wait()
+            container.remove()
+        except NotFound as err:
+            logging.error(f"Waiting error: {err}, logs: {exception or line}")
+            raise
+        if exit_status["StatusCode"]:
+            error = exit_status.get("Error") or exception or line
+            logging.error(f"Docker container failed, " f'code {exit_status["StatusCode"]}, error:\n{error}')
+            if with_ext:
+>               raise ContainerError(
+                    container=container,
+                    exit_status=exit_status["StatusCode"],
+                    command=command,
+                    image=container.image,
+                    stderr=error,
+                )
+E               docker.errors.ContainerError: Command 'discover --config /data/tap_config.json' in image '<Image: 'airbyte/source-firebolt:dev'>' returned non-zero exit status 1: {"type": "TRACE", "trace": {"type": "ERROR", "emitted_at": 1679429473334.94, "error": {"message": "Something went wrong in the connector. See the logs for more details.", "internal_message": "Firebolt engine https://airbyte-acceptance-tests-general-purpose-1.airbyte.us-east-1.app.firebolt.io needs to be running to run queries against it.", "stack_trace": "Traceback (most recent call last):\n  File \"/airbyte/integration_code/main.py\", line 13, in <module>\n    launch(source, sys.argv[1:])\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 131, in launch\n    for message in source_entrypoint.run(parsed_args):\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 116, in run\n    catalog = self.source.discover(self.logger, config)\n  File \"/airbyte/integration_code/source_firebolt/source.py\", line 67, in discover\n    structure = get_table_structure(connection)\n  File \"/airbyte/integration_code/source_firebolt/database.py\", line 86, in get_table_structure\n    cursor.execute(\n  File \"/usr/local/lib/python3.9/site-packages/firebolt/db/cursor.py\", line 53, in execute\n    return async_to_sync(super().execute)(\n  File \"/usr/local/lib/python3.9/site-packages/firebolt/utils/util.py\", line 85, in sync\n    return trio.run(partial(f, *args, **kwargs))\n  File \"/usr/local/lib/python3.9/site-packages/trio/_core/_run.py\", line 1946, in run\n    raise runner.main_task_outcome.error\n  File \"/usr/local/lib/python3.9/site-packages/firebolt/async_db/cursor.py\", line 523, in execute\n    await self._do_execute(query, params_list, skip_parsing, async_execution)\n  File \"/usr/local/lib/python3.9/site-packages/firebolt/async_db/cursor.py\", line 471, in _do_execute\n    await self._raise_if_error(resp)\n  File \"/usr/local/lib/python3.9/site-packages/firebolt/async_db/cursor.py\", line 271, in _raise_if_error\n    raise EngineNotRunningError(\nfirebolt.utils.exception.EngineNotRunningError: Firebolt engine https://airbyte-acceptance-tests-general-purpose-1.airbyte.us-east-1.app.firebolt.io needs to be running to run queries against it.\n", "failure_type": "system_error"}}}
+
+connector_acceptance_test/utils/connector_runner.py:174: ContainerError
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "Unable to parse connector's output /usr/local/lib/python3.9/site-packages/trio/_core/_multierror.py:511: RuntimeWarning: You seem to already have a custom sys.excepthook handler installed. I'll skip installing Trio's custom handler, but this means MultiErrors will not show full tracebacks.\n, error: 1 validation error for AirbyteMessage\n__root__\n  Expecting value: line 1 column 1 (char 0) (type=value_error.jsondecode; msg=Expecting value; doc=/usr/local/lib/python3.9/site-packages/trio/_core/_multierror.py:511: RuntimeWarning: You seem to already have a custom sys.excepthook handler installed. I'll skip installing Trio's custom handler, but this means MultiErrors will not show full tracebacks.\n; pos=0; lineno=1; colno=1)"}}
+{"type": "LOG", "log": {"level": "WARN", "message": "Unable to parse connector's output   warnings.warn(\n, error: 1 validation error for AirbyteMessage\n__root__\n  Expecting value: line 1 column 3 (char 2) (type=value_error.jsondecode; msg=Expecting value; doc=  warnings.warn(\n; pos=2; lineno=1; colno=3)"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "Docker container failed, code 1, error:\n{\"type\": \"TRACE\", \"trace\": {\"type\": \"ERROR\", \"emitted_at\": 1679429473334.94, \"error\": {\"message\": \"Something went wrong in the connector. See the logs for more details.\", \"internal_message\": \"Firebolt engine https://airbyte-acceptance-tests-general-purpose-1.airbyte.us-east-1.app.firebolt.io needs to be running to run queries against it.\", \"stack_trace\": \"Traceback (most recent call last):\\n  File \\\"/airbyte/integration_code/main.py\\\", line 13, in <module>\\n    launch(source, sys.argv[1:])\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\\\", line 131, in launch\\n    for message in source_entrypoint.run(parsed_args):\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\\\", line 116, in run\\n    catalog = self.source.discover(self.logger, config)\\n  File \\\"/airbyte/integration_code/source_firebolt/source.py\\\", line 67, in discover\\n    structure = get_table_structure(connection)\\n  File \\\"/airbyte/integration_code/source_firebolt/database.py\\\", line 86, in get_table_structure\\n    cursor.execute(\\n  File \\\"/usr/local/lib/python3.9/site-packages/firebolt/db/cursor.py\\\", line 53, in execute\\n    return async_to_sync(super().execute)(\\n  File \\\"/usr/local/lib/python3.9/site-packages/firebolt/utils/util.py\\\", line 85, in sync\\n    return trio.run(partial(f, *args, **kwargs))\\n  File \\\"/usr/local/lib/python3.9/site-packages/trio/_core/_run.py\\\", line 1946, in run\\n    raise runner.main_task_outcome.error\\n  File \\\"/usr/local/lib/python3.9/site-packages/firebolt/async_db/cursor.py\\\", line 523, in execute\\n    await self._do_execute(query, params_list, skip_parsing, async_execution)\\n  File \\\"/usr/local/lib/python3.9/site-packages/firebolt/async_db/cursor.py\\\", line 471, in _do_execute\\n    await self._raise_if_error(resp)\\n  File \\\"/usr/local/lib/python3.9/site-packages/firebolt/async_db/cursor.py\\\", line 271, in _raise_if_error\\n    raise EngineNotRunningError(\\nfirebolt.utils.exception.EngineNotRunningError: Firebolt engine https://airbyte-acceptance-tests-general-purpose-1.airbyte.us-east-1.app.firebolt.io needs to be running to run queries against it.\\n\", \"failure_type\": \"system_error\"}}}\n"}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+WARNING  root:connector_runner.py:133 Unable to parse connector's output /usr/local/lib/python3.9/site-packages/trio/_core/_multierror.py:511: RuntimeWarning: You seem to already have a custom sys.excepthook handler installed. I'll skip installing Trio's custom handler, but this means MultiErrors will not show full tracebacks.
+, error: 1 validation error for AirbyteMessage
+__root__
+  Expecting value: line 1 column 1 (char 0) (type=value_error.jsondecode; msg=Expecting value; doc=/usr/local/lib/python3.9/site-packages/trio/_core/_multierror.py:511: RuntimeWarning: You seem to already have a custom sys.excepthook handler installed. I'll skip installing Trio's custom handler, but this means MultiErrors will not show full tracebacks.
+; pos=0; lineno=1; colno=1)
+WARNING  root:connector_runner.py:133 Unable to parse connector's output   warnings.warn(
+, error: 1 validation error for AirbyteMessage
+__root__
+  Expecting value: line 1 column 3 (char 2) (type=value_error.jsondecode; msg=Expecting value; doc=  warnings.warn(
+; pos=2; lineno=1; colno=3)
+ERROR    root:connector_runner.py:172 Docker container failed, code 1, error:
+{"type": "TRACE", "trace": {"type": "ERROR", "emitted_at": 1679429473334.94, "error": {"message": "Something went wrong in the connector. See the logs for more details.", "internal_message": "Firebolt engine https://airbyte-acceptance-tests-general-purpose-1.airbyte.us-east-1.app.firebolt.io needs to be running to run queries against it.", "stack_trace": "Traceback (most recent call last):\n  File \"/airbyte/integration_code/main.py\", line 13, in <module>\n    launch(source, sys.argv[1:])\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 131, in launch\n    for message in source_entrypoint.run(parsed_args):\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 116, in run\n    catalog = self.source.discover(self.logger, config)\n  File \"/airbyte/integration_code/source_firebolt/source.py\", line 67, in discover\n    structure = get_table_structure(connection)\n  File \"/airbyte/integration_code/source_firebolt/database.py\", line 86, in get_table_structure\n    cursor.execute(\n  File \"/usr/local/lib/python3.9/site-packages/firebolt/db/cursor.py\", line 53, in execute\n    return async_to_sync(super().execute)(\n  File \"/usr/local/lib/python3.9/site-packages/firebolt/utils/util.py\", line 85, in sync\n    return trio.run(partial(f, *args, **kwargs))\n  File \"/usr/local/lib/python3.9/site-packages/trio/_core/_run.py\", line 1946, in run\n    raise runner.main_task_outcome.error\n  File \"/usr/local/lib/python3.9/site-packages/firebolt/async_db/cursor.py\", line 523, in execute\n    await self._do_execute(query, params_list, skip_parsing, async_execution)\n  File \"/usr/local/lib/python3.9/site-packages/firebolt/async_db/cursor.py\", line 471, in _do_execute\n    await self._raise_if_error(resp)\n  File \"/usr/local/lib/python3.9/site-packages/firebolt/async_db/cursor.py\", line 271, in _raise_if_error\n    raise EngineNotRunningError(\nfirebolt.utils.exception.EngineNotRunningError: Firebolt engine https://airbyte-acceptance-tests-general-purpose-1.airbyte.us-east-1.app.firebolt.io needs to be running to run queries against it.\n", "failure_type": "system_error"}}}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+ERROR ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - dock...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+=========== 1 skipped, 33 deselected, 35 warnings, 1 error in 4.48s ============

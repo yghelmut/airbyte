@@ -1,0 +1,523 @@
+../../../../connectors/source-omnisend/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-omnisend
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffb8eb88b0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='contacts', json_schema={'type': '...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffb881e910>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='contacts', data={'email': 'malacius@gmail.com', 'contactID': '6356f2129c... 'lopas2'], 'tags': ['tag1', 'tag2']}], 'customFields': None, 'depersonalized': False}, emitted_at=1679408072379), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='contacts', json_schema={'type': '...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('contacts', 'campaigns', 'carts', 'orders').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe contacts stream has the following schema errors:\nAdditional properties are not allowed ('doubleOptIns', 'customProperties' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'address': {'type': ['string', 'null']},\n                    'birthdate': {'type': ['string', 'null']},\n                    'city': {'type': ['string', 'null']},\n                    'clicked': {'type': ['integer', 'null']},\n                    'contactID': {'type': 'string'},\n                    'country': {'type': ['string', 'null']},\n                    'countryCode': {'type': ['string', 'null']},\n                    'createdAt': {'type': ['string', 'null']},\n                    'email': {'type': ['string', 'null']},\n                    'firstName': {'type': ['string', 'null']},\n                    'gender': {'type': 'string'},\n                    'identifiers': {'items': {'properties': {'channels': {'properties': {'email': {'properties': {'status': {'type': ['string',\n                                                                                                                                      'null']},\n                                                                                                                  'statusDate': {'type': ['string',\n                                                                                                                                          'null']}},\n                                                                                                   'type': 'object'},\n                                                                                         'sms': {'properties': {'status': {'type': ['string',\n                                                                                                                                    'null']},\n                                                                                                                'statusDate': {'type': ['string',\n                                                                                                                                        'null']}},\n                                                                                                 'type': 'object'}},\n                                                                          'type': 'object'},\n                                                             'id': {'type': 'string'},\n                                                             'type': {'type': 'string'}},\n                                              'type': 'object'},\n                                    'type': 'array'},\n                    'lastName': {'type': ['string', 'null']},\n                    'opened': {'type': ['integer', 'null']},\n                    'optIns': {'items': {'properties': {'date': {'type': 'string'}},\n                                         'type': 'object'},\n                               'type': ['array', 'null']},\n                    'phone': {'items': {'type': 'string'}, 'type': 'array'},\n                    'phoneNumber': {'type': ['string', 'null']},\n                    'postalCode': {'type': ['string', 'null']},\n                    'segments': {'items': {'type': 'string'},\n                                 'type': ['array', 'null']},\n                    'sent': {'type': ['integer', 'null']},\n                    'state': {'type': ['string', 'null']},\n                    'status': {'type': ['string', 'null']},\n                    'statuses': {'items': {'properties': {'date': {'type': ['string',\n                                                                            'null']},\n                                                          'status': {'type': ['string',\n                                                                              'null']}},\n                                           'type': 'object'},\n                                 'type': ['array', 'null']},\n                    'tags': {'items': {'type': 'string'},\n                             'type': ['array', 'null']}},\n     'required': ['contactID'],\n     'type': 'object'}\n\nOn instance:\n    {'address': 'mindes g. 2,antras aukstas',\n     'birthdate': '',\n     'city': 'Vilnius',\n     'clicked': 0,\n     'contactID': '635af9c917eb8c001b231105',\n     'country': 'Lithuania',\n     'countryCode': 'LT',\n     'createdAt': '2022-10-27T21:36:09Z',\n     'customProperties': None,\n     'doubleOptIns': None,\n     'email': 'mldc@gmail.com',\n     'firstName': 'Dainius',\n     'gender': '',\n     'identifiers': [{'channels': {'email': {'status': 'nonSubscribed',\n                                             'statusDate': '2022-10-27T22:01:19.403Z'}},\n                      'id': 'mldc@gmail.com',\n                      'type': 'email'},\n                     {'channels': {'sms': {'status': 'nonSubscribed',\n                                           'statusDate': '2022-10-27T22:01:19.408Z'}},\n                      'id': '+37065889743',\n                      'type': 'phone'}],\n     'lastName': 'Mldc',\n     'opened': 0,\n     'optIns': None,\n     'phone': ['+37065889743'],\n     'phoneNumber': '',\n     'postalCode': 'SW1A 1AA',\n     'segments': ['6356f1ba548181ed23253506'],\n     'sent': 0,\n     'state': 'Vilnius',\n     'status': 'nonSubscribed',\n     'statuses': None,\n     'tags': None}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe campaigns stream has the following schema errors:\nAdditional properties are not allowed ('excludedSegments', 'allContacts' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'allSubscribers': {'type': ['boolean', 'null']},\n                    'bounced': {'type': ['integer', 'null']},\n                    'campaignID': {'type': 'string'},\n                    'clicked': {'type': ['integer', 'null']},\n                    'complained': {'type': ['integer', 'null']},\n                    'createdAt': {'type': ['string', 'null']},\n                    'endDate': {'type': ['string', 'null']},\n                    'fromName': {'type': ['string', 'null']},\n                    'name': {'type': ['string', 'null']},\n                    'opened': {'type': ['integer', 'null']},\n                    'segments': {'items': {'properties': {'segmentID': {'type': ['string',\n                                                                                 'null']}},\n                                           'type': 'object'},\n                                 'type': ['array', 'null']},\n                    'sent': {'type': ['integer', 'null']},\n                    'startDate': {'type': ['string', 'null']},\n                    'status': {'type': ['string', 'null']},\n                    'subject': {'type': ['string', 'null']},\n                    'type': {'type': ['string', 'null']},\n                    'unsubscribed': {'type': ['integer', 'null']},\n                    'updatedAt': {'type': ['string', 'null']},\n                    'url': {'type': ['string', 'null']}},\n     'required': ['campaignID'],\n     'type': 'object'}\n\nOn instance:\n    {'allContacts': True,\n     'bounced': 0,\n     'campaignID': '635aa05e1f06ec001e4b0872',\n     'clicked': 0,\n     'complained': 0,\n     'createdAt': '2022-10-27T15:14:38.441Z',\n     'endDate': '2022-10-27T15:15:35.313Z',\n     'excludedSegments': None,\n     'fromName': 'asdas@gmail.com',\n     'name': 'ddd',\n     'opened': 0,\n     'segments': None,\n     'sent': 1,\n     'startDate': '2022-10-27T15:15:08.63Z',\n     'status': 'sent',\n     'subject': 'ijasds',\n     'type': 'standart',\n     'unsubscribed': 0,\n     'updatedAt': '2022-10-27T15:15:35.313Z',\n     'url': ''}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe carts stream has the following schema errors:\nAdditional properties are not allowed ('attributionID', 'emailID' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'cartID': {'type': 'string'},\n                    'cartRecoveryUrl': {'type': ['string', 'null']},\n                    'cartSum': {'type': ['integer', 'null']},\n                    'contactID': {'type': ['string', 'null']},\n                    'createdAt': {'type': ['string', 'null']},\n                    'currency': {'type': ['string', 'null']},\n                    'email': {'type': ['string', 'null']},\n                    'phone': {'type': ['string', 'null']},\n                    'products': {'items': {'properties': {'cartProductID': {'type': ['string',\n                                                                                     'null']},\n                                                          'description': {'type': ['string',\n                                                                                   'null']},\n                                                          'discount': {'type': ['integer',\n                                                                                'null']},\n                                                          'imageUrl': {'type': ['string',\n                                                                                'null']},\n                                                          'oldPrice': {'type': ['integer',\n                                                                                'null']},\n                                                          'price': {'type': ['integer',\n                                                                             'null']},\n                                                          'productID': {'type': ['string',\n                                                                                 'null']},\n                                                          'productUrl': {'type': ['string',\n                                                                                  'null']},\n                                                          'quantity': {'type': ['integer',\n                                                                                'null']},\n                                                          'title': {'type': ['string',\n                                                                             'null']},\n                                                          'variantID': {'type': ['string',\n                                                                                 'null']}},\n                                           'type': 'object'},\n                                 'type': 'array'},\n                    'updatedAt': {'type': ['string', 'null']}},\n     'required': ['cartID'],\n     'type': 'object'}\n\nOn instance:\n    {'attributionID': '',\n     'cartID': 'rnadomID123',\n     'cartRecoveryUrl': 'https://www.google.com',\n     'cartSum': 12,\n     'contactID': '635af9c917eb8c001b231105',\n     'createdAt': '2017-05-30T14:11:12Z',\n     'currency': 'USD',\n     'email': 'mldc@gmail.com',\n     'emailID': None,\n     'phone': '+37065889743',\n     'products': [{'cartProductID': 'goodCratProduct',\n                   'description': 'same as title',\n                   'discount': 1,\n                   'imageUrl': 'https://www.fb.com',\n                   'oldPrice': 70,\n                   'price': 69,\n                   'productID': 'veryGoodProduct',\n                   'productUrl': 'https://www.product.com',\n                   'quantity': 420,\n                   'sku': 'idk',\n                   'title': 'very nice, very cheap',\n                   'variantID': 'blue'}],\n     'updatedAt': '2019-05-30T14:11:12Z'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe orders stream has the following schema errors:\nAdditional properties are not allowed ('cancelReason', 'subTotalTaxIncluded', 'canceledDate', 'depersonalized', 'emailID', 'attributionID', 'phone' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'billingAddress': {'properties': {'address': {'type': ['string',\n                                                                           'null']},\n                                                      'city': {'type': ['string',\n                                                                        'null']},\n                                                      'company': {'type': ['string',\n                                                                           'null']},\n                                                      'country': {'type': ['string',\n                                                                           'null']},\n                                                      'countryCode': {'type': ['string',\n                                                                               'null']},\n                                                      'firstName': {'type': ['string',\n                                                                             'null']},\n                                                      'lastName': {'type': ['string',\n                                                                            'null']},\n                                                      'phone': {'type': ['string',\n                                                                         'null']},\n                                                      'postalCode': {'type': ['string',\n                                                                              'null']},\n                                                      'state': {'type': ['string',\n                                                                         'null']}},\n                                       'type': 'object'},\n                    'cartID': {'type': ['string', 'null']},\n                    'contactID': {'type': ['string', 'null']},\n                    'contactNote': {'type': ['string', 'null']},\n                    'courierTitle': {'type': ['string', 'null']},\n                    'courierUrl': {'type': ['string', 'null']},\n                    'createdAt': {'type': ['string', 'null']},\n                    'currency': {'type': ['string', 'null']},\n                    'customFields': {'properties': {'phone': {'type': ['string',\n                                                                       'null']}},\n                                     'type': ['object', 'null']},\n                    'discountCode': {'type': ['string', 'null']},\n                    'discountSum': {'type': ['integer', 'null']},\n                    'discountType': {'type': ['string', 'null']},\n                    'discountValue': {'type': ['integer', 'null']},\n                    'email': {'type': ['string', 'null']},\n                    'firstName': {'type': ['string', 'null']},\n                    'fulfillmentStatus': {'type': ['string', 'null']},\n                    'lastName': {'type': ['string', 'null']},\n                    'orderID': {'type': 'string'},\n                    'orderNumber': {'type': ['integer', 'null']},\n                    'orderSum': {'type': ['integer', 'null']},\n                    'orderUrl': {'type': ['string', 'null']},\n                    'paymentMethod': {'type': ['string', 'null']},\n                    'paymentStatus': {'type': ['string', 'null']},\n                    'products': {'items': {'properties': {'cartProductID': {'type': ['string',\n                                                                                     'null']},\n                                                          'categoryIDs': {'items': {'type': ['string',\n                                                                                             'null']},\n                                                                          'type': 'array'},\n                                                          'discount': {'type': ['integer',\n                                                                                'null']},\n                                                          'imageUrl': {'type': ['string',\n                                                                                'null']},\n                                                          'price': {'type': ['integer',\n                                                                             'null']},\n                                                          'productID': {'type': ['string',\n                                                                                 'null']},\n                                                          'productUrl': {'type': ['string',\n                                                                                  'null']},\n                                                          'quantity': {'type': ['integer',\n                                                                                'null']},\n                                                          'tags': {'items': {'type': ['string',\n                                                                                      'null']},\n                                                                   'type': 'array'},\n                                                          'title': {'type': ['string',\n                                                                             'null']},\n                                                          'variantID': {'type': ['string',\n                                                                                 'null']},\n                                                          'variantTitle': {'type': ['string',\n                                                                                    'null']},\n                                                          'weight': {'type': ['integer',\n                                                                              'null']}},\n                                           'type': 'object'},\n                                 'type': 'array'},\n                    'shippingAddress': {'properties': {'address': {'type': ['string',\n                                                                            'null']},\n                                                       'city': {'type': ['string',\n                                                                         'null']},\n                                                       'company': {'type': ['string',\n                                                                            'null']},\n                                                       'country': {'type': ['string',\n                                                                            'null']},\n                                                       'countryCode': {'type': ['string',\n                                                                                'null']},\n                                                       'firstName': {'type': ['string',\n                                                                              'null']},\n                                                       'lastName': {'type': ['string',\n                                                                             'null']},\n                                                       'phone': {'type': ['string',\n                                                                          'null']},\n                                                       'postalCode': {'type': ['string',\n                                                                               'null']},\n                                                       'state': {'type': ['string',\n                                                                          'null']}},\n                                        'type': 'object'},\n                    'shippingMethod': {'type': ['string', 'null']},\n                    'shippingSum': {'type': ['integer', 'null']},\n                    'source': {'type': ['string', 'null']},\n                    'subTotalSum': {'type': ['integer', 'null']},\n                    'tags': {'items': {'type': ['string', 'null']},\n                             'type': ['array', 'null']},\n                    'taxSum': {'type': ['integer', 'null']},\n                    'trackingCode': {'type': ['string', 'null']},\n                    'updatedAt': {'type': ['string', 'null']}},\n     'required': ['orderID'],\n     'type': 'object'}\n\nOn instance:\n    {'attributionID': '',\n     'billingAddress': {'address': 'mindes g. 2',\n                        'address2': 'antras aukstas',\n                        'city': 'Vilnius',\n                        'company': 'patssaubosas',\n                        'country': 'Lithuania',\n                        'countryCode': 'LT',\n                        'firstName': 'Dainius',\n                        'lastName': 'Mldc',\n                        'phone': '+37069832246',\n                        'postalCode': 'SW1A 1AA',\n                        'state': 'Vilnius',\n                        'stateCode': 'VNO'},\n     'cancelReason': 'no like',\n     'canceledDate': '2022-07-31T14:11:12Z',\n     'cartID': 'randomID123',\n     'contactID': '635af9c917eb8c001b231105',\n     'contactNote': 'Door code: 911',\n     'courierTitle': 'DHL',\n     'courierUrl': 'https://www.courier.com',\n     'createdAt': '2022-05-30T14:11:12Z',\n     'currency': 'USD',\n     'customFields': None,\n     'depersonalized': False,\n     'discountCode': 'new15',\n     'discountSum': 1400,\n     'discountType': 'fixedAmount',\n     'discountValue': 14,\n     'email': 'mldc@gmail.com',\n     'emailID': None,\n     'fulfillmentStatus': 'fulfilled',\n     'orderID': 'bestOrderID123',\n     'orderNumber': 1,\n     'orderSum': 30,\n     'orderUrl': 'https://www.order.com',\n     'paymentMethod': 'Credit card',\n     'paymentStatus': 'paid',\n     'phone': '+37065889743',\n     'products': [{'categoryIDs': ['lopas', 'lopas2'],\n                   'discount': 1,\n                   'imageUrl': 'https://www.image.com',\n                   'price': 12,\n                   'productID': 'coolProductID123',\n                   'productUrl': 'https://www.product.com',\n                   'quantity': 1,\n                   'sku': 'whatsup',\n                   'tags': ['tag1', 'tag2'],\n                   'title': 'new Product!',\n                   'variantID': 'blue',\n                   'variantTitle': 'blue',\n                   'vendor': 'Norfa',\n                   'weight': 5}],\n     'shippingAddress': {'address': 'mindes g. 2',\n                         'address2': 'antras aukstas',\n                         'city': 'Vilnius',\n                         'company': 'patssaubosas',\n                         'country': 'Lithuania',\n                         'countryCode': 'LT',\n                         'firstName': 'Dainius',\n                         'lastName': 'Mldc',\n                         'phone': '+37069832246',\n                         'postalCode': 'SW1A 1AA',\n                         'state': 'Vilnius',\n                         'stateCode': 'VNO'},\n     'shippingMethod': 'normal',\n     'shippingSum': 1,\n     'source': 'facebook',\n     'subTotalSum': 3000,\n     'subTotalTaxIncluded': False,\n     'tags': ['best tag'],\n     'taxSum': 1,\n     'trackingCode': 'trackyourself',\n     'updatedAt': '2022-07-30T14:11:12Z'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The contacts stream has the following schema errors:
+Additional properties are not allowed ('doubleOptIns', 'customProperties' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'address': {'type': ['string', 'null']},
+                    'birthdate': {'type': ['string', 'null']},
+                    'city': {'type': ['string', 'null']},
+                    'clicked': {'type': ['integer', 'null']},
+                    'contactID': {'type': 'string'},
+                    'country': {'type': ['string', 'null']},
+                    'countryCode': {'type': ['string', 'null']},
+                    'createdAt': {'type': ['string', 'null']},
+                    'email': {'type': ['string', 'null']},
+                    'firstName': {'type': ['string', 'null']},
+                    'gender': {'type': 'string'},
+                    'identifiers': {'items': {'properties': {'channels': {'properties': {'email': {'properties': {'status': {'type': ['string',
+                                                                                                                                      'null']},
+                                                                                                                  'statusDate': {'type': ['string',
+                                                                                                                                          'null']}},
+                                                                                                   'type': 'object'},
+                                                                                         'sms': {'properties': {'status': {'type': ['string',
+                                                                                                                                    'null']},
+                                                                                                                'statusDate': {'type': ['string',
+                                                                                                                                        'null']}},
+                                                                                                 'type': 'object'}},
+                                                                          'type': 'object'},
+                                                             'id': {'type': 'string'},
+                                                             'type': {'type': 'string'}},
+                                              'type': 'object'},
+                                    'type': 'array'},
+                    'lastName': {'type': ['string', 'null']},
+                    'opened': {'type': ['integer', 'null']},
+                    'optIns': {'items': {'properties': {'date': {'type': 'string'}},
+                                         'type': 'object'},
+                               'type': ['array', 'null']},
+                    'phone': {'items': {'type': 'string'}, 'type': 'array'},
+                    'phoneNumber': {'type': ['string', 'null']},
+                    'postalCode': {'type': ['string', 'null']},
+                    'segments': {'items': {'type': 'string'},
+                                 'type': ['array', 'null']},
+                    'sent': {'type': ['integer', 'null']},
+                    'state': {'type': ['string', 'null']},
+                    'status': {'type': ['string', 'null']},
+                    'statuses': {'items': {'properties': {'date': {'type': ['string',
+                                                                            'null']},
+                                                          'status': {'type': ['string',
+                                                                              'null']}},
+                                           'type': 'object'},
+                                 'type': ['array', 'null']},
+                    'tags': {'items': {'type': 'string'},
+                             'type': ['array', 'null']}},
+     'required': ['contactID'],
+     'type': 'object'}
+
+On instance:
+    {'address': 'mindes g. 2,antras aukstas',
+     'birthdate': '',
+     'city': 'Vilnius',
+     'clicked': 0,
+     'contactID': '635af9c917eb8c001b231105',
+     'country': 'Lithuania',
+     'countryCode': 'LT',
+     'createdAt': '2022-10-27T21:36:09Z',
+     'customProperties': None,
+     'doubleOptIns': None,
+     'email': 'mldc@gmail.com',
+     'firstName': 'Dainius',
+     'gender': '',
+     'identifiers': [{'channels': {'email': {'status': 'nonSubscribed',
+                                             'statusDate': '2022-10-27T22:01:19.403Z'}},
+                      'id': 'mldc@gmail.com',
+                      'type': 'email'},
+                     {'channels': {'sms': {'status': 'nonSubscribed',
+                                           'statusDate': '2022-10-27T22:01:19.408Z'}},
+                      'id': '+37065889743',
+                      'type': 'phone'}],
+     'lastName': 'Mldc',
+     'opened': 0,
+     'optIns': None,
+     'phone': ['+37065889743'],
+     'phoneNumber': '',
+     'postalCode': 'SW1A 1AA',
+     'segments': ['6356f1ba548181ed23253506'],
+     'sent': 0,
+     'state': 'Vilnius',
+     'status': 'nonSubscribed',
+     'statuses': None,
+     'tags': None}
+ERROR    root:test_core.py:662 
+The campaigns stream has the following schema errors:
+Additional properties are not allowed ('excludedSegments', 'allContacts' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'allSubscribers': {'type': ['boolean', 'null']},
+                    'bounced': {'type': ['integer', 'null']},
+                    'campaignID': {'type': 'string'},
+                    'clicked': {'type': ['integer', 'null']},
+                    'complained': {'type': ['integer', 'null']},
+                    'createdAt': {'type': ['string', 'null']},
+                    'endDate': {'type': ['string', 'null']},
+                    'fromName': {'type': ['string', 'null']},
+                    'name': {'type': ['string', 'null']},
+                    'opened': {'type': ['integer', 'null']},
+                    'segments': {'items': {'properties': {'segmentID': {'type': ['string',
+                                                                                 'null']}},
+                                           'type': 'object'},
+                                 'type': ['array', 'null']},
+                    'sent': {'type': ['integer', 'null']},
+                    'startDate': {'type': ['string', 'null']},
+                    'status': {'type': ['string', 'null']},
+                    'subject': {'type': ['string', 'null']},
+                    'type': {'type': ['string', 'null']},
+                    'unsubscribed': {'type': ['integer', 'null']},
+                    'updatedAt': {'type': ['string', 'null']},
+                    'url': {'type': ['string', 'null']}},
+     'required': ['campaignID'],
+     'type': 'object'}
+
+On instance:
+    {'allContacts': True,
+     'bounced': 0,
+     'campaignID': '635aa05e1f06ec001e4b0872',
+     'clicked': 0,
+     'complained': 0,
+     'createdAt': '2022-10-27T15:14:38.441Z',
+     'endDate': '2022-10-27T15:15:35.313Z',
+     'excludedSegments': None,
+     'fromName': 'asdas@gmail.com',
+     'name': 'ddd',
+     'opened': 0,
+     'segments': None,
+     'sent': 1,
+     'startDate': '2022-10-27T15:15:08.63Z',
+     'status': 'sent',
+     'subject': 'ijasds',
+     'type': 'standart',
+     'unsubscribed': 0,
+     'updatedAt': '2022-10-27T15:15:35.313Z',
+     'url': ''}
+ERROR    root:test_core.py:662 
+The carts stream has the following schema errors:
+Additional properties are not allowed ('attributionID', 'emailID' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'cartID': {'type': 'string'},
+                    'cartRecoveryUrl': {'type': ['string', 'null']},
+                    'cartSum': {'type': ['integer', 'null']},
+                    'contactID': {'type': ['string', 'null']},
+                    'createdAt': {'type': ['string', 'null']},
+                    'currency': {'type': ['string', 'null']},
+                    'email': {'type': ['string', 'null']},
+                    'phone': {'type': ['string', 'null']},
+                    'products': {'items': {'properties': {'cartProductID': {'type': ['string',
+                                                                                     'null']},
+                                                          'description': {'type': ['string',
+                                                                                   'null']},
+                                                          'discount': {'type': ['integer',
+                                                                                'null']},
+                                                          'imageUrl': {'type': ['string',
+                                                                                'null']},
+                                                          'oldPrice': {'type': ['integer',
+                                                                                'null']},
+                                                          'price': {'type': ['integer',
+                                                                             'null']},
+                                                          'productID': {'type': ['string',
+                                                                                 'null']},
+                                                          'productUrl': {'type': ['string',
+                                                                                  'null']},
+                                                          'quantity': {'type': ['integer',
+                                                                                'null']},
+                                                          'title': {'type': ['string',
+                                                                             'null']},
+                                                          'variantID': {'type': ['string',
+                                                                                 'null']}},
+                                           'type': 'object'},
+                                 'type': 'array'},
+                    'updatedAt': {'type': ['string', 'null']}},
+     'required': ['cartID'],
+     'type': 'object'}
+
+On instance:
+    {'attributionID': '',
+     'cartID': 'rnadomID123',
+     'cartRecoveryUrl': 'https://www.google.com',
+     'cartSum': 12,
+     'contactID': '635af9c917eb8c001b231105',
+     'createdAt': '2017-05-30T14:11:12Z',
+     'currency': 'USD',
+     'email': 'mldc@gmail.com',
+     'emailID': None,
+     'phone': '+37065889743',
+     'products': [{'cartProductID': 'goodCratProduct',
+                   'description': 'same as title',
+                   'discount': 1,
+                   'imageUrl': 'https://www.fb.com',
+                   'oldPrice': 70,
+                   'price': 69,
+                   'productID': 'veryGoodProduct',
+                   'productUrl': 'https://www.product.com',
+                   'quantity': 420,
+                   'sku': 'idk',
+                   'title': 'very nice, very cheap',
+                   'variantID': 'blue'}],
+     'updatedAt': '2019-05-30T14:11:12Z'}
+ERROR    root:test_core.py:662 
+The orders stream has the following schema errors:
+Additional properties are not allowed ('cancelReason', 'subTotalTaxIncluded', 'canceledDate', 'depersonalized', 'emailID', 'attributionID', 'phone' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'billingAddress': {'properties': {'address': {'type': ['string',
+                                                                           'null']},
+                                                      'city': {'type': ['string',
+                                                                        'null']},
+                                                      'company': {'type': ['string',
+                                                                           'null']},
+                                                      'country': {'type': ['string',
+                                                                           'null']},
+                                                      'countryCode': {'type': ['string',
+                                                                               'null']},
+                                                      'firstName': {'type': ['string',
+                                                                             'null']},
+                                                      'lastName': {'type': ['string',
+                                                                            'null']},
+                                                      'phone': {'type': ['string',
+                                                                         'null']},
+                                                      'postalCode': {'type': ['string',
+                                                                              'null']},
+                                                      'state': {'type': ['string',
+                                                                         'null']}},
+                                       'type': 'object'},
+                    'cartID': {'type': ['string', 'null']},
+                    'contactID': {'type': ['string', 'null']},
+                    'contactNote': {'type': ['string', 'null']},
+                    'courierTitle': {'type': ['string', 'null']},
+                    'courierUrl': {'type': ['string', 'null']},
+                    'createdAt': {'type': ['string', 'null']},
+                    'currency': {'type': ['string', 'null']},
+                    'customFields': {'properties': {'phone': {'type': ['string',
+                                                                       'null']}},
+                                     'type': ['object', 'null']},
+                    'discountCode': {'type': ['string', 'null']},
+                    'discountSum': {'type': ['integer', 'null']},
+                    'discountType': {'type': ['string', 'null']},
+                    'discountValue': {'type': ['integer', 'null']},
+                    'email': {'type': ['string', 'null']},
+                    'firstName': {'type': ['string', 'null']},
+                    'fulfillmentStatus': {'type': ['string', 'null']},
+                    'lastName': {'type': ['string', 'null']},
+                    'orderID': {'type': 'string'},
+                    'orderNumber': {'type': ['integer', 'null']},
+                    'orderSum': {'type': ['integer', 'null']},
+                    'orderUrl': {'type': ['string', 'null']},
+                    'paymentMethod': {'type': ['string', 'null']},
+                    'paymentStatus': {'type': ['string', 'null']},
+                    'products': {'items': {'properties': {'cartProductID': {'type': ['string',
+                                                                                     'null']},
+                                                          'categoryIDs': {'items': {'type': ['string',
+                                                                                             'null']},
+                                                                          'type': 'array'},
+                                                          'discount': {'type': ['integer',
+                                                                                'null']},
+                                                          'imageUrl': {'type': ['string',
+                                                                                'null']},
+                                                          'price': {'type': ['integer',
+                                                                             'null']},
+                                                          'productID': {'type': ['string',
+                                                                                 'null']},
+                                                          'productUrl': {'type': ['string',
+                                                                                  'null']},
+                                                          'quantity': {'type': ['integer',
+                                                                                'null']},
+                                                          'tags': {'items': {'type': ['string',
+                                                                                      'null']},
+                                                                   'type': 'array'},
+                                                          'title': {'type': ['string',
+                                                                             'null']},
+                                                          'variantID': {'type': ['string',
+                                                                                 'null']},
+                                                          'variantTitle': {'type': ['string',
+                                                                                    'null']},
+                                                          'weight': {'type': ['integer',
+                                                                              'null']}},
+                                           'type': 'object'},
+                                 'type': 'array'},
+                    'shippingAddress': {'properties': {'address': {'type': ['string',
+                                                                            'null']},
+                                                       'city': {'type': ['string',
+                                                                         'null']},
+                                                       'company': {'type': ['string',
+                                                                            'null']},
+                                                       'country': {'type': ['string',
+                                                                            'null']},
+                                                       'countryCode': {'type': ['string',
+                                                                                'null']},
+                                                       'firstName': {'type': ['string',
+                                                                              'null']},
+                                                       'lastName': {'type': ['string',
+                                                                             'null']},
+                                                       'phone': {'type': ['string',
+                                                                          'null']},
+                                                       'postalCode': {'type': ['string',
+                                                                               'null']},
+                                                       'state': {'type': ['string',
+                                                                          'null']}},
+                                        'type': 'object'},
+                    'shippingMethod': {'type': ['string', 'null']},
+                    'shippingSum': {'type': ['integer', 'null']},
+                    'source': {'type': ['string', 'null']},
+                    'subTotalSum': {'type': ['integer', 'null']},
+                    'tags': {'items': {'type': ['string', 'null']},
+                             'type': ['array', 'null']},
+                    'taxSum': {'type': ['integer', 'null']},
+                    'trackingCode': {'type': ['string', 'null']},
+                    'updatedAt': {'type': ['string', 'null']}},
+     'required': ['orderID'],
+     'type': 'object'}
+
+On instance:
+    {'attributionID': '',
+     'billingAddress': {'address': 'mindes g. 2',
+                        'address2': 'antras aukstas',
+                        'city': 'Vilnius',
+                        'company': 'patssaubosas',
+                        'country': 'Lithuania',
+                        'countryCode': 'LT',
+                        'firstName': 'Dainius',
+                        'lastName': 'Mldc',
+                        'phone': '+37069832246',
+                        'postalCode': 'SW1A 1AA',
+                        'state': 'Vilnius',
+                        'stateCode': 'VNO'},
+     'cancelReason': 'no like',
+     'canceledDate': '2022-07-31T14:11:12Z',
+     'cartID': 'randomID123',
+     'contactID': '635af9c917eb8c001b231105',
+     'contactNote': 'Door code: 911',
+     'courierTitle': 'DHL',
+     'courierUrl': 'https://www.courier.com',
+     'createdAt': '2022-05-30T14:11:12Z',
+     'currency': 'USD',
+     'customFields': None,
+     'depersonalized': False,
+     'discountCode': 'new15',
+     'discountSum': 1400,
+     'discountType': 'fixedAmount',
+     'discountValue': 14,
+     'email': 'mldc@gmail.com',
+     'emailID': None,
+     'fulfillmentStatus': 'fulfilled',
+     'orderID': 'bestOrderID123',
+     'orderNumber': 1,
+     'orderSum': 30,
+     'orderUrl': 'https://www.order.com',
+     'paymentMethod': 'Credit card',
+     'paymentStatus': 'paid',
+     'phone': '+37065889743',
+     'products': [{'categoryIDs': ['lopas', 'lopas2'],
+                   'discount': 1,
+                   'imageUrl': 'https://www.image.com',
+                   'price': 12,
+                   'productID': 'coolProductID123',
+                   'productUrl': 'https://www.product.com',
+                   'quantity': 1,
+                   'sku': 'whatsup',
+                   'tags': ['tag1', 'tag2'],
+                   'title': 'new Product!',
+                   'variantID': 'blue',
+                   'variantTitle': 'blue',
+                   'vendor': 'Norfa',
+                   'weight': 5}],
+     'shippingAddress': {'address': 'mindes g. 2',
+                         'address2': 'antras aukstas',
+                         'city': 'Vilnius',
+                         'company': 'patssaubosas',
+                         'country': 'Lithuania',
+                         'countryCode': 'LT',
+                         'firstName': 'Dainius',
+                         'lastName': 'Mldc',
+                         'phone': '+37069832246',
+                         'postalCode': 'SW1A 1AA',
+                         'state': 'Vilnius',
+                         'stateCode': 'VNO'},
+     'shippingMethod': 'normal',
+     'shippingSum': 1,
+     'source': 'facebook',
+     'subTotalSum': 3000,
+     'subTotalTaxIncluded': False,
+     'tags': ['best tag'],
+     'taxSum': 1,
+     'trackingCode': 'trackyourself',
+     'updatedAt': '2022-07-30T14:11:12Z'}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+=========== 1 failed, 1 skipped, 33 deselected, 35 warnings in 4.66s ===========

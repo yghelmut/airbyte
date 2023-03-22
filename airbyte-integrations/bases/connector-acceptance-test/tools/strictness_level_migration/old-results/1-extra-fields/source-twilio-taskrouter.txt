@@ -1,0 +1,220 @@
+../../../../connectors/source-twilio-taskrouter/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-twilio-taskrouter
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffae4cb8b0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='workspaces', json_schema={'type':...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffadea6910>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='workspaces', data={'timeout_activity_name': 'Offline', 'events_filter': ...es/WSdac0a83cc8392db7d44ee226a05b8489/Activities/WA8e9319d38bfa4f2405001d934ea1b1cc'}}, emitted_at=1679429213347), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='workspaces', json_schema={'type':...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('workspaces', 'workers').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe workspaces stream has the following schema errors:\nAdditional properties are not allowed ('prioritize_queue_order', 'timeout_activity_name', 'default_activity_name' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'account_sid': {'type': ['null', 'string']},\n                    'date_created': {'format': 'date-time',\n                                     'type': ['null', 'string']},\n                    'date_updated': {'format': 'date-time',\n                                     'type': ['null', 'string']},\n                    'default_acitvity_name': {'type': ['null', 'string']},\n                    'default_activity_sid': {'type': ['null', 'string']},\n                    'event_callback_url': {'type': ['null', 'string']},\n                    'events_filter': {'type': ['null', 'string']},\n                    'friendly_name': {'type': ['null', 'string']},\n                    'links': {'type': ['null', 'object']},\n                    'multi_task_enabled': {'type': ['null', 'boolean']},\n                    'sid': {'type': ['null', 'string']},\n                    'timeout_activity_sid': {'type': ['null', 'string']},\n                    'timeout_actvity_name': {'type': ['null', 'string']},\n                    'url': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'account_sid': 'AC4f5892cc4af86ee8bd658127356f59d4',\n     'date_created': '2022-10-23T05:11:47Z',\n     'date_updated': '2022-10-23T05:11:47Z',\n     'default_activity_name': 'Offline',\n     'default_activity_sid': 'WA8e9319d38bfa4f2405001d934ea1b1cc',\n     'event_callback_url': '',\n     'events_filter': None,\n     'friendly_name': 'Flex Task Assignment',\n     'links': {'activities': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Activities',\n               'cumulative_statistics': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/CumulativeStatistics',\n               'events': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Events',\n               'real_time_statistics': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/RealTimeStatistics',\n               'statistics': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Statistics',\n               'task_channels': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/TaskChannels',\n               'task_queues': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/TaskQueues',\n               'tasks': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Tasks',\n               'workers': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workers',\n               'workflows': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workflows'},\n     'multi_task_enabled': True,\n     'prioritize_queue_order': 'FIFO',\n     'sid': 'WSdac0a83cc8392db7d44ee226a05b8489',\n     'timeout_activity_name': 'Offline',\n     'timeout_activity_sid': 'WA8e9319d38bfa4f2405001d934ea1b1cc',\n     'url': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe workers stream has the following schema errors:\nAdditional properties are not allowed ('activity_name' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'account_sid': {'type': ['null', 'string']},\n                    'activity_sid': {'type': ['null', 'string']},\n                    'actvity_name': {'type': ['null', 'string']},\n                    'attributes': {'type': ['null', 'string']},\n                    'available': {'type': ['null', 'boolean']},\n                    'date_created': {'format': 'date-time',\n                                     'type': ['null', 'string']},\n                    'date_status_changed': {'format': 'date-time',\n                                            'type': ['null', 'string']},\n                    'date_updated': {'format': 'date-time',\n                                     'type': ['null', 'string']},\n                    'friendly_name': {'type': ['null', 'string']},\n                    'links': {'type': ['null', 'object']},\n                    'sid': {'type': ['null', 'string']},\n                    'url': {'type': ['null', 'string']},\n                    'workspace_sid': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'account_sid': 'AC4f5892cc4af86ee8bd658127356f59d4',\n     'activity_name': 'Offline',\n     'activity_sid': 'WA8e9319d38bfa4f2405001d934ea1b1cc',\n     'attributes': '{}',\n     'available': False,\n     'date_created': '2022-11-06T18:45:43Z',\n     'date_status_changed': '2022-11-06T18:45:43Z',\n     'date_updated': '2022-11-06T18:45:43Z',\n     'friendly_name': '541c72c2-29d3-40fb-b0cc-235dd4c3c377',\n     'links': {'activity': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Activities/WA8e9319d38bfa4f2405001d934ea1b1cc',\n               'channels': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workers/WKaddeda9c97adaba67f656d4e96ae6481/Channels',\n               'cumulative_statistics': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workers/CumulativeStatistics',\n               'real_time_statistics': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workers/RealTimeStatistics',\n               'reservations': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workers/WKaddeda9c97adaba67f656d4e96ae6481/Reservations',\n               'statistics': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workers/Statistics',\n               'worker_channels': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workers/WKaddeda9c97adaba67f656d4e96ae6481/Channels',\n               'worker_statistics': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workers/WKaddeda9c97adaba67f656d4e96ae6481/Statistics',\n               'workspace': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489'},\n     'sid': 'WKaddeda9c97adaba67f656d4e96ae6481',\n     'url': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workers/WKaddeda9c97adaba67f656d4e96ae6481',\n     'workspace_sid': 'WSdac0a83cc8392db7d44ee226a05b8489'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The workspaces stream has the following schema errors:
+Additional properties are not allowed ('prioritize_queue_order', 'timeout_activity_name', 'default_activity_name' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'account_sid': {'type': ['null', 'string']},
+                    'date_created': {'format': 'date-time',
+                                     'type': ['null', 'string']},
+                    'date_updated': {'format': 'date-time',
+                                     'type': ['null', 'string']},
+                    'default_acitvity_name': {'type': ['null', 'string']},
+                    'default_activity_sid': {'type': ['null', 'string']},
+                    'event_callback_url': {'type': ['null', 'string']},
+                    'events_filter': {'type': ['null', 'string']},
+                    'friendly_name': {'type': ['null', 'string']},
+                    'links': {'type': ['null', 'object']},
+                    'multi_task_enabled': {'type': ['null', 'boolean']},
+                    'sid': {'type': ['null', 'string']},
+                    'timeout_activity_sid': {'type': ['null', 'string']},
+                    'timeout_actvity_name': {'type': ['null', 'string']},
+                    'url': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'account_sid': 'AC4f5892cc4af86ee8bd658127356f59d4',
+     'date_created': '2022-10-23T05:11:47Z',
+     'date_updated': '2022-10-23T05:11:47Z',
+     'default_activity_name': 'Offline',
+     'default_activity_sid': 'WA8e9319d38bfa4f2405001d934ea1b1cc',
+     'event_callback_url': '',
+     'events_filter': None,
+     'friendly_name': 'Flex Task Assignment',
+     'links': {'activities': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Activities',
+               'cumulative_statistics': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/CumulativeStatistics',
+               'events': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Events',
+               'real_time_statistics': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/RealTimeStatistics',
+               'statistics': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Statistics',
+               'task_channels': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/TaskChannels',
+               'task_queues': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/TaskQueues',
+               'tasks': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Tasks',
+               'workers': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workers',
+               'workflows': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workflows'},
+     'multi_task_enabled': True,
+     'prioritize_queue_order': 'FIFO',
+     'sid': 'WSdac0a83cc8392db7d44ee226a05b8489',
+     'timeout_activity_name': 'Offline',
+     'timeout_activity_sid': 'WA8e9319d38bfa4f2405001d934ea1b1cc',
+     'url': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489'}
+ERROR    root:test_core.py:662 
+The workers stream has the following schema errors:
+Additional properties are not allowed ('activity_name' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'account_sid': {'type': ['null', 'string']},
+                    'activity_sid': {'type': ['null', 'string']},
+                    'actvity_name': {'type': ['null', 'string']},
+                    'attributes': {'type': ['null', 'string']},
+                    'available': {'type': ['null', 'boolean']},
+                    'date_created': {'format': 'date-time',
+                                     'type': ['null', 'string']},
+                    'date_status_changed': {'format': 'date-time',
+                                            'type': ['null', 'string']},
+                    'date_updated': {'format': 'date-time',
+                                     'type': ['null', 'string']},
+                    'friendly_name': {'type': ['null', 'string']},
+                    'links': {'type': ['null', 'object']},
+                    'sid': {'type': ['null', 'string']},
+                    'url': {'type': ['null', 'string']},
+                    'workspace_sid': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'account_sid': 'AC4f5892cc4af86ee8bd658127356f59d4',
+     'activity_name': 'Offline',
+     'activity_sid': 'WA8e9319d38bfa4f2405001d934ea1b1cc',
+     'attributes': '{}',
+     'available': False,
+     'date_created': '2022-11-06T18:45:43Z',
+     'date_status_changed': '2022-11-06T18:45:43Z',
+     'date_updated': '2022-11-06T18:45:43Z',
+     'friendly_name': '541c72c2-29d3-40fb-b0cc-235dd4c3c377',
+     'links': {'activity': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Activities/WA8e9319d38bfa4f2405001d934ea1b1cc',
+               'channels': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workers/WKaddeda9c97adaba67f656d4e96ae6481/Channels',
+               'cumulative_statistics': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workers/CumulativeStatistics',
+               'real_time_statistics': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workers/RealTimeStatistics',
+               'reservations': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workers/WKaddeda9c97adaba67f656d4e96ae6481/Reservations',
+               'statistics': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workers/Statistics',
+               'worker_channels': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workers/WKaddeda9c97adaba67f656d4e96ae6481/Channels',
+               'worker_statistics': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workers/WKaddeda9c97adaba67f656d4e96ae6481/Statistics',
+               'workspace': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489'},
+     'sid': 'WKaddeda9c97adaba67f656d4e96ae6481',
+     'url': 'https://taskrouter.twilio.com/v1/Workspaces/WSdac0a83cc8392db7d44ee226a05b8489/Workers/WKaddeda9c97adaba67f656d4e96ae6481',
+     'workspace_sid': 'WSdac0a83cc8392db7d44ee226a05b8489'}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+=========== 1 failed, 1 skipped, 33 deselected, 35 warnings in 7.60s ===========

@@ -1,0 +1,198 @@
+../../../../connectors/source-amazon-ads/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-amazon-ads
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 38 items / 36 deselected / 2 selected
+
+../../test_input/test_core.py F                                          [ 50%]
+../../test_input/test_incremental.py .                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffb589d4c0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='profiles', json_schema={'type': '...fresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=[['targetId']])])
+expect_records_config = ExpectedRecordsConfig(bypass_reason=None, path=PosixPath('integration_tests/expected_records.jsonl'), extra_fields=False, exact_order=False, extra_records=True)
+should_validate_schema = True, should_validate_data_points = False
+should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='attribution_report_products', bypass_reason="can't populate stream because it requires...ibution_report_performance_campaign', bypass_reason="can't populate stream because it requires real ad campaign"), ...}
+ignored_fields = {}
+expected_records_by_stream = defaultdict(<class 'list'>, {'profiles': [{'profileId': 3991703629696934, 'countryCode': 'CA', 'currencyCode': 'CAD', ...bled', 'expression': [{'type': 'asinSubstituteRelated'}], 'resolvedExpression': [{'type': 'asinSubstituteRelated'}]}]})
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffb58a3520>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='profiles', data={'profileId': 3991703629696934, 'countryCode': 'CA', 'cu...ndor', 'name': '3PTestBrand-A3LUQZ2NBMFGO46750119612846', 'validPaymentMethod': True}}, emitted_at=1679404605766), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='profiles', json_schema={'type': '...fresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=[['targetId']])])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('sponsored_display_ad_groups', 'sponsored_display_targetings', 'sponsored_product_campaigns', 'sponsored_product_targetings').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The configured catalog was built with the discovered catalog from which the following empty streams were removed: attribution_report_products, sponsored_brands_campaigns, sponsored_brands_report_stream, attribution_report_performance_adgroup, sponsored_brands_video_report_stream, attribution_report_performance_campaign, sponsored_brands_ad_groups, sponsored_display_report_stream, sponsored_brands_keywords, attribution_report_performance_creative, sponsored_products_report_stream."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:common.py:149 The configured catalog was built with the discovered catalog from which the following empty streams were removed: attribution_report_products, sponsored_brands_campaigns, sponsored_brands_report_stream, attribution_report_performance_adgroup, sponsored_brands_video_report_stream, attribution_report_performance_campaign, sponsored_brands_ad_groups, sponsored_display_report_stream, sponsored_brands_keywords, attribution_report_performance_creative, sponsored_products_report_stream.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe sponsored_display_ad_groups stream has the following schema errors:\nAdditional properties are not allowed ('creativeType' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'adGroupId': {'type': 'number'},\n                    'bidOptimization': {'type': 'string'},\n                    'campaignId': {'type': 'number'},\n                    'defaultBid': {'type': 'number'},\n                    'name': {'type': 'string'},\n                    'state': {'type': 'string'},\n                    'tactic': {'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'adGroupId': 239470166910761,\n     'bidOptimization': 'clicks',\n     'campaignId': 25934734632378,\n     'creativeType': 'IMAGE',\n     'defaultBid': 0.02,\n     'name': 'Ad group - 7/20/2022 15:45:46',\n     'state': 'enabled',\n     'tactic': 'T00020'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe sponsored_display_targetings stream has the following schema errors:\nAdditional properties are not allowed ('expression', 'resolvedExpression' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'adGroupId': {'type': 'number'},\n                    'bid': {'type': 'number'},\n                    'expressionType': {'type': 'string'},\n                    'state': {'type': 'string'},\n                    'targetId': {'type': 'number'}},\n     'type': 'object'}\n\nOn instance:\n    {'adGroupId': 239470166910761,\n     'bid': 0.4,\n     'expression': [{'type': 'similarProduct'}],\n     'expressionType': 'auto',\n     'resolvedExpression': [{'type': 'similarProduct'}],\n     'state': 'enabled',\n     'targetId': 124150067548052}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe sponsored_product_campaigns stream has the following schema errors:\nAdditional properties are not allowed ('ruleBasedBudget' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'bidding': {'properties': {'adjustments': {'items': {'properties': {'percentage': {'type': 'number'},\n                                                                                        'predicate': {'type': 'string'}},\n                                                                         'type': 'object'},\n                                                               'type': 'array'},\n                                               'strategy': {'type': 'string'}},\n                                'type': 'object'},\n                    'campaignId': {'type': 'number'},\n                    'campaignType': {'type': 'string'},\n                    'dailyBudget': {'type': 'number'},\n                    'endDate': {'type': ['null', 'string']},\n                    'name': {'type': 'string'},\n                    'portfolioId': {'type': 'number'},\n                    'premiumBidAdjustment': {'type': 'boolean'},\n                    'startDate': {'type': 'string'},\n                    'state': {'type': 'string'},\n                    'tags': {'additionalProperties': True,\n                             'type': 'object'},\n                    'targetingType': {'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'bidding': {'adjustments': [{'percentage': 50,\n                                  'predicate': 'placementTop'}],\n                 'strategy': 'legacyForSales'},\n     'campaignId': 39413387973397,\n     'campaignType': 'sponsoredProducts',\n     'dailyBudget': 10.0,\n     'endDate': '20220712',\n     'name': 'Test campaging for profileId 1861552880916640',\n     'premiumBidAdjustment': True,\n     'ruleBasedBudget': {'isProcessing': False},\n     'startDate': '20220705',\n     'state': 'paused',\n     'tags': {'PONumber': 'examplePONumber',\n              'accountManager': 'exampleAccountManager'},\n     'targetingType': 'manual'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe sponsored_product_targetings stream has the following schema errors:\nAdditional properties are not allowed ('expression', 'resolvedExpression' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'adGroupId': {'type': 'number'},\n                    'bid': {'type': 'number'},\n                    'campaignId': {'type': 'number'},\n                    'expressionType': {'type': 'string'},\n                    'state': {'type': 'string'},\n                    'targetId': {'type': 'number'}},\n     'type': 'object'}\n\nOn instance:\n    {'adGroupId': 108551155050351,\n     'campaignId': 191249325250025,\n     'expression': [{'type': 'asinSubstituteRelated'}],\n     'expressionType': 'auto',\n     'resolvedExpression': [{'type': 'asinSubstituteRelated'}],\n     'state': 'enabled',\n     'targetId': 1189452552122}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The sponsored_display_ad_groups stream has the following schema errors:
+Additional properties are not allowed ('creativeType' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'adGroupId': {'type': 'number'},
+                    'bidOptimization': {'type': 'string'},
+                    'campaignId': {'type': 'number'},
+                    'defaultBid': {'type': 'number'},
+                    'name': {'type': 'string'},
+                    'state': {'type': 'string'},
+                    'tactic': {'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'adGroupId': 239470166910761,
+     'bidOptimization': 'clicks',
+     'campaignId': 25934734632378,
+     'creativeType': 'IMAGE',
+     'defaultBid': 0.02,
+     'name': 'Ad group - 7/20/2022 15:45:46',
+     'state': 'enabled',
+     'tactic': 'T00020'}
+ERROR    root:test_core.py:662 
+The sponsored_display_targetings stream has the following schema errors:
+Additional properties are not allowed ('expression', 'resolvedExpression' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'adGroupId': {'type': 'number'},
+                    'bid': {'type': 'number'},
+                    'expressionType': {'type': 'string'},
+                    'state': {'type': 'string'},
+                    'targetId': {'type': 'number'}},
+     'type': 'object'}
+
+On instance:
+    {'adGroupId': 239470166910761,
+     'bid': 0.4,
+     'expression': [{'type': 'similarProduct'}],
+     'expressionType': 'auto',
+     'resolvedExpression': [{'type': 'similarProduct'}],
+     'state': 'enabled',
+     'targetId': 124150067548052}
+ERROR    root:test_core.py:662 
+The sponsored_product_campaigns stream has the following schema errors:
+Additional properties are not allowed ('ruleBasedBudget' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'bidding': {'properties': {'adjustments': {'items': {'properties': {'percentage': {'type': 'number'},
+                                                                                        'predicate': {'type': 'string'}},
+                                                                         'type': 'object'},
+                                                               'type': 'array'},
+                                               'strategy': {'type': 'string'}},
+                                'type': 'object'},
+                    'campaignId': {'type': 'number'},
+                    'campaignType': {'type': 'string'},
+                    'dailyBudget': {'type': 'number'},
+                    'endDate': {'type': ['null', 'string']},
+                    'name': {'type': 'string'},
+                    'portfolioId': {'type': 'number'},
+                    'premiumBidAdjustment': {'type': 'boolean'},
+                    'startDate': {'type': 'string'},
+                    'state': {'type': 'string'},
+                    'tags': {'additionalProperties': True,
+                             'type': 'object'},
+                    'targetingType': {'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'bidding': {'adjustments': [{'percentage': 50,
+                                  'predicate': 'placementTop'}],
+                 'strategy': 'legacyForSales'},
+     'campaignId': 39413387973397,
+     'campaignType': 'sponsoredProducts',
+     'dailyBudget': 10.0,
+     'endDate': '20220712',
+     'name': 'Test campaging for profileId 1861552880916640',
+     'premiumBidAdjustment': True,
+     'ruleBasedBudget': {'isProcessing': False},
+     'startDate': '20220705',
+     'state': 'paused',
+     'tags': {'PONumber': 'examplePONumber',
+              'accountManager': 'exampleAccountManager'},
+     'targetingType': 'manual'}
+ERROR    root:test_core.py:662 
+The sponsored_product_targetings stream has the following schema errors:
+Additional properties are not allowed ('expression', 'resolvedExpression' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'adGroupId': {'type': 'number'},
+                    'bid': {'type': 'number'},
+                    'campaignId': {'type': 'number'},
+                    'expressionType': {'type': 'string'},
+                    'state': {'type': 'string'},
+                    'targetId': {'type': 'number'}},
+     'type': 'object'}
+
+On instance:
+    {'adGroupId': 108551155050351,
+     'campaignId': 191249325250025,
+     'expression': [{'type': 'asinSubstituteRelated'}],
+     'expressionType': 'auto',
+     'resolvedExpression': [{'type': 'asinSubstituteRelated'}],
+     'state': 'enabled',
+     'targetId': 1189452552122}
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+================= 1 failed, 1 passed, 36 deselected in 33.32s ==================

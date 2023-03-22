@@ -1,0 +1,110 @@
+../../../../connectors/source-aha/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-aha
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff86e71970>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='features', json_schema={'$schema'...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff866b3c70>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+>       output = docker_runner.call_read(connector_config, configured_catalog)
+
+connector_acceptance_test/tests/test_core.py:817: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+connector_acceptance_test/utils/connector_runner.py:96: in call_read
+    output = list(self.run(cmd=cmd, config=config, catalog=catalog, **kwargs))
+connector_acceptance_test/utils/connector_runner.py:120: in run
+    for line in self.read(container, command=cmd, with_ext=raise_container_error):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'connector_acceptance_test.utils.connector_runner.ConnectorRunner'>
+container = <Container: 9c5ff25b85>
+command = 'read --config /data/tap_config.json --catalog /data/catalog.json'
+with_ext = True
+
+    @classmethod
+    def read(cls, container: Container, command: str = None, with_ext: bool = True) -> Iterable[str]:
+        """Reads connector's logs per line"""
+        buffer = b""
+        exception = ""
+        line = ""
+        for chunk in container.logs(stdout=True, stderr=True, stream=True, follow=True):
+    
+            buffer += chunk
+            while True:
+                # every chunk can include several lines
+                found = buffer.find(b"\n")
+                if found <= -1:
+                    break
+    
+                line = buffer[: found + 1].decode("utf-8")
+                if len(exception) > 0 or line.startswith("Traceback (most recent call last)"):
+                    exception += line
+                else:
+                    yield line
+                buffer = buffer[found + 1 :]
+    
+        if buffer:
+            # send the latest chunk if exists
+            line = buffer.decode("utf-8")
+            if exception:
+                exception += line
+            else:
+                yield line
+        try:
+            exit_status = container.wait()
+            container.remove()
+        except NotFound as err:
+            logging.error(f"Waiting error: {err}, logs: {exception or line}")
+            raise
+        if exit_status["StatusCode"]:
+            error = exit_status.get("Error") or exception or line
+            logging.error(f"Docker container failed, " f'code {exit_status["StatusCode"]}, error:\n{error}')
+            if with_ext:
+>               raise ContainerError(
+                    container=container,
+                    exit_status=exit_status["StatusCode"],
+                    command=command,
+                    image=container.image,
+                    stderr=error,
+                )
+E               docker.errors.ContainerError: Command 'read --config /data/tap_config.json --catalog /data/catalog.json' in image '<Image: 'airbyte/source-aha:dev'>' returned non-zero exit status 1: {"type": "TRACE", "trace": {"type": "ERROR", "emitted_at": 1679404608359.9702, "error": {"message": "Something went wrong in the connector. See the logs for more details.", "internal_message": "Request to https://905c7285-30d2-4419-a9e4-8eef125ce6c1.aha.io/api/v1/features?per_page=5 failed with status code 403 and error message None", "stack_trace": "Traceback (most recent call last):\n  File \"/airbyte/integration_code/main.py\", line 13, in <module>\n    launch(source, sys.argv[1:])\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 131, in launch\n    for message in source_entrypoint.run(parsed_args):\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 122, in run\n    for message in generator:\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/declarative/manifest_declarative_source.py\", line 117, in read\n    yield from super().read(logger, config, catalog, state)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/abstract_source.py\", line 134, in read\n    raise e\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/abstract_source.py\", line 120, in read\n    yield from self._read_stream(\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/abstract_source.py\", line 189, in _read_stream\n    for record in record_iterator:\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/abstract_source.py\", line 307, in _read_full_refresh\n    for record_data_or_message in record_data_or_messages:\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/declarative/declarative_stream.py\", line 100, in read_records\n    for record in self.retriever.read_records(sync_mode, cursor_field, stream_slice, stream_state):\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/declarative/retrievers/simple_retriever.py\", line 375, in read_records\n    for record in records_generator:\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\", line 436, in _read_pages\n    yield from records_generator_fn(request, response, stream_state, stream_slice)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/declarative/retrievers/simple_retriever.py\", line 416, in _parse_records_and_emit_request_and_responses\n    yield from self.parse_response(response, stream_slice=stream_slice, stream_state=stream_state)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/declarative/retrievers/simple_retriever.py\", line 327, in parse_response\n    raise ReadException(error_message)\nairbyte_cdk.sources.declarative.exceptions.ReadException: Request to https://905c7285-30d2-4419-a9e4-8eef125ce6c1.aha.io/api/v1/features?per_page=5 failed with status code 403 and error message None\n", "failure_type": "system_error"}}}
+
+connector_acceptance_test/utils/connector_runner.py:174: ContainerError
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "Docker container failed, code 1, error:\n{\"type\": \"TRACE\", \"trace\": {\"type\": \"ERROR\", \"emitted_at\": 1679404608359.9702, \"error\": {\"message\": \"Something went wrong in the connector. See the logs for more details.\", \"internal_message\": \"Request to https://905c7285-30d2-4419-a9e4-8eef125ce6c1.aha.io/api/v1/features?per_page=5 failed with status code 403 and error message None\", \"stack_trace\": \"Traceback (most recent call last):\\n  File \\\"/airbyte/integration_code/main.py\\\", line 13, in <module>\\n    launch(source, sys.argv[1:])\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\\\", line 131, in launch\\n    for message in source_entrypoint.run(parsed_args):\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\\\", line 122, in run\\n    for message in generator:\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/declarative/manifest_declarative_source.py\\\", line 117, in read\\n    yield from super().read(logger, config, catalog, state)\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/abstract_source.py\\\", line 134, in read\\n    raise e\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/abstract_source.py\\\", line 120, in read\\n    yield from self._read_stream(\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/abstract_source.py\\\", line 189, in _read_stream\\n    for record in record_iterator:\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/abstract_source.py\\\", line 307, in _read_full_refresh\\n    for record_data_or_message in record_data_or_messages:\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/declarative/declarative_stream.py\\\", line 100, in read_records\\n    for record in self.retriever.read_records(sync_mode, cursor_field, stream_slice, stream_state):\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/declarative/retrievers/simple_retriever.py\\\", line 375, in read_records\\n    for record in records_generator:\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\\\", line 436, in _read_pages\\n    yield from records_generator_fn(request, response, stream_state, stream_slice)\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/declarative/retrievers/simple_retriever.py\\\", line 416, in _parse_records_and_emit_request_and_responses\\n    yield from self.parse_response(response, stream_slice=stream_slice, stream_state=stream_state)\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/declarative/retrievers/simple_retriever.py\\\", line 327, in parse_response\\n    raise ReadException(error_message)\\nairbyte_cdk.sources.declarative.exceptions.ReadException: Request to https://905c7285-30d2-4419-a9e4-8eef125ce6c1.aha.io/api/v1/features?per_page=5 failed with status code 403 and error message None\\n\", \"failure_type\": \"system_error\"}}}\n"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:connector_runner.py:172 Docker container failed, code 1, error:
+{"type": "TRACE", "trace": {"type": "ERROR", "emitted_at": 1679404608359.9702, "error": {"message": "Something went wrong in the connector. See the logs for more details.", "internal_message": "Request to https://905c7285-30d2-4419-a9e4-8eef125ce6c1.aha.io/api/v1/features?per_page=5 failed with status code 403 and error message None", "stack_trace": "Traceback (most recent call last):\n  File \"/airbyte/integration_code/main.py\", line 13, in <module>\n    launch(source, sys.argv[1:])\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 131, in launch\n    for message in source_entrypoint.run(parsed_args):\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 122, in run\n    for message in generator:\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/declarative/manifest_declarative_source.py\", line 117, in read\n    yield from super().read(logger, config, catalog, state)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/abstract_source.py\", line 134, in read\n    raise e\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/abstract_source.py\", line 120, in read\n    yield from self._read_stream(\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/abstract_source.py\", line 189, in _read_stream\n    for record in record_iterator:\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/abstract_source.py\", line 307, in _read_full_refresh\n    for record_data_or_message in record_data_or_messages:\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/declarative/declarative_stream.py\", line 100, in read_records\n    for record in self.retriever.read_records(sync_mode, cursor_field, stream_slice, stream_state):\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/declarative/retrievers/simple_retriever.py\", line 375, in read_records\n    for record in records_generator:\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\", line 436, in _read_pages\n    yield from records_generator_fn(request, response, stream_state, stream_slice)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/declarative/retrievers/simple_retriever.py\", line 416, in _parse_records_and_emit_request_and_responses\n    yield from self.parse_response(response, stream_slice=stream_slice, stream_state=stream_state)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/declarative/retrievers/simple_retriever.py\", line 327, in parse_response\n    raise ReadException(error_message)\nairbyte_cdk.sources.declarative.exceptions.ReadException: Request to https://905c7285-30d2-4419-a9e4-8eef125ce6c1.aha.io/api/v1/features?per_page=5 failed with status code 403 and error message None\n", "failure_type": "system_error"}}}
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - doc...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: This connector does not implement incremental sync
+================= 1 failed, 1 skipped, 33 deselected in 12.77s =================

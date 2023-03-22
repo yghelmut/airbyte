@@ -1,0 +1,240 @@
+../../../../connectors/source-amplitude/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-amplitude
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 37 items / 35 deselected / 2 selected
+
+../../test_input/test_core.py F                                          [ 50%]
+../../test_input/test_incremental.py .                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffab0214f0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='events', json_schema={'$schema': ...fresh'>, cursor_field=['date'], destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=[['date']])])
+expect_records_config = ExpectedRecordsConfig(bypass_reason=None, path=PosixPath('integration_tests/expected_records.jsonl'), extra_fields=False, exact_order=False, extra_records=True)
+should_validate_schema = True, should_validate_data_points = False
+should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='annotations', bypass_reason='This stream is empty due to free subscription plan for th...reamConfiguration(name='cohorts', bypass_reason='This stream is empty due to free subscription plan for the sandbox.')}
+ignored_fields = {}
+expected_records_by_stream = defaultdict(<class 'list'>, {'active_users': [{'date': '2023-02-01', 'statistics': {'(none)': 1, 'Ukraine': 0}}, {'dat...': 'UK', 'os_name': 'test', 'region': 'test'}, 'uuid': 'ac8bb5e3-adf1-11ed-b665-91b6ce29e523', 'version_name': None}]})
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffab8f2130>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='events', data={'$insert_id': 'google-ad-4651612872-643022056303-DESKTOP-...properties': {}, 'uuid': 'bcf77529-a3ba-11ed-9ee2-ef5367694578', 'version_name': None}, emitted_at=1679404609228), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='events', json_schema={'$schema': ...fresh'>, cursor_field=['date'], destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=[['date']])])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('events',).
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The configured catalog was built with the discovered catalog from which the following empty streams were removed: annotations, cohorts."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:common.py:149 The configured catalog was built with the discovered catalog from which the following empty streams were removed: annotations, cohorts.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe events stream has the following schema errors:\nAdditional properties are not allowed ('$insert_key', 'data_type', 'plan', 'source_id', 'partner_id', 'global_user_properties' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'$insert_id': {'type': ['null', 'string']},\n                    '$schema': {'type': ['null', 'integer']},\n                    'adid': {'type': ['null', 'string']},\n                    'amplitude_attribution_ids': {'type': ['null',\n                                                           'string']},\n                    'amplitude_event_type': {'type': ['null', 'string']},\n                    'amplitude_id': {'type': ['null', 'integer']},\n                    'app': {'type': ['null', 'integer']},\n                    'city': {'type': ['null', 'string']},\n                    'client_event_time': {'format': 'date-time',\n                                          'type': ['null', 'string']},\n                    'client_upload_time': {'format': 'date-time',\n                                           'type': ['null', 'string']},\n                    'country': {'type': ['null', 'string']},\n                    'data': {'type': ['null', 'object']},\n                    'device_brand': {'type': ['null', 'string']},\n                    'device_carrier': {'type': ['null', 'string']},\n                    'device_family': {'type': ['null', 'string']},\n                    'device_id': {'type': ['null', 'string']},\n                    'device_manufacturer': {'type': ['null', 'string']},\n                    'device_model': {'type': ['null', 'string']},\n                    'device_type': {'type': ['null', 'string']},\n                    'dma': {'type': ['null', 'string']},\n                    'event_id': {'type': ['null', 'integer']},\n                    'event_properties': {'type': ['null', 'object']},\n                    'event_time': {'format': 'date-time',\n                                   'type': ['null', 'string']},\n                    'event_type': {'type': ['null', 'string']},\n                    'group_properties': {'type': ['null', 'object']},\n                    'groups': {'type': ['null', 'object']},\n                    'idfa': {'type': ['null', 'string']},\n                    'ip_address': {'type': ['null', 'string']},\n                    'is_attribution_event': {'type': ['null', 'boolean']},\n                    'language': {'type': ['null', 'string']},\n                    'library': {'type': ['null', 'string']},\n                    'location_lat': {'type': ['null', 'number']},\n                    'location_lng': {'type': ['null', 'number']},\n                    'os_name': {'type': ['null', 'string']},\n                    'os_version': {'type': ['null', 'string']},\n                    'paying': {'type': ['null', 'boolean']},\n                    'platform': {'type': ['null', 'string']},\n                    'processed_time': {'format': 'date-time',\n                                       'type': ['null', 'string']},\n                    'region': {'type': ['null', 'string']},\n                    'sample_rate': {'type': ['null', 'string', 'number']},\n                    'server_received_time': {'format': 'date-time',\n                                             'type': ['null', 'string']},\n                    'server_upload_time': {'format': 'date-time',\n                                           'type': ['null', 'string']},\n                    'session_id': {'type': ['null', 'number']},\n                    'start_version': {'type': ['null', 'string']},\n                    'user_creation_time': {'format': 'date-time',\n                                           'type': ['null', 'string']},\n                    'user_id': {'type': ['null', 'string']},\n                    'user_properties': {'type': ['null', 'object']},\n                    'uuid': {'type': ['null', 'string']},\n                    'version_name': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'$insert_id': 'google-ad-4651612872-643022056303-MOBILE-2023-03-20',\n     '$insert_key': None,\n     '$schema': None,\n     'adid': None,\n     'amplitude_attribution_ids': None,\n     'amplitude_event_type': None,\n     'amplitude_id': 550106004607,\n     'app': 434735,\n     'city': None,\n     'client_event_time': '2023-03-20T07:00:00+00:00',\n     'client_upload_time': '2023-03-21T11:03:12.715000+00:00',\n     'country': None,\n     'data': {'group_first_event': {},\n              'group_ids': {},\n              'vacuum_source_id': '5955'},\n     'data_type': 'event',\n     'device_brand': None,\n     'device_carrier': None,\n     'device_family': None,\n     'device_id': 'google-ad-4651612872-643022056303',\n     'device_manufacturer': None,\n     'device_model': None,\n     'device_type': None,\n     'dma': None,\n     'event_id': 30268583,\n     'event_properties': {'ad_group_id': 144799120517,\n                          'ad_group_name': 'Ad group 1',\n                          'ad_group_type': 'DISPLAY_STANDARD',\n                          'ad_id': 643022056303,\n                          'ad_metrics.clicks': 5,\n                          'ad_metrics.conversions': 0.0,\n                          'ad_metrics.cost': 1.847841,\n                          'ad_metrics.impressions': 2346,\n                          'ad_metrics.interactions': 5,\n                          'ad_platform': 'google',\n                          'ad_segment_device': 'MOBILE',\n                          'campaign_advertising_channel_type': 'DISPLAY',\n                          'campaign_end_date': '2037-12-30',\n                          'campaign_id': 19410069806,\n                          'campaign_name': 'Brand awareness and '\n                                           'reach-Display-1',\n                          'campaign_start_date': '2022-12-28',\n                          'final_url': 'https://airbyte.com'},\n     'event_time': '2023-03-20T07:00:00+00:00',\n     'event_type': 'Daily Ad Metrics',\n     'global_user_properties': None,\n     'group_properties': {},\n     'groups': {},\n     'idfa': None,\n     'ip_address': None,\n     'is_attribution_event': None,\n     'language': None,\n     'library': 'google_ads',\n     'location_lat': None,\n     'location_lng': None,\n     'os_name': None,\n     'os_version': None,\n     'partner_id': None,\n     'paying': None,\n     'plan': {},\n     'platform': None,\n     'processed_time': '2023-03-21T11:03:28.738000+00:00',\n     'region': None,\n     'sample_rate': None,\n     'server_received_time': '2023-03-21T11:03:12.715000+00:00',\n     'server_upload_time': '2023-03-21T11:03:24.663000+00:00',\n     'session_id': -1,\n     'source_id': None,\n     'start_version': None,\n     'user_creation_time': None,\n     'user_id': None,\n     'user_properties': {'City': 'London',\n                         'Country': 'UK',\n                         'DMA': 'London',\n                         'Region': 'London',\n                         'carrier': 'test',\n                         'city': 'test',\n                         'country': 'test',\n                         'device_brand': 'test',\n                         'device_manufacturer': 'test',\n                         'device_model': 'test',\n                         'os_name': 'test',\n                         'os_version': 'test',\n                         'platform': 'test',\n                         'region': 'test'},\n     'uuid': '306f21ce-6c47-4794-b5bc-931a67d1a0f8',\n     'version_name': None}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The events stream has the following schema errors:
+Additional properties are not allowed ('$insert_key', 'data_type', 'plan', 'source_id', 'partner_id', 'global_user_properties' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'$insert_id': {'type': ['null', 'string']},
+                    '$schema': {'type': ['null', 'integer']},
+                    'adid': {'type': ['null', 'string']},
+                    'amplitude_attribution_ids': {'type': ['null',
+                                                           'string']},
+                    'amplitude_event_type': {'type': ['null', 'string']},
+                    'amplitude_id': {'type': ['null', 'integer']},
+                    'app': {'type': ['null', 'integer']},
+                    'city': {'type': ['null', 'string']},
+                    'client_event_time': {'format': 'date-time',
+                                          'type': ['null', 'string']},
+                    'client_upload_time': {'format': 'date-time',
+                                           'type': ['null', 'string']},
+                    'country': {'type': ['null', 'string']},
+                    'data': {'type': ['null', 'object']},
+                    'device_brand': {'type': ['null', 'string']},
+                    'device_carrier': {'type': ['null', 'string']},
+                    'device_family': {'type': ['null', 'string']},
+                    'device_id': {'type': ['null', 'string']},
+                    'device_manufacturer': {'type': ['null', 'string']},
+                    'device_model': {'type': ['null', 'string']},
+                    'device_type': {'type': ['null', 'string']},
+                    'dma': {'type': ['null', 'string']},
+                    'event_id': {'type': ['null', 'integer']},
+                    'event_properties': {'type': ['null', 'object']},
+                    'event_time': {'format': 'date-time',
+                                   'type': ['null', 'string']},
+                    'event_type': {'type': ['null', 'string']},
+                    'group_properties': {'type': ['null', 'object']},
+                    'groups': {'type': ['null', 'object']},
+                    'idfa': {'type': ['null', 'string']},
+                    'ip_address': {'type': ['null', 'string']},
+                    'is_attribution_event': {'type': ['null', 'boolean']},
+                    'language': {'type': ['null', 'string']},
+                    'library': {'type': ['null', 'string']},
+                    'location_lat': {'type': ['null', 'number']},
+                    'location_lng': {'type': ['null', 'number']},
+                    'os_name': {'type': ['null', 'string']},
+                    'os_version': {'type': ['null', 'string']},
+                    'paying': {'type': ['null', 'boolean']},
+                    'platform': {'type': ['null', 'string']},
+                    'processed_time': {'format': 'date-time',
+                                       'type': ['null', 'string']},
+                    'region': {'type': ['null', 'string']},
+                    'sample_rate': {'type': ['null', 'string', 'number']},
+                    'server_received_time': {'format': 'date-time',
+                                             'type': ['null', 'string']},
+                    'server_upload_time': {'format': 'date-time',
+                                           'type': ['null', 'string']},
+                    'session_id': {'type': ['null', 'number']},
+                    'start_version': {'type': ['null', 'string']},
+                    'user_creation_time': {'format': 'date-time',
+                                           'type': ['null', 'string']},
+                    'user_id': {'type': ['null', 'string']},
+                    'user_properties': {'type': ['null', 'object']},
+                    'uuid': {'type': ['null', 'string']},
+                    'version_name': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'$insert_id': 'google-ad-4651612872-643022056303-MOBILE-2023-03-20',
+     '$insert_key': None,
+     '$schema': None,
+     'adid': None,
+     'amplitude_attribution_ids': None,
+     'amplitude_event_type': None,
+     'amplitude_id': 550106004607,
+     'app': 434735,
+     'city': None,
+     'client_event_time': '2023-03-20T07:00:00+00:00',
+     'client_upload_time': '2023-03-21T11:03:12.715000+00:00',
+     'country': None,
+     'data': {'group_first_event': {},
+              'group_ids': {},
+              'vacuum_source_id': '5955'},
+     'data_type': 'event',
+     'device_brand': None,
+     'device_carrier': None,
+     'device_family': None,
+     'device_id': 'google-ad-4651612872-643022056303',
+     'device_manufacturer': None,
+     'device_model': None,
+     'device_type': None,
+     'dma': None,
+     'event_id': 30268583,
+     'event_properties': {'ad_group_id': 144799120517,
+                          'ad_group_name': 'Ad group 1',
+                          'ad_group_type': 'DISPLAY_STANDARD',
+                          'ad_id': 643022056303,
+                          'ad_metrics.clicks': 5,
+                          'ad_metrics.conversions': 0.0,
+                          'ad_metrics.cost': 1.847841,
+                          'ad_metrics.impressions': 2346,
+                          'ad_metrics.interactions': 5,
+                          'ad_platform': 'google',
+                          'ad_segment_device': 'MOBILE',
+                          'campaign_advertising_channel_type': 'DISPLAY',
+                          'campaign_end_date': '2037-12-30',
+                          'campaign_id': 19410069806,
+                          'campaign_name': 'Brand awareness and '
+                                           'reach-Display-1',
+                          'campaign_start_date': '2022-12-28',
+                          'final_url': 'https://airbyte.com'},
+     'event_time': '2023-03-20T07:00:00+00:00',
+     'event_type': 'Daily Ad Metrics',
+     'global_user_properties': None,
+     'group_properties': {},
+     'groups': {},
+     'idfa': None,
+     'ip_address': None,
+     'is_attribution_event': None,
+     'language': None,
+     'library': 'google_ads',
+     'location_lat': None,
+     'location_lng': None,
+     'os_name': None,
+     'os_version': None,
+     'partner_id': None,
+     'paying': None,
+     'plan': {},
+     'platform': None,
+     'processed_time': '2023-03-21T11:03:28.738000+00:00',
+     'region': None,
+     'sample_rate': None,
+     'server_received_time': '2023-03-21T11:03:12.715000+00:00',
+     'server_upload_time': '2023-03-21T11:03:24.663000+00:00',
+     'session_id': -1,
+     'source_id': None,
+     'start_version': None,
+     'user_creation_time': None,
+     'user_id': None,
+     'user_properties': {'City': 'London',
+                         'Country': 'UK',
+                         'DMA': 'London',
+                         'Region': 'London',
+                         'carrier': 'test',
+                         'city': 'test',
+                         'country': 'test',
+                         'device_brand': 'test',
+                         'device_manufacturer': 'test',
+                         'device_model': 'test',
+                         'os_name': 'test',
+                         'os_version': 'test',
+                         'platform': 'test',
+                         'region': 'test'},
+     'uuid': '306f21ce-6c47-4794-b5bc-931a67d1a0f8',
+     'version_name': None}
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+============ 1 failed, 1 passed, 35 deselected in 486.88s (0:08:06) ============

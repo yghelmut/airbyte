@@ -1,0 +1,70 @@
+../../../../connectors/source-coinmarketcap/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-coinmarketcap
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 0 items / 6 errors
+INTERNALERROR> Traceback (most recent call last):
+INTERNALERROR>   File "/usr/local/lib/python3.9/site-packages/_pytest/main.py", line 269, in wrap_session
+INTERNALERROR>     session.exitstatus = doit(config, session) or 0
+INTERNALERROR>   File "/usr/local/lib/python3.9/site-packages/_pytest/main.py", line 322, in _main
+INTERNALERROR>     config.hook.pytest_collection(session=session)
+INTERNALERROR>   File "/usr/local/lib/python3.9/site-packages/pluggy/_hooks.py", line 265, in __call__
+INTERNALERROR>     return self._hookexec(self.name, self.get_hookimpls(), kwargs, firstresult)
+INTERNALERROR>   File "/usr/local/lib/python3.9/site-packages/pluggy/_manager.py", line 80, in _hookexec
+INTERNALERROR>     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+INTERNALERROR>   File "/usr/local/lib/python3.9/site-packages/pluggy/_callers.py", line 60, in _multicall
+INTERNALERROR>     return outcome.get_result()
+INTERNALERROR>   File "/usr/local/lib/python3.9/site-packages/pluggy/_result.py", line 60, in get_result
+INTERNALERROR>     raise ex[1].with_traceback(ex[2])
+INTERNALERROR>   File "/usr/local/lib/python3.9/site-packages/pluggy/_callers.py", line 39, in _multicall
+INTERNALERROR>     res = hook_impl.function(*args)
+INTERNALERROR>   File "/usr/local/lib/python3.9/site-packages/_pytest/main.py", line 333, in pytest_collection
+INTERNALERROR>     session.perform_collect()
+INTERNALERROR>   File "/usr/local/lib/python3.9/site-packages/_pytest/main.py", line 637, in perform_collect
+INTERNALERROR>     hook.pytest_collection_modifyitems(
+INTERNALERROR>   File "/usr/local/lib/python3.9/site-packages/pluggy/_hooks.py", line 265, in __call__
+INTERNALERROR>     return self._hookexec(self.name, self.get_hookimpls(), kwargs, firstresult)
+INTERNALERROR>   File "/usr/local/lib/python3.9/site-packages/pluggy/_manager.py", line 80, in _hookexec
+INTERNALERROR>     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+INTERNALERROR>   File "/usr/local/lib/python3.9/site-packages/pluggy/_callers.py", line 60, in _multicall
+INTERNALERROR>     return outcome.get_result()
+INTERNALERROR>   File "/usr/local/lib/python3.9/site-packages/pluggy/_result.py", line 60, in get_result
+INTERNALERROR>     raise ex[1].with_traceback(ex[2])
+INTERNALERROR>   File "/usr/local/lib/python3.9/site-packages/pluggy/_callers.py", line 39, in _multicall
+INTERNALERROR>     res = hook_impl.function(*args)
+INTERNALERROR>   File "/airbyte/connector_acceptance_test/connector_acceptance_test/plugin.py", line 120, in pytest_collection_modifyitems
+INTERNALERROR>     config = load_config(config.getoption("--acceptance-test-config"))
+INTERNALERROR>   File "/airbyte/connector_acceptance_test/connector_acceptance_test/utils/common.py", line 38, in load_config
+INTERNALERROR>     return Config.parse_obj(data)
+INTERNALERROR>   File "/usr/local/lib/python3.9/site-packages/pydantic/main.py", line 521, in parse_obj
+INTERNALERROR>     return cls(**obj)
+INTERNALERROR>   File "/usr/local/lib/python3.9/site-packages/pydantic/main.py", line 341, in __init__
+INTERNALERROR>     raise validation_error
+INTERNALERROR> pydantic.error_wrappers.ValidationError: 11 validation errors for Config
+INTERNALERROR> acceptance_tests -> full_refresh -> tests -> 0 -> ignored_fields -> categories -> 0
+INTERNALERROR>   value is not a valid dict (type=type_error.dict)
+INTERNALERROR> acceptance_tests -> full_refresh -> tests -> 0 -> ignored_fields -> categories -> 1
+INTERNALERROR>   value is not a valid dict (type=type_error.dict)
+INTERNALERROR> acceptance_tests -> full_refresh -> tests -> 0 -> ignored_fields -> categories -> 2
+INTERNALERROR>   value is not a valid dict (type=type_error.dict)
+INTERNALERROR> acceptance_tests -> full_refresh -> tests -> 0 -> ignored_fields -> categories -> 3
+INTERNALERROR>   value is not a valid dict (type=type_error.dict)
+INTERNALERROR> acceptance_tests -> full_refresh -> tests -> 0 -> ignored_fields -> categories -> 4
+INTERNALERROR>   value is not a valid dict (type=type_error.dict)
+INTERNALERROR> acceptance_tests -> full_refresh -> tests -> 0 -> ignored_fields -> listing -> 0
+INTERNALERROR>   value is not a valid dict (type=type_error.dict)
+INTERNALERROR> acceptance_tests -> full_refresh -> tests -> 0 -> ignored_fields -> listing -> 1
+INTERNALERROR>   value is not a valid dict (type=type_error.dict)
+INTERNALERROR> acceptance_tests -> full_refresh -> tests -> 0 -> ignored_fields -> listing -> 2
+INTERNALERROR>   value is not a valid dict (type=type_error.dict)
+INTERNALERROR> acceptance_tests -> full_refresh -> tests -> 0 -> ignored_fields -> listing -> 3
+INTERNALERROR>   value is not a valid dict (type=type_error.dict)
+INTERNALERROR> acceptance_tests -> full_refresh -> tests -> 0 -> ignored_fields -> listing -> 4
+INTERNALERROR>   value is not a valid dict (type=type_error.dict)
+INTERNALERROR> acceptance_tests -> full_refresh -> tests -> 0 -> ignored_fields -> listing -> 5
+INTERNALERROR>   value is not a valid dict (type=type_error.dict)
+
+
+============================== 6 errors in 2.59s ===============================

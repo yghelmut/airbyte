@@ -1,0 +1,398 @@
+../../../../connectors/source-dixa/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-dixa
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 37 items / 35 deselected / 2 selected
+
+../../test_input/test_core.py F                                          [ 50%]
+../../test_input/test_incremental.py F                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffa6b995e0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='conversation_export', json_schema...ental'>, cursor_field=['updated_at'], destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffa6bde130>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='conversation_export', data={'id': 591, 'created_at': 1626092590248, 'ini...r_name': None, 'subject': None, 'anonymized_at': 1631877556220, 'custom_fields': None}, emitted_at=1679404862433), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='conversation_export', json_schema...ental'>, cursor_field=['updated_at'], destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('conversation_export',).
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe conversation_export stream has the following schema errors:\nAdditional properties are not allowed ('tags_info', 'transferee_number', 'custom_fields' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'anonymized_at': {'type': ['null', 'integer']},\n                    'assigned_at': {'type': ['null', 'integer']},\n                    'assignee_email': {'type': ['null', 'string']},\n                    'assignee_id': {'type': ['null', 'string']},\n                    'assignee_name': {'type': ['null', 'string']},\n                    'assignee_phone_number': {'type': ['null', 'string']},\n                    'closed_at': {'type': ['null', 'integer']},\n                    'conversation_wrapup_notes': {'items': {'type': ['null',\n                                                                     'string']},\n                                                  'type': ['null',\n                                                           'array']},\n                    'created_at': {'type': ['null', 'integer']},\n                    'direction': {'type': ['null', 'string']},\n                    'dixa_email_integration_id': {'type': ['null',\n                                                           'string']},\n                    'dixa_email_integration_sender_name': {'type': ['null',\n                                                                    'string']},\n                    'facebook_page_id': {'type': ['null', 'string']},\n                    'facebook_page_name': {'type': ['null', 'string']},\n                    'forwarding_email': {'type': ['null', 'string']},\n                    'from_provisioned_phone_number_id': {'type': ['null',\n                                                                  'string']},\n                    'from_provisioned_phone_number_name': {'type': ['null',\n                                                                    'string']},\n                    'handling_duration': {'type': ['null', 'integer']},\n                    'id': {'type': ['null', 'integer']},\n                    'initial_channel': {'type': ['null', 'string']},\n                    'last_message_created_at': {'type': ['null',\n                                                         'integer']},\n                    'originating_country': {'type': ['null', 'string']},\n                    'queue_id': {'type': ['null', 'string']},\n                    'queue_name': {'type': ['null', 'string']},\n                    'queued_at': {'type': ['null', 'integer']},\n                    'rating_message': {'type': ['null', 'string']},\n                    'rating_score': {'type': ['null', 'integer']},\n                    'ratings': {'items': {'properties': {'rating_cancelled_timestamp': {'type': ['null',\n                                                                                                 'integer']},\n                                                         'rating_created_timestamp': {'type': ['null',\n                                                                                               'integer']},\n                                                         'rating_language': {'type': ['null',\n                                                                                      'string']},\n                                                         'rating_message': {'type': ['null',\n                                                                                     'string']},\n                                                         'rating_modified_timestamp': {'type': ['null',\n                                                                                                'integer']},\n                                                         'rating_offered_timestamp': {'type': ['null',\n                                                                                               'integer']},\n                                                         'rating_rated_timestamp': {'type': ['null',\n                                                                                             'integer']},\n                                                         'rating_scheduled_for_timestamp': {'type': ['null',\n                                                                                                     'integer']},\n                                                         'rating_scheduled_timestamp': {'type': ['null',\n                                                                                                 'integer']},\n                                                         'rating_score': {'type': ['null',\n                                                                                   'integer']},\n                                                         'rating_status': {'type': ['null',\n                                                                                    'string']},\n                                                         'rating_type': {'type': ['null',\n                                                                                  'string']},\n                                                         'rating_unscheduled_timestamp': {'type': ['null',\n                                                                                                   'integer']}},\n                                          'type': ['null', 'object']},\n                                'type': ['null', 'array']},\n                    'requester_email': {'type': ['null', 'string']},\n                    'requester_id': {'type': ['null', 'string']},\n                    'requester_name': {'type': ['null', 'string']},\n                    'requester_phone_number': {'type': ['null', 'string']},\n                    'status': {'type': ['null', 'string']},\n                    'subject': {'type': ['null', 'string']},\n                    'tags': {'items': {'type': ['null', 'string']},\n                             'type': ['null', 'array']},\n                    'to_provisioned_phone_number_id': {'type': ['null',\n                                                                'string']},\n                    'to_provisioned_phone_number_name': {'type': ['null',\n                                                                  'string']},\n                    'total_duration': {'type': ['null', 'integer']},\n                    'transfer_time': {'type': ['null', 'integer']},\n                    'transferee_name': {'type': ['null', 'string']},\n                    'updated_at': {'type': ['null', 'integer']},\n                    'widget_id': {'type': ['null', 'string']},\n                    'widget_name': {'type': ['null', 'string']}},\n     'required': ['id', 'created_at', 'initial_channel', 'requester_id'],\n     'type': ['null', 'object']}\n\nOn instance:\n    {'anonymized_at': None,\n     'assigned_at': None,\n     'assignee_email': None,\n     'assignee_id': None,\n     'assignee_name': None,\n     'assignee_phone_number': None,\n     'closed_at': None,\n     'conversation_wrapup_notes': None,\n     'created_at': 1677848491403,\n     'custom_fields': None,\n     'direction': 'outbound',\n     'dixa_email_integration_id': None,\n     'dixa_email_integration_sender_name': None,\n     'facebook_page_id': None,\n     'facebook_page_name': None,\n     'forwarding_email': None,\n     'from_provisioned_phone_number_id': '+4592454118',\n     'from_provisioned_phone_number_name': 'SMS number',\n     'handling_duration': None,\n     'id': 1024,\n     'initial_channel': 'sms',\n     'last_message_created_at': 1677848491879,\n     'originating_country': None,\n     'queue_id': 'af14cf1a-dfbe-499c-9b4b-0b6aac2ad296',\n     'queue_name': 'Billing',\n     'queued_at': 1677848491458,\n     'rating_message': None,\n     'rating_score': None,\n     'ratings': [],\n     'requester_email': None,\n     'requester_id': 'df84c07d-a3ba-45de-b8db-614c1785aa64',\n     'requester_name': None,\n     'requester_phone_number': '+4531512726',\n     'status': 'open',\n     'subject': None,\n     'tags': ['unbabel',\n              'payment',\n              'q-support-urgent',\n              'dropshipdelivery',\n              'shipping',\n              'q-support-dk'],\n     'tags_info': [{'id': 'ca9b5868-34e3-3eed-b0fe-0494964a4dbf',\n                    'is_deactivated': False,\n                    'name': 'unbabel'},\n                   {'id': 'cae7e107-3870-3f15-8d1e-36fcfb2248cd',\n                    'is_deactivated': False,\n                    'name': 'payment'},\n                   {'id': '52836445-52cf-3bd6-bd96-93f76389d322',\n                    'is_deactivated': False,\n                    'name': 'q-support-urgent'},\n                   {'id': '72b07d74-3cbc-3bfc-a8b5-77ab090c0ec7',\n                    'is_deactivated': False,\n                    'name': 'dropshipdelivery'},\n                   {'id': 'ce871ce9-bdc0-3eea-b5f7-d2e5dcc9d2d1',\n                    'is_deactivated': False,\n                    'name': 'shipping'},\n                   {'id': '0dfc1d80-1a97-31b5-91c6-50bc789759f0',\n                    'is_deactivated': False,\n                    'name': 'q-support-dk'}],\n     'to_provisioned_phone_number_id': '+4531512726',\n     'to_provisioned_phone_number_name': None,\n     'total_duration': None,\n     'transfer_time': None,\n     'transferee_name': None,\n     'transferee_number': None,\n     'updated_at': 1678883784345,\n     'widget_id': None,\n     'widget_name': None}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The conversation_export stream has the following schema errors:
+Additional properties are not allowed ('tags_info', 'transferee_number', 'custom_fields' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'anonymized_at': {'type': ['null', 'integer']},
+                    'assigned_at': {'type': ['null', 'integer']},
+                    'assignee_email': {'type': ['null', 'string']},
+                    'assignee_id': {'type': ['null', 'string']},
+                    'assignee_name': {'type': ['null', 'string']},
+                    'assignee_phone_number': {'type': ['null', 'string']},
+                    'closed_at': {'type': ['null', 'integer']},
+                    'conversation_wrapup_notes': {'items': {'type': ['null',
+                                                                     'string']},
+                                                  'type': ['null',
+                                                           'array']},
+                    'created_at': {'type': ['null', 'integer']},
+                    'direction': {'type': ['null', 'string']},
+                    'dixa_email_integration_id': {'type': ['null',
+                                                           'string']},
+                    'dixa_email_integration_sender_name': {'type': ['null',
+                                                                    'string']},
+                    'facebook_page_id': {'type': ['null', 'string']},
+                    'facebook_page_name': {'type': ['null', 'string']},
+                    'forwarding_email': {'type': ['null', 'string']},
+                    'from_provisioned_phone_number_id': {'type': ['null',
+                                                                  'string']},
+                    'from_provisioned_phone_number_name': {'type': ['null',
+                                                                    'string']},
+                    'handling_duration': {'type': ['null', 'integer']},
+                    'id': {'type': ['null', 'integer']},
+                    'initial_channel': {'type': ['null', 'string']},
+                    'last_message_created_at': {'type': ['null',
+                                                         'integer']},
+                    'originating_country': {'type': ['null', 'string']},
+                    'queue_id': {'type': ['null', 'string']},
+                    'queue_name': {'type': ['null', 'string']},
+                    'queued_at': {'type': ['null', 'integer']},
+                    'rating_message': {'type': ['null', 'string']},
+                    'rating_score': {'type': ['null', 'integer']},
+                    'ratings': {'items': {'properties': {'rating_cancelled_timestamp': {'type': ['null',
+                                                                                                 'integer']},
+                                                         'rating_created_timestamp': {'type': ['null',
+                                                                                               'integer']},
+                                                         'rating_language': {'type': ['null',
+                                                                                      'string']},
+                                                         'rating_message': {'type': ['null',
+                                                                                     'string']},
+                                                         'rating_modified_timestamp': {'type': ['null',
+                                                                                                'integer']},
+                                                         'rating_offered_timestamp': {'type': ['null',
+                                                                                               'integer']},
+                                                         'rating_rated_timestamp': {'type': ['null',
+                                                                                             'integer']},
+                                                         'rating_scheduled_for_timestamp': {'type': ['null',
+                                                                                                     'integer']},
+                                                         'rating_scheduled_timestamp': {'type': ['null',
+                                                                                                 'integer']},
+                                                         'rating_score': {'type': ['null',
+                                                                                   'integer']},
+                                                         'rating_status': {'type': ['null',
+                                                                                    'string']},
+                                                         'rating_type': {'type': ['null',
+                                                                                  'string']},
+                                                         'rating_unscheduled_timestamp': {'type': ['null',
+                                                                                                   'integer']}},
+                                          'type': ['null', 'object']},
+                                'type': ['null', 'array']},
+                    'requester_email': {'type': ['null', 'string']},
+                    'requester_id': {'type': ['null', 'string']},
+                    'requester_name': {'type': ['null', 'string']},
+                    'requester_phone_number': {'type': ['null', 'string']},
+                    'status': {'type': ['null', 'string']},
+                    'subject': {'type': ['null', 'string']},
+                    'tags': {'items': {'type': ['null', 'string']},
+                             'type': ['null', 'array']},
+                    'to_provisioned_phone_number_id': {'type': ['null',
+                                                                'string']},
+                    'to_provisioned_phone_number_name': {'type': ['null',
+                                                                  'string']},
+                    'total_duration': {'type': ['null', 'integer']},
+                    'transfer_time': {'type': ['null', 'integer']},
+                    'transferee_name': {'type': ['null', 'string']},
+                    'updated_at': {'type': ['null', 'integer']},
+                    'widget_id': {'type': ['null', 'string']},
+                    'widget_name': {'type': ['null', 'string']}},
+     'required': ['id', 'created_at', 'initial_channel', 'requester_id'],
+     'type': ['null', 'object']}
+
+On instance:
+    {'anonymized_at': None,
+     'assigned_at': None,
+     'assignee_email': None,
+     'assignee_id': None,
+     'assignee_name': None,
+     'assignee_phone_number': None,
+     'closed_at': None,
+     'conversation_wrapup_notes': None,
+     'created_at': 1677848491403,
+     'custom_fields': None,
+     'direction': 'outbound',
+     'dixa_email_integration_id': None,
+     'dixa_email_integration_sender_name': None,
+     'facebook_page_id': None,
+     'facebook_page_name': None,
+     'forwarding_email': None,
+     'from_provisioned_phone_number_id': '+4592454118',
+     'from_provisioned_phone_number_name': 'SMS number',
+     'handling_duration': None,
+     'id': 1024,
+     'initial_channel': 'sms',
+     'last_message_created_at': 1677848491879,
+     'originating_country': None,
+     'queue_id': 'af14cf1a-dfbe-499c-9b4b-0b6aac2ad296',
+     'queue_name': 'Billing',
+     'queued_at': 1677848491458,
+     'rating_message': None,
+     'rating_score': None,
+     'ratings': [],
+     'requester_email': None,
+     'requester_id': 'df84c07d-a3ba-45de-b8db-614c1785aa64',
+     'requester_name': None,
+     'requester_phone_number': '+4531512726',
+     'status': 'open',
+     'subject': None,
+     'tags': ['unbabel',
+              'payment',
+              'q-support-urgent',
+              'dropshipdelivery',
+              'shipping',
+              'q-support-dk'],
+     'tags_info': [{'id': 'ca9b5868-34e3-3eed-b0fe-0494964a4dbf',
+                    'is_deactivated': False,
+                    'name': 'unbabel'},
+                   {'id': 'cae7e107-3870-3f15-8d1e-36fcfb2248cd',
+                    'is_deactivated': False,
+                    'name': 'payment'},
+                   {'id': '52836445-52cf-3bd6-bd96-93f76389d322',
+                    'is_deactivated': False,
+                    'name': 'q-support-urgent'},
+                   {'id': '72b07d74-3cbc-3bfc-a8b5-77ab090c0ec7',
+                    'is_deactivated': False,
+                    'name': 'dropshipdelivery'},
+                   {'id': 'ce871ce9-bdc0-3eea-b5f7-d2e5dcc9d2d1',
+                    'is_deactivated': False,
+                    'name': 'shipping'},
+                   {'id': '0dfc1d80-1a97-31b5-91c6-50bc789759f0',
+                    'is_deactivated': False,
+                    'name': 'q-support-dk'}],
+     'to_provisioned_phone_number_id': '+4531512726',
+     'to_provisioned_phone_number_name': None,
+     'total_duration': None,
+     'transfer_time': None,
+     'transferee_name': None,
+     'transferee_number': None,
+     'updated_at': 1678883784345,
+     'widget_id': None,
+     'widget_name': None}
+_____________ TestIncremental.test_read_sequential_slices[inputs0] _____________
+
+self = <connector_acceptance_test.tests.test_incremental.TestIncremental object at 0xffffa67d6c70>
+inputs = IncrementalConfig(config_path='secrets/config.json', configured_catalog_path='integration_tests/configured_catalog.jso...ng_streams=[], bypass_reason=None), timeout_seconds=1200, threshold_days=0, skip_comprehensive_incremental_tests=False)
+connector_config = SecretDict(******)
+configured_catalog_for_incremental = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='conversation_export', json_schema...ental'>, cursor_field=['updated_at'], destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+cursor_paths = {'conversation_export': ['updated_at']}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffa67d6460>
+
+    def test_read_sequential_slices(
+        self, inputs: IncrementalConfig, connector_config, configured_catalog_for_incremental, cursor_paths, docker_runner: ConnectorRunner
+    ):
+        """
+        Incremental test that makes calls to the read method without a state checkpoint. Then we partition the results by stream and
+        slice checkpoints.
+        Then we make additional read method calls using the state message and verify the correctness of the
+        messages in the response.
+        """
+        if inputs.skip_comprehensive_incremental_tests:
+            pytest.skip("Skipping new incremental test based on acceptance-test-config.yml")
+            return
+    
+        threshold_days = getattr(inputs, "threshold_days") or 0
+        stream_mapping = {stream.stream.name: stream for stream in configured_catalog_for_incremental.streams}
+    
+        output = docker_runner.call_read(connector_config, configured_catalog_for_incremental)
+        records_1 = filter_output(output, type_=Type.RECORD)
+        states_1 = filter_output(output, type_=Type.STATE)
+    
+        assert states_1, "Should produce at least one state"
+        assert records_1, "Should produce at least one record"
+    
+        # For legacy state format, the final state message contains the final state of all streams. For per-stream state format,
+        # the complete final state of streams must be assembled by going through all prior state messages received
+        is_per_stream = is_per_stream_state(states_1[-1])
+        if is_per_stream:
+            latest_state = construct_latest_state_from_messages(states_1)
+        else:
+            latest_state = states_1[-1].state.data
+    
+        for record_value, state_value, stream_name in records_with_state(records_1, latest_state, stream_mapping, cursor_paths):
+            assert (
+                record_value <= state_value
+            ), f"First incremental sync should produce records younger or equal to cursor value from the state. Stream: {stream_name}"
+    
+        checkpoint_messages = filter_output(output, type_=Type.STATE)
+    
+        # We sometimes have duplicate identical state messages in a stream which we can filter out to speed things up
+        checkpoint_messages = [message for index, message in enumerate(checkpoint_messages) if message not in checkpoint_messages[:index]]
+    
+        # To avoid spamming APIs we only test a fraction of batches (10%) and enforce a minimum of 10 tested
+        min_batches_to_test = 10
+        sample_rate = len(checkpoint_messages) // min_batches_to_test
+        stream_name_to_per_stream_state = dict()
+        for idx, state_message in enumerate(checkpoint_messages):
+            assert state_message.type == Type.STATE
+            state_input, complete_state = self.get_next_state_input(state_message, stream_name_to_per_stream_state, is_per_stream)
+    
+            if len(checkpoint_messages) >= min_batches_to_test and idx % sample_rate != 0:
+                continue
+    
+>           output = docker_runner.call_read_with_state(connector_config, configured_catalog_for_incremental, state=state_input)
+
+connector_acceptance_test/tests/test_incremental.py:254: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+connector_acceptance_test/utils/connector_runner.py:101: in call_read_with_state
+    output = list(self.run(cmd=cmd, config=config, catalog=catalog, state=state, **kwargs))
+connector_acceptance_test/utils/connector_runner.py:120: in run
+    for line in self.read(container, command=cmd, with_ext=raise_container_error):
+connector_acceptance_test/utils/connector_runner.py:141: in read
+    for chunk in container.logs(stdout=True, stderr=True, stream=True, follow=True):
+/usr/local/lib/python3.9/site-packages/docker/types/daemon.py:32: in __next__
+    return next(self._stream)
+/usr/local/lib/python3.9/site-packages/docker/api/client.py:386: in _multiplexed_response_stream_helper
+    header = response.raw.read(STREAM_HEADER_SIZE_BYTES)
+/usr/local/lib/python3.9/site-packages/urllib3/response.py:567: in read
+    data = self._fp_read(amt) if not fp_closed else b""
+/usr/local/lib/python3.9/site-packages/urllib3/response.py:533: in _fp_read
+    return self._fp.read(amt) if amt is not None else self._fp.read()
+/usr/local/lib/python3.9/http/client.py:463: in read
+    n = self.readinto(b)
+/usr/local/lib/python3.9/http/client.py:497: in readinto
+    return self._readinto_chunked(b)
+/usr/local/lib/python3.9/http/client.py:592: in _readinto_chunked
+    chunk_left = self._get_chunk_left()
+/usr/local/lib/python3.9/http/client.py:560: in _get_chunk_left
+    chunk_left = self._read_next_chunk_size()
+/usr/local/lib/python3.9/http/client.py:520: in _read_next_chunk_size
+    line = self.fp.readline(_MAXLINE + 1)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <socket.SocketIO object at 0xffffa6093eb0>
+b = <memory at 0xffffa6537b80>
+
+    def readinto(self, b):
+        """Read up to len(b) bytes into the writable buffer *b* and return
+        the number of bytes read.  If the socket is non-blocking and no bytes
+        are available, None is returned.
+    
+        If *b* is non-empty, a 0 return value indicates that the connection
+        was shutdown at the other end.
+        """
+        self._checkClosed()
+        self._checkReadable()
+        if self._timeout_occurred:
+            raise OSError("cannot read from timed out object")
+        while True:
+            try:
+>               return self._sock.recv_into(b)
+E               Failed: Timeout >1200.0s
+
+/usr/local/lib/python3.9/socket.py:704: Failed
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 36 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+FAILED ../../test_input/test_incremental.py::TestIncremental::test_read_sequential_slices[inputs0]
+========== 2 failed, 35 deselected, 37 warnings in 1432.01s (0:23:52) ==========

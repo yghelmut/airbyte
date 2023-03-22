@@ -1,0 +1,280 @@
+../../../../connectors/source-tvmaze-schedule/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-tvmaze-schedule
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffa5440640>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='domestic', json_schema={'$schema'...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffa4dcb910>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='domestic', data={'id': 2417397, 'url': 'https://www.tvmaze.com/episodes/...vmaze.com/episodes/2415553'}, 'show': {'href': 'https://api.tvmaze.com/shows/11253'}}}, emitted_at=1679429211820), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='domestic', json_schema={'$schema'...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('future',).
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe future stream has the following schema errors:\nAdditional properties are not allowed ('_embedded' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'_links': {'properties': {'self': {'properties': {'href': {'type': ['string',\n                                                                                        'null']}},\n                                                       'type': 'object'}},\n                               'type': 'object'},\n                    'airdate': {'type': ['string', 'null']},\n                    'airstamp': {'type': ['string', 'null']},\n                    'airtime': {'type': ['string', 'null']},\n                    'id': {'type': ['number', 'null']},\n                    'image': {},\n                    'name': {'type': ['string', 'null']},\n                    'number': {'type': ['number', 'null']},\n                    'rating': {'properties': {'average': {}},\n                               'type': 'object'},\n                    'runtime': {'type': ['number', 'null']},\n                    'season': {'type': ['number', 'null']},\n                    'show': {'properties': {'_links': {'properties': {'previousepisode': {'properties': {'href': {'type': ['string',\n                                                                                                                           'null']}},\n                                                                                          'type': 'object'},\n                                                                      'self': {'properties': {'href': {'type': ['string',\n                                                                                                                'null']}},\n                                                                               'type': 'object'}},\n                                                       'type': 'object'},\n                                            'averageRuntime': {'type': ['number',\n                                                                        'null']},\n                                            'dvdCountry': {},\n                                            'ended': {'type': ['string',\n                                                               'null']},\n                                            'externals': {'properties': {'imdb': {'type': ['string',\n                                                                                           'null']},\n                                                                         'thetvdb': {'type': ['number',\n                                                                                              'null']},\n                                                                         'tvrage': {}},\n                                                          'type': 'object'},\n                                            'genres': {'items': {'type': ['string',\n                                                                          'null']},\n                                                       'type': 'array'},\n                                            'id': {'type': ['number',\n                                                            'null']},\n                                            'image': {'properties': {'medium': {'type': ['string',\n                                                                                         'null']},\n                                                                     'original': {'type': ['string',\n                                                                                           'null']}},\n                                                      'type': 'object'},\n                                            'language': {'type': ['string',\n                                                                  'null']},\n                                            'name': {'type': ['string',\n                                                              'null']},\n                                            'network': {'properties': {'country': {'properties': {'code': {'type': ['string',\n                                                                                                                    'null']},\n                                                                                                  'name': {'type': ['string',\n                                                                                                                    'null']},\n                                                                                                  'timezone': {'type': ['string',\n                                                                                                                        'null']}},\n                                                                                   'type': 'object'},\n                                                                       'id': {'type': ['number',\n                                                                                       'null']},\n                                                                       'name': {'type': ['string',\n                                                                                         'null']},\n                                                                       'officialSite': {}},\n                                                        'type': 'object'},\n                                            'officialSite': {},\n                                            'premiered': {'type': ['string',\n                                                                   'null']},\n                                            'rating': {'properties': {'average': {}},\n                                                       'type': 'object'},\n                                            'runtime': {'type': ['number',\n                                                                 'null']},\n                                            'schedule': {'properties': {'days': {'items': {'type': ['string',\n                                                                                                    'null']},\n                                                                                 'type': 'array'},\n                                                                        'time': {'type': ['string',\n                                                                                          'null']}},\n                                                         'type': 'object'},\n                                            'status': {'type': ['string',\n                                                                'null']},\n                                            'summary': {'type': ['string',\n                                                                 'null']},\n                                            'type': {'type': ['string',\n                                                              'null']},\n                                            'updated': {'type': ['number',\n                                                                 'null']},\n                                            'url': {'type': ['string',\n                                                             'null']},\n                                            'webChannel': {},\n                                            'weight': {'type': ['number',\n                                                                'null']}},\n                             'type': 'object'},\n                    'summary': {'type': ['string', 'null']},\n                    'type': {'type': ['string', 'null']},\n                    'url': {'type': ['string', 'null']}},\n     'type': 'object'}\n\nOn instance:\n    {'_embedded': {'show': {'_links': {'nextepisode': {'href': 'https://api.tvmaze.com/episodes/1790093'},\n                                       'previousepisode': {'href': 'https://api.tvmaze.com/episodes/1790092'},\n                                       'self': {'href': 'https://api.tvmaze.com/shows/10179'}},\n                            'averageRuntime': 203,\n                            'dvdCountry': None,\n                            'ended': None,\n                            'externals': {'imdb': None,\n                                          'thetvdb': None,\n                                          'tvrage': None},\n                            'genres': [],\n                            'id': 10179,\n                            'image': {'medium': 'https://static.tvmaze.com/uploads/images/medium_portrait/236/590675.jpg',\n                                      'original': 'https://static.tvmaze.com/uploads/images/original_untouched/236/590675.jpg'},\n                            'language': 'English',\n                            'name': 'NCAA College Football National '\n                                    'Championship',\n                            'network': {'country': {'code': 'US',\n                                                    'name': 'United States',\n                                                    'timezone': 'America/New_York'},\n                                        'id': 39,\n                                        'name': 'ESPN',\n                                        'officialSite': None},\n                            'officialSite': 'https://collegefootballplayoff.teamtix.com/markets/sports/college-fb/event/2016-national-championship?host=cfp',\n                            'premiered': '2015-01-12',\n                            'rating': {'average': None},\n                            'runtime': 210,\n                            'schedule': {'days': ['Monday'],\n                                         'time': '20:15'},\n                            'status': 'Running',\n                            'summary': '<p>The <b>NCAA College Football '\n                                       'National Championship </b>is a '\n                                       'bowl game that determines the '\n                                       'National Champion of NCAA Division '\n                                       'I FBScollege football first played '\n                                       'at the end of the 2014 \u2013 2015 '\n                                       'College Football season.</p>',\n                            'type': 'Sports',\n                            'updated': 1677121272,\n                            'url': 'https://www.tvmaze.com/shows/10179/ncaa-college-football-national-championship',\n                            'webChannel': None,\n                            'weight': 41}},\n     '_links': {'self': {'href': 'https://api.tvmaze.com/episodes/1790095'},\n                'show': {'href': 'https://api.tvmaze.com/shows/10179'}},\n     'airdate': '2026-01-05',\n     'airstamp': '2026-01-06T01:15:00+00:00',\n     'airtime': '20:15',\n     'id': 1790095,\n     'image': None,\n     'name': '2026 NCAA College Football National Championship Game',\n     'number': 1,\n     'rating': {'average': None},\n     'runtime': 210,\n     'season': 2026,\n     'summary': None,\n     'type': 'regular',\n     'url': 'https://www.tvmaze.com/episodes/1790095/ncaa-college-football-national-championship-2026-01-05-2026-ncaa-college-football-national-championship-game'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The future stream has the following schema errors:
+Additional properties are not allowed ('_embedded' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'_links': {'properties': {'self': {'properties': {'href': {'type': ['string',
+                                                                                        'null']}},
+                                                       'type': 'object'}},
+                               'type': 'object'},
+                    'airdate': {'type': ['string', 'null']},
+                    'airstamp': {'type': ['string', 'null']},
+                    'airtime': {'type': ['string', 'null']},
+                    'id': {'type': ['number', 'null']},
+                    'image': {},
+                    'name': {'type': ['string', 'null']},
+                    'number': {'type': ['number', 'null']},
+                    'rating': {'properties': {'average': {}},
+                               'type': 'object'},
+                    'runtime': {'type': ['number', 'null']},
+                    'season': {'type': ['number', 'null']},
+                    'show': {'properties': {'_links': {'properties': {'previousepisode': {'properties': {'href': {'type': ['string',
+                                                                                                                           'null']}},
+                                                                                          'type': 'object'},
+                                                                      'self': {'properties': {'href': {'type': ['string',
+                                                                                                                'null']}},
+                                                                               'type': 'object'}},
+                                                       'type': 'object'},
+                                            'averageRuntime': {'type': ['number',
+                                                                        'null']},
+                                            'dvdCountry': {},
+                                            'ended': {'type': ['string',
+                                                               'null']},
+                                            'externals': {'properties': {'imdb': {'type': ['string',
+                                                                                           'null']},
+                                                                         'thetvdb': {'type': ['number',
+                                                                                              'null']},
+                                                                         'tvrage': {}},
+                                                          'type': 'object'},
+                                            'genres': {'items': {'type': ['string',
+                                                                          'null']},
+                                                       'type': 'array'},
+                                            'id': {'type': ['number',
+                                                            'null']},
+                                            'image': {'properties': {'medium': {'type': ['string',
+                                                                                         'null']},
+                                                                     'original': {'type': ['string',
+                                                                                           'null']}},
+                                                      'type': 'object'},
+                                            'language': {'type': ['string',
+                                                                  'null']},
+                                            'name': {'type': ['string',
+                                                              'null']},
+                                            'network': {'properties': {'country': {'properties': {'code': {'type': ['string',
+                                                                                                                    'null']},
+                                                                                                  'name': {'type': ['string',
+                                                                                                                    'null']},
+                                                                                                  'timezone': {'type': ['string',
+                                                                                                                        'null']}},
+                                                                                   'type': 'object'},
+                                                                       'id': {'type': ['number',
+                                                                                       'null']},
+                                                                       'name': {'type': ['string',
+                                                                                         'null']},
+                                                                       'officialSite': {}},
+                                                        'type': 'object'},
+                                            'officialSite': {},
+                                            'premiered': {'type': ['string',
+                                                                   'null']},
+                                            'rating': {'properties': {'average': {}},
+                                                       'type': 'object'},
+                                            'runtime': {'type': ['number',
+                                                                 'null']},
+                                            'schedule': {'properties': {'days': {'items': {'type': ['string',
+                                                                                                    'null']},
+                                                                                 'type': 'array'},
+                                                                        'time': {'type': ['string',
+                                                                                          'null']}},
+                                                         'type': 'object'},
+                                            'status': {'type': ['string',
+                                                                'null']},
+                                            'summary': {'type': ['string',
+                                                                 'null']},
+                                            'type': {'type': ['string',
+                                                              'null']},
+                                            'updated': {'type': ['number',
+                                                                 'null']},
+                                            'url': {'type': ['string',
+                                                             'null']},
+                                            'webChannel': {},
+                                            'weight': {'type': ['number',
+                                                                'null']}},
+                             'type': 'object'},
+                    'summary': {'type': ['string', 'null']},
+                    'type': {'type': ['string', 'null']},
+                    'url': {'type': ['string', 'null']}},
+     'type': 'object'}
+
+On instance:
+    {'_embedded': {'show': {'_links': {'nextepisode': {'href': 'https://api.tvmaze.com/episodes/1790093'},
+                                       'previousepisode': {'href': 'https://api.tvmaze.com/episodes/1790092'},
+                                       'self': {'href': 'https://api.tvmaze.com/shows/10179'}},
+                            'averageRuntime': 203,
+                            'dvdCountry': None,
+                            'ended': None,
+                            'externals': {'imdb': None,
+                                          'thetvdb': None,
+                                          'tvrage': None},
+                            'genres': [],
+                            'id': 10179,
+                            'image': {'medium': 'https://static.tvmaze.com/uploads/images/medium_portrait/236/590675.jpg',
+                                      'original': 'https://static.tvmaze.com/uploads/images/original_untouched/236/590675.jpg'},
+                            'language': 'English',
+                            'name': 'NCAA College Football National '
+                                    'Championship',
+                            'network': {'country': {'code': 'US',
+                                                    'name': 'United States',
+                                                    'timezone': 'America/New_York'},
+                                        'id': 39,
+                                        'name': 'ESPN',
+                                        'officialSite': None},
+                            'officialSite': 'https://collegefootballplayoff.teamtix.com/markets/sports/college-fb/event/2016-national-championship?host=cfp',
+                            'premiered': '2015-01-12',
+                            'rating': {'average': None},
+                            'runtime': 210,
+                            'schedule': {'days': ['Monday'],
+                                         'time': '20:15'},
+                            'status': 'Running',
+                            'summary': '<p>The <b>NCAA College Football '
+                                       'National Championship </b>is a '
+                                       'bowl game that determines the '
+                                       'National Champion of NCAA Division '
+                                       'I FBScollege football first played '
+                                       'at the end of the 2014 – 2015 '
+                                       'College Football season.</p>',
+                            'type': 'Sports',
+                            'updated': 1677121272,
+                            'url': 'https://www.tvmaze.com/shows/10179/ncaa-college-football-national-championship',
+                            'webChannel': None,
+                            'weight': 41}},
+     '_links': {'self': {'href': 'https://api.tvmaze.com/episodes/1790095'},
+                'show': {'href': 'https://api.tvmaze.com/shows/10179'}},
+     'airdate': '2026-01-05',
+     'airstamp': '2026-01-06T01:15:00+00:00',
+     'airtime': '20:15',
+     'id': 1790095,
+     'image': None,
+     'name': '2026 NCAA College Football National Championship Game',
+     'number': 1,
+     'rating': {'average': None},
+     'runtime': 210,
+     'season': 2026,
+     'summary': None,
+     'type': 'regular',
+     'url': 'https://www.tvmaze.com/episodes/1790095/ncaa-college-football-national-championship-2026-01-05-2026-ncaa-college-football-national-championship-game'}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+========== 1 failed, 1 skipped, 33 deselected, 35 warnings in 42.77s ===========

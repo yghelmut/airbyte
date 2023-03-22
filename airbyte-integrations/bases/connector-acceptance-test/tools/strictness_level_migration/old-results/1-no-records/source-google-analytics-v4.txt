@@ -1,0 +1,92 @@
+../../../../connectors/source-google-analytics-v4/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-google-analytics-v4
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 38 items / 36 deselected / 2 selected
+
+../../test_input/test_core.py F                                          [ 50%]
+../../test_input/test_incremental.py F                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff8031b7c0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='daily_active_users', json_schema=..._refresh'>, cursor_field=['ga_date'], destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+expect_records_config = ExpectedRecordsConfig(bypass_reason=None, path=PosixPath('integration_tests/expected_records.jsonl'), extra_fields=False, exact_order=False, extra_records=True)
+should_validate_schema = True, should_validate_data_points = False
+should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='users_per_city', bypass_reason='no records in the stream')}
+ignored_fields = {}
+expected_records_by_stream = defaultdict(<class 'list'>, {'new_users_per_day': [{'ga_date': '2023-03-01', 'ga_country': 'United States', 'ga_region... 'isDataGolden': True}, {'ga_date': '2023-01-01', 'ga_14dayUsers': 14, 'view_id': '211669975', 'isDataGolden': True}]})
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff7ff4eb80>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+>       assert records, "At least one record should be read using provided catalog"
+E       AssertionError: At least one record should be read using provided catalog
+E       assert []
+
+connector_acceptance_test/tests/test_core.py:820: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The configured catalog was built with the discovered catalog from which the following empty streams were removed: users_per_city."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:common.py:149 The configured catalog was built with the discovered catalog from which the following empty streams were removed: users_per_city.
+_____________ TestIncremental.test_read_sequential_slices[inputs0] _____________
+
+self = <connector_acceptance_test.tests.test_incremental.TestIncremental object at 0xffff8001ceb0>
+inputs = IncrementalConfig(config_path='secrets/service_config.json', configured_catalog_path='integration_tests/configured_cat...ng_streams=[], bypass_reason=None), timeout_seconds=None, threshold_days=2, skip_comprehensive_incremental_tests=False)
+connector_config = SecretDict(******)
+configured_catalog_for_incremental = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='website_overview', json_schema={'...remental'>, cursor_field=['ga_date'], destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+cursor_paths = {'daily_active_users': ['ga_date'], 'devices': ['ga_date'], 'four_weekly_active_users': ['ga_date'], 'locations': ['ga_date'], ...}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff8001c760>
+
+    def test_read_sequential_slices(
+        self, inputs: IncrementalConfig, connector_config, configured_catalog_for_incremental, cursor_paths, docker_runner: ConnectorRunner
+    ):
+        """
+        Incremental test that makes calls to the read method without a state checkpoint. Then we partition the results by stream and
+        slice checkpoints.
+        Then we make additional read method calls using the state message and verify the correctness of the
+        messages in the response.
+        """
+        if inputs.skip_comprehensive_incremental_tests:
+            pytest.skip("Skipping new incremental test based on acceptance-test-config.yml")
+            return
+    
+        threshold_days = getattr(inputs, "threshold_days") or 0
+        stream_mapping = {stream.stream.name: stream for stream in configured_catalog_for_incremental.streams}
+    
+        output = docker_runner.call_read(connector_config, configured_catalog_for_incremental)
+        records_1 = filter_output(output, type_=Type.RECORD)
+        states_1 = filter_output(output, type_=Type.STATE)
+    
+        assert states_1, "Should produce at least one state"
+>       assert records_1, "Should produce at least one record"
+E       AssertionError: Should produce at least one record
+E       assert []
+
+connector_acceptance_test/tests/test_incremental.py:223: AssertionError
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Ass...
+FAILED ../../test_input/test_incremental.py::TestIncremental::test_read_sequential_slices[inputs0]
+================= 2 failed, 36 deselected in 149.61s (0:02:29) =================

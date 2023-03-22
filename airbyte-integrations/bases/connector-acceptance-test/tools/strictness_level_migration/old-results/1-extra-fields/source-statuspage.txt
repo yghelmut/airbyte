@@ -1,0 +1,722 @@
+../../../../connectors/source-statuspage/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-statuspage
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff9bd639d0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='pages', json_schema={'type': 'obj...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='subscribers', bypass_reason="This stream can't be seeded in our sandbox account"), EmptyStreamConfiguration(name='metrics', bypass_reason="This stream can't be seeded in our sandbox account")}
+ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff9b05dfd0>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='pages', data={'id': 'fdxz6r4ztkwd', 'created_at': '2021-08-12T12:40:17Z'...ff1dff32-77d8-489a-8df6-3465c3e52ac7@notifications.statuspage.io', 'start_date': None}, emitted_at=1679412960420), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='pages', json_schema={'type': 'obj...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('incidents',).
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe incidents stream has the following schema errors:\nAdditional properties are not allowed ('started_at' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/schema#',\n     'additionalProperties': False,\n     'description': 'Get an incident',\n     'properties': {'auto_transition_deliver_notifications_at_end': {'description': 'Controls '\n                                                                                    'whether '\n                                                                                    'send '\n                                                                                    'notification '\n                                                                                    'when '\n                                                                                    'scheduled '\n                                                                                    'maintenances '\n                                                                                    'auto '\n                                                                                    'transition '\n                                                                                    'to '\n                                                                                    'completed.',\n                                                                     'type': ['null',\n                                                                              'boolean']},\n                    'auto_transition_deliver_notifications_at_start': {'description': 'Controls '\n                                                                                      'whether '\n                                                                                      'send '\n                                                                                      'notification '\n                                                                                      'when '\n                                                                                      'scheduled '\n                                                                                      'maintenances '\n                                                                                      'auto '\n                                                                                      'transition '\n                                                                                      'to '\n                                                                                      'started.',\n                                                                       'type': ['null',\n                                                                                'boolean']},\n                    'auto_transition_to_maintenance_state': {'description': 'Controls '\n                                                                            'whether '\n                                                                            'change '\n                                                                            'components '\n                                                                            'status '\n                                                                            'to '\n                                                                            'under_maintenance '\n                                                                            'once '\n                                                                            'scheduled '\n                                                                            'maintenance '\n                                                                            'is '\n                                                                            'in '\n                                                                            'progress.',\n                                                             'type': ['null',\n                                                                      'boolean']},\n                    'auto_transition_to_operational_state': {'description': 'Controls '\n                                                                            'whether '\n                                                                            'change '\n                                                                            'components '\n                                                                            'status '\n                                                                            'to '\n                                                                            'operational '\n                                                                            'once '\n                                                                            'scheduled '\n                                                                            'maintenance '\n                                                                            'completes.',\n                                                             'type': ['null',\n                                                                      'boolean']},\n                    'components': {'description': 'Incident components',\n                                   'items': {'$schema': 'http://json-schema.org/schema#',\n                                             'description': 'Add page '\n                                                            'access groups '\n                                                            'to a '\n                                                            'component',\n                                             'properties': {'automation_email': {'description': 'Requires '\n                                                                                                'a '\n                                                                                                'special '\n                                                                                                'feature '\n                                                                                                'flag '\n                                                                                                'to '\n                                                                                                'be '\n                                                                                                'enabled',\n                                                                                 'type': ['null',\n                                                                                          'string']},\n                                                            'created_at': {'format': 'date-time',\n                                                                           'type': ['null',\n                                                                                    'string']},\n                                                            'description': {'description': 'More '\n                                                                                           'detailed '\n                                                                                           'description '\n                                                                                           'for '\n                                                                                           'component',\n                                                                            'type': ['null',\n                                                                                     'string']},\n                                                            'group': {'description': 'Is '\n                                                                                     'this '\n                                                                                     'component '\n                                                                                     'a '\n                                                                                     'group',\n                                                                      'type': ['null',\n                                                                               'boolean']},\n                                                            'group_id': {'description': 'Component '\n                                                                                        'Group '\n                                                                                        'identifier',\n                                                                         'type': ['null',\n                                                                                  'string']},\n                                                            'id': {'description': 'Identifier '\n                                                                                  'for '\n                                                                                  'component',\n                                                                   'type': ['null',\n                                                                            'string']},\n                                                            'name': {'description': 'Display '\n                                                                                    'name '\n                                                                                    'for '\n                                                                                    'component',\n                                                                     'type': ['null',\n                                                                              'string']},\n                                                            'only_show_if_degraded': {'description': 'Requires '\n                                                                                                     'a '\n                                                                                                     'special '\n                                                                                                     'feature '\n                                                                                                     'flag '\n                                                                                                     'to '\n                                                                                                     'be '\n                                                                                                     'enabled',\n                                                                                      'type': ['null',\n                                                                                               'boolean']},\n                                                            'page_id': {'description': 'Page '\n                                                                                       'identifier',\n                                                                        'type': ['null',\n                                                                                 'string']},\n                                                            'position': {'description': 'Order '\n                                                                                        'the '\n                                                                                        'component '\n                                                                                        'will '\n                                                                                        'appear '\n                                                                                        'on '\n                                                                                        'the '\n                                                                                        'page',\n                                                                         'format': 'int32',\n                                                                         'type': 'integer'},\n                                                            'showcase': {'description': 'Should '\n                                                                                        'this '\n                                                                                        'component '\n                                                                                        'be '\n                                                                                        'showcased',\n                                                                         'type': ['null',\n                                                                                  'boolean']},\n                                                            'start_date': {'description': 'The '\n                                                                                          'date '\n                                                                                          'this '\n                                                                                          'component '\n                                                                                          'started '\n                                                                                          'being '\n                                                                                          'used',\n                                                                           'format': 'date',\n                                                                           'type': ['null',\n                                                                                    'string']},\n                                                            'status': {'description': 'Status '\n                                                                                      'of '\n                                                                                      'component',\n                                                                       'enum': ['operational',\n                                                                                'under_maintenance',\n                                                                                'degraded_performance',\n                                                                                'partial_outage',\n                                                                                'major_outage',\n                                                                                ''],\n                                                                       'type': ['null',\n                                                                                'string']},\n                                                            'updated_at': {'format': 'date-time',\n                                                                           'type': ['null',\n                                                                                    'string']}},\n                                             'type': 'object'},\n                                   'type': 'array'},\n                    'created_at': {'description': 'The timestamp when the '\n                                                  'incident was created '\n                                                  'at.',\n                                   'format': 'date-time',\n                                   'type': ['null', 'string']},\n                    'id': {'description': 'Incident Identifier',\n                           'example': 'p31zjtct2jer',\n                           'type': ['null', 'string']},\n                    'impact': {'description': 'The impact of the incident.',\n                               'enum': ['none',\n                                        'maintenance',\n                                        'minor',\n                                        'major',\n                                        'critical'],\n                               'example': 'critical',\n                               'type': ['null', 'string']},\n                    'impact_override': {'description': 'value to override '\n                                                       'calculated impact '\n                                                       'value',\n                                        'example': 'minor',\n                                        'type': ['null', 'object']},\n                    'incident_updates': {'description': 'The incident '\n                                                        'updates for '\n                                                        'incident.',\n                                         'items': {'$schema': 'http://json-schema.org/schema#',\n                                                   'description': 'Update '\n                                                                  'a '\n                                                                  'previous '\n                                                                  'incident '\n                                                                  'update',\n                                                   'properties': {'affected_components': {'description': 'Affected '\n                                                                                                         'components '\n                                                                                                         'associated '\n                                                                                                         'with '\n                                                                                                         'the '\n                                                                                                         'incident '\n                                                                                                         'update.',\n                                                                                          'type': ['null',\n                                                                                                   'array']},\n                                                                  'body': {'description': 'Incident '\n                                                                                          'update '\n                                                                                          'body.',\n                                                                           'type': ['null',\n                                                                                    'string']},\n                                                                  'created_at': {'description': 'The '\n                                                                                                'timestamp '\n                                                                                                'when '\n                                                                                                'the '\n                                                                                                'incident '\n                                                                                                'update '\n                                                                                                'was '\n                                                                                                'created '\n                                                                                                'at.',\n                                                                                 'format': 'date-time',\n                                                                                 'type': ['null',\n                                                                                          'string']},\n                                                                  'custom_tweet': {'description': 'An '\n                                                                                                  'optional '\n                                                                                                  'customized '\n                                                                                                  'tweet '\n                                                                                                  'message '\n                                                                                                  'for '\n                                                                                                  'incident '\n                                                                                                  'postmortem.',\n                                                                                   'type': ['null',\n                                                                                            'string']},\n                                                                  'deliver_notifications': {'description': 'Controls '\n                                                                                                           'whether '\n                                                                                                           'to '\n                                                                                                           'delivery '\n                                                                                                           'notifications.',\n                                                                                            'type': ['null',\n                                                                                                     'boolean']},\n                                                                  'display_at': {'description': 'Timestamp '\n                                                                                                'when '\n                                                                                                'incident '\n                                                                                                'update '\n                                                                                                'is '\n                                                                                                'happened.',\n                                                                                 'format': 'date-time',\n                                                                                 'type': ['null',\n                                                                                          'string']},\n                                                                  'id': {'description': 'Incident '\n                                                                                        'Update '\n                                                                                        'Identifier.',\n                                                                         'type': ['null',\n                                                                                  'string']},\n                                                                  'incident_id': {'description': 'Incident '\n                                                                                                 'Identifier.',\n                                                                                  'type': ['null',\n                                                                                           'string']},\n                                                                  'status': {'description': 'The '\n                                                                                            'incident '\n                                                                                            'status. '\n                                                                                            'For '\n                                                                                            'realtime '\n                                                                                            'incidents, '\n                                                                                            'valid '\n                                                                                            'values '\n                                                                                            'are '\n                                                                                            'investigating, '\n                                                                                            'identified, '\n                                                                                            'monitoring, '\n                                                                                            'and '\n                                                                                            'resolved. '\n                                                                                            'For '\n                                                                                            'scheduled '\n                                                                                            'incidents, '\n                                                                                            'valid '\n                                                                                            'values '\n                                                                                            'are '\n                                                                                            'scheduled, '\n                                                                                            'in_progress, '\n                                                                                            'verifying, '\n                                                                                            'and '\n                                                                                            'completed.',\n                                                                             'enum': ['investigating',\n                                                                                      'identified',\n                                                                                      'monitoring',\n                                                                                      'resolved',\n                                                                                      'scheduled',\n                                                                                      'in_progress',\n                                                                                      'verifying',\n                                                                                      'completed'],\n                                                                             'type': ['null',\n                                                                                      'string']},\n                                                                  'tweet_id': {'description': 'Tweet '\n                                                                                              'identifier '\n                                                                                              'associated '\n                                                                                              'to '\n                                                                                              'this '\n                                                                                              'incident '\n                                                                                              'update.',\n                                                                               'type': ['null',\n                                                                                        'string']},\n                                                                  'twitter_updated_at': {'description': 'The '\n                                                                                                        'timestamp '\n                                                                                                        'when '\n                                                                                                        'twitter '\n                                                                                                        'updated '\n                                                                                                        'at.',\n                                                                                         'format': 'date-time',\n                                                                                         'type': ['null',\n                                                                                                  'string']},\n                                                                  'updated_at': {'description': 'The '\n                                                                                                'timestamp '\n                                                                                                'when '\n                                                                                                'the '\n                                                                                                'incident '\n                                                                                                'update '\n                                                                                                'is '\n                                                                                                'updated.',\n                                                                                 'format': 'date-time',\n                                                                                 'type': ['null',\n                                                                                          'string']},\n                                                                  'wants_twitter_update': {'description': 'Controls '\n                                                                                                          'whether '\n                                                                                                          'to '\n                                                                                                          'create '\n                                                                                                          'twitter '\n                                                                                                          'update.',\n                                                                                           'type': ['null',\n                                                                                                    'boolean']}},\n                                                   'type': 'object'},\n                                         'type': 'array'},\n                    'metadata': {'description': 'Metadata attached to the '\n                                                'incident. Top level '\n                                                'values must be objects.',\n                                 'example': {'jira': {'issue_id': 'value'}},\n                                 'type': 'object'},\n                    'monitoring_at': {'description': 'The timestamp when '\n                                                     'incident entered '\n                                                     'monitoring state.',\n                                      'format': 'date-time',\n                                      'type': ['null', 'string']},\n                    'name': {'description': 'Incident Name',\n                             'example': 'Data Layer Migration',\n                             'type': ['null', 'string']},\n                    'page_id': {'description': 'Incident Page Identifier',\n                                'type': ['null', 'string']},\n                    'postmortem_body': {'description': 'Body of the '\n                                                       'Postmortem.',\n                                        'example': '##### Issue\\n'\n                                                   'At approximately 17:02 '\n                                                   'UTC on 2013-04-21, our '\n                                                   'master database server '\n                                                   'unexpectedly went '\n                                                   'unresponsive to all '\n                                                   'network.\\n'\n                                                   'A reboot of the '\n                                                   'machine at 17:05 UTC '\n                                                   'resulted in a failed '\n                                                   'mount of a corrupted '\n                                                   'EBS volume, and we '\n                                                   'made the decision\\n'\n                                                   'at that time to fail '\n                                                   'over the slave '\n                                                   'database.\\n'\n                                                   '\\n'\n                                                   '##### Resolution\\n'\n                                                   'At 17:12 UTC, the '\n                                                   'slave database had '\n                                                   'been successfully '\n                                                   'promoted to master and '\n                                                   'the application '\n                                                   'recovered enough to\\n'\n                                                   'accept web traffic '\n                                                   'again. A new slave '\n                                                   'database node was '\n                                                   'created and placed '\n                                                   'into the rotation to '\n                                                   'guard against future\\n'\n                                                   'master failures. The '\n                                                   'promoted slave '\n                                                   'database performed '\n                                                   'slowly for the next '\n                                                   'couple of hours as the '\n                                                   'query cache began\\n'\n                                                   'to warm up, and '\n                                                   'eventually settled '\n                                                   'into a reasonable '\n                                                   'performance profile '\n                                                   'around 20:00 UTC.\\n'\n                                                   '\\n'\n                                                   '##### Future '\n                                                   'Mitigation Plans\\n'\n                                                   'Over the past few '\n                                                   'months, we have been '\n                                                   'working on an overhaul '\n                                                   'to our data storage '\n                                                   'layer with a migration '\n                                                   'from a Postgres\\n'\n                                                   'setup to a '\n                                                   'distributed, '\n                                                   'fault-tolerant, '\n                                                   'multi-region data '\n                                                   'layer using Riak. This '\n                                                   'initiative has been '\n                                                   'prioritized, and\\n'\n                                                   'the migration will be '\n                                                   'performed in the '\n                                                   'coming weeks. We will '\n                                                   'notify our clients of '\n                                                   'the scheduled downtime '\n                                                   'via an\\n'\n                                                   'incident on this '\n                                                   'status site, and via a '\n                                                   'blog post.\\n',\n                                        'type': ['null', 'string']},\n                    'postmortem_body_last_updated_at': {'description': 'The '\n                                                                       'timestamp '\n                                                                       'when '\n                                                                       'the '\n                                                                       'incident '\n                                                                       'postmortem '\n                                                                       'body '\n                                                                       'was '\n                                                                       'last '\n                                                                       'updated '\n                                                                       'at.',\n                                                        'format': 'date-time',\n                                                        'type': ['null',\n                                                                 'string']},\n                    'postmortem_ignored': {'description': 'Controls '\n                                                          'whether the '\n                                                          'incident will '\n                                                          'have '\n                                                          'postmortem.',\n                                           'type': ['null', 'boolean']},\n                    'postmortem_notified_subscribers': {'description': 'Indicates '\n                                                                       'whether '\n                                                                       'subscribers '\n                                                                       'are '\n                                                                       'already '\n                                                                       'notificed '\n                                                                       'about '\n                                                                       'postmortem.',\n                                                        'type': ['null',\n                                                                 'boolean']},\n                    'postmortem_notified_twitter': {'description': 'Controls '\n                                                                   'whether '\n                                                                   'to '\n                                                                   'decide '\n                                                                   'if '\n                                                                   'notify '\n                                                                   'postmortem '\n                                                                   'on '\n                                                                   'twitter.',\n                                                    'type': ['null',\n                                                             'boolean']},\n                    'postmortem_published_at': {'description': 'The '\n                                                               'timestamp '\n                                                               'when the '\n                                                               'postmortem '\n                                                               'was '\n                                                               'published.',\n                                                'type': ['null',\n                                                         'boolean']},\n                    'resolved_at': {'description': 'The timestamp when '\n                                                   'incident was resolved.',\n                                    'format': 'date-time',\n                                    'type': ['null', 'string']},\n                    'scheduled_auto_completed': {'description': 'Controls '\n                                                                'whether '\n                                                                'the '\n                                                                'incident '\n                                                                'is '\n                                                                'scheduled '\n                                                                'to '\n                                                                'automatically '\n                                                                'change to '\n                                                                'complete.',\n                                                 'type': ['null',\n                                                          'boolean']},\n                    'scheduled_auto_in_progress': {'description': 'Controls '\n                                                                  'whether '\n                                                                  'the '\n                                                                  'incident '\n                                                                  'is '\n                                                                  'scheduled '\n                                                                  'to '\n                                                                  'automatically '\n                                                                  'change '\n                                                                  'to in '\n                                                                  'progress.',\n                                                   'type': ['null',\n                                                            'boolean']},\n                    'scheduled_for': {'description': 'The timestamp the '\n                                                     'incident is '\n                                                     'scheduled for.',\n                                      'example': '2013-05-07T03:00:00.007Z',\n                                      'format': 'date-time',\n                                      'type': ['null', 'string']},\n                    'scheduled_remind_prior': {'description': 'Controls '\n                                                              'whether to '\n                                                              'remind '\n                                                              'subscribers '\n                                                              'prior to '\n                                                              'scheduled '\n                                                              'incidents.',\n                                               'type': ['null', 'boolean']},\n                    'scheduled_reminded_at': {'description': 'The '\n                                                             'timestamp '\n                                                             'when the '\n                                                             'scheduled '\n                                                             'incident '\n                                                             'reminder was '\n                                                             'sent at.',\n                                              'format': 'date-time',\n                                              'type': ['null', 'string']},\n                    'scheduled_until': {'description': 'The timestamp the '\n                                                       'incident is '\n                                                       'scheduled until.',\n                                        'example': '2013-05-07T06:00:00.007Z',\n                                        'format': 'date-time',\n                                        'type': ['null', 'string']},\n                    'shortlink': {'description': 'Incident Shortlink.',\n                                  'example': 'http://stspg.io/803310a12',\n                                  'type': ['null', 'string']},\n                    'status': {'description': 'The incident status. For '\n                                              'realtime incidents, valid '\n                                              'values are investigating, '\n                                              'identified, monitoring, and '\n                                              'resolved. For scheduled '\n                                              'incidents, valid values are '\n                                              'scheduled, in_progress, '\n                                              'verifying, and completed.',\n                               'enum': ['investigating',\n                                        'identified',\n                                        'monitoring',\n                                        'resolved',\n                                        'scheduled',\n                                        'in_progress',\n                                        'verifying',\n                                        'completed'],\n                               'example': 'scheduled',\n                               'type': ['null', 'string']},\n                    'updated_at': {'description': 'The timestamp when the '\n                                                  'incident was updated '\n                                                  'at.',\n                                   'format': 'date-time',\n                                   'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'components': [],\n     'created_at': '2021-08-11T13:22:21.758Z',\n     'id': '2zq0hlr94xrt',\n     'impact': 'none',\n     'impact_override': None,\n     'incident_updates': [{'affected_components': None,\n                           'body': 'Empathize with those affected and let '\n                                   'them know everything is operating as '\n                                   'normal.',\n                           'created_at': '2021-08-12T12:40:21.999Z',\n                           'custom_tweet': None,\n                           'deliver_notifications': True,\n                           'display_at': '2021-08-11T14:56:21.963+02:00',\n                           'id': '1rd16y5ykff9',\n                           'incident_id': '2zq0hlr94xrt',\n                           'status': 'resolved',\n                           'tweet_id': None,\n                           'twitter_updated_at': None,\n                           'updated_at': '2021-08-12T12:40:21.999Z',\n                           'wants_twitter_update': False},\n                          {'affected_components': None,\n                           'body': 'Let your users know once a fix is in '\n                                   'place, and keep communication clear '\n                                   'and precise.',\n                           'created_at': '2021-08-12T12:40:21.937Z',\n                           'custom_tweet': None,\n                           'deliver_notifications': True,\n                           'display_at': '2021-08-11T14:46:21.896+02:00',\n                           'id': 'm3y6ds6bmr52',\n                           'incident_id': '2zq0hlr94xrt',\n                           'status': 'monitoring',\n                           'tweet_id': None,\n                           'twitter_updated_at': None,\n                           'updated_at': '2021-08-12T12:40:21.937Z',\n                           'wants_twitter_update': False},\n                          {'affected_components': None,\n                           'body': 'As you continue to work through the '\n                                   'incident, update your customers '\n                                   'frequently.',\n                           'created_at': '2021-08-12T12:40:21.870Z',\n                           'custom_tweet': None,\n                           'deliver_notifications': True,\n                           'display_at': '2021-08-11T14:52:21.834+02:00',\n                           'id': 'dfc0yj8z92yv',\n                           'incident_id': '2zq0hlr94xrt',\n                           'status': 'identified',\n                           'tweet_id': None,\n                           'twitter_updated_at': None,\n                           'updated_at': '2021-08-12T12:40:21.870Z',\n                           'wants_twitter_update': False},\n                          {'affected_components': None,\n                           'body': 'When your product or service isn\u2019t '\n                                   'functioning as expected, let your '\n                                   'customers know by creating an '\n                                   'incident. Communicate early, even if '\n                                   'you don\u2019t know exactly what\u2019s going '\n                                   'on.',\n                           'created_at': '2021-08-12T12:40:21.817Z',\n                           'custom_tweet': None,\n                           'deliver_notifications': True,\n                           'display_at': '2021-08-11T15:22:21.758+02:00',\n                           'id': 'lvjl13c7z10k',\n                           'incident_id': '2zq0hlr94xrt',\n                           'status': 'investigating',\n                           'tweet_id': None,\n                           'twitter_updated_at': None,\n                           'updated_at': '2021-08-12T12:40:21.817Z',\n                           'wants_twitter_update': False}],\n     'metadata': {},\n     'monitoring_at': '2021-08-11T12:46:21.896Z',\n     'name': 'This is an example incident',\n     'page_id': 'fdxz6r4ztkwd',\n     'postmortem_body': None,\n     'postmortem_body_last_updated_at': None,\n     'postmortem_ignored': False,\n     'postmortem_notified_subscribers': False,\n     'postmortem_notified_twitter': False,\n     'postmortem_published_at': None,\n     'resolved_at': '2021-08-11T12:56:21.963Z',\n     'scheduled_auto_completed': False,\n     'scheduled_auto_in_progress': False,\n     'scheduled_for': None,\n     'scheduled_remind_prior': False,\n     'scheduled_reminded_at': None,\n     'scheduled_until': None,\n     'shortlink': 'https://stspg.io/q6sbgd5skx7f',\n     'started_at': '2021-08-12T12:40:21.763Z',\n     'status': 'resolved',\n     'updated_at': '2021-08-12T12:40:22.422Z'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The incidents stream has the following schema errors:
+Additional properties are not allowed ('started_at' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/schema#',
+     'additionalProperties': False,
+     'description': 'Get an incident',
+     'properties': {'auto_transition_deliver_notifications_at_end': {'description': 'Controls '
+                                                                                    'whether '
+                                                                                    'send '
+                                                                                    'notification '
+                                                                                    'when '
+                                                                                    'scheduled '
+                                                                                    'maintenances '
+                                                                                    'auto '
+                                                                                    'transition '
+                                                                                    'to '
+                                                                                    'completed.',
+                                                                     'type': ['null',
+                                                                              'boolean']},
+                    'auto_transition_deliver_notifications_at_start': {'description': 'Controls '
+                                                                                      'whether '
+                                                                                      'send '
+                                                                                      'notification '
+                                                                                      'when '
+                                                                                      'scheduled '
+                                                                                      'maintenances '
+                                                                                      'auto '
+                                                                                      'transition '
+                                                                                      'to '
+                                                                                      'started.',
+                                                                       'type': ['null',
+                                                                                'boolean']},
+                    'auto_transition_to_maintenance_state': {'description': 'Controls '
+                                                                            'whether '
+                                                                            'change '
+                                                                            'components '
+                                                                            'status '
+                                                                            'to '
+                                                                            'under_maintenance '
+                                                                            'once '
+                                                                            'scheduled '
+                                                                            'maintenance '
+                                                                            'is '
+                                                                            'in '
+                                                                            'progress.',
+                                                             'type': ['null',
+                                                                      'boolean']},
+                    'auto_transition_to_operational_state': {'description': 'Controls '
+                                                                            'whether '
+                                                                            'change '
+                                                                            'components '
+                                                                            'status '
+                                                                            'to '
+                                                                            'operational '
+                                                                            'once '
+                                                                            'scheduled '
+                                                                            'maintenance '
+                                                                            'completes.',
+                                                             'type': ['null',
+                                                                      'boolean']},
+                    'components': {'description': 'Incident components',
+                                   'items': {'$schema': 'http://json-schema.org/schema#',
+                                             'description': 'Add page '
+                                                            'access groups '
+                                                            'to a '
+                                                            'component',
+                                             'properties': {'automation_email': {'description': 'Requires '
+                                                                                                'a '
+                                                                                                'special '
+                                                                                                'feature '
+                                                                                                'flag '
+                                                                                                'to '
+                                                                                                'be '
+                                                                                                'enabled',
+                                                                                 'type': ['null',
+                                                                                          'string']},
+                                                            'created_at': {'format': 'date-time',
+                                                                           'type': ['null',
+                                                                                    'string']},
+                                                            'description': {'description': 'More '
+                                                                                           'detailed '
+                                                                                           'description '
+                                                                                           'for '
+                                                                                           'component',
+                                                                            'type': ['null',
+                                                                                     'string']},
+                                                            'group': {'description': 'Is '
+                                                                                     'this '
+                                                                                     'component '
+                                                                                     'a '
+                                                                                     'group',
+                                                                      'type': ['null',
+                                                                               'boolean']},
+                                                            'group_id': {'description': 'Component '
+                                                                                        'Group '
+                                                                                        'identifier',
+                                                                         'type': ['null',
+                                                                                  'string']},
+                                                            'id': {'description': 'Identifier '
+                                                                                  'for '
+                                                                                  'component',
+                                                                   'type': ['null',
+                                                                            'string']},
+                                                            'name': {'description': 'Display '
+                                                                                    'name '
+                                                                                    'for '
+                                                                                    'component',
+                                                                     'type': ['null',
+                                                                              'string']},
+                                                            'only_show_if_degraded': {'description': 'Requires '
+                                                                                                     'a '
+                                                                                                     'special '
+                                                                                                     'feature '
+                                                                                                     'flag '
+                                                                                                     'to '
+                                                                                                     'be '
+                                                                                                     'enabled',
+                                                                                      'type': ['null',
+                                                                                               'boolean']},
+                                                            'page_id': {'description': 'Page '
+                                                                                       'identifier',
+                                                                        'type': ['null',
+                                                                                 'string']},
+                                                            'position': {'description': 'Order '
+                                                                                        'the '
+                                                                                        'component '
+                                                                                        'will '
+                                                                                        'appear '
+                                                                                        'on '
+                                                                                        'the '
+                                                                                        'page',
+                                                                         'format': 'int32',
+                                                                         'type': 'integer'},
+                                                            'showcase': {'description': 'Should '
+                                                                                        'this '
+                                                                                        'component '
+                                                                                        'be '
+                                                                                        'showcased',
+                                                                         'type': ['null',
+                                                                                  'boolean']},
+                                                            'start_date': {'description': 'The '
+                                                                                          'date '
+                                                                                          'this '
+                                                                                          'component '
+                                                                                          'started '
+                                                                                          'being '
+                                                                                          'used',
+                                                                           'format': 'date',
+                                                                           'type': ['null',
+                                                                                    'string']},
+                                                            'status': {'description': 'Status '
+                                                                                      'of '
+                                                                                      'component',
+                                                                       'enum': ['operational',
+                                                                                'under_maintenance',
+                                                                                'degraded_performance',
+                                                                                'partial_outage',
+                                                                                'major_outage',
+                                                                                ''],
+                                                                       'type': ['null',
+                                                                                'string']},
+                                                            'updated_at': {'format': 'date-time',
+                                                                           'type': ['null',
+                                                                                    'string']}},
+                                             'type': 'object'},
+                                   'type': 'array'},
+                    'created_at': {'description': 'The timestamp when the '
+                                                  'incident was created '
+                                                  'at.',
+                                   'format': 'date-time',
+                                   'type': ['null', 'string']},
+                    'id': {'description': 'Incident Identifier',
+                           'example': 'p31zjtct2jer',
+                           'type': ['null', 'string']},
+                    'impact': {'description': 'The impact of the incident.',
+                               'enum': ['none',
+                                        'maintenance',
+                                        'minor',
+                                        'major',
+                                        'critical'],
+                               'example': 'critical',
+                               'type': ['null', 'string']},
+                    'impact_override': {'description': 'value to override '
+                                                       'calculated impact '
+                                                       'value',
+                                        'example': 'minor',
+                                        'type': ['null', 'object']},
+                    'incident_updates': {'description': 'The incident '
+                                                        'updates for '
+                                                        'incident.',
+                                         'items': {'$schema': 'http://json-schema.org/schema#',
+                                                   'description': 'Update '
+                                                                  'a '
+                                                                  'previous '
+                                                                  'incident '
+                                                                  'update',
+                                                   'properties': {'affected_components': {'description': 'Affected '
+                                                                                                         'components '
+                                                                                                         'associated '
+                                                                                                         'with '
+                                                                                                         'the '
+                                                                                                         'incident '
+                                                                                                         'update.',
+                                                                                          'type': ['null',
+                                                                                                   'array']},
+                                                                  'body': {'description': 'Incident '
+                                                                                          'update '
+                                                                                          'body.',
+                                                                           'type': ['null',
+                                                                                    'string']},
+                                                                  'created_at': {'description': 'The '
+                                                                                                'timestamp '
+                                                                                                'when '
+                                                                                                'the '
+                                                                                                'incident '
+                                                                                                'update '
+                                                                                                'was '
+                                                                                                'created '
+                                                                                                'at.',
+                                                                                 'format': 'date-time',
+                                                                                 'type': ['null',
+                                                                                          'string']},
+                                                                  'custom_tweet': {'description': 'An '
+                                                                                                  'optional '
+                                                                                                  'customized '
+                                                                                                  'tweet '
+                                                                                                  'message '
+                                                                                                  'for '
+                                                                                                  'incident '
+                                                                                                  'postmortem.',
+                                                                                   'type': ['null',
+                                                                                            'string']},
+                                                                  'deliver_notifications': {'description': 'Controls '
+                                                                                                           'whether '
+                                                                                                           'to '
+                                                                                                           'delivery '
+                                                                                                           'notifications.',
+                                                                                            'type': ['null',
+                                                                                                     'boolean']},
+                                                                  'display_at': {'description': 'Timestamp '
+                                                                                                'when '
+                                                                                                'incident '
+                                                                                                'update '
+                                                                                                'is '
+                                                                                                'happened.',
+                                                                                 'format': 'date-time',
+                                                                                 'type': ['null',
+                                                                                          'string']},
+                                                                  'id': {'description': 'Incident '
+                                                                                        'Update '
+                                                                                        'Identifier.',
+                                                                         'type': ['null',
+                                                                                  'string']},
+                                                                  'incident_id': {'description': 'Incident '
+                                                                                                 'Identifier.',
+                                                                                  'type': ['null',
+                                                                                           'string']},
+                                                                  'status': {'description': 'The '
+                                                                                            'incident '
+                                                                                            'status. '
+                                                                                            'For '
+                                                                                            'realtime '
+                                                                                            'incidents, '
+                                                                                            'valid '
+                                                                                            'values '
+                                                                                            'are '
+                                                                                            'investigating, '
+                                                                                            'identified, '
+                                                                                            'monitoring, '
+                                                                                            'and '
+                                                                                            'resolved. '
+                                                                                            'For '
+                                                                                            'scheduled '
+                                                                                            'incidents, '
+                                                                                            'valid '
+                                                                                            'values '
+                                                                                            'are '
+                                                                                            'scheduled, '
+                                                                                            'in_progress, '
+                                                                                            'verifying, '
+                                                                                            'and '
+                                                                                            'completed.',
+                                                                             'enum': ['investigating',
+                                                                                      'identified',
+                                                                                      'monitoring',
+                                                                                      'resolved',
+                                                                                      'scheduled',
+                                                                                      'in_progress',
+                                                                                      'verifying',
+                                                                                      'completed'],
+                                                                             'type': ['null',
+                                                                                      'string']},
+                                                                  'tweet_id': {'description': 'Tweet '
+                                                                                              'identifier '
+                                                                                              'associated '
+                                                                                              'to '
+                                                                                              'this '
+                                                                                              'incident '
+                                                                                              'update.',
+                                                                               'type': ['null',
+                                                                                        'string']},
+                                                                  'twitter_updated_at': {'description': 'The '
+                                                                                                        'timestamp '
+                                                                                                        'when '
+                                                                                                        'twitter '
+                                                                                                        'updated '
+                                                                                                        'at.',
+                                                                                         'format': 'date-time',
+                                                                                         'type': ['null',
+                                                                                                  'string']},
+                                                                  'updated_at': {'description': 'The '
+                                                                                                'timestamp '
+                                                                                                'when '
+                                                                                                'the '
+                                                                                                'incident '
+                                                                                                'update '
+                                                                                                'is '
+                                                                                                'updated.',
+                                                                                 'format': 'date-time',
+                                                                                 'type': ['null',
+                                                                                          'string']},
+                                                                  'wants_twitter_update': {'description': 'Controls '
+                                                                                                          'whether '
+                                                                                                          'to '
+                                                                                                          'create '
+                                                                                                          'twitter '
+                                                                                                          'update.',
+                                                                                           'type': ['null',
+                                                                                                    'boolean']}},
+                                                   'type': 'object'},
+                                         'type': 'array'},
+                    'metadata': {'description': 'Metadata attached to the '
+                                                'incident. Top level '
+                                                'values must be objects.',
+                                 'example': {'jira': {'issue_id': 'value'}},
+                                 'type': 'object'},
+                    'monitoring_at': {'description': 'The timestamp when '
+                                                     'incident entered '
+                                                     'monitoring state.',
+                                      'format': 'date-time',
+                                      'type': ['null', 'string']},
+                    'name': {'description': 'Incident Name',
+                             'example': 'Data Layer Migration',
+                             'type': ['null', 'string']},
+                    'page_id': {'description': 'Incident Page Identifier',
+                                'type': ['null', 'string']},
+                    'postmortem_body': {'description': 'Body of the '
+                                                       'Postmortem.',
+                                        'example': '##### Issue\n'
+                                                   'At approximately 17:02 '
+                                                   'UTC on 2013-04-21, our '
+                                                   'master database server '
+                                                   'unexpectedly went '
+                                                   'unresponsive to all '
+                                                   'network.\n'
+                                                   'A reboot of the '
+                                                   'machine at 17:05 UTC '
+                                                   'resulted in a failed '
+                                                   'mount of a corrupted '
+                                                   'EBS volume, and we '
+                                                   'made the decision\n'
+                                                   'at that time to fail '
+                                                   'over the slave '
+                                                   'database.\n'
+                                                   '\n'
+                                                   '##### Resolution\n'
+                                                   'At 17:12 UTC, the '
+                                                   'slave database had '
+                                                   'been successfully '
+                                                   'promoted to master and '
+                                                   'the application '
+                                                   'recovered enough to\n'
+                                                   'accept web traffic '
+                                                   'again. A new slave '
+                                                   'database node was '
+                                                   'created and placed '
+                                                   'into the rotation to '
+                                                   'guard against future\n'
+                                                   'master failures. The '
+                                                   'promoted slave '
+                                                   'database performed '
+                                                   'slowly for the next '
+                                                   'couple of hours as the '
+                                                   'query cache began\n'
+                                                   'to warm up, and '
+                                                   'eventually settled '
+                                                   'into a reasonable '
+                                                   'performance profile '
+                                                   'around 20:00 UTC.\n'
+                                                   '\n'
+                                                   '##### Future '
+                                                   'Mitigation Plans\n'
+                                                   'Over the past few '
+                                                   'months, we have been '
+                                                   'working on an overhaul '
+                                                   'to our data storage '
+                                                   'layer with a migration '
+                                                   'from a Postgres\n'
+                                                   'setup to a '
+                                                   'distributed, '
+                                                   'fault-tolerant, '
+                                                   'multi-region data '
+                                                   'layer using Riak. This '
+                                                   'initiative has been '
+                                                   'prioritized, and\n'
+                                                   'the migration will be '
+                                                   'performed in the '
+                                                   'coming weeks. We will '
+                                                   'notify our clients of '
+                                                   'the scheduled downtime '
+                                                   'via an\n'
+                                                   'incident on this '
+                                                   'status site, and via a '
+                                                   'blog post.\n',
+                                        'type': ['null', 'string']},
+                    'postmortem_body_last_updated_at': {'description': 'The '
+                                                                       'timestamp '
+                                                                       'when '
+                                                                       'the '
+                                                                       'incident '
+                                                                       'postmortem '
+                                                                       'body '
+                                                                       'was '
+                                                                       'last '
+                                                                       'updated '
+                                                                       'at.',
+                                                        'format': 'date-time',
+                                                        'type': ['null',
+                                                                 'string']},
+                    'postmortem_ignored': {'description': 'Controls '
+                                                          'whether the '
+                                                          'incident will '
+                                                          'have '
+                                                          'postmortem.',
+                                           'type': ['null', 'boolean']},
+                    'postmortem_notified_subscribers': {'description': 'Indicates '
+                                                                       'whether '
+                                                                       'subscribers '
+                                                                       'are '
+                                                                       'already '
+                                                                       'notificed '
+                                                                       'about '
+                                                                       'postmortem.',
+                                                        'type': ['null',
+                                                                 'boolean']},
+                    'postmortem_notified_twitter': {'description': 'Controls '
+                                                                   'whether '
+                                                                   'to '
+                                                                   'decide '
+                                                                   'if '
+                                                                   'notify '
+                                                                   'postmortem '
+                                                                   'on '
+                                                                   'twitter.',
+                                                    'type': ['null',
+                                                             'boolean']},
+                    'postmortem_published_at': {'description': 'The '
+                                                               'timestamp '
+                                                               'when the '
+                                                               'postmortem '
+                                                               'was '
+                                                               'published.',
+                                                'type': ['null',
+                                                         'boolean']},
+                    'resolved_at': {'description': 'The timestamp when '
+                                                   'incident was resolved.',
+                                    'format': 'date-time',
+                                    'type': ['null', 'string']},
+                    'scheduled_auto_completed': {'description': 'Controls '
+                                                                'whether '
+                                                                'the '
+                                                                'incident '
+                                                                'is '
+                                                                'scheduled '
+                                                                'to '
+                                                                'automatically '
+                                                                'change to '
+                                                                'complete.',
+                                                 'type': ['null',
+                                                          'boolean']},
+                    'scheduled_auto_in_progress': {'description': 'Controls '
+                                                                  'whether '
+                                                                  'the '
+                                                                  'incident '
+                                                                  'is '
+                                                                  'scheduled '
+                                                                  'to '
+                                                                  'automatically '
+                                                                  'change '
+                                                                  'to in '
+                                                                  'progress.',
+                                                   'type': ['null',
+                                                            'boolean']},
+                    'scheduled_for': {'description': 'The timestamp the '
+                                                     'incident is '
+                                                     'scheduled for.',
+                                      'example': '2013-05-07T03:00:00.007Z',
+                                      'format': 'date-time',
+                                      'type': ['null', 'string']},
+                    'scheduled_remind_prior': {'description': 'Controls '
+                                                              'whether to '
+                                                              'remind '
+                                                              'subscribers '
+                                                              'prior to '
+                                                              'scheduled '
+                                                              'incidents.',
+                                               'type': ['null', 'boolean']},
+                    'scheduled_reminded_at': {'description': 'The '
+                                                             'timestamp '
+                                                             'when the '
+                                                             'scheduled '
+                                                             'incident '
+                                                             'reminder was '
+                                                             'sent at.',
+                                              'format': 'date-time',
+                                              'type': ['null', 'string']},
+                    'scheduled_until': {'description': 'The timestamp the '
+                                                       'incident is '
+                                                       'scheduled until.',
+                                        'example': '2013-05-07T06:00:00.007Z',
+                                        'format': 'date-time',
+                                        'type': ['null', 'string']},
+                    'shortlink': {'description': 'Incident Shortlink.',
+                                  'example': 'http://stspg.io/803310a12',
+                                  'type': ['null', 'string']},
+                    'status': {'description': 'The incident status. For '
+                                              'realtime incidents, valid '
+                                              'values are investigating, '
+                                              'identified, monitoring, and '
+                                              'resolved. For scheduled '
+                                              'incidents, valid values are '
+                                              'scheduled, in_progress, '
+                                              'verifying, and completed.',
+                               'enum': ['investigating',
+                                        'identified',
+                                        'monitoring',
+                                        'resolved',
+                                        'scheduled',
+                                        'in_progress',
+                                        'verifying',
+                                        'completed'],
+                               'example': 'scheduled',
+                               'type': ['null', 'string']},
+                    'updated_at': {'description': 'The timestamp when the '
+                                                  'incident was updated '
+                                                  'at.',
+                                   'format': 'date-time',
+                                   'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'components': [],
+     'created_at': '2021-08-11T13:22:21.758Z',
+     'id': '2zq0hlr94xrt',
+     'impact': 'none',
+     'impact_override': None,
+     'incident_updates': [{'affected_components': None,
+                           'body': 'Empathize with those affected and let '
+                                   'them know everything is operating as '
+                                   'normal.',
+                           'created_at': '2021-08-12T12:40:21.999Z',
+                           'custom_tweet': None,
+                           'deliver_notifications': True,
+                           'display_at': '2021-08-11T14:56:21.963+02:00',
+                           'id': '1rd16y5ykff9',
+                           'incident_id': '2zq0hlr94xrt',
+                           'status': 'resolved',
+                           'tweet_id': None,
+                           'twitter_updated_at': None,
+                           'updated_at': '2021-08-12T12:40:21.999Z',
+                           'wants_twitter_update': False},
+                          {'affected_components': None,
+                           'body': 'Let your users know once a fix is in '
+                                   'place, and keep communication clear '
+                                   'and precise.',
+                           'created_at': '2021-08-12T12:40:21.937Z',
+                           'custom_tweet': None,
+                           'deliver_notifications': True,
+                           'display_at': '2021-08-11T14:46:21.896+02:00',
+                           'id': 'm3y6ds6bmr52',
+                           'incident_id': '2zq0hlr94xrt',
+                           'status': 'monitoring',
+                           'tweet_id': None,
+                           'twitter_updated_at': None,
+                           'updated_at': '2021-08-12T12:40:21.937Z',
+                           'wants_twitter_update': False},
+                          {'affected_components': None,
+                           'body': 'As you continue to work through the '
+                                   'incident, update your customers '
+                                   'frequently.',
+                           'created_at': '2021-08-12T12:40:21.870Z',
+                           'custom_tweet': None,
+                           'deliver_notifications': True,
+                           'display_at': '2021-08-11T14:52:21.834+02:00',
+                           'id': 'dfc0yj8z92yv',
+                           'incident_id': '2zq0hlr94xrt',
+                           'status': 'identified',
+                           'tweet_id': None,
+                           'twitter_updated_at': None,
+                           'updated_at': '2021-08-12T12:40:21.870Z',
+                           'wants_twitter_update': False},
+                          {'affected_components': None,
+                           'body': 'When your product or service isn’t '
+                                   'functioning as expected, let your '
+                                   'customers know by creating an '
+                                   'incident. Communicate early, even if '
+                                   'you don’t know exactly what’s going '
+                                   'on.',
+                           'created_at': '2021-08-12T12:40:21.817Z',
+                           'custom_tweet': None,
+                           'deliver_notifications': True,
+                           'display_at': '2021-08-11T15:22:21.758+02:00',
+                           'id': 'lvjl13c7z10k',
+                           'incident_id': '2zq0hlr94xrt',
+                           'status': 'investigating',
+                           'tweet_id': None,
+                           'twitter_updated_at': None,
+                           'updated_at': '2021-08-12T12:40:21.817Z',
+                           'wants_twitter_update': False}],
+     'metadata': {},
+     'monitoring_at': '2021-08-11T12:46:21.896Z',
+     'name': 'This is an example incident',
+     'page_id': 'fdxz6r4ztkwd',
+     'postmortem_body': None,
+     'postmortem_body_last_updated_at': None,
+     'postmortem_ignored': False,
+     'postmortem_notified_subscribers': False,
+     'postmortem_notified_twitter': False,
+     'postmortem_published_at': None,
+     'resolved_at': '2021-08-11T12:56:21.963Z',
+     'scheduled_auto_completed': False,
+     'scheduled_auto_in_progress': False,
+     'scheduled_for': None,
+     'scheduled_remind_prior': False,
+     'scheduled_reminded_at': None,
+     'scheduled_until': None,
+     'shortlink': 'https://stspg.io/q6sbgd5skx7f',
+     'started_at': '2021-08-12T12:40:21.763Z',
+     'status': 'resolved',
+     'updated_at': '2021-08-12T12:40:22.422Z'}
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: This connector does not implement incremental sync
+================= 1 failed, 1 skipped, 33 deselected in 13.36s =================

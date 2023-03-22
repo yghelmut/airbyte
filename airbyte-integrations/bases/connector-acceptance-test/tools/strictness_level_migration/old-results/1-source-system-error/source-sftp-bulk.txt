@@ -1,0 +1,228 @@
+../../../../connectors/source-sftp-bulk/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-sftp-bulk
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 37 items / 35 deselected / 2 selected
+
+../../test_input/test_core.py E                                          [ 50%]
+../../test_input/test_incremental.py E                                   [100%]
+
+
+==================================== ERRORS ====================================
+______________ ERROR at setup of TestBasicRead.test_read[inputs0] ______________
+
+connector_config = SecretDict(******)
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff88265820>
+cached_schemas = {}, cache_discovered_catalog = True
+
+    @pytest.fixture(name="discovered_catalog")
+    def discovered_catalog_fixture(
+        connector_config, docker_runner: ConnectorRunner, cached_schemas, cache_discovered_catalog: bool
+    ) -> MutableMapping[str, AirbyteStream]:
+        """JSON schemas for each stream"""
+        cached_schemas = cached_schemas.setdefault(make_hashable(connector_config), {})
+        if not cache_discovered_catalog:
+            cached_schemas.clear()
+        if not cached_schemas:
+>           output = docker_runner.call_discover(config=connector_config)
+
+connector_acceptance_test/conftest.py:290: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+connector_acceptance_test/utils/connector_runner.py:91: in call_discover
+    output = list(self.run(cmd=cmd, config=config, **kwargs))
+connector_acceptance_test/utils/connector_runner.py:120: in run
+    for line in self.read(container, command=cmd, with_ext=raise_container_error):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'connector_acceptance_test.utils.connector_runner.ConnectorRunner'>
+container = <Container: e4679a2264>
+command = 'discover --config /data/tap_config.json', with_ext = True
+
+    @classmethod
+    def read(cls, container: Container, command: str = None, with_ext: bool = True) -> Iterable[str]:
+        """Reads connector's logs per line"""
+        buffer = b""
+        exception = ""
+        line = ""
+        for chunk in container.logs(stdout=True, stderr=True, stream=True, follow=True):
+    
+            buffer += chunk
+            while True:
+                # every chunk can include several lines
+                found = buffer.find(b"\n")
+                if found <= -1:
+                    break
+    
+                line = buffer[: found + 1].decode("utf-8")
+                if len(exception) > 0 or line.startswith("Traceback (most recent call last)"):
+                    exception += line
+                else:
+                    yield line
+                buffer = buffer[found + 1 :]
+    
+        if buffer:
+            # send the latest chunk if exists
+            line = buffer.decode("utf-8")
+            if exception:
+                exception += line
+            else:
+                yield line
+        try:
+            exit_status = container.wait()
+            container.remove()
+        except NotFound as err:
+            logging.error(f"Waiting error: {err}, logs: {exception or line}")
+            raise
+        if exit_status["StatusCode"]:
+            error = exit_status.get("Error") or exception or line
+            logging.error(f"Docker container failed, " f'code {exit_status["StatusCode"]}, error:\n{error}')
+            if with_ext:
+>               raise ContainerError(
+                    container=container,
+                    exit_status=exit_status["StatusCode"],
+                    command=command,
+                    image=container.image,
+                    stderr=error,
+                )
+E               docker.errors.ContainerError: Command 'discover --config /data/tap_config.json' in image '<Image: 'airbyte/source-sftp-bulk:dev'>' returned non-zero exit status 1: {"type": "TRACE", "trace": {"type": "ERROR", "emitted_at": 1679429467025.375, "error": {"message": "Something went wrong in the connector. See the logs for more details.", "internal_message": "SSH Connection failed: Unable to connect to localhost: [Errno 111] Connection refused", "stack_trace": "Traceback (most recent call last):\n  File \"/airbyte/integration_code/source_sftp_bulk/client.py\", line 56, in _connect\n    self.transport = paramiko.Transport((self.host, self.port))\n  File \"/usr/local/lib/python3.9/site-packages/paramiko/transport.py\", line 441, in __init__\n    raise SSHException(\nparamiko.ssh_exception.SSHException: Unable to connect to localhost: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/airbyte/integration_code/main.py\", line 13, in <module>\n    launch(source, sys.argv[1:])\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 131, in launch\n    for message in source_entrypoint.run(parsed_args):\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 116, in run\n    catalog = self.source.discover(self.logger, config)\n  File \"/airbyte/integration_code/source_sftp_bulk/source.py\", line 97, in discover\n    conn = self._get_connection(config)\n  File \"/airbyte/integration_code/source_sftp_bulk/source.py\", line 72, in _get_connection\n    return SFTPClient(\n  File \"/airbyte/integration_code/source_sftp_bulk/client.py\", line 43, in __init__\n    self._connect()\n  File \"/usr/local/lib/python3.9/site-packages/backoff/_sync.py\", line 94, in retry\n    ret = target(*args, **kwargs)\n  File \"/airbyte/integration_code/source_sftp_bulk/client.py\", line 69, in _connect\n    raise Exception(\"SSH Connection failed: %s\" % ex)\nException: SSH Connection failed: Unable to connect to localhost: [Errno 111] Connection refused\n", "failure_type": "system_error"}}}
+
+connector_acceptance_test/utils/connector_runner.py:174: ContainerError
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "Docker container failed, code 1, error:\n{\"type\": \"TRACE\", \"trace\": {\"type\": \"ERROR\", \"emitted_at\": 1679429467025.375, \"error\": {\"message\": \"Something went wrong in the connector. See the logs for more details.\", \"internal_message\": \"SSH Connection failed: Unable to connect to localhost: [Errno 111] Connection refused\", \"stack_trace\": \"Traceback (most recent call last):\\n  File \\\"/airbyte/integration_code/source_sftp_bulk/client.py\\\", line 56, in _connect\\n    self.transport = paramiko.Transport((self.host, self.port))\\n  File \\\"/usr/local/lib/python3.9/site-packages/paramiko/transport.py\\\", line 441, in __init__\\n    raise SSHException(\\nparamiko.ssh_exception.SSHException: Unable to connect to localhost: [Errno 111] Connection refused\\n\\nDuring handling of the above exception, another exception occurred:\\n\\nTraceback (most recent call last):\\n  File \\\"/airbyte/integration_code/main.py\\\", line 13, in <module>\\n    launch(source, sys.argv[1:])\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\\\", line 131, in launch\\n    for message in source_entrypoint.run(parsed_args):\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\\\", line 116, in run\\n    catalog = self.source.discover(self.logger, config)\\n  File \\\"/airbyte/integration_code/source_sftp_bulk/source.py\\\", line 97, in discover\\n    conn = self._get_connection(config)\\n  File \\\"/airbyte/integration_code/source_sftp_bulk/source.py\\\", line 72, in _get_connection\\n    return SFTPClient(\\n  File \\\"/airbyte/integration_code/source_sftp_bulk/client.py\\\", line 43, in __init__\\n    self._connect()\\n  File \\\"/usr/local/lib/python3.9/site-packages/backoff/_sync.py\\\", line 94, in retry\\n    ret = target(*args, **kwargs)\\n  File \\\"/airbyte/integration_code/source_sftp_bulk/client.py\\\", line 69, in _connect\\n    raise Exception(\\\"SSH Connection failed: %s\\\" % ex)\\nException: SSH Connection failed: Unable to connect to localhost: [Errno 111] Connection refused\\n\", \"failure_type\": \"system_error\"}}}\n"}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+ERROR    root:connector_runner.py:172 Docker container failed, code 1, error:
+{"type": "TRACE", "trace": {"type": "ERROR", "emitted_at": 1679429467025.375, "error": {"message": "Something went wrong in the connector. See the logs for more details.", "internal_message": "SSH Connection failed: Unable to connect to localhost: [Errno 111] Connection refused", "stack_trace": "Traceback (most recent call last):\n  File \"/airbyte/integration_code/source_sftp_bulk/client.py\", line 56, in _connect\n    self.transport = paramiko.Transport((self.host, self.port))\n  File \"/usr/local/lib/python3.9/site-packages/paramiko/transport.py\", line 441, in __init__\n    raise SSHException(\nparamiko.ssh_exception.SSHException: Unable to connect to localhost: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/airbyte/integration_code/main.py\", line 13, in <module>\n    launch(source, sys.argv[1:])\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 131, in launch\n    for message in source_entrypoint.run(parsed_args):\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 116, in run\n    catalog = self.source.discover(self.logger, config)\n  File \"/airbyte/integration_code/source_sftp_bulk/source.py\", line 97, in discover\n    conn = self._get_connection(config)\n  File \"/airbyte/integration_code/source_sftp_bulk/source.py\", line 72, in _get_connection\n    return SFTPClient(\n  File \"/airbyte/integration_code/source_sftp_bulk/client.py\", line 43, in __init__\n    self._connect()\n  File \"/usr/local/lib/python3.9/site-packages/backoff/_sync.py\", line 94, in retry\n    ret = target(*args, **kwargs)\n  File \"/airbyte/integration_code/source_sftp_bulk/client.py\", line 69, in _connect\n    raise Exception(\"SSH Connection failed: %s\" % ex)\nException: SSH Connection failed: Unable to connect to localhost: [Errno 111] Connection refused\n", "failure_type": "system_error"}}}
+____ ERROR at setup of TestIncremental.test_read_sequential_slices[inputs0] ____
+
+connector_config = SecretDict(******)
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff8846ca30>
+cached_schemas = {}, cache_discovered_catalog = True
+
+    @pytest.fixture(name="discovered_catalog")
+    def discovered_catalog_fixture(
+        connector_config, docker_runner: ConnectorRunner, cached_schemas, cache_discovered_catalog: bool
+    ) -> MutableMapping[str, AirbyteStream]:
+        """JSON schemas for each stream"""
+        cached_schemas = cached_schemas.setdefault(make_hashable(connector_config), {})
+        if not cache_discovered_catalog:
+            cached_schemas.clear()
+        if not cached_schemas:
+>           output = docker_runner.call_discover(config=connector_config)
+
+connector_acceptance_test/conftest.py:290: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+connector_acceptance_test/utils/connector_runner.py:91: in call_discover
+    output = list(self.run(cmd=cmd, config=config, **kwargs))
+connector_acceptance_test/utils/connector_runner.py:120: in run
+    for line in self.read(container, command=cmd, with_ext=raise_container_error):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'connector_acceptance_test.utils.connector_runner.ConnectorRunner'>
+container = <Container: 7e5f720d84>
+command = 'discover --config /data/tap_config.json', with_ext = True
+
+    @classmethod
+    def read(cls, container: Container, command: str = None, with_ext: bool = True) -> Iterable[str]:
+        """Reads connector's logs per line"""
+        buffer = b""
+        exception = ""
+        line = ""
+        for chunk in container.logs(stdout=True, stderr=True, stream=True, follow=True):
+    
+            buffer += chunk
+            while True:
+                # every chunk can include several lines
+                found = buffer.find(b"\n")
+                if found <= -1:
+                    break
+    
+                line = buffer[: found + 1].decode("utf-8")
+                if len(exception) > 0 or line.startswith("Traceback (most recent call last)"):
+                    exception += line
+                else:
+                    yield line
+                buffer = buffer[found + 1 :]
+    
+        if buffer:
+            # send the latest chunk if exists
+            line = buffer.decode("utf-8")
+            if exception:
+                exception += line
+            else:
+                yield line
+        try:
+            exit_status = container.wait()
+            container.remove()
+        except NotFound as err:
+            logging.error(f"Waiting error: {err}, logs: {exception or line}")
+            raise
+        if exit_status["StatusCode"]:
+            error = exit_status.get("Error") or exception or line
+            logging.error(f"Docker container failed, " f'code {exit_status["StatusCode"]}, error:\n{error}')
+            if with_ext:
+>               raise ContainerError(
+                    container=container,
+                    exit_status=exit_status["StatusCode"],
+                    command=command,
+                    image=container.image,
+                    stderr=error,
+                )
+E               docker.errors.ContainerError: Command 'discover --config /data/tap_config.json' in image '<Image: 'airbyte/source-sftp-bulk:dev'>' returned non-zero exit status 1: {"type": "TRACE", "trace": {"type": "ERROR", "emitted_at": 1679429467814.474, "error": {"message": "Something went wrong in the connector. See the logs for more details.", "internal_message": "SSH Connection failed: Unable to connect to localhost: [Errno 111] Connection refused", "stack_trace": "Traceback (most recent call last):\n  File \"/airbyte/integration_code/source_sftp_bulk/client.py\", line 56, in _connect\n    self.transport = paramiko.Transport((self.host, self.port))\n  File \"/usr/local/lib/python3.9/site-packages/paramiko/transport.py\", line 441, in __init__\n    raise SSHException(\nparamiko.ssh_exception.SSHException: Unable to connect to localhost: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/airbyte/integration_code/main.py\", line 13, in <module>\n    launch(source, sys.argv[1:])\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 131, in launch\n    for message in source_entrypoint.run(parsed_args):\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 116, in run\n    catalog = self.source.discover(self.logger, config)\n  File \"/airbyte/integration_code/source_sftp_bulk/source.py\", line 97, in discover\n    conn = self._get_connection(config)\n  File \"/airbyte/integration_code/source_sftp_bulk/source.py\", line 72, in _get_connection\n    return SFTPClient(\n  File \"/airbyte/integration_code/source_sftp_bulk/client.py\", line 43, in __init__\n    self._connect()\n  File \"/usr/local/lib/python3.9/site-packages/backoff/_sync.py\", line 94, in retry\n    ret = target(*args, **kwargs)\n  File \"/airbyte/integration_code/source_sftp_bulk/client.py\", line 69, in _connect\n    raise Exception(\"SSH Connection failed: %s\" % ex)\nException: SSH Connection failed: Unable to connect to localhost: [Errno 111] Connection refused\n", "failure_type": "system_error"}}}
+
+connector_acceptance_test/utils/connector_runner.py:174: ContainerError
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "Docker container failed, code 1, error:\n{\"type\": \"TRACE\", \"trace\": {\"type\": \"ERROR\", \"emitted_at\": 1679429467814.474, \"error\": {\"message\": \"Something went wrong in the connector. See the logs for more details.\", \"internal_message\": \"SSH Connection failed: Unable to connect to localhost: [Errno 111] Connection refused\", \"stack_trace\": \"Traceback (most recent call last):\\n  File \\\"/airbyte/integration_code/source_sftp_bulk/client.py\\\", line 56, in _connect\\n    self.transport = paramiko.Transport((self.host, self.port))\\n  File \\\"/usr/local/lib/python3.9/site-packages/paramiko/transport.py\\\", line 441, in __init__\\n    raise SSHException(\\nparamiko.ssh_exception.SSHException: Unable to connect to localhost: [Errno 111] Connection refused\\n\\nDuring handling of the above exception, another exception occurred:\\n\\nTraceback (most recent call last):\\n  File \\\"/airbyte/integration_code/main.py\\\", line 13, in <module>\\n    launch(source, sys.argv[1:])\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\\\", line 131, in launch\\n    for message in source_entrypoint.run(parsed_args):\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\\\", line 116, in run\\n    catalog = self.source.discover(self.logger, config)\\n  File \\\"/airbyte/integration_code/source_sftp_bulk/source.py\\\", line 97, in discover\\n    conn = self._get_connection(config)\\n  File \\\"/airbyte/integration_code/source_sftp_bulk/source.py\\\", line 72, in _get_connection\\n    return SFTPClient(\\n  File \\\"/airbyte/integration_code/source_sftp_bulk/client.py\\\", line 43, in __init__\\n    self._connect()\\n  File \\\"/usr/local/lib/python3.9/site-packages/backoff/_sync.py\\\", line 94, in retry\\n    ret = target(*args, **kwargs)\\n  File \\\"/airbyte/integration_code/source_sftp_bulk/client.py\\\", line 69, in _connect\\n    raise Exception(\\\"SSH Connection failed: %s\\\" % ex)\\nException: SSH Connection failed: Unable to connect to localhost: [Errno 111] Connection refused\\n\", \"failure_type\": \"system_error\"}}}\n"}}
+------------------------------ Captured log setup ------------------------------
+ERROR    root:connector_runner.py:172 Docker container failed, code 1, error:
+{"type": "TRACE", "trace": {"type": "ERROR", "emitted_at": 1679429467814.474, "error": {"message": "Something went wrong in the connector. See the logs for more details.", "internal_message": "SSH Connection failed: Unable to connect to localhost: [Errno 111] Connection refused", "stack_trace": "Traceback (most recent call last):\n  File \"/airbyte/integration_code/source_sftp_bulk/client.py\", line 56, in _connect\n    self.transport = paramiko.Transport((self.host, self.port))\n  File \"/usr/local/lib/python3.9/site-packages/paramiko/transport.py\", line 441, in __init__\n    raise SSHException(\nparamiko.ssh_exception.SSHException: Unable to connect to localhost: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/airbyte/integration_code/main.py\", line 13, in <module>\n    launch(source, sys.argv[1:])\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 131, in launch\n    for message in source_entrypoint.run(parsed_args):\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 116, in run\n    catalog = self.source.discover(self.logger, config)\n  File \"/airbyte/integration_code/source_sftp_bulk/source.py\", line 97, in discover\n    conn = self._get_connection(config)\n  File \"/airbyte/integration_code/source_sftp_bulk/source.py\", line 72, in _get_connection\n    return SFTPClient(\n  File \"/airbyte/integration_code/source_sftp_bulk/client.py\", line 43, in __init__\n    self._connect()\n  File \"/usr/local/lib/python3.9/site-packages/backoff/_sync.py\", line 94, in retry\n    ret = target(*args, **kwargs)\n  File \"/airbyte/integration_code/source_sftp_bulk/client.py\", line 69, in _connect\n    raise Exception(\"SSH Connection failed: %s\" % ex)\nException: SSH Connection failed: Unable to connect to localhost: [Errno 111] Connection refused\n", "failure_type": "system_error"}}}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 36 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+ERROR ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - dock...
+ERROR ../../test_input/test_incremental.py::TestIncremental::test_read_sequential_slices[inputs0]
+================ 35 deselected, 37 warnings, 2 errors in 2.72s =================

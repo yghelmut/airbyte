@@ -1,0 +1,578 @@
+../../../../connectors/source-freshsales/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-freshsales
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffb5a90d60>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='contacts', json_schema={'$schema'...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='won_deals', bypass_reason=None), EmptyStreamConfiguration(name='lost_deals', bypass_reason=None)}
+ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffb4fa7940>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='contacts', data={'id': 17008066468, 'first_name': 'Jane', 'last_name': '...forecast_metrics': None, 'last_deal_prediction': None, 'rotten_days': 488, 'tags': []}, emitted_at=1679405085589), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='contacts', json_schema={'$schema'...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('contacts', 'open_deals', 'open_tasks', 'completed_tasks', 'past_appointments', 'upcoming_appointments').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe contacts stream has the following schema errors:\nAdditional properties are not allowed ('first_source', 'last_source', 'system_tags', 'other_unsubscription_reason', 'unsubscription_reason', 'last_campaign', 'last_medium', 'latest_campaign', 'first_seen_chat', 'latest_medium', 'locale', 'last_seen_chat', 'first_campaign', 'latest_source', 'first_medium', 'total_sessions', 'sms_subscription_status', 'mcr_id' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'active_sales_sequences': {'type': ['null', 'string']},\n                    'address': {'type': ['null', 'string']},\n                    'avatar': {'type': ['null', 'string']},\n                    'campaign_id': {'type': ['null', 'integer']},\n                    'city': {'type': ['null', 'string']},\n                    'completed_sales_sequences': {'type': ['null',\n                                                           'string']},\n                    'contact_status_id': {'type': ['null', 'integer']},\n                    'country': {'type': ['null', 'string']},\n                    'created_at': {'type': ['null', 'string']},\n                    'custom_field': {'type': ['null', 'object']},\n                    'customer_fit': {'type': ['null', 'integer']},\n                    'display_name': {'type': ['null', 'string']},\n                    'email': {'type': ['null', 'string']},\n                    'emails': {'type': ['null', 'string']},\n                    'external_id': {'type': ['null', 'string']},\n                    'facebook': {'type': ['null', 'string']},\n                    'first_name': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'integer']},\n                    'is_deleted': {'type': ['null', 'boolean']},\n                    'job_title': {'type': ['null', 'string']},\n                    'keyword': {'type': ['null', 'string']},\n                    'last_assigned_at': {'type': ['null', 'string']},\n                    'last_contacted': {'type': ['null', 'string']},\n                    'last_contacted_mode': {'type': ['null', 'string']},\n                    'last_contacted_sales_activity_mode': {'type': ['null',\n                                                                    'string']},\n                    'last_contacted_via_sales_activity': {'type': ['null',\n                                                                   'string']},\n                    'last_name': {'type': ['null', 'string']},\n                    'last_seen': {'type': ['null', 'string']},\n                    'lead_score': {'type': ['null', 'integer']},\n                    'lead_source_id': {'type': ['null', 'integer']},\n                    'lifecycle_stage_id': {'type': ['null', 'integer']},\n                    'linkedin': {'type': ['null', 'string']},\n                    'links': {'type': ['null', 'object']},\n                    'medium': {'type': ['null', 'string']},\n                    'mobile_number': {'type': ['null', 'string']},\n                    'open_deals_amount': {'type': ['null', 'number']},\n                    'open_deals_count': {'type': ['null', 'integer']},\n                    'owner_id': {'type': ['null', 'integer']},\n                    'phone_numbers': {'type': ['null', 'array']},\n                    'recent_note': {'type': ['null', 'string']},\n                    'sales_account_id': {'type': ['null', 'integer']},\n                    'sales_accounts': {'type': ['null', 'array']},\n                    'state': {'type': ['null', 'string']},\n                    'subscription_status': {'type': ['null', 'string']},\n                    'subscription_types': {'type': ['null', 'string']},\n                    'tags': {'type': ['null', 'array']},\n                    'team_user_ids': {'type': ['null', 'string']},\n                    'territory_id': {'type': ['null', 'integer']},\n                    'time_zone': {'type': ['null', 'string']},\n                    'twitter': {'type': ['null', 'string']},\n                    'updated_at': {'type': ['null', 'string']},\n                    'web_form_ids': {'type': ['null', 'string']},\n                    'whatsapp_subscription_status': {'type': ['null',\n                                                              'integer']},\n                    'won_deals_amount': {'type': ['null', 'number']},\n                    'won_deals_count': {'type': ['null', 'integer']},\n                    'work_email': {'type': ['null', 'string']},\n                    'work_number': {'type': ['null', 'string']},\n                    'zipcode': {'type': ['null', 'string']}},\n     'required': ['id'],\n     'type': 'object'}\n\nOn instance:\n    {'active_sales_sequences': None,\n     'address': None,\n     'avatar': None,\n     'city': None,\n     'completed_sales_sequences': None,\n     'country': None,\n     'created_at': '2021-10-19T00:28:18-06:00',\n     'custom_field': {},\n     'customer_fit': 1,\n     'display_name': 'Mail Delivery Subsystem',\n     'email': 'mailer-daemon@googlemail.com',\n     'emails': \"[{'id': 17007443529, 'value': \"\n               \"'mailer-daemon@googlemail.com', 'is_primary': True, \"\n               \"'label': None, '_destroy': False}]\",\n     'external_id': None,\n     'facebook': None,\n     'first_campaign': None,\n     'first_medium': None,\n     'first_name': 'Mail Delivery',\n     'first_seen_chat': None,\n     'first_source': None,\n     'id': 17008318589,\n     'is_deleted': False,\n     'job_title': None,\n     'keyword': None,\n     'last_assigned_at': '2021-10-19T00:28:19-06:00',\n     'last_campaign': None,\n     'last_contacted': None,\n     'last_contacted_mode': None,\n     'last_contacted_sales_activity_mode': None,\n     'last_contacted_via_sales_activity': None,\n     'last_medium': None,\n     'last_name': 'Subsystem',\n     'last_seen': None,\n     'last_seen_chat': None,\n     'last_source': None,\n     'latest_campaign': None,\n     'latest_medium': None,\n     'latest_source': None,\n     'lead_score': 14,\n     'linkedin': None,\n     'links': {'appointments': '/crm/sales/contacts/17008318589/appointments?include=creater,owner,updater,targetable,appointment_attendees,conference,note',\n               'connections': '/crm/sales/contacts/17008318589/connections',\n               'conversations': '/crm/sales/contacts/17008318589/conversations/all?include=email_conversation_recipients%2Ctargetable%2Cphone_number%2Cphone_caller%2Cnote%2Cuser&per_page=3',\n               'document_associations': '/crm/sales/contacts/17008318589/document_associations',\n               'duplicates': '/crm/sales/contacts/17008318589/duplicates',\n               'notes': '/crm/sales/contacts/17008318589/notes?include=creater',\n               'reminders': '/crm/sales/contacts/17008318589/reminders?include=creater,owner,updater,targetable',\n               'tasks': '/crm/sales/contacts/17008318589/tasks?include=creater,owner,updater,targetable,users,task_type',\n               'timeline_feeds': '/crm/sales/contacts/17008318589/timeline_feeds'},\n     'locale': None,\n     'mcr_id': 1450348061427834880,\n     'medium': None,\n     'mobile_number': None,\n     'open_deals_amount': 0.0,\n     'open_deals_count': 0,\n     'other_unsubscription_reason': None,\n     'phone_numbers': [],\n     'recent_note': None,\n     'sms_subscription_status': 2,\n     'state': None,\n     'subscription_status': '1',\n     'subscription_types': '1;2;3;4;5',\n     'system_tags': [],\n     'tags': [],\n     'team_user_ids': None,\n     'time_zone': None,\n     'total_sessions': None,\n     'twitter': None,\n     'unsubscription_reason': None,\n     'updated_at': '2022-09-05T04:44:48-06:00',\n     'web_form_ids': None,\n     'whatsapp_subscription_status': 2,\n     'won_deals_amount': 0.0,\n     'won_deals_count': 0,\n     'work_email': None,\n     'work_number': None,\n     'zipcode': None}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe open_deals stream has the following schema errors:\nAdditional properties are not allowed ('last_deal_prediction', 'freddy_forecast_metrics', 'deal_prediction' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'active_sales_sequences': {'type': ['null', 'string']},\n                    'age': {'type': ['null', 'integer']},\n                    'amount': {'type': ['null', 'number']},\n                    'avatar': {'type': ['null', 'string']},\n                    'base_currency_amount': {'type': ['null', 'number']},\n                    'campaign_id': {'type': ['null', 'integer']},\n                    'closed_date': {'type': ['null', 'string']},\n                    'collaboration': {'type': ['null', 'object']},\n                    'completed_sales_sequences': {'type': ['null',\n                                                           'string']},\n                    'created_at': {'type': ['null', 'string']},\n                    'currency_id': {'type': ['null', 'integer']},\n                    'custom_field': {'type': ['null', 'object']},\n                    'deal_payment_status_id': {'type': ['null', 'integer']},\n                    'deal_pipeline_id': {'type': 'integer'},\n                    'deal_prediction_last_updated_at': {'type': ['null',\n                                                                 'string']},\n                    'deal_product_id': {'type': ['null', 'integer']},\n                    'deal_reason_id': {'type': ['null', 'integer']},\n                    'deal_stage_id': {'type': ['null', 'integer']},\n                    'deal_type_id': {'type': ['null', 'integer']},\n                    'expected_close': {'type': ['null', 'string']},\n                    'expected_deal_value': {'type': ['null', 'number']},\n                    'fc_widget_collaboration': {'type': ['null', 'object']},\n                    'forecast_category': {'type': ['null', 'integer']},\n                    'has_products': {'type': ['null', 'boolean']},\n                    'id': {'type': ['null', 'integer']},\n                    'is_deleted': {'type': ['null', 'boolean']},\n                    'last_assigned_at': {'type': ['null', 'string']},\n                    'last_contacted_sales_activity_mode': {'type': ['null',\n                                                                    'string']},\n                    'last_contacted_via_sales_activity': {'type': ['null',\n                                                                   'string']},\n                    'lead_source_id': {'type': ['null', 'integer']},\n                    'links': {'type': ['null', 'object']},\n                    'name': {'type': ['null', 'string']},\n                    'owner_id': {'type': ['null', 'integer']},\n                    'probability': {'type': ['null', 'integer']},\n                    'products': {'type': ['null', 'string']},\n                    'recent_note': {'type': ['null', 'string']},\n                    'rotten_days': {'type': ['null', 'integer']},\n                    'sales_account_id': {'type': ['null', 'integer']},\n                    'stage_updated_time': {'type': ['null', 'string']},\n                    'tags': {'type': ['null', 'array']},\n                    'team_user_ids': {'type': ['null', 'string']},\n                    'territory_id': {'type': ['null', 'integer']},\n                    'upcoming_activities_time': {'type': ['null',\n                                                          'string']},\n                    'updated_at': {'type': ['null', 'string']},\n                    'web_form_id': {'type': ['null', 'integer']}},\n     'required': ['id'],\n     'type': 'object'}\n\nOn instance:\n    {'active_sales_sequences': None,\n     'age': 518,\n     'amount': 25.0,\n     'avatar': None,\n     'base_currency_amount': 25.0,\n     'closed_date': None,\n     'collaboration': {},\n     'completed_sales_sequences': None,\n     'created_at': '2021-10-19T05:04:09-06:00',\n     'custom_field': {},\n     'deal_pipeline_id': 17000033935,\n     'deal_prediction': 0,\n     'deal_prediction_last_updated_at': None,\n     'deal_stage_id': 17000237831,\n     'expected_close': None,\n     'expected_deal_value': 25.0,\n     'forecast_category': None,\n     'freddy_forecast_metrics': None,\n     'id': 17000521380,\n     'is_deleted': False,\n     'last_assigned_at': '2021-10-19T05:04:10-06:00',\n     'last_contacted_sales_activity_mode': None,\n     'last_contacted_via_sales_activity': None,\n     'last_deal_prediction': None,\n     'links': {'appointments': '/crm/sales/deals/17000521380/appointments?include=creater,owner,updater,targetable,appointment_attendees,conference,note',\n               'conversations': '/crm/sales/deals/17000521380/conversations/all?include=email_conversation_recipients%2Ctargetable%2Cphone_number%2Cphone_caller%2Cnote%2Cuser&per_page=3',\n               'document_associations': '/crm/sales/deals/17000521380/document_associations',\n               'notes': '/crm/sales/deals/17000521380/notes?include=creater',\n               'tasks': '/crm/sales/deals/17000521380/tasks?include=creater,owner,updater,targetable,users,task_type'},\n     'name': 'Discaunt',\n     'probability': 100,\n     'recent_note': None,\n     'rotten_days': 488,\n     'stage_updated_time': '2021-10-19T05:10:53-06:00',\n     'tags': [],\n     'team_user_ids': None,\n     'upcoming_activities_time': None,\n     'updated_at': '2021-10-19T05:10:53-06:00',\n     'web_form_id': None}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe open_tasks stream has the following schema errors:\nAdditional properties are not allowed ('completed_date', 'updater_id', 'targetables' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'Possible': {'type': ['null', 'string']},\n                    'created_at': {'type': ['null', 'string']},\n                    'creater_id': {'type': ['null', 'integer']},\n                    'description': {'type': ['null', 'string']},\n                    'due_date': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'integer']},\n                    'outcome_id': {'type': ['null', 'integer']},\n                    'owner_id': {'type': ['null', 'integer']},\n                    'status': {'type': ['null', 'string']},\n                    'targetable_id': {'type': ['null', 'integer']},\n                    'targetable_type': {'type': ['null', 'string']},\n                    'task_type_id': {'type': ['null', 'integer']},\n                    'title': {'type': ['null', 'string']},\n                    'updated_at': {'type': ['null', 'string']}},\n     'required': ['id'],\n     'type': 'object'}\n\nOn instance:\n    {'completed_date': None,\n     'created_at': '2021-10-18T09:53:02-06:00',\n     'creater_id': 17000038922,\n     'description': 'This is just a sample task.',\n     'due_date': '2022-06-21T05:00:00-06:00',\n     'id': 17000408204,\n     'outcome_id': None,\n     'owner_id': 17000038922,\n     'status': '0',\n     'targetables': [{'id': 17008066468, 'type': 'Contact'}],\n     'task_type_id': None,\n     'title': 'Sample Task',\n     'updated_at': '2021-10-18T09:53:02-06:00',\n     'updater_id': 17000038922}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe completed_tasks stream has the following schema errors:\nAdditional properties are not allowed ('completed_date', 'updater_id', 'targetables' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'Possible': {'type': ['null', 'string']},\n                    'created_at': {'type': ['null', 'string']},\n                    'creater_id': {'type': ['null', 'integer']},\n                    'description': {'type': ['null', 'string']},\n                    'due_date': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'integer']},\n                    'outcome_id': {'type': ['null', 'integer']},\n                    'owner_id': {'type': ['null', 'integer']},\n                    'status': {'type': ['null', 'string']},\n                    'targetable_id': {'type': ['null', 'integer']},\n                    'targetable_type': {'type': ['null', 'string']},\n                    'task_type_id': {'type': ['null', 'integer']},\n                    'title': {'type': ['null', 'string']},\n                    'updated_at': {'type': ['null', 'string']}},\n     'required': ['id'],\n     'type': 'object'}\n\nOn instance:\n    {'completed_date': '2021-10-19T00:27:33-06:00',\n     'created_at': '2021-10-14T04:41:18-06:00',\n     'creater_id': 17000038922,\n     'description': 'Send the proposal document and follow up with this '\n                    'contact after it.',\n     'due_date': '2021-10-19T02:00:00-06:00',\n     'id': 17000407413,\n     'outcome_id': 17001154300,\n     'owner_id': 17000038922,\n     'status': '1',\n     'targetables': [{'id': 17008066468, 'type': 'Contact'}],\n     'task_type_id': None,\n     'title': '(Sample) Send the proposal document',\n     'updated_at': '2021-10-19T00:27:33-06:00',\n     'updater_id': 17000038922}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe past_appointments stream has the following schema errors:\nAdditional properties are not allowed ('conference_id', 'checkedout_at', 'checkedout_longitude', 'can_checkin_checkout', 'checkedout_location', 'checkedout_latitude', 'targetables', 'can_checkin', 'provider', 'checkedin_duration' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'End': {'type': ['null', 'string']},\n                    'Possible': {'type': ['null', 'string']},\n                    'Start': {'type': ['null', 'string']},\n                    'appointment_attendees_attributes': {'type': ['null',\n                                                                  'array']},\n                    'checkedin_at': {'type': ['null', 'string']},\n                    'created_at': {'type': ['null', 'string']},\n                    'creater_id': {'type': ['null', 'integer']},\n                    'date': {'type': ['null', 'string']},\n                    'description': {'type': ['null', 'string']},\n                    'end_date': {'type': ['null', 'string']},\n                    'from_date': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'integer']},\n                    'is_allday': {'type': ['null', 'string']},\n                    'latitude': {'type': ['null', 'string']},\n                    'location': {'type': ['null', 'string']},\n                    'longitude': {'type': ['null', 'string']},\n                    'outcome_id': {'type': ['null', 'integer']},\n                    'targetable_id': {'type': ['null', 'integer']},\n                    'targetable_type': {'type': ['null', 'string']},\n                    'time_zone': {'type': ['null', 'string']},\n                    'title': {'type': ['null', 'string']},\n                    'updated_at': {'type': ['null', 'string']}},\n     'required': ['id'],\n     'type': 'object'}\n\nOn instance:\n    {'can_checkin': True,\n     'can_checkin_checkout': True,\n     'checkedin_at': None,\n     'checkedin_duration': None,\n     'checkedout_at': None,\n     'checkedout_latitude': None,\n     'checkedout_location': None,\n     'checkedout_longitude': None,\n     'conference_id': None,\n     'created_at': '2021-10-18T10:03:30-06:00',\n     'creater_id': 17000038922,\n     'description': 'test meeting',\n     'end_date': '2021-10-18T10:45:40-06:00',\n     'from_date': '2021-10-18T10:15:40-06:00',\n     'id': 17000384327,\n     'is_allday': 'False',\n     'latitude': None,\n     'location': 'zoom',\n     'longitude': None,\n     'outcome_id': None,\n     'provider': 'freshsales',\n     'targetables': [],\n     'time_zone': 'Central America',\n     'title': 'New meeting',\n     'updated_at': '2021-10-18T10:03:30-06:00'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe upcoming_appointments stream has the following schema errors:\nAdditional properties are not allowed ('conference_id', 'checkedout_at', 'checkedout_longitude', 'can_checkin_checkout', 'checkedout_location', 'checkedout_latitude', 'targetables', 'can_checkin', 'provider', 'checkedin_duration' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'End': {'type': ['null', 'string']},\n                    'Possible': {'type': ['null', 'string']},\n                    'Start': {'type': ['null', 'string']},\n                    'appointment_attendees_attributes': {'type': ['null',\n                                                                  'array']},\n                    'checkedin_at': {'type': ['null', 'string']},\n                    'created_at': {'type': ['null', 'string']},\n                    'creater_id': {'type': ['null', 'integer']},\n                    'date': {'type': ['null', 'string']},\n                    'description': {'type': ['null', 'string']},\n                    'end_date': {'type': ['null', 'string']},\n                    'from_date': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'integer']},\n                    'is_allday': {'type': ['null', 'string']},\n                    'latitude': {'type': ['null', 'string']},\n                    'location': {'type': ['null', 'string']},\n                    'longitude': {'type': ['null', 'string']},\n                    'outcome_id': {'type': ['null', 'integer']},\n                    'targetable_id': {'type': ['null', 'integer']},\n                    'targetable_type': {'type': ['null', 'string']},\n                    'time_zone': {'type': ['null', 'string']},\n                    'title': {'type': ['null', 'string']},\n                    'updated_at': {'type': ['null', 'string']}},\n     'required': ['id'],\n     'type': 'object'}\n\nOn instance:\n    {'can_checkin': True,\n     'can_checkin_checkout': True,\n     'checkedin_at': None,\n     'checkedin_duration': None,\n     'checkedout_at': None,\n     'checkedout_latitude': None,\n     'checkedout_location': None,\n     'checkedout_longitude': None,\n     'conference_id': None,\n     'created_at': '2021-10-18T09:56:29-06:00',\n     'creater_id': 17000038922,\n     'description': 'This is just a sample Appointment.',\n     'end_date': '2022-06-20T00:00:00-06:00',\n     'from_date': '2021-06-19T23:00:00-06:00',\n     'id': 17000384297,\n     'is_allday': 'False',\n     'latitude': None,\n     'location': 'Chennai, TN, India',\n     'longitude': None,\n     'outcome_id': None,\n     'provider': 'freshsales',\n     'targetables': [{'id': 17008066468, 'type': 'Contact'}],\n     'time_zone': 'Chennai',\n     'title': 'Sample Appointment',\n     'updated_at': '2021-10-18T09:56:29-06:00'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The contacts stream has the following schema errors:
+Additional properties are not allowed ('first_source', 'last_source', 'system_tags', 'other_unsubscription_reason', 'unsubscription_reason', 'last_campaign', 'last_medium', 'latest_campaign', 'first_seen_chat', 'latest_medium', 'locale', 'last_seen_chat', 'first_campaign', 'latest_source', 'first_medium', 'total_sessions', 'sms_subscription_status', 'mcr_id' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'active_sales_sequences': {'type': ['null', 'string']},
+                    'address': {'type': ['null', 'string']},
+                    'avatar': {'type': ['null', 'string']},
+                    'campaign_id': {'type': ['null', 'integer']},
+                    'city': {'type': ['null', 'string']},
+                    'completed_sales_sequences': {'type': ['null',
+                                                           'string']},
+                    'contact_status_id': {'type': ['null', 'integer']},
+                    'country': {'type': ['null', 'string']},
+                    'created_at': {'type': ['null', 'string']},
+                    'custom_field': {'type': ['null', 'object']},
+                    'customer_fit': {'type': ['null', 'integer']},
+                    'display_name': {'type': ['null', 'string']},
+                    'email': {'type': ['null', 'string']},
+                    'emails': {'type': ['null', 'string']},
+                    'external_id': {'type': ['null', 'string']},
+                    'facebook': {'type': ['null', 'string']},
+                    'first_name': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'integer']},
+                    'is_deleted': {'type': ['null', 'boolean']},
+                    'job_title': {'type': ['null', 'string']},
+                    'keyword': {'type': ['null', 'string']},
+                    'last_assigned_at': {'type': ['null', 'string']},
+                    'last_contacted': {'type': ['null', 'string']},
+                    'last_contacted_mode': {'type': ['null', 'string']},
+                    'last_contacted_sales_activity_mode': {'type': ['null',
+                                                                    'string']},
+                    'last_contacted_via_sales_activity': {'type': ['null',
+                                                                   'string']},
+                    'last_name': {'type': ['null', 'string']},
+                    'last_seen': {'type': ['null', 'string']},
+                    'lead_score': {'type': ['null', 'integer']},
+                    'lead_source_id': {'type': ['null', 'integer']},
+                    'lifecycle_stage_id': {'type': ['null', 'integer']},
+                    'linkedin': {'type': ['null', 'string']},
+                    'links': {'type': ['null', 'object']},
+                    'medium': {'type': ['null', 'string']},
+                    'mobile_number': {'type': ['null', 'string']},
+                    'open_deals_amount': {'type': ['null', 'number']},
+                    'open_deals_count': {'type': ['null', 'integer']},
+                    'owner_id': {'type': ['null', 'integer']},
+                    'phone_numbers': {'type': ['null', 'array']},
+                    'recent_note': {'type': ['null', 'string']},
+                    'sales_account_id': {'type': ['null', 'integer']},
+                    'sales_accounts': {'type': ['null', 'array']},
+                    'state': {'type': ['null', 'string']},
+                    'subscription_status': {'type': ['null', 'string']},
+                    'subscription_types': {'type': ['null', 'string']},
+                    'tags': {'type': ['null', 'array']},
+                    'team_user_ids': {'type': ['null', 'string']},
+                    'territory_id': {'type': ['null', 'integer']},
+                    'time_zone': {'type': ['null', 'string']},
+                    'twitter': {'type': ['null', 'string']},
+                    'updated_at': {'type': ['null', 'string']},
+                    'web_form_ids': {'type': ['null', 'string']},
+                    'whatsapp_subscription_status': {'type': ['null',
+                                                              'integer']},
+                    'won_deals_amount': {'type': ['null', 'number']},
+                    'won_deals_count': {'type': ['null', 'integer']},
+                    'work_email': {'type': ['null', 'string']},
+                    'work_number': {'type': ['null', 'string']},
+                    'zipcode': {'type': ['null', 'string']}},
+     'required': ['id'],
+     'type': 'object'}
+
+On instance:
+    {'active_sales_sequences': None,
+     'address': None,
+     'avatar': None,
+     'city': None,
+     'completed_sales_sequences': None,
+     'country': None,
+     'created_at': '2021-10-19T00:28:18-06:00',
+     'custom_field': {},
+     'customer_fit': 1,
+     'display_name': 'Mail Delivery Subsystem',
+     'email': 'mailer-daemon@googlemail.com',
+     'emails': "[{'id': 17007443529, 'value': "
+               "'mailer-daemon@googlemail.com', 'is_primary': True, "
+               "'label': None, '_destroy': False}]",
+     'external_id': None,
+     'facebook': None,
+     'first_campaign': None,
+     'first_medium': None,
+     'first_name': 'Mail Delivery',
+     'first_seen_chat': None,
+     'first_source': None,
+     'id': 17008318589,
+     'is_deleted': False,
+     'job_title': None,
+     'keyword': None,
+     'last_assigned_at': '2021-10-19T00:28:19-06:00',
+     'last_campaign': None,
+     'last_contacted': None,
+     'last_contacted_mode': None,
+     'last_contacted_sales_activity_mode': None,
+     'last_contacted_via_sales_activity': None,
+     'last_medium': None,
+     'last_name': 'Subsystem',
+     'last_seen': None,
+     'last_seen_chat': None,
+     'last_source': None,
+     'latest_campaign': None,
+     'latest_medium': None,
+     'latest_source': None,
+     'lead_score': 14,
+     'linkedin': None,
+     'links': {'appointments': '/crm/sales/contacts/17008318589/appointments?include=creater,owner,updater,targetable,appointment_attendees,conference,note',
+               'connections': '/crm/sales/contacts/17008318589/connections',
+               'conversations': '/crm/sales/contacts/17008318589/conversations/all?include=email_conversation_recipients%2Ctargetable%2Cphone_number%2Cphone_caller%2Cnote%2Cuser&per_page=3',
+               'document_associations': '/crm/sales/contacts/17008318589/document_associations',
+               'duplicates': '/crm/sales/contacts/17008318589/duplicates',
+               'notes': '/crm/sales/contacts/17008318589/notes?include=creater',
+               'reminders': '/crm/sales/contacts/17008318589/reminders?include=creater,owner,updater,targetable',
+               'tasks': '/crm/sales/contacts/17008318589/tasks?include=creater,owner,updater,targetable,users,task_type',
+               'timeline_feeds': '/crm/sales/contacts/17008318589/timeline_feeds'},
+     'locale': None,
+     'mcr_id': 1450348061427834880,
+     'medium': None,
+     'mobile_number': None,
+     'open_deals_amount': 0.0,
+     'open_deals_count': 0,
+     'other_unsubscription_reason': None,
+     'phone_numbers': [],
+     'recent_note': None,
+     'sms_subscription_status': 2,
+     'state': None,
+     'subscription_status': '1',
+     'subscription_types': '1;2;3;4;5',
+     'system_tags': [],
+     'tags': [],
+     'team_user_ids': None,
+     'time_zone': None,
+     'total_sessions': None,
+     'twitter': None,
+     'unsubscription_reason': None,
+     'updated_at': '2022-09-05T04:44:48-06:00',
+     'web_form_ids': None,
+     'whatsapp_subscription_status': 2,
+     'won_deals_amount': 0.0,
+     'won_deals_count': 0,
+     'work_email': None,
+     'work_number': None,
+     'zipcode': None}
+ERROR    root:test_core.py:662 
+The open_deals stream has the following schema errors:
+Additional properties are not allowed ('last_deal_prediction', 'freddy_forecast_metrics', 'deal_prediction' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'active_sales_sequences': {'type': ['null', 'string']},
+                    'age': {'type': ['null', 'integer']},
+                    'amount': {'type': ['null', 'number']},
+                    'avatar': {'type': ['null', 'string']},
+                    'base_currency_amount': {'type': ['null', 'number']},
+                    'campaign_id': {'type': ['null', 'integer']},
+                    'closed_date': {'type': ['null', 'string']},
+                    'collaboration': {'type': ['null', 'object']},
+                    'completed_sales_sequences': {'type': ['null',
+                                                           'string']},
+                    'created_at': {'type': ['null', 'string']},
+                    'currency_id': {'type': ['null', 'integer']},
+                    'custom_field': {'type': ['null', 'object']},
+                    'deal_payment_status_id': {'type': ['null', 'integer']},
+                    'deal_pipeline_id': {'type': 'integer'},
+                    'deal_prediction_last_updated_at': {'type': ['null',
+                                                                 'string']},
+                    'deal_product_id': {'type': ['null', 'integer']},
+                    'deal_reason_id': {'type': ['null', 'integer']},
+                    'deal_stage_id': {'type': ['null', 'integer']},
+                    'deal_type_id': {'type': ['null', 'integer']},
+                    'expected_close': {'type': ['null', 'string']},
+                    'expected_deal_value': {'type': ['null', 'number']},
+                    'fc_widget_collaboration': {'type': ['null', 'object']},
+                    'forecast_category': {'type': ['null', 'integer']},
+                    'has_products': {'type': ['null', 'boolean']},
+                    'id': {'type': ['null', 'integer']},
+                    'is_deleted': {'type': ['null', 'boolean']},
+                    'last_assigned_at': {'type': ['null', 'string']},
+                    'last_contacted_sales_activity_mode': {'type': ['null',
+                                                                    'string']},
+                    'last_contacted_via_sales_activity': {'type': ['null',
+                                                                   'string']},
+                    'lead_source_id': {'type': ['null', 'integer']},
+                    'links': {'type': ['null', 'object']},
+                    'name': {'type': ['null', 'string']},
+                    'owner_id': {'type': ['null', 'integer']},
+                    'probability': {'type': ['null', 'integer']},
+                    'products': {'type': ['null', 'string']},
+                    'recent_note': {'type': ['null', 'string']},
+                    'rotten_days': {'type': ['null', 'integer']},
+                    'sales_account_id': {'type': ['null', 'integer']},
+                    'stage_updated_time': {'type': ['null', 'string']},
+                    'tags': {'type': ['null', 'array']},
+                    'team_user_ids': {'type': ['null', 'string']},
+                    'territory_id': {'type': ['null', 'integer']},
+                    'upcoming_activities_time': {'type': ['null',
+                                                          'string']},
+                    'updated_at': {'type': ['null', 'string']},
+                    'web_form_id': {'type': ['null', 'integer']}},
+     'required': ['id'],
+     'type': 'object'}
+
+On instance:
+    {'active_sales_sequences': None,
+     'age': 518,
+     'amount': 25.0,
+     'avatar': None,
+     'base_currency_amount': 25.0,
+     'closed_date': None,
+     'collaboration': {},
+     'completed_sales_sequences': None,
+     'created_at': '2021-10-19T05:04:09-06:00',
+     'custom_field': {},
+     'deal_pipeline_id': 17000033935,
+     'deal_prediction': 0,
+     'deal_prediction_last_updated_at': None,
+     'deal_stage_id': 17000237831,
+     'expected_close': None,
+     'expected_deal_value': 25.0,
+     'forecast_category': None,
+     'freddy_forecast_metrics': None,
+     'id': 17000521380,
+     'is_deleted': False,
+     'last_assigned_at': '2021-10-19T05:04:10-06:00',
+     'last_contacted_sales_activity_mode': None,
+     'last_contacted_via_sales_activity': None,
+     'last_deal_prediction': None,
+     'links': {'appointments': '/crm/sales/deals/17000521380/appointments?include=creater,owner,updater,targetable,appointment_attendees,conference,note',
+               'conversations': '/crm/sales/deals/17000521380/conversations/all?include=email_conversation_recipients%2Ctargetable%2Cphone_number%2Cphone_caller%2Cnote%2Cuser&per_page=3',
+               'document_associations': '/crm/sales/deals/17000521380/document_associations',
+               'notes': '/crm/sales/deals/17000521380/notes?include=creater',
+               'tasks': '/crm/sales/deals/17000521380/tasks?include=creater,owner,updater,targetable,users,task_type'},
+     'name': 'Discaunt',
+     'probability': 100,
+     'recent_note': None,
+     'rotten_days': 488,
+     'stage_updated_time': '2021-10-19T05:10:53-06:00',
+     'tags': [],
+     'team_user_ids': None,
+     'upcoming_activities_time': None,
+     'updated_at': '2021-10-19T05:10:53-06:00',
+     'web_form_id': None}
+ERROR    root:test_core.py:662 
+The open_tasks stream has the following schema errors:
+Additional properties are not allowed ('completed_date', 'updater_id', 'targetables' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'Possible': {'type': ['null', 'string']},
+                    'created_at': {'type': ['null', 'string']},
+                    'creater_id': {'type': ['null', 'integer']},
+                    'description': {'type': ['null', 'string']},
+                    'due_date': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'integer']},
+                    'outcome_id': {'type': ['null', 'integer']},
+                    'owner_id': {'type': ['null', 'integer']},
+                    'status': {'type': ['null', 'string']},
+                    'targetable_id': {'type': ['null', 'integer']},
+                    'targetable_type': {'type': ['null', 'string']},
+                    'task_type_id': {'type': ['null', 'integer']},
+                    'title': {'type': ['null', 'string']},
+                    'updated_at': {'type': ['null', 'string']}},
+     'required': ['id'],
+     'type': 'object'}
+
+On instance:
+    {'completed_date': None,
+     'created_at': '2021-10-18T09:53:02-06:00',
+     'creater_id': 17000038922,
+     'description': 'This is just a sample task.',
+     'due_date': '2022-06-21T05:00:00-06:00',
+     'id': 17000408204,
+     'outcome_id': None,
+     'owner_id': 17000038922,
+     'status': '0',
+     'targetables': [{'id': 17008066468, 'type': 'Contact'}],
+     'task_type_id': None,
+     'title': 'Sample Task',
+     'updated_at': '2021-10-18T09:53:02-06:00',
+     'updater_id': 17000038922}
+ERROR    root:test_core.py:662 
+The completed_tasks stream has the following schema errors:
+Additional properties are not allowed ('completed_date', 'updater_id', 'targetables' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'Possible': {'type': ['null', 'string']},
+                    'created_at': {'type': ['null', 'string']},
+                    'creater_id': {'type': ['null', 'integer']},
+                    'description': {'type': ['null', 'string']},
+                    'due_date': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'integer']},
+                    'outcome_id': {'type': ['null', 'integer']},
+                    'owner_id': {'type': ['null', 'integer']},
+                    'status': {'type': ['null', 'string']},
+                    'targetable_id': {'type': ['null', 'integer']},
+                    'targetable_type': {'type': ['null', 'string']},
+                    'task_type_id': {'type': ['null', 'integer']},
+                    'title': {'type': ['null', 'string']},
+                    'updated_at': {'type': ['null', 'string']}},
+     'required': ['id'],
+     'type': 'object'}
+
+On instance:
+    {'completed_date': '2021-10-19T00:27:33-06:00',
+     'created_at': '2021-10-14T04:41:18-06:00',
+     'creater_id': 17000038922,
+     'description': 'Send the proposal document and follow up with this '
+                    'contact after it.',
+     'due_date': '2021-10-19T02:00:00-06:00',
+     'id': 17000407413,
+     'outcome_id': 17001154300,
+     'owner_id': 17000038922,
+     'status': '1',
+     'targetables': [{'id': 17008066468, 'type': 'Contact'}],
+     'task_type_id': None,
+     'title': '(Sample) Send the proposal document',
+     'updated_at': '2021-10-19T00:27:33-06:00',
+     'updater_id': 17000038922}
+ERROR    root:test_core.py:662 
+The past_appointments stream has the following schema errors:
+Additional properties are not allowed ('conference_id', 'checkedout_at', 'checkedout_longitude', 'can_checkin_checkout', 'checkedout_location', 'checkedout_latitude', 'targetables', 'can_checkin', 'provider', 'checkedin_duration' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'End': {'type': ['null', 'string']},
+                    'Possible': {'type': ['null', 'string']},
+                    'Start': {'type': ['null', 'string']},
+                    'appointment_attendees_attributes': {'type': ['null',
+                                                                  'array']},
+                    'checkedin_at': {'type': ['null', 'string']},
+                    'created_at': {'type': ['null', 'string']},
+                    'creater_id': {'type': ['null', 'integer']},
+                    'date': {'type': ['null', 'string']},
+                    'description': {'type': ['null', 'string']},
+                    'end_date': {'type': ['null', 'string']},
+                    'from_date': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'integer']},
+                    'is_allday': {'type': ['null', 'string']},
+                    'latitude': {'type': ['null', 'string']},
+                    'location': {'type': ['null', 'string']},
+                    'longitude': {'type': ['null', 'string']},
+                    'outcome_id': {'type': ['null', 'integer']},
+                    'targetable_id': {'type': ['null', 'integer']},
+                    'targetable_type': {'type': ['null', 'string']},
+                    'time_zone': {'type': ['null', 'string']},
+                    'title': {'type': ['null', 'string']},
+                    'updated_at': {'type': ['null', 'string']}},
+     'required': ['id'],
+     'type': 'object'}
+
+On instance:
+    {'can_checkin': True,
+     'can_checkin_checkout': True,
+     'checkedin_at': None,
+     'checkedin_duration': None,
+     'checkedout_at': None,
+     'checkedout_latitude': None,
+     'checkedout_location': None,
+     'checkedout_longitude': None,
+     'conference_id': None,
+     'created_at': '2021-10-18T10:03:30-06:00',
+     'creater_id': 17000038922,
+     'description': 'test meeting',
+     'end_date': '2021-10-18T10:45:40-06:00',
+     'from_date': '2021-10-18T10:15:40-06:00',
+     'id': 17000384327,
+     'is_allday': 'False',
+     'latitude': None,
+     'location': 'zoom',
+     'longitude': None,
+     'outcome_id': None,
+     'provider': 'freshsales',
+     'targetables': [],
+     'time_zone': 'Central America',
+     'title': 'New meeting',
+     'updated_at': '2021-10-18T10:03:30-06:00'}
+ERROR    root:test_core.py:662 
+The upcoming_appointments stream has the following schema errors:
+Additional properties are not allowed ('conference_id', 'checkedout_at', 'checkedout_longitude', 'can_checkin_checkout', 'checkedout_location', 'checkedout_latitude', 'targetables', 'can_checkin', 'provider', 'checkedin_duration' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'End': {'type': ['null', 'string']},
+                    'Possible': {'type': ['null', 'string']},
+                    'Start': {'type': ['null', 'string']},
+                    'appointment_attendees_attributes': {'type': ['null',
+                                                                  'array']},
+                    'checkedin_at': {'type': ['null', 'string']},
+                    'created_at': {'type': ['null', 'string']},
+                    'creater_id': {'type': ['null', 'integer']},
+                    'date': {'type': ['null', 'string']},
+                    'description': {'type': ['null', 'string']},
+                    'end_date': {'type': ['null', 'string']},
+                    'from_date': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'integer']},
+                    'is_allday': {'type': ['null', 'string']},
+                    'latitude': {'type': ['null', 'string']},
+                    'location': {'type': ['null', 'string']},
+                    'longitude': {'type': ['null', 'string']},
+                    'outcome_id': {'type': ['null', 'integer']},
+                    'targetable_id': {'type': ['null', 'integer']},
+                    'targetable_type': {'type': ['null', 'string']},
+                    'time_zone': {'type': ['null', 'string']},
+                    'title': {'type': ['null', 'string']},
+                    'updated_at': {'type': ['null', 'string']}},
+     'required': ['id'],
+     'type': 'object'}
+
+On instance:
+    {'can_checkin': True,
+     'can_checkin_checkout': True,
+     'checkedin_at': None,
+     'checkedin_duration': None,
+     'checkedout_at': None,
+     'checkedout_latitude': None,
+     'checkedout_location': None,
+     'checkedout_longitude': None,
+     'conference_id': None,
+     'created_at': '2021-10-18T09:56:29-06:00',
+     'creater_id': 17000038922,
+     'description': 'This is just a sample Appointment.',
+     'end_date': '2022-06-20T00:00:00-06:00',
+     'from_date': '2021-06-19T23:00:00-06:00',
+     'id': 17000384297,
+     'is_allday': 'False',
+     'latitude': None,
+     'location': 'Chennai, TN, India',
+     'longitude': None,
+     'outcome_id': None,
+     'provider': 'freshsales',
+     'targetables': [{'id': 17008066468, 'type': 'Contact'}],
+     'time_zone': 'Chennai',
+     'title': 'Sample Appointment',
+     'updated_at': '2021-10-18T09:56:29-06:00'}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+========== 1 failed, 1 skipped, 33 deselected, 35 warnings in 17.23s ===========

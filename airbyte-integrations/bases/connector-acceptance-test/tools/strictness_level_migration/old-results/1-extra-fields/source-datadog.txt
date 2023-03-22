@@ -1,0 +1,517 @@
+../../../../connectors/source-datadog/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-datadog
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 37 items / 35 deselected / 2 selected
+
+../../test_input/test_core.py F                                          [ 50%]
+../../test_input/test_incremental.py F                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff7f1116d0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='dashboards', json_schema={'$schem...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='incident_teams', bypass_reason=None)}
+ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff7f137a00>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='dashboards', data={'id': 'ad6-yqt-54d', 'title': "Charles' Dashboard", '...-11T20:37:40.551457+00:00', 'author_handle': 'charles@airbyte.io', 'deleted_at': None}, emitted_at=1679404718909), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='dashboards', json_schema={'$schem...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('dashboards', 'downtimes', 'metrics', 'synthetic_tests').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe dashboards stream has the following schema errors:\nAdditional properties are not allowed ('deleted_at' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'author_handle': {'description': 'Identifier of the '\n                                                     'dashboard author.',\n                                      'readOnly': True,\n                                      'type': ['string', 'null']},\n                    'created_at': {'description': 'Creation date of the '\n                                                  'dashboard.',\n                                   'format': 'date-time',\n                                   'readOnly': True,\n                                   'type': ['string', 'null']},\n                    'description': {'description': 'Description of the '\n                                                   'dashboard.',\n                                    'readOnly': True,\n                                    'type': ['string', 'null']},\n                    'id': {'description': 'Dashboard identifier.',\n                           'readOnly': True,\n                           'type': ['string', 'null']},\n                    'is_read_only': {'description': 'Whether this '\n                                                    'dashboard is '\n                                                    'read-only. If True, '\n                                                    'only the author and '\n                                                    'admins can make '\n                                                    'changes to it.',\n                                     'readOnly': True,\n                                     'type': ['boolean', 'null']},\n                    'layout_type': {'description': 'Layout type of the '\n                                                   'dashboard',\n                                    'enum': ['ordered', 'free'],\n                                    'readOnly': True,\n                                    'type': ['string', 'null']},\n                    'modified_at': {'description': 'Modification date of '\n                                                   'the dashboard.',\n                                    'format': 'date-time',\n                                    'readOnly': True,\n                                    'type': ['string', 'null']},\n                    'title': {'description': 'Title of the dashboard.',\n                              'readOnly': True,\n                              'type': ['string', 'null']},\n                    'url': {'description': 'URL of the dashboard.',\n                            'readOnly': True,\n                            'type': ['string', 'null']}},\n     'type': 'object'}\n\nOn instance:\n    {'author_handle': 'pavlo.palamarchuk@globallogic.com',\n     'created_at': '2021-09-28T11:13:04.274417+00:00',\n     'deleted_at': None,\n     'description': None,\n     'id': '6pg-i44-5r2',\n     'is_read_only': False,\n     'layout_type': 'ordered',\n     'modified_at': '2021-09-28T11:13:04.274417+00:00',\n     'title': \"pavlo.palamarchuk's Dashboard Tue, Sep 28, 2:13:04 pm\",\n     'url': '/dashboard/6pg-i44-5r2/pavlopalamarchuks-dashboard-tue-sep-28-21304-pm'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe downtimes stream has the following schema errors:\nAdditional properties are not allowed ('notify_end_types', 'child_id', 'notify_end_states', 'created', 'status', 'modified', 'uuid', 'org_id' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'active': {'description': 'If a scheduled downtime '\n                                              'currently exists.',\n                               'readOnly': True,\n                               'type': ['boolean', 'null']},\n                    'active_child': {'additionalProperties': True,\n                                     'description': 'The downtime object '\n                                                    'definition of the '\n                                                    'active child for the '\n                                                    'original parent '\n                                                    'recurring downtime.',\n                                     'type': ['object', 'null']},\n                    'canceled': {'description': 'If a scheduled downtime '\n                                                'is canceled.',\n                                 'readOnly': True,\n                                 'type': ['integer', 'null']},\n                    'creator_id': {'description': 'User ID of the downtime '\n                                                  'creator.',\n                                   'readOnly': True,\n                                   'type': ['integer', 'null']},\n                    'disabled': {'description': 'If a downtime has been '\n                                                'disabled.',\n                                 'readOnly': True,\n                                 'type': ['boolean', 'null']},\n                    'downtime_type': {'description': '0 for a downtime '\n                                                     'applied on * or all, '\n                                                     '1 when the downtime '\n                                                     'is only scoped to '\n                                                     'hosts, or 2 when the '\n                                                     'downtime is scoped '\n                                                     'to anything but '\n                                                     'hosts.',\n                                      'readOnly': True,\n                                      'type': ['integer', 'null']},\n                    'end': {'description': 'POSIX timestamp to end the '\n                                           'downtime. If not provided, the '\n                                           'downtime is in effect '\n                                           'indefinitely until you cancel '\n                                           'it.',\n                            'readOnly': True,\n                            'type': ['integer', 'null']},\n                    'id': {'description': 'The downtime ID.',\n                           'readOnly': True,\n                           'type': ['integer', 'null']},\n                    'message': {'description': 'A message to include with '\n                                               'notifications for this '\n                                               'downtime.',\n                                'readOnly': True,\n                                'type': ['string', 'null']},\n                    'monitor_id': {'description': 'A single monitor to '\n                                                  'which the downtime '\n                                                  'applies. If not '\n                                                  'provided, the downtime '\n                                                  'applies to all '\n                                                  'monitors.',\n                                   'readOnly': True,\n                                   'type': ['integer', 'null']},\n                    'monitor_tags': {'description': 'A comma-separated '\n                                                    'list of monitor tags.',\n                                     'items': {'type': 'string'},\n                                     'readOnly': True,\n                                     'type': ['array', 'null']},\n                    'mute_first_recovery_notification': {'description': 'If '\n                                                                        'the '\n                                                                        'first '\n                                                                        'recovery '\n                                                                        'notification '\n                                                                        'during '\n                                                                        'a '\n                                                                        'downtime '\n                                                                        'should '\n                                                                        'be '\n                                                                        'muted.',\n                                                         'readOnly': True,\n                                                         'type': ['boolean',\n                                                                  'null']},\n                    'parent_id': {'description': 'ID of the parent '\n                                                 'Downtime.',\n                                  'readOnly': True,\n                                  'type': ['integer', 'null']},\n                    'recurrence': {'additionalProperties': True,\n                                   'description': 'An object defining the '\n                                                  'recurrence of the '\n                                                  'downtime.',\n                                   'type': ['object', 'null']},\n                    'scope': {'description': 'The scope(s) to which the '\n                                             'downtime applies.',\n                              'items': {'type': 'string'},\n                              'readOnly': True,\n                              'type': ['array', 'null']},\n                    'start': {'description': 'POSIX timestamp to start the '\n                                             'downtime. If not provided, '\n                                             'the downtime starts the '\n                                             'moment it is created.',\n                              'readOnly': True,\n                              'type': ['integer', 'null']},\n                    'timezone': {'description': 'The timezone in which to '\n                                                \"display the downtime's \"\n                                                'start and end times in '\n                                                'Datadog applications.',\n                                 'readOnly': True,\n                                 'type': ['string', 'null']},\n                    'updater_id': {'description': 'ID of the last user '\n                                                  'that updated the '\n                                                  'downtime.',\n                                   'readOnly': True,\n                                   'type': ['integer', 'null']}},\n     'type': 'object'}\n\nOn instance:\n    {'active': True,\n     'canceled': None,\n     'child_id': None,\n     'created': 1677288221,\n     'creator_id': 4385196,\n     'disabled': False,\n     'downtime_type': 0,\n     'end': None,\n     'id': 2704271508,\n     'message': None,\n     'modified': 1677288221,\n     'monitor_id': 105328831,\n     'monitor_tags': ['*'],\n     'mute_first_recovery_notification': False,\n     'notify_end_states': ['alert', 'no data', 'warn'],\n     'notify_end_types': ['expired'],\n     'org_id': 607694,\n     'parent_id': None,\n     'recurrence': None,\n     'scope': ['*'],\n     'start': 1677288221,\n     'status': 'active',\n     'timezone': 'UTC',\n     'updater_id': None,\n     'uuid': '0a05496c-b4ab-11ed-8f21-da7ad0900002'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe metrics stream has the following schema errors:\nAdditional properties are not allowed ('id', 'type' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'type': 'object'}\n\nOn instance:\n    {'id': 'worker.temporal_workflow_success', 'type': 'metrics'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe synthetic_tests stream has the following schema errors:\nAdditional properties are not allowed ('modified_at', 'created_at' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'config': {'additionalProperties': True,\n                               'description': 'Configuration object for a '\n                                              'Synthetic test.',\n                               'type': ['object', 'null']},\n                    'creator': {'additionalProperties': True,\n                                'description': 'Object describing the '\n                                               'creator of the shared '\n                                               'element.',\n                                'properties': {'email': {'description': 'Email '\n                                                                        'of '\n                                                                        'the '\n                                                                        'creator.',\n                                                         'type': ['string',\n                                                                  'null']},\n                                               'handle': {'description': 'Handle '\n                                                                         'of '\n                                                                         'the '\n                                                                         'creator.',\n                                                          'type': ['string',\n                                                                   'null']},\n                                               'name': {'description': 'Name '\n                                                                       'of '\n                                                                       'the '\n                                                                       'creator.',\n                                                        'type': ['string',\n                                                                 'null']}},\n                                'type': ['object', 'null']},\n                    'locations': {'description': 'Array of locations used '\n                                                 'to run the test.',\n                                  'items': {'type': 'string'},\n                                  'readOnly': True,\n                                  'type': ['array', 'null']},\n                    'message': {'description': 'Notification message '\n                                               'associated with the test.',\n                                'readOnly': True,\n                                'type': ['string', 'null']},\n                    'monitor_id': {'description': 'The associated monitor '\n                                                  'ID.',\n                                   'readOnly': True,\n                                   'type': ['integer', 'null']},\n                    'name': {'description': 'Name of the test.',\n                             'readOnly': True,\n                             'type': ['string', 'null']},\n                    'options': {'additionalProperties': True,\n                                'description': 'Object describing the '\n                                               'extra options for a '\n                                               'Synthetic test.',\n                                'type': ['object', 'null']},\n                    'public_id': {'description': 'The test public ID.',\n                                  'readOnly': True,\n                                  'type': ['string', 'null']},\n                    'status': {'description': 'Define whether you want to '\n                                              'start (live) or pause '\n                                              '(paused) a Synthetic test. '\n                                              'Allowed enum values: '\n                                              'live,paused',\n                               'enum': ['live', 'paused'],\n                               'readOnly': True,\n                               'type': ['string', 'null']},\n                    'steps': {'additionalProperties': True,\n                              'description': 'For browser test, the steps '\n                                             'of the test.',\n                              'type': ['object', 'null']},\n                    'subtype': {'description': 'The subtype of the '\n                                               'Synthetic API test, http, '\n                                               'ssl, tcp, dns, icmp, udp, '\n                                               'websocket, grpc or multi. '\n                                               'Allowed enum values: '\n                                               'http,ssl,tcp,dns,multi,icmp,udp,websocket,grpc',\n                                'enum': ['http',\n                                         'ssl',\n                                         'tcp',\n                                         'dns',\n                                         'multi',\n                                         'icmp',\n                                         'udp',\n                                         'websocket',\n                                         'grpc'],\n                                'readOnly': True,\n                                'type': ['string', 'null']},\n                    'tags': {'description': 'Array of tags attached to the '\n                                            'test.',\n                             'items': {'type': 'string'},\n                             'readOnly': True,\n                             'type': ['array', 'null']},\n                    'type': {'description': 'Type of the Synthetic test, '\n                                            'either api or browser. '\n                                            'Allowed enum values: '\n                                            'api,browser',\n                             'enum': ['api', 'browser'],\n                             'readOnly': True,\n                             'type': ['string', 'null']}},\n     'type': 'object'}\n\nOn instance:\n    {'config': {'assertions': [{'operator': 'is',\n                                'target': 200,\n                                'type': 'statusCode'},\n                               {'operator': 'lessThan',\n                                'target': 2000,\n                                'type': 'responseTime'},\n                               {'operator': 'contains',\n                                'property': 'content-type',\n                                'target': 'application/json',\n                                'type': 'header'}],\n                'configVariables': [],\n                'request': {'method': 'GET',\n                            'timeout': 60,\n                            'url': 'https://connectors.airbyte.com/api/v0/catalog/cloud_catalog.json'}},\n     'created_at': '2023-03-04T00:15:35.371230+00:00',\n     'creator': {'email': 'evan@airbyte.io',\n                 'handle': 'evan@airbyte.io',\n                 'name': 'Evan Tahler'},\n     'locations': ['aws:ap-southeast-1', 'aws:eu-west-2', 'aws:us-west-1'],\n     'message': '\\n'\n                '  [prod] Synthetic test: '\n                'https://connectors.airbyte.com/api/v0/catalog/cloud_catalog.json '\n                'did not return status code 200 in 2000ms\\n'\n                '\\n'\n                '  @pagerduty-Platform_OC_Red_Alerts\\n',\n     'modified_at': '2023-03-04T00:15:35.371230+00:00',\n     'monitor_id': 112735469,\n     'name': '[prod] Synthetic test for pinging '\n             'https://connectors.airbyte.com/api/v0/catalog/cloud_catalog.json',\n     'options': {'min_failure_duration': 3,\n                 'min_location_failed': 1,\n                 'tick_every': 60},\n     'public_id': 'p8q-ybc-xn4',\n     'status': 'live',\n     'subtype': 'http',\n     'tags': ['env:prod'],\n     'type': 'api'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The dashboards stream has the following schema errors:
+Additional properties are not allowed ('deleted_at' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'author_handle': {'description': 'Identifier of the '
+                                                     'dashboard author.',
+                                      'readOnly': True,
+                                      'type': ['string', 'null']},
+                    'created_at': {'description': 'Creation date of the '
+                                                  'dashboard.',
+                                   'format': 'date-time',
+                                   'readOnly': True,
+                                   'type': ['string', 'null']},
+                    'description': {'description': 'Description of the '
+                                                   'dashboard.',
+                                    'readOnly': True,
+                                    'type': ['string', 'null']},
+                    'id': {'description': 'Dashboard identifier.',
+                           'readOnly': True,
+                           'type': ['string', 'null']},
+                    'is_read_only': {'description': 'Whether this '
+                                                    'dashboard is '
+                                                    'read-only. If True, '
+                                                    'only the author and '
+                                                    'admins can make '
+                                                    'changes to it.',
+                                     'readOnly': True,
+                                     'type': ['boolean', 'null']},
+                    'layout_type': {'description': 'Layout type of the '
+                                                   'dashboard',
+                                    'enum': ['ordered', 'free'],
+                                    'readOnly': True,
+                                    'type': ['string', 'null']},
+                    'modified_at': {'description': 'Modification date of '
+                                                   'the dashboard.',
+                                    'format': 'date-time',
+                                    'readOnly': True,
+                                    'type': ['string', 'null']},
+                    'title': {'description': 'Title of the dashboard.',
+                              'readOnly': True,
+                              'type': ['string', 'null']},
+                    'url': {'description': 'URL of the dashboard.',
+                            'readOnly': True,
+                            'type': ['string', 'null']}},
+     'type': 'object'}
+
+On instance:
+    {'author_handle': 'pavlo.palamarchuk@globallogic.com',
+     'created_at': '2021-09-28T11:13:04.274417+00:00',
+     'deleted_at': None,
+     'description': None,
+     'id': '6pg-i44-5r2',
+     'is_read_only': False,
+     'layout_type': 'ordered',
+     'modified_at': '2021-09-28T11:13:04.274417+00:00',
+     'title': "pavlo.palamarchuk's Dashboard Tue, Sep 28, 2:13:04 pm",
+     'url': '/dashboard/6pg-i44-5r2/pavlopalamarchuks-dashboard-tue-sep-28-21304-pm'}
+ERROR    root:test_core.py:662 
+The downtimes stream has the following schema errors:
+Additional properties are not allowed ('notify_end_types', 'child_id', 'notify_end_states', 'created', 'status', 'modified', 'uuid', 'org_id' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'active': {'description': 'If a scheduled downtime '
+                                              'currently exists.',
+                               'readOnly': True,
+                               'type': ['boolean', 'null']},
+                    'active_child': {'additionalProperties': True,
+                                     'description': 'The downtime object '
+                                                    'definition of the '
+                                                    'active child for the '
+                                                    'original parent '
+                                                    'recurring downtime.',
+                                     'type': ['object', 'null']},
+                    'canceled': {'description': 'If a scheduled downtime '
+                                                'is canceled.',
+                                 'readOnly': True,
+                                 'type': ['integer', 'null']},
+                    'creator_id': {'description': 'User ID of the downtime '
+                                                  'creator.',
+                                   'readOnly': True,
+                                   'type': ['integer', 'null']},
+                    'disabled': {'description': 'If a downtime has been '
+                                                'disabled.',
+                                 'readOnly': True,
+                                 'type': ['boolean', 'null']},
+                    'downtime_type': {'description': '0 for a downtime '
+                                                     'applied on * or all, '
+                                                     '1 when the downtime '
+                                                     'is only scoped to '
+                                                     'hosts, or 2 when the '
+                                                     'downtime is scoped '
+                                                     'to anything but '
+                                                     'hosts.',
+                                      'readOnly': True,
+                                      'type': ['integer', 'null']},
+                    'end': {'description': 'POSIX timestamp to end the '
+                                           'downtime. If not provided, the '
+                                           'downtime is in effect '
+                                           'indefinitely until you cancel '
+                                           'it.',
+                            'readOnly': True,
+                            'type': ['integer', 'null']},
+                    'id': {'description': 'The downtime ID.',
+                           'readOnly': True,
+                           'type': ['integer', 'null']},
+                    'message': {'description': 'A message to include with '
+                                               'notifications for this '
+                                               'downtime.',
+                                'readOnly': True,
+                                'type': ['string', 'null']},
+                    'monitor_id': {'description': 'A single monitor to '
+                                                  'which the downtime '
+                                                  'applies. If not '
+                                                  'provided, the downtime '
+                                                  'applies to all '
+                                                  'monitors.',
+                                   'readOnly': True,
+                                   'type': ['integer', 'null']},
+                    'monitor_tags': {'description': 'A comma-separated '
+                                                    'list of monitor tags.',
+                                     'items': {'type': 'string'},
+                                     'readOnly': True,
+                                     'type': ['array', 'null']},
+                    'mute_first_recovery_notification': {'description': 'If '
+                                                                        'the '
+                                                                        'first '
+                                                                        'recovery '
+                                                                        'notification '
+                                                                        'during '
+                                                                        'a '
+                                                                        'downtime '
+                                                                        'should '
+                                                                        'be '
+                                                                        'muted.',
+                                                         'readOnly': True,
+                                                         'type': ['boolean',
+                                                                  'null']},
+                    'parent_id': {'description': 'ID of the parent '
+                                                 'Downtime.',
+                                  'readOnly': True,
+                                  'type': ['integer', 'null']},
+                    'recurrence': {'additionalProperties': True,
+                                   'description': 'An object defining the '
+                                                  'recurrence of the '
+                                                  'downtime.',
+                                   'type': ['object', 'null']},
+                    'scope': {'description': 'The scope(s) to which the '
+                                             'downtime applies.',
+                              'items': {'type': 'string'},
+                              'readOnly': True,
+                              'type': ['array', 'null']},
+                    'start': {'description': 'POSIX timestamp to start the '
+                                             'downtime. If not provided, '
+                                             'the downtime starts the '
+                                             'moment it is created.',
+                              'readOnly': True,
+                              'type': ['integer', 'null']},
+                    'timezone': {'description': 'The timezone in which to '
+                                                "display the downtime's "
+                                                'start and end times in '
+                                                'Datadog applications.',
+                                 'readOnly': True,
+                                 'type': ['string', 'null']},
+                    'updater_id': {'description': 'ID of the last user '
+                                                  'that updated the '
+                                                  'downtime.',
+                                   'readOnly': True,
+                                   'type': ['integer', 'null']}},
+     'type': 'object'}
+
+On instance:
+    {'active': True,
+     'canceled': None,
+     'child_id': None,
+     'created': 1677288221,
+     'creator_id': 4385196,
+     'disabled': False,
+     'downtime_type': 0,
+     'end': None,
+     'id': 2704271508,
+     'message': None,
+     'modified': 1677288221,
+     'monitor_id': 105328831,
+     'monitor_tags': ['*'],
+     'mute_first_recovery_notification': False,
+     'notify_end_states': ['alert', 'no data', 'warn'],
+     'notify_end_types': ['expired'],
+     'org_id': 607694,
+     'parent_id': None,
+     'recurrence': None,
+     'scope': ['*'],
+     'start': 1677288221,
+     'status': 'active',
+     'timezone': 'UTC',
+     'updater_id': None,
+     'uuid': '0a05496c-b4ab-11ed-8f21-da7ad0900002'}
+ERROR    root:test_core.py:662 
+The metrics stream has the following schema errors:
+Additional properties are not allowed ('id', 'type' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'type': 'object'}
+
+On instance:
+    {'id': 'worker.temporal_workflow_success', 'type': 'metrics'}
+ERROR    root:test_core.py:662 
+The synthetic_tests stream has the following schema errors:
+Additional properties are not allowed ('modified_at', 'created_at' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'config': {'additionalProperties': True,
+                               'description': 'Configuration object for a '
+                                              'Synthetic test.',
+                               'type': ['object', 'null']},
+                    'creator': {'additionalProperties': True,
+                                'description': 'Object describing the '
+                                               'creator of the shared '
+                                               'element.',
+                                'properties': {'email': {'description': 'Email '
+                                                                        'of '
+                                                                        'the '
+                                                                        'creator.',
+                                                         'type': ['string',
+                                                                  'null']},
+                                               'handle': {'description': 'Handle '
+                                                                         'of '
+                                                                         'the '
+                                                                         'creator.',
+                                                          'type': ['string',
+                                                                   'null']},
+                                               'name': {'description': 'Name '
+                                                                       'of '
+                                                                       'the '
+                                                                       'creator.',
+                                                        'type': ['string',
+                                                                 'null']}},
+                                'type': ['object', 'null']},
+                    'locations': {'description': 'Array of locations used '
+                                                 'to run the test.',
+                                  'items': {'type': 'string'},
+                                  'readOnly': True,
+                                  'type': ['array', 'null']},
+                    'message': {'description': 'Notification message '
+                                               'associated with the test.',
+                                'readOnly': True,
+                                'type': ['string', 'null']},
+                    'monitor_id': {'description': 'The associated monitor '
+                                                  'ID.',
+                                   'readOnly': True,
+                                   'type': ['integer', 'null']},
+                    'name': {'description': 'Name of the test.',
+                             'readOnly': True,
+                             'type': ['string', 'null']},
+                    'options': {'additionalProperties': True,
+                                'description': 'Object describing the '
+                                               'extra options for a '
+                                               'Synthetic test.',
+                                'type': ['object', 'null']},
+                    'public_id': {'description': 'The test public ID.',
+                                  'readOnly': True,
+                                  'type': ['string', 'null']},
+                    'status': {'description': 'Define whether you want to '
+                                              'start (live) or pause '
+                                              '(paused) a Synthetic test. '
+                                              'Allowed enum values: '
+                                              'live,paused',
+                               'enum': ['live', 'paused'],
+                               'readOnly': True,
+                               'type': ['string', 'null']},
+                    'steps': {'additionalProperties': True,
+                              'description': 'For browser test, the steps '
+                                             'of the test.',
+                              'type': ['object', 'null']},
+                    'subtype': {'description': 'The subtype of the '
+                                               'Synthetic API test, http, '
+                                               'ssl, tcp, dns, icmp, udp, '
+                                               'websocket, grpc or multi. '
+                                               'Allowed enum values: '
+                                               'http,ssl,tcp,dns,multi,icmp,udp,websocket,grpc',
+                                'enum': ['http',
+                                         'ssl',
+                                         'tcp',
+                                         'dns',
+                                         'multi',
+                                         'icmp',
+                                         'udp',
+                                         'websocket',
+                                         'grpc'],
+                                'readOnly': True,
+                                'type': ['string', 'null']},
+                    'tags': {'description': 'Array of tags attached to the '
+                                            'test.',
+                             'items': {'type': 'string'},
+                             'readOnly': True,
+                             'type': ['array', 'null']},
+                    'type': {'description': 'Type of the Synthetic test, '
+                                            'either api or browser. '
+                                            'Allowed enum values: '
+                                            'api,browser',
+                             'enum': ['api', 'browser'],
+                             'readOnly': True,
+                             'type': ['string', 'null']}},
+     'type': 'object'}
+
+On instance:
+    {'config': {'assertions': [{'operator': 'is',
+                                'target': 200,
+                                'type': 'statusCode'},
+                               {'operator': 'lessThan',
+                                'target': 2000,
+                                'type': 'responseTime'},
+                               {'operator': 'contains',
+                                'property': 'content-type',
+                                'target': 'application/json',
+                                'type': 'header'}],
+                'configVariables': [],
+                'request': {'method': 'GET',
+                            'timeout': 60,
+                            'url': 'https://connectors.airbyte.com/api/v0/catalog/cloud_catalog.json'}},
+     'created_at': '2023-03-04T00:15:35.371230+00:00',
+     'creator': {'email': 'evan@airbyte.io',
+                 'handle': 'evan@airbyte.io',
+                 'name': 'Evan Tahler'},
+     'locations': ['aws:ap-southeast-1', 'aws:eu-west-2', 'aws:us-west-1'],
+     'message': '\n'
+                '  [prod] Synthetic test: '
+                'https://connectors.airbyte.com/api/v0/catalog/cloud_catalog.json '
+                'did not return status code 200 in 2000ms\n'
+                '\n'
+                '  @pagerduty-Platform_OC_Red_Alerts\n',
+     'modified_at': '2023-03-04T00:15:35.371230+00:00',
+     'monitor_id': 112735469,
+     'name': '[prod] Synthetic test for pinging '
+             'https://connectors.airbyte.com/api/v0/catalog/cloud_catalog.json',
+     'options': {'min_failure_duration': 3,
+                 'min_location_failed': 1,
+                 'tick_every': 60},
+     'public_id': 'p8q-ybc-xn4',
+     'status': 'live',
+     'subtype': 'http',
+     'tags': ['env:prod'],
+     'type': 'api'}
+_____________ TestIncremental.test_read_sequential_slices[inputs0] _____________
+
+self = <connector_acceptance_test.tests.test_incremental.TestIncremental object at 0xffff7eefbc10>
+inputs = IncrementalConfig(config_path='secrets/config.json', configured_catalog_path='integration_tests/inc_configured_catalog...ng_streams=[], bypass_reason=None), timeout_seconds=None, threshold_days=0, skip_comprehensive_incremental_tests=False)
+connector_config = SecretDict(******)
+configured_catalog_for_incremental = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='logs', json_schema={'$schema': 'h...mental'>, cursor_field=['sync_date'], destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+cursor_paths = {'logs': ['sync_date']}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff7ee71dc0>
+
+    def test_read_sequential_slices(
+        self, inputs: IncrementalConfig, connector_config, configured_catalog_for_incremental, cursor_paths, docker_runner: ConnectorRunner
+    ):
+        """
+        Incremental test that makes calls to the read method without a state checkpoint. Then we partition the results by stream and
+        slice checkpoints.
+        Then we make additional read method calls using the state message and verify the correctness of the
+        messages in the response.
+        """
+        if inputs.skip_comprehensive_incremental_tests:
+            pytest.skip("Skipping new incremental test based on acceptance-test-config.yml")
+            return
+    
+        threshold_days = getattr(inputs, "threshold_days") or 0
+        stream_mapping = {stream.stream.name: stream for stream in configured_catalog_for_incremental.streams}
+    
+        output = docker_runner.call_read(connector_config, configured_catalog_for_incremental)
+        records_1 = filter_output(output, type_=Type.RECORD)
+        states_1 = filter_output(output, type_=Type.STATE)
+    
+        assert states_1, "Should produce at least one state"
+>       assert records_1, "Should produce at least one record"
+E       AssertionError: Should produce at least one record
+E       assert []
+
+connector_acceptance_test/tests/test_incremental.py:223: AssertionError
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 36 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+FAILED ../../test_input/test_incremental.py::TestIncremental::test_read_sequential_slices[inputs0]
+========== 2 failed, 35 deselected, 37 warnings in 141.73s (0:02:21) ===========

@@ -1,0 +1,290 @@
+../../../../connectors/source-slack/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-slack
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 39 items / 37 deselected / 2 selected
+
+../../test_input/test_core.py F                                          [ 50%]
+../../test_input/test_incremental.py .                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff9dc66640>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='channels', json_schema={'type': '...ull_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=[['id']])])
+expect_records_config = ExpectedRecordsConfig(bypass_reason=None, path=PosixPath('integration_tests/expected_records.jsonl'), extra_fields=False, exact_order=False, extra_records=True)
+should_validate_schema = True, should_validate_data_points = False
+should_fail_on_extra_columns = True, empty_streams = set(), ignored_fields = {}
+expected_records_by_stream = defaultdict(<class 'list'>, {'channels': [{'id': 'C04KX3KEZ54', 'name': 'general', 'is_channel': True, 'is_group': Fal...{'member_id': 'U04LY6NARHU', 'channel_id': 'C04LTCM2Y56'}, {'member_id': 'U04M23SBJGM', 'channel_id': 'C04LTCM2Y56'}]})
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff9d2b2520>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='channels', data={'id': 'C04KX3KEZ54', 'name': 'general', 'is_channel': T...ream='channel_members', data={'member_id': 'U04M23SBJGM', 'channel_id': 'C04KX3KEZ54'}, emitted_at=1679409844670), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='channels', json_schema={'type': '...ull_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=[['id']])])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('channels', 'threads', 'users').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe channels stream has the following schema errors:\nAdditional properties are not allowed ('parent_conversation', 'updated', 'pending_connected_team_ids', 'shared_team_ids', 'context_team_id' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'additional_properties': True,\n     'properties': {'created': {'type': 'integer'},\n                    'creator': {'type': 'string'},\n                    'id': {'type': 'string'},\n                    'is_archived': {'type': 'boolean'},\n                    'is_channel': {'type': 'boolean'},\n                    'is_ext_shared': {'type': 'boolean'},\n                    'is_general': {'type': 'boolean'},\n                    'is_group': {'type': 'boolean'},\n                    'is_im': {'type': 'boolean'},\n                    'is_member': {'type': 'boolean'},\n                    'is_mpim': {'type': 'boolean'},\n                    'is_org_shared': {'type': 'boolean'},\n                    'is_pending_ext_shared': {'type': 'boolean'},\n                    'is_private': {'type': 'boolean'},\n                    'is_read_only': {'type': 'boolean'},\n                    'is_shared': {'type': 'boolean'},\n                    'last_read': {'type': 'string'},\n                    'locale': {'type': 'string'},\n                    'name': {'type': 'string'},\n                    'name_normalized': {'type': 'string'},\n                    'num_members': {'type': 'integer'},\n                    'pending_shared': {'items': {}, 'type': 'array'},\n                    'previous_names': {'items': {'type': 'string'},\n                                       'type': 'array'},\n                    'purpose': {'additionalProperties': True,\n                                'properties': {'creator': {'type': 'string'},\n                                               'last_set': {'type': 'integer'},\n                                               'value': {'type': 'string'}},\n                                'type': 'object'},\n                    'topic': {'additionalProperties': True,\n                              'properties': {'creator': {'type': 'string'},\n                                             'last_set': {'type': 'integer'},\n                                             'value': {'type': 'string'}},\n                              'type': 'object'},\n                    'unlinked': {'type': 'integer'}},\n     'type': 'object'}\n\nOn instance:\n    {'context_team_id': 'T04KX3KDDU6',\n     'created': 1674485589,\n     'creator': 'U04L65GPMKN',\n     'id': 'C04LTCM2Y56',\n     'is_archived': False,\n     'is_channel': True,\n     'is_ext_shared': False,\n     'is_general': False,\n     'is_group': False,\n     'is_im': False,\n     'is_member': True,\n     'is_mpim': False,\n     'is_org_shared': False,\n     'is_pending_ext_shared': False,\n     'is_private': False,\n     'is_shared': False,\n     'name': 'integrationtest',\n     'name_normalized': 'integrationtest',\n     'num_members': 3,\n     'parent_conversation': None,\n     'pending_connected_team_ids': [],\n     'pending_shared': [],\n     'previous_names': [],\n     'purpose': {'creator': 'U04L65GPMKN',\n                 'last_set': 1674485589,\n                 'value': 'This channel is for everything '\n                          '#integrationtest. Hold meetings, share docs, '\n                          'and make decisions together with your team.'},\n     'shared_team_ids': ['T04KX3KDDU6'],\n     'topic': {'creator': '', 'last_set': 0, 'value': ''},\n     'unlinked': 0,\n     'updated': 1674485589890}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe threads stream has the following schema errors:\nAdditional properties are not allowed ('subtype' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'blocks': {'items': {'additionalProperties': True,\n                                         'properties': {'type': {'type': ['null',\n                                                                          'string']}},\n                                         'type': ['null', 'object']},\n                               'type': ['null', 'array']},\n                    'channel_id': {'type': ['null', 'string']},\n                    'client_msg_id': {'type': ['null', 'string']},\n                    'float_ts': {'type': ['null', 'number']},\n                    'latest_reply': {'type': ['null', 'string']},\n                    'reply_count': {'type': ['null', 'integer']},\n                    'reply_users': {'items': {'type': 'string'},\n                                    'type': ['null', 'array']},\n                    'reply_users_count': {'type': ['null', 'number']},\n                    'subscribed': {'type': ['null', 'boolean']},\n                    'team': {'type': ['null', 'string']},\n                    'text': {'type': ['null', 'string']},\n                    'thread_ts': {'type': ['null', 'string']},\n                    'ts': {'type': ['null', 'string']},\n                    'type': {'type': ['null', 'string']},\n                    'user': {'type': ['null', 'string']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'channel_id': 'C04LTCM2Y56',\n     'float_ts': 1675090573.801959,\n     'subtype': 'channel_join',\n     'text': '<@U04LY6NARHU> has joined the channel',\n     'ts': '1675090573.801959',\n     'type': 'message',\n     'user': 'U04LY6NARHU'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe users stream has the following schema errors:\nAdditional properties are not allowed ('who_can_share_contact_card', 'is_email_confirmed' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-06/schema#',\n     'additionalProperties': False,\n     'properties': {'color': {'type': 'string'},\n                    'deleted': {'type': 'boolean'},\n                    'has_2fa': {'type': 'boolean'},\n                    'id': {'type': 'string'},\n                    'is_admin': {'type': 'boolean'},\n                    'is_app_user': {'type': 'boolean'},\n                    'is_bot': {'type': 'boolean'},\n                    'is_owner': {'type': 'boolean'},\n                    'is_primary_owner': {'type': 'boolean'},\n                    'is_restricted': {'type': 'boolean'},\n                    'is_ultra_restricted': {'type': 'boolean'},\n                    'name': {'type': 'string'},\n                    'profile': {'additionalProperties': True,\n                                'properties': {'avatar_hash': {'type': 'string'},\n                                               'display_name': {'type': 'string'},\n                                               'display_name_normalized': {'type': 'string'},\n                                               'email': {'type': 'string'},\n                                               'first_name': {'type': 'string'},\n                                               'image_1024': {'type': 'string'},\n                                               'image_192': {'type': 'string'},\n                                               'image_24': {'type': 'string'},\n                                               'image_32': {'type': 'string'},\n                                               'image_48': {'type': 'string'},\n                                               'image_512': {'type': 'string'},\n                                               'image_72': {'type': 'string'},\n                                               'image_original': {'type': 'string'},\n                                               'last_name': {'type': 'string'},\n                                               'phone': {'type': 'string'},\n                                               'real_name': {'type': 'string'},\n                                               'real_name_normalized': {'type': 'string'},\n                                               'skype': {'type': 'string'},\n                                               'status_emoji': {'type': 'string'},\n                                               'status_text': {'type': 'string'},\n                                               'team': {'type': 'string'},\n                                               'title': {'type': 'string'}},\n                                'type': 'object'},\n                    'real_name': {'type': 'string'},\n                    'team_id': {'type': 'string'},\n                    'tz': {'type': 'string'},\n                    'tz_label': {'type': 'string'},\n                    'tz_offset': {'type': 'integer'},\n                    'updated': {'type': 'integer'}},\n     'type': 'object'}\n\nOn instance:\n    {'color': '5b89d5',\n     'deleted': False,\n     'has_2fa': False,\n     'id': 'U04M23SBJGM',\n     'is_admin': False,\n     'is_app_user': False,\n     'is_bot': False,\n     'is_email_confirmed': True,\n     'is_owner': False,\n     'is_primary_owner': False,\n     'is_restricted': False,\n     'is_ultra_restricted': False,\n     'name': 'user2.sample.airbyte',\n     'profile': {'avatar_hash': 'gce662542f72',\n                 'display_name': 'User2 Sample',\n                 'display_name_normalized': 'User2 Sample',\n                 'fields': None,\n                 'first_name': 'User2',\n                 'image_192': 'https://secure.gravatar.com/avatar/ce662542f721de62628c4e9c83b8904f.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-192.png',\n                 'image_24': 'https://secure.gravatar.com/avatar/ce662542f721de62628c4e9c83b8904f.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-24.png',\n                 'image_32': 'https://secure.gravatar.com/avatar/ce662542f721de62628c4e9c83b8904f.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-32.png',\n                 'image_48': 'https://secure.gravatar.com/avatar/ce662542f721de62628c4e9c83b8904f.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-48.png',\n                 'image_512': 'https://secure.gravatar.com/avatar/ce662542f721de62628c4e9c83b8904f.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-512.png',\n                 'image_72': 'https://secure.gravatar.com/avatar/ce662542f721de62628c4e9c83b8904f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-72.png',\n                 'last_name': 'Sample',\n                 'phone': '',\n                 'real_name': 'User2 Sample',\n                 'real_name_normalized': 'User2 Sample',\n                 'skype': '',\n                 'status_emoji': '',\n                 'status_emoji_display_info': [],\n                 'status_expiration': 0,\n                 'status_text': '',\n                 'status_text_canonical': '',\n                 'team': 'T04KX3KDDU6',\n                 'title': ''},\n     'real_name': 'User2 Sample',\n     'team_id': 'T04KX3KDDU6',\n     'tz': 'Europe/Helsinki',\n     'tz_label': 'Eastern European Time',\n     'tz_offset': 7200,\n     'updated': 1675092508,\n     'who_can_share_contact_card': 'EVERYONE'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The channels stream has the following schema errors:
+Additional properties are not allowed ('parent_conversation', 'updated', 'pending_connected_team_ids', 'shared_team_ids', 'context_team_id' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'additional_properties': True,
+     'properties': {'created': {'type': 'integer'},
+                    'creator': {'type': 'string'},
+                    'id': {'type': 'string'},
+                    'is_archived': {'type': 'boolean'},
+                    'is_channel': {'type': 'boolean'},
+                    'is_ext_shared': {'type': 'boolean'},
+                    'is_general': {'type': 'boolean'},
+                    'is_group': {'type': 'boolean'},
+                    'is_im': {'type': 'boolean'},
+                    'is_member': {'type': 'boolean'},
+                    'is_mpim': {'type': 'boolean'},
+                    'is_org_shared': {'type': 'boolean'},
+                    'is_pending_ext_shared': {'type': 'boolean'},
+                    'is_private': {'type': 'boolean'},
+                    'is_read_only': {'type': 'boolean'},
+                    'is_shared': {'type': 'boolean'},
+                    'last_read': {'type': 'string'},
+                    'locale': {'type': 'string'},
+                    'name': {'type': 'string'},
+                    'name_normalized': {'type': 'string'},
+                    'num_members': {'type': 'integer'},
+                    'pending_shared': {'items': {}, 'type': 'array'},
+                    'previous_names': {'items': {'type': 'string'},
+                                       'type': 'array'},
+                    'purpose': {'additionalProperties': True,
+                                'properties': {'creator': {'type': 'string'},
+                                               'last_set': {'type': 'integer'},
+                                               'value': {'type': 'string'}},
+                                'type': 'object'},
+                    'topic': {'additionalProperties': True,
+                              'properties': {'creator': {'type': 'string'},
+                                             'last_set': {'type': 'integer'},
+                                             'value': {'type': 'string'}},
+                              'type': 'object'},
+                    'unlinked': {'type': 'integer'}},
+     'type': 'object'}
+
+On instance:
+    {'context_team_id': 'T04KX3KDDU6',
+     'created': 1674485589,
+     'creator': 'U04L65GPMKN',
+     'id': 'C04LTCM2Y56',
+     'is_archived': False,
+     'is_channel': True,
+     'is_ext_shared': False,
+     'is_general': False,
+     'is_group': False,
+     'is_im': False,
+     'is_member': True,
+     'is_mpim': False,
+     'is_org_shared': False,
+     'is_pending_ext_shared': False,
+     'is_private': False,
+     'is_shared': False,
+     'name': 'integrationtest',
+     'name_normalized': 'integrationtest',
+     'num_members': 3,
+     'parent_conversation': None,
+     'pending_connected_team_ids': [],
+     'pending_shared': [],
+     'previous_names': [],
+     'purpose': {'creator': 'U04L65GPMKN',
+                 'last_set': 1674485589,
+                 'value': 'This channel is for everything '
+                          '#integrationtest. Hold meetings, share docs, '
+                          'and make decisions together with your team.'},
+     'shared_team_ids': ['T04KX3KDDU6'],
+     'topic': {'creator': '', 'last_set': 0, 'value': ''},
+     'unlinked': 0,
+     'updated': 1674485589890}
+ERROR    root:test_core.py:662 
+The threads stream has the following schema errors:
+Additional properties are not allowed ('subtype' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'blocks': {'items': {'additionalProperties': True,
+                                         'properties': {'type': {'type': ['null',
+                                                                          'string']}},
+                                         'type': ['null', 'object']},
+                               'type': ['null', 'array']},
+                    'channel_id': {'type': ['null', 'string']},
+                    'client_msg_id': {'type': ['null', 'string']},
+                    'float_ts': {'type': ['null', 'number']},
+                    'latest_reply': {'type': ['null', 'string']},
+                    'reply_count': {'type': ['null', 'integer']},
+                    'reply_users': {'items': {'type': 'string'},
+                                    'type': ['null', 'array']},
+                    'reply_users_count': {'type': ['null', 'number']},
+                    'subscribed': {'type': ['null', 'boolean']},
+                    'team': {'type': ['null', 'string']},
+                    'text': {'type': ['null', 'string']},
+                    'thread_ts': {'type': ['null', 'string']},
+                    'ts': {'type': ['null', 'string']},
+                    'type': {'type': ['null', 'string']},
+                    'user': {'type': ['null', 'string']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'channel_id': 'C04LTCM2Y56',
+     'float_ts': 1675090573.801959,
+     'subtype': 'channel_join',
+     'text': '<@U04LY6NARHU> has joined the channel',
+     'ts': '1675090573.801959',
+     'type': 'message',
+     'user': 'U04LY6NARHU'}
+ERROR    root:test_core.py:662 
+The users stream has the following schema errors:
+Additional properties are not allowed ('who_can_share_contact_card', 'is_email_confirmed' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-06/schema#',
+     'additionalProperties': False,
+     'properties': {'color': {'type': 'string'},
+                    'deleted': {'type': 'boolean'},
+                    'has_2fa': {'type': 'boolean'},
+                    'id': {'type': 'string'},
+                    'is_admin': {'type': 'boolean'},
+                    'is_app_user': {'type': 'boolean'},
+                    'is_bot': {'type': 'boolean'},
+                    'is_owner': {'type': 'boolean'},
+                    'is_primary_owner': {'type': 'boolean'},
+                    'is_restricted': {'type': 'boolean'},
+                    'is_ultra_restricted': {'type': 'boolean'},
+                    'name': {'type': 'string'},
+                    'profile': {'additionalProperties': True,
+                                'properties': {'avatar_hash': {'type': 'string'},
+                                               'display_name': {'type': 'string'},
+                                               'display_name_normalized': {'type': 'string'},
+                                               'email': {'type': 'string'},
+                                               'first_name': {'type': 'string'},
+                                               'image_1024': {'type': 'string'},
+                                               'image_192': {'type': 'string'},
+                                               'image_24': {'type': 'string'},
+                                               'image_32': {'type': 'string'},
+                                               'image_48': {'type': 'string'},
+                                               'image_512': {'type': 'string'},
+                                               'image_72': {'type': 'string'},
+                                               'image_original': {'type': 'string'},
+                                               'last_name': {'type': 'string'},
+                                               'phone': {'type': 'string'},
+                                               'real_name': {'type': 'string'},
+                                               'real_name_normalized': {'type': 'string'},
+                                               'skype': {'type': 'string'},
+                                               'status_emoji': {'type': 'string'},
+                                               'status_text': {'type': 'string'},
+                                               'team': {'type': 'string'},
+                                               'title': {'type': 'string'}},
+                                'type': 'object'},
+                    'real_name': {'type': 'string'},
+                    'team_id': {'type': 'string'},
+                    'tz': {'type': 'string'},
+                    'tz_label': {'type': 'string'},
+                    'tz_offset': {'type': 'integer'},
+                    'updated': {'type': 'integer'}},
+     'type': 'object'}
+
+On instance:
+    {'color': '5b89d5',
+     'deleted': False,
+     'has_2fa': False,
+     'id': 'U04M23SBJGM',
+     'is_admin': False,
+     'is_app_user': False,
+     'is_bot': False,
+     'is_email_confirmed': True,
+     'is_owner': False,
+     'is_primary_owner': False,
+     'is_restricted': False,
+     'is_ultra_restricted': False,
+     'name': 'user2.sample.airbyte',
+     'profile': {'avatar_hash': 'gce662542f72',
+                 'display_name': 'User2 Sample',
+                 'display_name_normalized': 'User2 Sample',
+                 'fields': None,
+                 'first_name': 'User2',
+                 'image_192': 'https://secure.gravatar.com/avatar/ce662542f721de62628c4e9c83b8904f.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-192.png',
+                 'image_24': 'https://secure.gravatar.com/avatar/ce662542f721de62628c4e9c83b8904f.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-24.png',
+                 'image_32': 'https://secure.gravatar.com/avatar/ce662542f721de62628c4e9c83b8904f.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-32.png',
+                 'image_48': 'https://secure.gravatar.com/avatar/ce662542f721de62628c4e9c83b8904f.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-48.png',
+                 'image_512': 'https://secure.gravatar.com/avatar/ce662542f721de62628c4e9c83b8904f.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-512.png',
+                 'image_72': 'https://secure.gravatar.com/avatar/ce662542f721de62628c4e9c83b8904f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-72.png',
+                 'last_name': 'Sample',
+                 'phone': '',
+                 'real_name': 'User2 Sample',
+                 'real_name_normalized': 'User2 Sample',
+                 'skype': '',
+                 'status_emoji': '',
+                 'status_emoji_display_info': [],
+                 'status_expiration': 0,
+                 'status_text': '',
+                 'status_text_canonical': '',
+                 'team': 'T04KX3KDDU6',
+                 'title': ''},
+     'real_name': 'User2 Sample',
+     'team_id': 'T04KX3KDDU6',
+     'tz': 'Europe/Helsinki',
+     'tz_label': 'Eastern European Time',
+     'tz_offset': 7200,
+     'updated': 1675092508,
+     'who_can_share_contact_card': 'EVERYONE'}
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+=========== 1 failed, 1 passed, 37 deselected in 3326.44s (0:55:26) ============

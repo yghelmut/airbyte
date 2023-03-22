@@ -1,0 +1,469 @@
+../../../../connectors/source-square/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-square
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 47 items / 45 deselected / 2 selected
+
+../../test_input/test_core.py F                                          [ 50%]
+../../test_input/test_incremental.py .                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff8a5a7b80>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='customers', json_schema={'type': ...fresh'>, cursor_field=['updated_at'], destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+expect_records_config = ExpectedRecordsConfig(bypass_reason=None, path=PosixPath('integration_tests/expected_records_oauth.jsonl'), extra_fields=False, exact_order=False, extra_records=True)
+should_validate_schema = True, should_validate_data_points = False
+should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='payments', bypass_reason='Not able to fill stream'), EmptyStreamConfiguration(name='or...ss_reason='Not able to fill stream'), EmptyStreamConfiguration(name='shifts', bypass_reason='Not able to fill stream')}
+ignored_fields = {}
+expected_records_by_stream = defaultdict(<class 'list'>, {'items': [{'type': 'ITEM', 'id': '434XPICM6QLQANT3D6AGUAGF', 'updated_at': '2023-01-29T22...: 1000, 'currency': 'USD'}, 'on_by_default': True, 'ordinal': 1, 'modifier_list_id': 'IQVWOIVQOUM7EBUBCELJDXYN'}}]}}]})
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff8a5c2820>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='customers', data={'id': '267ZM54NWZ60DTPZ5EKE1C5YHW', 'created_at': '202...track_inventory': False}}], 'product_type': 'REGULAR', 'skip_modifier_screen': False}}, emitted_at=1679412187817), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='customers', json_schema={'type': ...fresh'>, cursor_field=['updated_at'], destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('items', 'categories', 'discounts', 'taxes', 'modifier_list').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The configured catalog was built with the discovered catalog from which the following empty streams were removed: payments, orders, refunds, shifts."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:common.py:149 The configured catalog was built with the discovered catalog from which the following empty streams were removed: payments, orders, refunds, shifts.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe items stream has the following schema errors:\nAdditional properties are not allowed ('created_at' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'custom_attribute_values': {'type': ['null', 'object']},\n                    'id': {'type': ['null', 'string']},\n                    'image_id': {'type': ['null', 'string']},\n                    'is_deleted': {'type': ['null', 'boolean']},\n                    'item_data': {'properties': {'category_id': {'type': ['null',\n                                                                          'string']},\n                                                 'description': {'type': ['null',\n                                                                          'string']},\n                                                 'ecom_visibility': {'type': ['null',\n                                                                              'string']},\n                                                 'item_options': {'items': {'properties': {'item_option_id': {'type': ['null',\n                                                                                                                       'string']}},\n                                                                            'type': ['null',\n                                                                                     'object']},\n                                                                  'type': ['null',\n                                                                           'array']},\n                                                 'modifier_list_info': {'items': {'properties': {'enabled': {'type': ['null',\n                                                                                                                      'boolean']},\n                                                                                                 'max_selected_modifiers': {'type': ['null',\n                                                                                                                                     'integer']},\n                                                                                                 'min_selected_modifiers': {'type': ['null',\n                                                                                                                                     'integer']},\n                                                                                                 'modifier_list_id': {'type': ['null',\n                                                                                                                               'string']},\n                                                                                                 'visibility': {'type': ['null',\n                                                                                                                         'string']}},\n                                                                                  'type': ['null',\n                                                                                           'object']},\n                                                                        'type': ['null',\n                                                                                 'array']},\n                                                 'name': {'type': ['null',\n                                                                   'string']},\n                                                 'product_type': {'type': ['null',\n                                                                           'string']},\n                                                 'skip_modifier_screen': {'type': ['null',\n                                                                                   'boolean']},\n                                                 'tax_ids': {'items': {'type': ['null',\n                                                                                'string']},\n                                                             'type': ['null',\n                                                                      'array']},\n                                                 'variations': {'items': {'properties': {'id': {'type': ['null',\n                                                                                                         'string']},\n                                                                                         'is_deleted': {'type': ['null',\n                                                                                                                 'boolean']},\n                                                                                         'item_variation_data': {'properties': {'item_id': {'type': ['null',\n                                                                                                                                                     'string']},\n                                                                                                                                'item_option_values': {'items': {'properties': {'item_option_id': {'type': ['null',\n                                                                                                                                                                                                            'string']},\n                                                                                                                                                                                'item_option_value_id': {'type': ['null',\n                                                                                                                                                                                                                  'string']}},\n                                                                                                                                                                 'type': ['null',\n                                                                                                                                                                          'object']},\n                                                                                                                                                       'type': ['null',\n                                                                                                                                                                'array']},\n                                                                                                                                'location_overrides': {'items': {'properties': {'location_id': {'type': ['null',\n                                                                                                                                                                                                         'string']},\n                                                                                                                                                                                'track_inventory': {'type': ['null',\n                                                                                                                                                                                                             'boolean']}},\n                                                                                                                                                                 'type': ['null',\n                                                                                                                                                                          'object']},\n                                                                                                                                                       'type': ['null',\n                                                                                                                                                                'array']},\n                                                                                                                                'name': {'type': ['null',\n                                                                                                                                                  'string']},\n                                                                                                                                'ordinal': {'type': ['null',\n                                                                                                                                                     'integer']},\n                                                                                                                                'price_money': {'properties': {'amount': {'type': ['null',\n                                                                                                                                                                                   'integer']},\n                                                                                                                                                               'currency': {'type': ['null',\n                                                                                                                                                                                     'string']}},\n                                                                                                                                                'type': ['null',\n                                                                                                                                                         'object']},\n                                                                                                                                'pricing_type': {'type': ['null',\n                                                                                                                                                          'string']},\n                                                                                                                                'sku': {'type': ['null',\n                                                                                                                                                 'string']}},\n                                                                                                                 'type': ['null',\n                                                                                                                          'object']},\n                                                                                         'present_at_all_locations': {'type': ['null',\n                                                                                                                               'boolean']},\n                                                                                         'present_at_location_ids': {'items': {'type': ['null',\n                                                                                                                                        'string']},\n                                                                                                                     'type': ['null',\n                                                                                                                              'array']},\n                                                                                         'type': {'type': ['null',\n                                                                                                           'string']},\n                                                                                         'updated_at': {'type': ['null',\n                                                                                                                 'string']},\n                                                                                         'version': {'type': ['null',\n                                                                                                              'integer']}},\n                                                                          'type': ['null',\n                                                                                   'object']},\n                                                                'type': ['null',\n                                                                         'array']},\n                                                 'visibility': {'type': ['null',\n                                                                         'string']}},\n                                  'type': ['null', 'object']},\n                    'present_at_all_locations': {'type': ['null',\n                                                          'boolean']},\n                    'present_at_location_ids': {'items': {'type': ['null',\n                                                                   'string']},\n                                                'type': ['null', 'array']},\n                    'type': {'type': ['null', 'string']},\n                    'updated_at': {'type': ['null', 'string']},\n                    'version': {'type': ['null', 'integer']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'created_at': '2022-11-11T16:33:56.341Z',\n     'id': 'BMHTD2SV4AE2JB3D5WIFE4FV',\n     'is_deleted': False,\n     'item_data': {'category_id': 'HBD5GWCOP5U2S5YY5KJCAZKL',\n                   'description': 'example description',\n                   'is_taxable': True,\n                   'item_options': [{'item_option_id': 'LFP67NW6A4BOJXGPNPL44V75'}],\n                   'name': 'Product 3',\n                   'product_type': 'REGULAR',\n                   'skip_modifier_screen': False,\n                   'tax_ids': ['KL5UUZVGD7Y4WJYMJUHWRMQG'],\n                   'variations': [{'created_at': '2022-11-11T16:33:56.341Z',\n                                   'id': 'HL24W6ZWOTLNBHA5NNPLAC67',\n                                   'is_deleted': False,\n                                   'item_variation_data': {'item_id': 'BMHTD2SV4AE2JB3D5WIFE4FV',\n                                                           'item_option_values': [{'item_option_id': 'LFP67NW6A4BOJXGPNPL44V75',\n                                                                                   'item_option_value_id': 'QLVPI6DSHICEAJ4IKIRYKQV7'}],\n                                                           'name': 'blue',\n                                                           'ordinal': 0,\n                                                           'price_money': {'amount': 3000,\n                                                                           'currency': 'USD'},\n                                                           'pricing_type': 'FIXED_PRICING',\n                                                           'sku': 'test_prod_3',\n                                                           'track_inventory': False},\n                                   'present_at_all_locations': True,\n                                   'type': 'ITEM_VARIATION',\n                                   'updated_at': '2022-11-11T16:33:56.341Z',\n                                   'version': 1668184436341},\n                                  {'created_at': '2022-11-11T16:33:56.341Z',\n                                   'id': 'EMRLAGK7GUIGK6FCRHK4IL4V',\n                                   'is_deleted': False,\n                                   'item_variation_data': {'item_id': 'BMHTD2SV4AE2JB3D5WIFE4FV',\n                                                           'item_option_values': [{'item_option_id': 'LFP67NW6A4BOJXGPNPL44V75',\n                                                                                   'item_option_value_id': 'LQXW52ZSSYMHIEUE64KJGMOE'}],\n                                                           'name': 'black',\n                                                           'ordinal': 1,\n                                                           'pricing_type': 'VARIABLE_PRICING',\n                                                           'track_inventory': False},\n                                   'present_at_all_locations': True,\n                                   'type': 'ITEM_VARIATION',\n                                   'updated_at': '2022-11-11T16:33:56.341Z',\n                                   'version': 1668184436341},\n                                  {'created_at': '2022-11-11T16:33:56.341Z',\n                                   'id': '5RKTRNG55IGWLW5IG52RFF6S',\n                                   'is_deleted': False,\n                                   'item_variation_data': {'item_id': 'BMHTD2SV4AE2JB3D5WIFE4FV',\n                                                           'item_option_values': [{'item_option_id': 'LFP67NW6A4BOJXGPNPL44V75',\n                                                                                   'item_option_value_id': 'QA6WRDULEFY7SYB5FMAVYX55'}],\n                                                           'name': 'white',\n                                                           'ordinal': 2,\n                                                           'pricing_type': 'VARIABLE_PRICING',\n                                                           'track_inventory': False},\n                                   'present_at_all_locations': True,\n                                   'type': 'ITEM_VARIATION',\n                                   'updated_at': '2022-11-11T16:33:56.341Z',\n                                   'version': 1668184436341}],\n                   'visibility': 'PRIVATE'},\n     'present_at_all_locations': True,\n     'type': 'ITEM',\n     'updated_at': '2023-01-29T22:48:53.024Z',\n     'version': 1675032533024}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe categories stream has the following schema errors:\nAdditional properties are not allowed ('created_at' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'category_data': {'properties': {'name': {'type': ['null',\n                                                                       'string']}},\n                                      'type': ['null', 'object']},\n                    'id': {'type': ['null', 'string']},\n                    'is_deleted': {'type': ['null', 'boolean']},\n                    'present_at_all_locations': {'type': ['null',\n                                                          'boolean']},\n                    'type': {'type': ['null', 'string']},\n                    'updated_at': {'type': ['null', 'string']},\n                    'version': {'type': ['null', 'integer']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'category_data': {'is_top_level': True, 'name': 'Category_5'},\n     'created_at': '2022-11-11T15:48:48.605Z',\n     'id': '45D42VRNFYI55THLHH6VUB44',\n     'is_deleted': False,\n     'present_at_all_locations': True,\n     'type': 'CATEGORY',\n     'updated_at': '2022-11-11T15:48:48.605Z',\n     'version': 1668181728605}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe discounts stream has the following schema errors:\nAdditional properties are not allowed ('created_at' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'discount_data': {'properties': {'amount_money': {'properties': {'amount': {'type': ['null',\n                                                                                                         'integer']},\n                                                                                     'currency': {'type': ['null',\n                                                                                                           'string']}},\n                                                                      'type': ['null',\n                                                                               'object']},\n                                                     'application_method': {'type': ['null',\n                                                                                     'string']},\n                                                     'discount_type': {'type': ['null',\n                                                                                'string']},\n                                                     'modify_tax_basis': {'type': ['null',\n                                                                                   'string']},\n                                                     'name': {'type': ['null',\n                                                                       'string']},\n                                                     'percentage': {'type': ['null',\n                                                                             'string']},\n                                                     'pin_required': {'type': ['null',\n                                                                               'boolean']}},\n                                      'type': ['null', 'object']},\n                    'id': {'type': ['null', 'string']},\n                    'is_deleted': {'type': ['null', 'boolean']},\n                    'present_at_all_locations': {'type': ['null',\n                                                          'boolean']},\n                    'present_at_location_ids': {'items': {'type': ['null',\n                                                                   'string']},\n                                                'type': ['null', 'array']},\n                    'type': {'type': ['null', 'string']},\n                    'updated_at': {'type': ['null', 'string']},\n                    'version': {'type': ['null', 'integer']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'created_at': '2022-11-11T15:52:56.188Z',\n     'discount_data': {'amount_money': {'amount': 2000, 'currency': 'USD'},\n                       'application_method': 'MANUALLY_APPLIED',\n                       'discount_type': 'FIXED_AMOUNT',\n                       'modify_tax_basis': 'MODIFY_TAX_BASIS',\n                       'name': '$20'},\n     'id': 'F3HLUHHAVJ7ILMKLLHBGJZR7',\n     'is_deleted': False,\n     'present_at_all_locations': True,\n     'type': 'DISCOUNT',\n     'updated_at': '2022-11-11T15:52:56.188Z',\n     'version': 1668181976188}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe taxes stream has the following schema errors:\nAdditional properties are not allowed ('created_at' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'absent_at_location_ids': {'items': {'type': ['null',\n                                                                  'string']},\n                                               'type': ['null', 'array']},\n                    'id': {'type': ['null', 'string']},\n                    'is_deleted': {'type': ['null', 'boolean']},\n                    'present_at_all_locations': {'type': ['null',\n                                                          'boolean']},\n                    'tax_data': {'properties': {'applies_to_custom_amounts': {'type': ['null',\n                                                                                       'boolean']},\n                                                'calculation_phase': {'type': ['null',\n                                                                               'string']},\n                                                'enabled': {'type': ['null',\n                                                                     'boolean']},\n                                                'inclusion_type': {'type': ['null',\n                                                                            'string']},\n                                                'name': {'type': ['null',\n                                                                  'string']},\n                                                'percentage': {'type': ['null',\n                                                                        'string']},\n                                                'tax_type_id': {'type': ['null',\n                                                                         'string']},\n                                                'tax_type_name': {'type': ['null',\n                                                                           'string']}},\n                                 'type': ['null', 'object']},\n                    'type': {'type': ['null', 'string']},\n                    'updated_at': {'type': ['null', 'string']},\n                    'version': {'type': ['null', 'integer']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'created_at': '2022-11-11T15:53:22.62Z',\n     'id': 'KL5UUZVGD7Y4WJYMJUHWRMQG',\n     'is_deleted': False,\n     'present_at_all_locations': True,\n     'tax_data': {'applies_to_custom_amounts': True,\n                  'applies_to_product_set_id': 'CJ3QM75PNEPAQ4VGRHC4EFPW',\n                  'calculation_phase': 'TAX_SUBTOTAL_PHASE',\n                  'enabled': True,\n                  'inclusion_type': 'ADDITIVE',\n                  'name': 'Sales Tax',\n                  'percentage': '6.0',\n                  'tax_type_id': 'us_sales_tax',\n                  'tax_type_name': 'Sales Tax'},\n     'type': 'TAX',\n     'updated_at': '2022-11-11T15:53:22.62Z',\n     'version': 1668182002620}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe modifier_list stream has the following schema errors:\nAdditional properties are not allowed ('created_at' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'id': {'type': ['null', 'string']},\n                    'is_deleted': {'type': ['null', 'boolean']},\n                    'modifier_list_data': {'properties': {'modifiers': {'items': {'properties': {'id': {'type': ['null',\n                                                                                                                 'string']},\n                                                                                                 'is_deleted': {'type': ['null',\n                                                                                                                         'boolean']},\n                                                                                                 'modifier_data': {'properties': {'modifier_list_id': {'type': ['null',\n                                                                                                                                                                'string']},\n                                                                                                                                  'name': {'type': ['null',\n                                                                                                                                                    'string']},\n                                                                                                                                  'on_by_default': {'type': ['null',\n                                                                                                                                                             'boolean']},\n                                                                                                                                  'ordinal': {'type': ['null',\n                                                                                                                                                       'integer']},\n                                                                                                                                  'price_money': {'properties': {'amount': {'type': ['null',\n                                                                                                                                                                                     'integer']},\n                                                                                                                                                                 'currency': {'type': ['null',\n                                                                                                                                                                                       'string']}},\n                                                                                                                                                  'type': ['null',\n                                                                                                                                                           'object']}},\n                                                                                                                   'type': ['null',\n                                                                                                                            'object']},\n                                                                                                 'present_at_all_locations': {'type': ['null',\n                                                                                                                                       'boolean']},\n                                                                                                 'type': {'type': ['null',\n                                                                                                                   'string']},\n                                                                                                 'updated_at': {'type': ['null',\n                                                                                                                         'string']},\n                                                                                                 'version': {'type': ['null',\n                                                                                                                      'integer']}},\n                                                                                  'type': ['null',\n                                                                                           'object']},\n                                                                        'type': ['null',\n                                                                                 'array']},\n                                                          'name': {'type': ['null',\n                                                                            'string']},\n                                                          'selection_type': {'type': ['null',\n                                                                                      'string']}},\n                                           'type': ['null', 'object']},\n                    'present_at_all_locations': {'type': ['null',\n                                                          'boolean']},\n                    'type': {'type': ['null', 'string']},\n                    'updated_at': {'type': ['null', 'string']},\n                    'version': {'type': ['null', 'integer']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'created_at': '2022-11-11T16:40:38.897Z',\n     'id': 'IQVWOIVQOUM7EBUBCELJDXYN',\n     'is_deleted': False,\n     'modifier_list_data': {'modifiers': [{'created_at': '2022-11-11T16:40:38.897Z',\n                                           'id': 'O3GDEULEWXFQE5XW6DY7ZIXX',\n                                           'is_deleted': False,\n                                           'modifier_data': {'modifier_list_id': 'IQVWOIVQOUM7EBUBCELJDXYN',\n                                                             'name': 'sample',\n                                                             'on_by_default': True,\n                                                             'ordinal': 1,\n                                                             'price_money': {'amount': 1000,\n                                                                             'currency': 'USD'}},\n                                           'present_at_all_locations': True,\n                                           'type': 'MODIFIER',\n                                           'updated_at': '2022-11-11T16:40:38.897Z',\n                                           'version': 1668184838897}],\n                            'name': 'modifier_1',\n                            'selection_type': 'SINGLE'},\n     'present_at_all_locations': True,\n     'type': 'MODIFIER_LIST',\n     'updated_at': '2022-11-11T16:40:38.897Z',\n     'version': 1668184838897}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The items stream has the following schema errors:
+Additional properties are not allowed ('created_at' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'custom_attribute_values': {'type': ['null', 'object']},
+                    'id': {'type': ['null', 'string']},
+                    'image_id': {'type': ['null', 'string']},
+                    'is_deleted': {'type': ['null', 'boolean']},
+                    'item_data': {'properties': {'category_id': {'type': ['null',
+                                                                          'string']},
+                                                 'description': {'type': ['null',
+                                                                          'string']},
+                                                 'ecom_visibility': {'type': ['null',
+                                                                              'string']},
+                                                 'item_options': {'items': {'properties': {'item_option_id': {'type': ['null',
+                                                                                                                       'string']}},
+                                                                            'type': ['null',
+                                                                                     'object']},
+                                                                  'type': ['null',
+                                                                           'array']},
+                                                 'modifier_list_info': {'items': {'properties': {'enabled': {'type': ['null',
+                                                                                                                      'boolean']},
+                                                                                                 'max_selected_modifiers': {'type': ['null',
+                                                                                                                                     'integer']},
+                                                                                                 'min_selected_modifiers': {'type': ['null',
+                                                                                                                                     'integer']},
+                                                                                                 'modifier_list_id': {'type': ['null',
+                                                                                                                               'string']},
+                                                                                                 'visibility': {'type': ['null',
+                                                                                                                         'string']}},
+                                                                                  'type': ['null',
+                                                                                           'object']},
+                                                                        'type': ['null',
+                                                                                 'array']},
+                                                 'name': {'type': ['null',
+                                                                   'string']},
+                                                 'product_type': {'type': ['null',
+                                                                           'string']},
+                                                 'skip_modifier_screen': {'type': ['null',
+                                                                                   'boolean']},
+                                                 'tax_ids': {'items': {'type': ['null',
+                                                                                'string']},
+                                                             'type': ['null',
+                                                                      'array']},
+                                                 'variations': {'items': {'properties': {'id': {'type': ['null',
+                                                                                                         'string']},
+                                                                                         'is_deleted': {'type': ['null',
+                                                                                                                 'boolean']},
+                                                                                         'item_variation_data': {'properties': {'item_id': {'type': ['null',
+                                                                                                                                                     'string']},
+                                                                                                                                'item_option_values': {'items': {'properties': {'item_option_id': {'type': ['null',
+                                                                                                                                                                                                            'string']},
+                                                                                                                                                                                'item_option_value_id': {'type': ['null',
+                                                                                                                                                                                                                  'string']}},
+                                                                                                                                                                 'type': ['null',
+                                                                                                                                                                          'object']},
+                                                                                                                                                       'type': ['null',
+                                                                                                                                                                'array']},
+                                                                                                                                'location_overrides': {'items': {'properties': {'location_id': {'type': ['null',
+                                                                                                                                                                                                         'string']},
+                                                                                                                                                                                'track_inventory': {'type': ['null',
+                                                                                                                                                                                                             'boolean']}},
+                                                                                                                                                                 'type': ['null',
+                                                                                                                                                                          'object']},
+                                                                                                                                                       'type': ['null',
+                                                                                                                                                                'array']},
+                                                                                                                                'name': {'type': ['null',
+                                                                                                                                                  'string']},
+                                                                                                                                'ordinal': {'type': ['null',
+                                                                                                                                                     'integer']},
+                                                                                                                                'price_money': {'properties': {'amount': {'type': ['null',
+                                                                                                                                                                                   'integer']},
+                                                                                                                                                               'currency': {'type': ['null',
+                                                                                                                                                                                     'string']}},
+                                                                                                                                                'type': ['null',
+                                                                                                                                                         'object']},
+                                                                                                                                'pricing_type': {'type': ['null',
+                                                                                                                                                          'string']},
+                                                                                                                                'sku': {'type': ['null',
+                                                                                                                                                 'string']}},
+                                                                                                                 'type': ['null',
+                                                                                                                          'object']},
+                                                                                         'present_at_all_locations': {'type': ['null',
+                                                                                                                               'boolean']},
+                                                                                         'present_at_location_ids': {'items': {'type': ['null',
+                                                                                                                                        'string']},
+                                                                                                                     'type': ['null',
+                                                                                                                              'array']},
+                                                                                         'type': {'type': ['null',
+                                                                                                           'string']},
+                                                                                         'updated_at': {'type': ['null',
+                                                                                                                 'string']},
+                                                                                         'version': {'type': ['null',
+                                                                                                              'integer']}},
+                                                                          'type': ['null',
+                                                                                   'object']},
+                                                                'type': ['null',
+                                                                         'array']},
+                                                 'visibility': {'type': ['null',
+                                                                         'string']}},
+                                  'type': ['null', 'object']},
+                    'present_at_all_locations': {'type': ['null',
+                                                          'boolean']},
+                    'present_at_location_ids': {'items': {'type': ['null',
+                                                                   'string']},
+                                                'type': ['null', 'array']},
+                    'type': {'type': ['null', 'string']},
+                    'updated_at': {'type': ['null', 'string']},
+                    'version': {'type': ['null', 'integer']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'created_at': '2022-11-11T16:33:56.341Z',
+     'id': 'BMHTD2SV4AE2JB3D5WIFE4FV',
+     'is_deleted': False,
+     'item_data': {'category_id': 'HBD5GWCOP5U2S5YY5KJCAZKL',
+                   'description': 'example description',
+                   'is_taxable': True,
+                   'item_options': [{'item_option_id': 'LFP67NW6A4BOJXGPNPL44V75'}],
+                   'name': 'Product 3',
+                   'product_type': 'REGULAR',
+                   'skip_modifier_screen': False,
+                   'tax_ids': ['KL5UUZVGD7Y4WJYMJUHWRMQG'],
+                   'variations': [{'created_at': '2022-11-11T16:33:56.341Z',
+                                   'id': 'HL24W6ZWOTLNBHA5NNPLAC67',
+                                   'is_deleted': False,
+                                   'item_variation_data': {'item_id': 'BMHTD2SV4AE2JB3D5WIFE4FV',
+                                                           'item_option_values': [{'item_option_id': 'LFP67NW6A4BOJXGPNPL44V75',
+                                                                                   'item_option_value_id': 'QLVPI6DSHICEAJ4IKIRYKQV7'}],
+                                                           'name': 'blue',
+                                                           'ordinal': 0,
+                                                           'price_money': {'amount': 3000,
+                                                                           'currency': 'USD'},
+                                                           'pricing_type': 'FIXED_PRICING',
+                                                           'sku': 'test_prod_3',
+                                                           'track_inventory': False},
+                                   'present_at_all_locations': True,
+                                   'type': 'ITEM_VARIATION',
+                                   'updated_at': '2022-11-11T16:33:56.341Z',
+                                   'version': 1668184436341},
+                                  {'created_at': '2022-11-11T16:33:56.341Z',
+                                   'id': 'EMRLAGK7GUIGK6FCRHK4IL4V',
+                                   'is_deleted': False,
+                                   'item_variation_data': {'item_id': 'BMHTD2SV4AE2JB3D5WIFE4FV',
+                                                           'item_option_values': [{'item_option_id': 'LFP67NW6A4BOJXGPNPL44V75',
+                                                                                   'item_option_value_id': 'LQXW52ZSSYMHIEUE64KJGMOE'}],
+                                                           'name': 'black',
+                                                           'ordinal': 1,
+                                                           'pricing_type': 'VARIABLE_PRICING',
+                                                           'track_inventory': False},
+                                   'present_at_all_locations': True,
+                                   'type': 'ITEM_VARIATION',
+                                   'updated_at': '2022-11-11T16:33:56.341Z',
+                                   'version': 1668184436341},
+                                  {'created_at': '2022-11-11T16:33:56.341Z',
+                                   'id': '5RKTRNG55IGWLW5IG52RFF6S',
+                                   'is_deleted': False,
+                                   'item_variation_data': {'item_id': 'BMHTD2SV4AE2JB3D5WIFE4FV',
+                                                           'item_option_values': [{'item_option_id': 'LFP67NW6A4BOJXGPNPL44V75',
+                                                                                   'item_option_value_id': 'QA6WRDULEFY7SYB5FMAVYX55'}],
+                                                           'name': 'white',
+                                                           'ordinal': 2,
+                                                           'pricing_type': 'VARIABLE_PRICING',
+                                                           'track_inventory': False},
+                                   'present_at_all_locations': True,
+                                   'type': 'ITEM_VARIATION',
+                                   'updated_at': '2022-11-11T16:33:56.341Z',
+                                   'version': 1668184436341}],
+                   'visibility': 'PRIVATE'},
+     'present_at_all_locations': True,
+     'type': 'ITEM',
+     'updated_at': '2023-01-29T22:48:53.024Z',
+     'version': 1675032533024}
+ERROR    root:test_core.py:662 
+The categories stream has the following schema errors:
+Additional properties are not allowed ('created_at' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'category_data': {'properties': {'name': {'type': ['null',
+                                                                       'string']}},
+                                      'type': ['null', 'object']},
+                    'id': {'type': ['null', 'string']},
+                    'is_deleted': {'type': ['null', 'boolean']},
+                    'present_at_all_locations': {'type': ['null',
+                                                          'boolean']},
+                    'type': {'type': ['null', 'string']},
+                    'updated_at': {'type': ['null', 'string']},
+                    'version': {'type': ['null', 'integer']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'category_data': {'is_top_level': True, 'name': 'Category_5'},
+     'created_at': '2022-11-11T15:48:48.605Z',
+     'id': '45D42VRNFYI55THLHH6VUB44',
+     'is_deleted': False,
+     'present_at_all_locations': True,
+     'type': 'CATEGORY',
+     'updated_at': '2022-11-11T15:48:48.605Z',
+     'version': 1668181728605}
+ERROR    root:test_core.py:662 
+The discounts stream has the following schema errors:
+Additional properties are not allowed ('created_at' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'discount_data': {'properties': {'amount_money': {'properties': {'amount': {'type': ['null',
+                                                                                                         'integer']},
+                                                                                     'currency': {'type': ['null',
+                                                                                                           'string']}},
+                                                                      'type': ['null',
+                                                                               'object']},
+                                                     'application_method': {'type': ['null',
+                                                                                     'string']},
+                                                     'discount_type': {'type': ['null',
+                                                                                'string']},
+                                                     'modify_tax_basis': {'type': ['null',
+                                                                                   'string']},
+                                                     'name': {'type': ['null',
+                                                                       'string']},
+                                                     'percentage': {'type': ['null',
+                                                                             'string']},
+                                                     'pin_required': {'type': ['null',
+                                                                               'boolean']}},
+                                      'type': ['null', 'object']},
+                    'id': {'type': ['null', 'string']},
+                    'is_deleted': {'type': ['null', 'boolean']},
+                    'present_at_all_locations': {'type': ['null',
+                                                          'boolean']},
+                    'present_at_location_ids': {'items': {'type': ['null',
+                                                                   'string']},
+                                                'type': ['null', 'array']},
+                    'type': {'type': ['null', 'string']},
+                    'updated_at': {'type': ['null', 'string']},
+                    'version': {'type': ['null', 'integer']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'created_at': '2022-11-11T15:52:56.188Z',
+     'discount_data': {'amount_money': {'amount': 2000, 'currency': 'USD'},
+                       'application_method': 'MANUALLY_APPLIED',
+                       'discount_type': 'FIXED_AMOUNT',
+                       'modify_tax_basis': 'MODIFY_TAX_BASIS',
+                       'name': '$20'},
+     'id': 'F3HLUHHAVJ7ILMKLLHBGJZR7',
+     'is_deleted': False,
+     'present_at_all_locations': True,
+     'type': 'DISCOUNT',
+     'updated_at': '2022-11-11T15:52:56.188Z',
+     'version': 1668181976188}
+ERROR    root:test_core.py:662 
+The taxes stream has the following schema errors:
+Additional properties are not allowed ('created_at' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'absent_at_location_ids': {'items': {'type': ['null',
+                                                                  'string']},
+                                               'type': ['null', 'array']},
+                    'id': {'type': ['null', 'string']},
+                    'is_deleted': {'type': ['null', 'boolean']},
+                    'present_at_all_locations': {'type': ['null',
+                                                          'boolean']},
+                    'tax_data': {'properties': {'applies_to_custom_amounts': {'type': ['null',
+                                                                                       'boolean']},
+                                                'calculation_phase': {'type': ['null',
+                                                                               'string']},
+                                                'enabled': {'type': ['null',
+                                                                     'boolean']},
+                                                'inclusion_type': {'type': ['null',
+                                                                            'string']},
+                                                'name': {'type': ['null',
+                                                                  'string']},
+                                                'percentage': {'type': ['null',
+                                                                        'string']},
+                                                'tax_type_id': {'type': ['null',
+                                                                         'string']},
+                                                'tax_type_name': {'type': ['null',
+                                                                           'string']}},
+                                 'type': ['null', 'object']},
+                    'type': {'type': ['null', 'string']},
+                    'updated_at': {'type': ['null', 'string']},
+                    'version': {'type': ['null', 'integer']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'created_at': '2022-11-11T15:53:22.62Z',
+     'id': 'KL5UUZVGD7Y4WJYMJUHWRMQG',
+     'is_deleted': False,
+     'present_at_all_locations': True,
+     'tax_data': {'applies_to_custom_amounts': True,
+                  'applies_to_product_set_id': 'CJ3QM75PNEPAQ4VGRHC4EFPW',
+                  'calculation_phase': 'TAX_SUBTOTAL_PHASE',
+                  'enabled': True,
+                  'inclusion_type': 'ADDITIVE',
+                  'name': 'Sales Tax',
+                  'percentage': '6.0',
+                  'tax_type_id': 'us_sales_tax',
+                  'tax_type_name': 'Sales Tax'},
+     'type': 'TAX',
+     'updated_at': '2022-11-11T15:53:22.62Z',
+     'version': 1668182002620}
+ERROR    root:test_core.py:662 
+The modifier_list stream has the following schema errors:
+Additional properties are not allowed ('created_at' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'id': {'type': ['null', 'string']},
+                    'is_deleted': {'type': ['null', 'boolean']},
+                    'modifier_list_data': {'properties': {'modifiers': {'items': {'properties': {'id': {'type': ['null',
+                                                                                                                 'string']},
+                                                                                                 'is_deleted': {'type': ['null',
+                                                                                                                         'boolean']},
+                                                                                                 'modifier_data': {'properties': {'modifier_list_id': {'type': ['null',
+                                                                                                                                                                'string']},
+                                                                                                                                  'name': {'type': ['null',
+                                                                                                                                                    'string']},
+                                                                                                                                  'on_by_default': {'type': ['null',
+                                                                                                                                                             'boolean']},
+                                                                                                                                  'ordinal': {'type': ['null',
+                                                                                                                                                       'integer']},
+                                                                                                                                  'price_money': {'properties': {'amount': {'type': ['null',
+                                                                                                                                                                                     'integer']},
+                                                                                                                                                                 'currency': {'type': ['null',
+                                                                                                                                                                                       'string']}},
+                                                                                                                                                  'type': ['null',
+                                                                                                                                                           'object']}},
+                                                                                                                   'type': ['null',
+                                                                                                                            'object']},
+                                                                                                 'present_at_all_locations': {'type': ['null',
+                                                                                                                                       'boolean']},
+                                                                                                 'type': {'type': ['null',
+                                                                                                                   'string']},
+                                                                                                 'updated_at': {'type': ['null',
+                                                                                                                         'string']},
+                                                                                                 'version': {'type': ['null',
+                                                                                                                      'integer']}},
+                                                                                  'type': ['null',
+                                                                                           'object']},
+                                                                        'type': ['null',
+                                                                                 'array']},
+                                                          'name': {'type': ['null',
+                                                                            'string']},
+                                                          'selection_type': {'type': ['null',
+                                                                                      'string']}},
+                                           'type': ['null', 'object']},
+                    'present_at_all_locations': {'type': ['null',
+                                                          'boolean']},
+                    'type': {'type': ['null', 'string']},
+                    'updated_at': {'type': ['null', 'string']},
+                    'version': {'type': ['null', 'integer']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'created_at': '2022-11-11T16:40:38.897Z',
+     'id': 'IQVWOIVQOUM7EBUBCELJDXYN',
+     'is_deleted': False,
+     'modifier_list_data': {'modifiers': [{'created_at': '2022-11-11T16:40:38.897Z',
+                                           'id': 'O3GDEULEWXFQE5XW6DY7ZIXX',
+                                           'is_deleted': False,
+                                           'modifier_data': {'modifier_list_id': 'IQVWOIVQOUM7EBUBCELJDXYN',
+                                                             'name': 'sample',
+                                                             'on_by_default': True,
+                                                             'ordinal': 1,
+                                                             'price_money': {'amount': 1000,
+                                                                             'currency': 'USD'}},
+                                           'present_at_all_locations': True,
+                                           'type': 'MODIFIER',
+                                           'updated_at': '2022-11-11T16:40:38.897Z',
+                                           'version': 1668184838897}],
+                            'name': 'modifier_1',
+                            'selection_type': 'SINGLE'},
+     'present_at_all_locations': True,
+     'type': 'MODIFIER_LIST',
+     'updated_at': '2022-11-11T16:40:38.897Z',
+     'version': 1668184838897}
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+============ 1 failed, 1 passed, 45 deselected in 744.50s (0:12:24) ============

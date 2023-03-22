@@ -1,0 +1,592 @@
+../../../../connectors/source-linkedin-ads/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-linkedin-ads
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 37 items / 35 deselected / 2 selected
+
+../../test_input/test_core.py F                                          [ 50%]
+../../test_input/test_incremental.py .                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffb169ca30>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='accounts', json_schema={'type': [...>, cursor_field=['lastModified'], destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=[['id']])])
+expect_records_config = ExpectedRecordsConfig(bypass_reason=None, path=PosixPath('integration_tests/expected_records.txt'), extra_fields=False, exact_order=False, extra_records=True)
+should_validate_schema = True, should_validate_data_points = False
+should_fail_on_extra_columns = True, empty_streams = set(), ignored_fields = {}
+expected_records_by_stream = defaultdict(<class 'list'>, {'accounts': [{'test': False, 'notifiedOnCreativeRejection': False, 'notifiedOnEndOfCampai...bsitePostViewConversions': 0, 'totalEngagements': 3, 'viralClicks': 0, 'viralCompanyPageClicks': 0, 'videoViews': 0}]})
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffb0e6cb50>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='accounts', data={'test': False, 'notifiedOnCreativeRejection': False, 'n...t:508774356', 'created': '2021-08-21 21:28:19', 'lastModified': '2021-08-21 21:28:19'}, emitted_at=1679407766292), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='accounts', json_schema={'type': [...>, cursor_field=['lastModified'], destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=[['id']])])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('ad_campaign_analytics', 'ad_creative_analytics', 'campaign_groups', 'campaigns', 'creatives').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe ad_campaign_analytics stream has the following schema errors:\nAdditional properties are not allowed ('viralCardImpressions', 'approximateUniqueImpressions', 'cardClicks', 'commentLikes', 'viralCardClicks', 'cardImpressions' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'_pivot': {'type': ['null', 'string']},\n                    'actionClicks': {'type': ['null', 'number']},\n                    'adUnitClicks': {'type': ['null', 'number']},\n                    'clicks': {'type': ['null', 'number']},\n                    'comments': {'type': ['null', 'number']},\n                    'companyPageClicks': {'type': ['null', 'number']},\n                    'conversionValueInLocalCurrency': {'type': ['null',\n                                                                'string']},\n                    'costInLocalCurrency': {'type': ['null', 'string']},\n                    'costInUsd': {'type': ['null', 'string']},\n                    'end_date': {'format': 'date',\n                                 'type': ['null', 'string']},\n                    'externalWebsiteConversions': {'type': ['null',\n                                                            'number']},\n                    'externalWebsitePostClickConversions': {'type': ['null',\n                                                                     'number']},\n                    'externalWebsitePostViewConversions': {'type': ['null',\n                                                                    'number']},\n                    'follows': {'type': ['null', 'number']},\n                    'fullScreenPlays': {'type': ['null', 'number']},\n                    'impressions': {'type': ['null', 'number']},\n                    'landingPageClicks': {'type': ['null', 'number']},\n                    'leadGenerationMailContactInfoShares': {'type': ['null',\n                                                                     'number']},\n                    'leadGenerationMailInterestedClicks': {'type': ['null',\n                                                                    'number']},\n                    'likes': {'type': ['null', 'number']},\n                    'oneClickLeadFormOpens': {'type': ['null', 'number']},\n                    'oneClickLeads': {'type': ['null', 'number']},\n                    'opens': {'type': ['null', 'number']},\n                    'otherEngagements': {'type': ['null', 'number']},\n                    'pivotValue': {'type': ['null', 'string']},\n                    'pivotValues': {'items': {'type': ['null', 'string']},\n                                    'type': ['null', 'array']},\n                    'reactions': {'type': ['null', 'number']},\n                    'sends': {'type': ['null', 'number']},\n                    'shares': {'type': ['null', 'number']},\n                    'start_date': {'format': 'date',\n                                   'type': ['null', 'string']},\n                    'textUrlClicks': {'type': ['null', 'number']},\n                    'totalEngagements': {'type': ['null', 'number']},\n                    'videoCompletions': {'type': ['null', 'number']},\n                    'videoFirstQuartileCompletions': {'type': ['null',\n                                                               'number']},\n                    'videoMidpointCompletions': {'type': ['null',\n                                                          'number']},\n                    'videoStarts': {'type': ['null', 'number']},\n                    'videoThirdQuartileCompletions': {'type': ['null',\n                                                               'number']},\n                    'videoViews': {'type': ['null', 'number']},\n                    'viralClicks': {'type': ['null', 'number']},\n                    'viralCommentLikes': {'type': ['null', 'number']},\n                    'viralComments': {'type': ['null', 'number']},\n                    'viralCompanyPageClicks': {'type': ['null', 'number']},\n                    'viralExternalWebsiteConversions': {'type': ['null',\n                                                                 'number']},\n                    'viralExternalWebsitePostClickConversions': {'type': ['null',\n                                                                          'number']},\n                    'viralExternalWebsitePostViewConversions': {'type': ['null',\n                                                                         'number']},\n                    'viralFollows': {'type': ['null', 'number']},\n                    'viralFullScreenPlays': {'type': ['null', 'number']},\n                    'viralImpressions': {'type': ['null', 'number']},\n                    'viralLandingPageClicks': {'type': ['null', 'number']},\n                    'viralLikes': {'type': ['null', 'number']},\n                    'viralOneClickLeadFormOpens': {'type': ['null',\n                                                            'number']},\n                    'viralOneClickLeads': {'type': ['null', 'number']},\n                    'viralOtherEngagements': {'type': ['null', 'number']},\n                    'viralReactions': {'type': ['null', 'number']},\n                    'viralShares': {'type': ['null', 'number']},\n                    'viralTotalEngagements': {'type': ['null', 'number']},\n                    'viralVideoCompletions': {'type': ['null', 'number']},\n                    'viralVideoFirstQuartileCompletions': {'type': ['null',\n                                                                    'number']},\n                    'viralVideoMidpointCompletions': {'type': ['null',\n                                                               'number']},\n                    'viralVideoStarts': {'type': ['null', 'number']},\n                    'viralVideoThirdQuartileCompletions': {'type': ['null',\n                                                                    'number']},\n                    'viralVideoViews': {'type': ['null', 'number']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'_pivot': 'CAMPAIGN',\n     'actionClicks': 0,\n     'adUnitClicks': 0,\n     'approximateUniqueImpressions': 116,\n     'cardClicks': 0,\n     'cardImpressions': 0,\n     'clicks': 1,\n     'commentLikes': 0,\n     'comments': 0,\n     'companyPageClicks': 0,\n     'conversionValueInLocalCurrency': '0',\n     'costInLocalCurrency': '0.4199999999999997',\n     'costInUsd': '0.4199999999999997',\n     'end_date': '2021-08-14',\n     'externalWebsiteConversions': 0,\n     'externalWebsitePostClickConversions': 0,\n     'externalWebsitePostViewConversions': 0,\n     'follows': 0,\n     'fullScreenPlays': 0,\n     'impressions': 116,\n     'landingPageClicks': 1,\n     'leadGenerationMailContactInfoShares': 0,\n     'leadGenerationMailInterestedClicks': 0,\n     'likes': 0,\n     'oneClickLeadFormOpens': 0,\n     'oneClickLeads': 0,\n     'opens': 0,\n     'otherEngagements': 0,\n     'pivotValue': 'urn:li:sponsoredCampaign:168387646',\n     'pivotValues': ['urn:li:sponsoredCampaign:168387646'],\n     'reactions': 0,\n     'sends': 0,\n     'shares': 0,\n     'start_date': '2021-08-14',\n     'textUrlClicks': 0,\n     'totalEngagements': 1,\n     'videoCompletions': 0,\n     'videoFirstQuartileCompletions': 0,\n     'videoMidpointCompletions': 0,\n     'videoStarts': 0,\n     'videoThirdQuartileCompletions': 0,\n     'videoViews': 0,\n     'viralCardClicks': 0,\n     'viralCardImpressions': 0,\n     'viralClicks': 0,\n     'viralCommentLikes': 0,\n     'viralComments': 0,\n     'viralCompanyPageClicks': 0,\n     'viralExternalWebsiteConversions': 0,\n     'viralExternalWebsitePostClickConversions': 0,\n     'viralExternalWebsitePostViewConversions': 0,\n     'viralFollows': 0}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe ad_creative_analytics stream has the following schema errors:\nAdditional properties are not allowed ('viralCardImpressions', 'approximateUniqueImpressions', 'cardClicks', 'commentLikes', 'viralCardClicks', 'cardImpressions' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'_pivot': {'type': ['null', 'string']},\n                    'actionClicks': {'type': ['null', 'number']},\n                    'adUnitClicks': {'type': ['null', 'number']},\n                    'clicks': {'type': ['null', 'number']},\n                    'comments': {'type': ['null', 'number']},\n                    'companyPageClicks': {'type': ['null', 'number']},\n                    'conversionValueInLocalCurrency': {'type': ['null',\n                                                                'string']},\n                    'costInLocalCurrency': {'type': ['null', 'string']},\n                    'costInUsd': {'type': ['null', 'string']},\n                    'end_date': {'format': 'date',\n                                 'type': ['null', 'string']},\n                    'externalWebsiteConversions': {'type': ['null',\n                                                            'number']},\n                    'externalWebsitePostClickConversions': {'type': ['null',\n                                                                     'number']},\n                    'externalWebsitePostViewConversions': {'type': ['null',\n                                                                    'number']},\n                    'follows': {'type': ['null', 'number']},\n                    'fullScreenPlays': {'type': ['null', 'number']},\n                    'impressions': {'type': ['null', 'number']},\n                    'landingPageClicks': {'type': ['null', 'number']},\n                    'leadGenerationMailContactInfoShares': {'type': ['null',\n                                                                     'number']},\n                    'leadGenerationMailInterestedClicks': {'type': ['null',\n                                                                    'number']},\n                    'likes': {'type': ['null', 'number']},\n                    'oneClickLeadFormOpens': {'type': ['null', 'number']},\n                    'oneClickLeads': {'type': ['null', 'number']},\n                    'opens': {'type': ['null', 'number']},\n                    'otherEngagements': {'type': ['null', 'number']},\n                    'pivotValue': {'type': ['null', 'string']},\n                    'pivotValues': {'items': {'type': ['null', 'string']},\n                                    'type': ['null', 'array']},\n                    'reactions': {'type': ['null', 'number']},\n                    'sends': {'type': ['null', 'number']},\n                    'shares': {'type': ['null', 'number']},\n                    'start_date': {'format': 'date',\n                                   'type': ['null', 'string']},\n                    'textUrlClicks': {'type': ['null', 'number']},\n                    'totalEngagements': {'type': ['null', 'number']},\n                    'videoCompletions': {'type': ['null', 'number']},\n                    'videoFirstQuartileCompletions': {'type': ['null',\n                                                               'number']},\n                    'videoMidpointCompletions': {'type': ['null',\n                                                          'number']},\n                    'videoStarts': {'type': ['null', 'number']},\n                    'videoThirdQuartileCompletions': {'type': ['null',\n                                                               'number']},\n                    'videoViews': {'type': ['null', 'number']},\n                    'viralClicks': {'type': ['null', 'number']},\n                    'viralCommentLikes': {'type': ['null', 'number']},\n                    'viralComments': {'type': ['null', 'number']},\n                    'viralCompanyPageClicks': {'type': ['null', 'number']},\n                    'viralExternalWebsiteConversions': {'type': ['null',\n                                                                 'number']},\n                    'viralExternalWebsitePostClickConversions': {'type': ['null',\n                                                                          'number']},\n                    'viralExternalWebsitePostViewConversions': {'type': ['null',\n                                                                         'number']},\n                    'viralFollows': {'type': ['null', 'number']},\n                    'viralFullScreenPlays': {'type': ['null', 'number']},\n                    'viralImpressions': {'type': ['null', 'number']},\n                    'viralLandingPageClicks': {'type': ['null', 'number']},\n                    'viralLikes': {'type': ['null', 'number']},\n                    'viralOneClickLeadFormOpens': {'type': ['null',\n                                                            'number']},\n                    'viralOneClickLeads': {'type': ['null', 'number']},\n                    'viralOtherEngagements': {'type': ['null', 'number']},\n                    'viralReactions': {'type': ['null', 'number']},\n                    'viralShares': {'type': ['null', 'number']},\n                    'viralTotalEngagements': {'type': ['null', 'number']},\n                    'viralVideoCompletions': {'type': ['null', 'number']},\n                    'viralVideoFirstQuartileCompletions': {'type': ['null',\n                                                                    'number']},\n                    'viralVideoMidpointCompletions': {'type': ['null',\n                                                               'number']},\n                    'viralVideoStarts': {'type': ['null', 'number']},\n                    'viralVideoThirdQuartileCompletions': {'type': ['null',\n                                                                    'number']},\n                    'viralVideoViews': {'type': ['null', 'number']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'_pivot': 'CREATIVE',\n     'actionClicks': 0,\n     'adUnitClicks': 0,\n     'approximateUniqueImpressions': 902,\n     'cardClicks': 0,\n     'cardImpressions': 0,\n     'clicks': 3,\n     'commentLikes': 0,\n     'comments': 0,\n     'companyPageClicks': 0,\n     'conversionValueInLocalCurrency': '0',\n     'costInLocalCurrency': '12.4700000000000025',\n     'costInUsd': '12.4700000000000025',\n     'end_date': '2021-08-11',\n     'externalWebsiteConversions': 0,\n     'externalWebsitePostClickConversions': 0,\n     'externalWebsitePostViewConversions': 0,\n     'follows': 0,\n     'fullScreenPlays': 0,\n     'impressions': 994,\n     'landingPageClicks': 3,\n     'leadGenerationMailContactInfoShares': 0,\n     'leadGenerationMailInterestedClicks': 0,\n     'likes': 0,\n     'oneClickLeadFormOpens': 0,\n     'oneClickLeads': 0,\n     'opens': 0,\n     'otherEngagements': 0,\n     'pivotValue': 'urn:li:sponsoredCreative:133813726',\n     'pivotValues': ['urn:li:sponsoredCreative:133813726'],\n     'reactions': 0,\n     'sends': 0,\n     'shares': 0,\n     'start_date': '2021-08-11',\n     'textUrlClicks': 0,\n     'totalEngagements': 3,\n     'videoCompletions': 0,\n     'videoFirstQuartileCompletions': 0,\n     'videoMidpointCompletions': 0,\n     'videoStarts': 0,\n     'videoThirdQuartileCompletions': 0,\n     'videoViews': 0,\n     'viralCardClicks': 0,\n     'viralCardImpressions': 0,\n     'viralClicks': 0,\n     'viralCommentLikes': 0,\n     'viralComments': 0,\n     'viralCompanyPageClicks': 0,\n     'viralExternalWebsiteConversions': 0,\n     'viralExternalWebsitePostClickConversions': 0,\n     'viralExternalWebsitePostViewConversions': 0,\n     'viralFollows': 0}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe campaign_groups stream has the following schema errors:\nAdditional properties are not allowed ('totalBudget' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'account': {'type': ['null', 'string']},\n                    'allowedCampaignTypes': {'items': {'type': ['null',\n                                                                'string']},\n                                             'type': ['null', 'array']},\n                    'backfilled': {'type': ['null', 'boolean']},\n                    'created': {'format': 'date-time',\n                                'type': ['null', 'string']},\n                    'id': {'type': ['null', 'integer']},\n                    'lastModified': {'format': 'date-time',\n                                     'type': ['null', 'string']},\n                    'name': {'type': ['null', 'string']},\n                    'runSchedule': {'properties': {'end': {'type': ['null',\n                                                                    'integer']},\n                                                   'start': {'type': ['null',\n                                                                      'integer']}},\n                                    'type': ['null', 'object']},\n                    'servingStatuses': {'items': {'type': ['null',\n                                                           'string']},\n                                        'type': ['null', 'array']},\n                    'status': {'type': ['null', 'string']},\n                    'test': {'type': ['null', 'boolean']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'account': 'urn:li:sponsoredAccount:508720451',\n     'backfilled': False,\n     'created': '2021-08-06 06:01:33',\n     'id': 616471656,\n     'lastModified': '2021-09-06 23:35:14',\n     'name': 'Airbyte Test',\n     'runSchedule': {'end': 1630971900000, 'start': 1628229693058},\n     'servingStatuses': ['CAMPAIGN_GROUP_END_DATE_HOLD',\n                         'CAMPAIGN_GROUP_TOTAL_BUDGET_HOLD'],\n     'status': 'ACTIVE',\n     'test': False,\n     'totalBudget': {'amount': '100', 'currencyCode': 'USD'}}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe campaigns stream has the following schema errors:\nAdditional properties are not allowed ('offsitePreferences', 'test' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'account': {'type': ['null', 'string']},\n                    'associatedEntity': {'type': ['null', 'string']},\n                    'audienceExpansionEnabled': {'type': ['null',\n                                                          'boolean']},\n                    'campaignGroup': {'type': ['null', 'string']},\n                    'costType': {'type': ['null', 'string']},\n                    'created': {'format': 'date-time',\n                                'type': ['null', 'string']},\n                    'creativeSelection': {'type': ['null', 'string']},\n                    'dailyBudget': {'properties': {'amount': {'type': ['null',\n                                                                       'string']},\n                                                   'currencyCode': {'type': ['null',\n                                                                             'string']}},\n                                    'type': ['null', 'object']},\n                    'format': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'integer']},\n                    'lastModified': {'format': 'date-time',\n                                     'type': ['null', 'string']},\n                    'locale': {'properties': {'country': {'type': ['null',\n                                                                   'string']},\n                                              'language': {'type': ['null',\n                                                                    'string']}},\n                               'type': ['null', 'object']},\n                    'name': {'type': ['null', 'string']},\n                    'objectiveType': {'type': ['null', 'string']},\n                    'offsiteDeliveryEnabled': {'type': ['null', 'boolean']},\n                    'optimizationTargetType': {'type': ['null', 'string']},\n                    'pacingStrategy': {'type': ['null', 'string']},\n                    'runSchedule': {'properties': {'end': {'type': ['null',\n                                                                    'integer']},\n                                                   'start': {'type': ['null',\n                                                                      'integer']}},\n                                    'type': ['null', 'object']},\n                    'servingStatuses': {'items': {'type': ['null',\n                                                           'string']},\n                                        'type': ['null', 'array']},\n                    'status': {'type': ['null', 'string']},\n                    'storyDeliveryEnabled': {'type': ['null', 'boolean']},\n                    'targetingCriteria': {'properties': {'exclude': {'properties': {'or': {'items': {'properties': {'type': {'type': ['null',\n                                                                                                                                      'string']},\n                                                                                                                    'values': {'items': {'type': ['null',\n                                                                                                                                                  'string']},\n                                                                                                                               'type': ['null',\n                                                                                                                                        'array']}},\n                                                                                                     'type': ['null',\n                                                                                                              'object']},\n                                                                                           'type': ['null',\n                                                                                                    'array']}},\n                                                                     'type': ['null',\n                                                                              'object']},\n                                                         'include': {'properties': {'and': {'items': {'properties': {'type': {'type': ['null',\n                                                                                                                                       'string']},\n                                                                                                                     'values': {'items': {'type': ['null',\n                                                                                                                                                   'string']},\n                                                                                                                                'type': ['null',\n                                                                                                                                         'array']}},\n                                                                                                      'type': ['null',\n                                                                                                               'object']},\n                                                                                            'type': ['null',\n                                                                                                     'array']}},\n                                                                     'type': ['null',\n                                                                              'object']}},\n                                          'type': ['null', 'object']},\n                    'type': {'type': ['null', 'string']},\n                    'unitCost': {'properties': {'amount': {'type': ['null',\n                                                                    'string']},\n                                                'currencyCode': {'type': ['null',\n                                                                          'string']}},\n                                 'type': ['null', 'object']},\n                    'version': {'properties': {'versionTag': {'type': ['null',\n                                                                       'string']}},\n                                'type': ['null', 'object']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'account': 'urn:li:sponsoredAccount:508777244',\n     'associatedEntity': 'urn:li:organization:64265083',\n     'audienceExpansionEnabled': True,\n     'campaignGroup': 'urn:li:sponsoredCampaignGroup:616749086',\n     'costType': 'CPM',\n     'created': '2021-08-22 20:37:17',\n     'creativeSelection': 'OPTIMIZED',\n     'dailyBudget': {'amount': '100', 'currencyCode': 'USD'},\n     'format': 'SINGLE_VIDEO',\n     'id': 169037246,\n     'lastModified': '2021-11-07 12:20:05',\n     'locale': {'country': 'US', 'language': 'en'},\n     'name': 'Brand awareness - Aug 22, 2021',\n     'objectiveType': 'BRAND_AWARENESS',\n     'offsiteDeliveryEnabled': True,\n     'offsitePreferences': {'iabCategories': {'exclude': []},\n                            'publisherRestrictionFiles': {'exclude': [],\n                                                          'include': []}},\n     'optimizationTargetType': 'MAX_REACH',\n     'pacingStrategy': 'LIFETIME',\n     'runSchedule': {'start': 1629590400000},\n     'servingStatuses': ['STOPPED',\n                         'ACCOUNT_SERVING_HOLD',\n                         'CAMPAIGN_GROUP_STATUS_HOLD'],\n     'status': 'DRAFT',\n     'storyDeliveryEnabled': False,\n     'targetingCriteria': {'include': {'and': [{'type': 'urn:li:adTargetingFacet:interfaceLocales',\n                                                'values': ['urn:li:locale:en_US']},\n                                               {'type': 'urn:li:adTargetingFacet:locations',\n                                                'values': ['urn:li:geo:103644278']}]}},\n     'test': False,\n     'type': 'SPONSORED_UPDATES',\n     'unitCost': {'amount': '61.02', 'currencyCode': 'USD'},\n     'version': {'versionTag': '3'}}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe creatives stream has the following schema errors:\nAdditional properties are not allowed ('processingState' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'campaign': {'type': ['null', 'string']},\n                    'created': {'format': 'date-time',\n                                'type': ['null', 'string']},\n                    'id': {'type': ['null', 'integer']},\n                    'lastModified': {'format': 'date-time',\n                                     'type': ['null', 'string']},\n                    'reference': {'type': ['null', 'string']},\n                    'review': {'properties': {'reviewStatus': {'type': ['null',\n                                                                        'string']}},\n                               'type': ['null', 'object']},\n                    'servingStatuses': {'items': {'type': ['null',\n                                                           'string']},\n                                        'type': ['null', 'array']},\n                    'status': {'type': ['null', 'string']},\n                    'test': {'type': ['null', 'boolean']},\n                    'type': {'type': ['null', 'string']},\n                    'variables': {'properties': {'click_uri': {'type': ['null',\n                                                                        'string']},\n                                                 'type': {'type': ['null',\n                                                                   'string']},\n                                                 'values': {'items': {'properties': {'key': {'type': ['null',\n                                                                                                      'string']},\n                                                                                     'value': {'type': ['null',\n                                                                                                        'string']}},\n                                                                      'type': ['null',\n                                                                               'object']},\n                                                            'type': ['null',\n                                                                     'array']}},\n                                  'type': ['null', 'object']},\n                    'version': {'properties': {'versionTag': {'type': ['null',\n                                                                       'string']}},\n                                'type': ['null', 'object']}},\n     'type': ['null', 'object']}\n\nOn instance:\n    {'campaign': 'urn:li:sponsoredCampaign:169037246',\n     'created': '2021-08-22 20:49:25',\n     'id': 135841046,\n     'lastModified': '2021-09-10 15:51:03',\n     'processingState': 'PROCESSING_SUCCEEDED',\n     'reference': 'urn:li:ugcPost:6835311566041284608',\n     'review': {'reviewStatus': 'PENDING'},\n     'servingStatuses': ['UNDER_REVIEW'],\n     'status': 'ACTIVE',\n     'test': False,\n     'type': 'SPONSORED_VIDEO',\n     'variables': {'type': 'com.linkedin.ads.SponsoredVideoCreativeVariables',\n                   'values': [{'key': 'videoAspectRatio',\n                               'value': '{\"widthAspect\": 16.0, '\n                                        '\"heightAspect\": 9.0}'},\n                              {'key': 'mediaAsset',\n                               'value': '\"urn:li:digitalmediaAsset:C5610AQFvkR0uBh0b5Q\"'},\n                              {'key': 'userGeneratedContentPost',\n                               'value': '\"urn:li:ugcPost:6835311566041284608\"'},\n                              {'key': 'callToActionEnabled',\n                               'value': 'true'},\n                              {'key': 'directSponsoredContent',\n                               'value': 'true'},\n                              {'key': 'durationMicro',\n                               'value': '6767000'}]},\n     'version': {'versionTag': '5'}}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The ad_campaign_analytics stream has the following schema errors:
+Additional properties are not allowed ('viralCardImpressions', 'approximateUniqueImpressions', 'cardClicks', 'commentLikes', 'viralCardClicks', 'cardImpressions' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'_pivot': {'type': ['null', 'string']},
+                    'actionClicks': {'type': ['null', 'number']},
+                    'adUnitClicks': {'type': ['null', 'number']},
+                    'clicks': {'type': ['null', 'number']},
+                    'comments': {'type': ['null', 'number']},
+                    'companyPageClicks': {'type': ['null', 'number']},
+                    'conversionValueInLocalCurrency': {'type': ['null',
+                                                                'string']},
+                    'costInLocalCurrency': {'type': ['null', 'string']},
+                    'costInUsd': {'type': ['null', 'string']},
+                    'end_date': {'format': 'date',
+                                 'type': ['null', 'string']},
+                    'externalWebsiteConversions': {'type': ['null',
+                                                            'number']},
+                    'externalWebsitePostClickConversions': {'type': ['null',
+                                                                     'number']},
+                    'externalWebsitePostViewConversions': {'type': ['null',
+                                                                    'number']},
+                    'follows': {'type': ['null', 'number']},
+                    'fullScreenPlays': {'type': ['null', 'number']},
+                    'impressions': {'type': ['null', 'number']},
+                    'landingPageClicks': {'type': ['null', 'number']},
+                    'leadGenerationMailContactInfoShares': {'type': ['null',
+                                                                     'number']},
+                    'leadGenerationMailInterestedClicks': {'type': ['null',
+                                                                    'number']},
+                    'likes': {'type': ['null', 'number']},
+                    'oneClickLeadFormOpens': {'type': ['null', 'number']},
+                    'oneClickLeads': {'type': ['null', 'number']},
+                    'opens': {'type': ['null', 'number']},
+                    'otherEngagements': {'type': ['null', 'number']},
+                    'pivotValue': {'type': ['null', 'string']},
+                    'pivotValues': {'items': {'type': ['null', 'string']},
+                                    'type': ['null', 'array']},
+                    'reactions': {'type': ['null', 'number']},
+                    'sends': {'type': ['null', 'number']},
+                    'shares': {'type': ['null', 'number']},
+                    'start_date': {'format': 'date',
+                                   'type': ['null', 'string']},
+                    'textUrlClicks': {'type': ['null', 'number']},
+                    'totalEngagements': {'type': ['null', 'number']},
+                    'videoCompletions': {'type': ['null', 'number']},
+                    'videoFirstQuartileCompletions': {'type': ['null',
+                                                               'number']},
+                    'videoMidpointCompletions': {'type': ['null',
+                                                          'number']},
+                    'videoStarts': {'type': ['null', 'number']},
+                    'videoThirdQuartileCompletions': {'type': ['null',
+                                                               'number']},
+                    'videoViews': {'type': ['null', 'number']},
+                    'viralClicks': {'type': ['null', 'number']},
+                    'viralCommentLikes': {'type': ['null', 'number']},
+                    'viralComments': {'type': ['null', 'number']},
+                    'viralCompanyPageClicks': {'type': ['null', 'number']},
+                    'viralExternalWebsiteConversions': {'type': ['null',
+                                                                 'number']},
+                    'viralExternalWebsitePostClickConversions': {'type': ['null',
+                                                                          'number']},
+                    'viralExternalWebsitePostViewConversions': {'type': ['null',
+                                                                         'number']},
+                    'viralFollows': {'type': ['null', 'number']},
+                    'viralFullScreenPlays': {'type': ['null', 'number']},
+                    'viralImpressions': {'type': ['null', 'number']},
+                    'viralLandingPageClicks': {'type': ['null', 'number']},
+                    'viralLikes': {'type': ['null', 'number']},
+                    'viralOneClickLeadFormOpens': {'type': ['null',
+                                                            'number']},
+                    'viralOneClickLeads': {'type': ['null', 'number']},
+                    'viralOtherEngagements': {'type': ['null', 'number']},
+                    'viralReactions': {'type': ['null', 'number']},
+                    'viralShares': {'type': ['null', 'number']},
+                    'viralTotalEngagements': {'type': ['null', 'number']},
+                    'viralVideoCompletions': {'type': ['null', 'number']},
+                    'viralVideoFirstQuartileCompletions': {'type': ['null',
+                                                                    'number']},
+                    'viralVideoMidpointCompletions': {'type': ['null',
+                                                               'number']},
+                    'viralVideoStarts': {'type': ['null', 'number']},
+                    'viralVideoThirdQuartileCompletions': {'type': ['null',
+                                                                    'number']},
+                    'viralVideoViews': {'type': ['null', 'number']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'_pivot': 'CAMPAIGN',
+     'actionClicks': 0,
+     'adUnitClicks': 0,
+     'approximateUniqueImpressions': 116,
+     'cardClicks': 0,
+     'cardImpressions': 0,
+     'clicks': 1,
+     'commentLikes': 0,
+     'comments': 0,
+     'companyPageClicks': 0,
+     'conversionValueInLocalCurrency': '0',
+     'costInLocalCurrency': '0.4199999999999997',
+     'costInUsd': '0.4199999999999997',
+     'end_date': '2021-08-14',
+     'externalWebsiteConversions': 0,
+     'externalWebsitePostClickConversions': 0,
+     'externalWebsitePostViewConversions': 0,
+     'follows': 0,
+     'fullScreenPlays': 0,
+     'impressions': 116,
+     'landingPageClicks': 1,
+     'leadGenerationMailContactInfoShares': 0,
+     'leadGenerationMailInterestedClicks': 0,
+     'likes': 0,
+     'oneClickLeadFormOpens': 0,
+     'oneClickLeads': 0,
+     'opens': 0,
+     'otherEngagements': 0,
+     'pivotValue': 'urn:li:sponsoredCampaign:168387646',
+     'pivotValues': ['urn:li:sponsoredCampaign:168387646'],
+     'reactions': 0,
+     'sends': 0,
+     'shares': 0,
+     'start_date': '2021-08-14',
+     'textUrlClicks': 0,
+     'totalEngagements': 1,
+     'videoCompletions': 0,
+     'videoFirstQuartileCompletions': 0,
+     'videoMidpointCompletions': 0,
+     'videoStarts': 0,
+     'videoThirdQuartileCompletions': 0,
+     'videoViews': 0,
+     'viralCardClicks': 0,
+     'viralCardImpressions': 0,
+     'viralClicks': 0,
+     'viralCommentLikes': 0,
+     'viralComments': 0,
+     'viralCompanyPageClicks': 0,
+     'viralExternalWebsiteConversions': 0,
+     'viralExternalWebsitePostClickConversions': 0,
+     'viralExternalWebsitePostViewConversions': 0,
+     'viralFollows': 0}
+ERROR    root:test_core.py:662 
+The ad_creative_analytics stream has the following schema errors:
+Additional properties are not allowed ('viralCardImpressions', 'approximateUniqueImpressions', 'cardClicks', 'commentLikes', 'viralCardClicks', 'cardImpressions' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'_pivot': {'type': ['null', 'string']},
+                    'actionClicks': {'type': ['null', 'number']},
+                    'adUnitClicks': {'type': ['null', 'number']},
+                    'clicks': {'type': ['null', 'number']},
+                    'comments': {'type': ['null', 'number']},
+                    'companyPageClicks': {'type': ['null', 'number']},
+                    'conversionValueInLocalCurrency': {'type': ['null',
+                                                                'string']},
+                    'costInLocalCurrency': {'type': ['null', 'string']},
+                    'costInUsd': {'type': ['null', 'string']},
+                    'end_date': {'format': 'date',
+                                 'type': ['null', 'string']},
+                    'externalWebsiteConversions': {'type': ['null',
+                                                            'number']},
+                    'externalWebsitePostClickConversions': {'type': ['null',
+                                                                     'number']},
+                    'externalWebsitePostViewConversions': {'type': ['null',
+                                                                    'number']},
+                    'follows': {'type': ['null', 'number']},
+                    'fullScreenPlays': {'type': ['null', 'number']},
+                    'impressions': {'type': ['null', 'number']},
+                    'landingPageClicks': {'type': ['null', 'number']},
+                    'leadGenerationMailContactInfoShares': {'type': ['null',
+                                                                     'number']},
+                    'leadGenerationMailInterestedClicks': {'type': ['null',
+                                                                    'number']},
+                    'likes': {'type': ['null', 'number']},
+                    'oneClickLeadFormOpens': {'type': ['null', 'number']},
+                    'oneClickLeads': {'type': ['null', 'number']},
+                    'opens': {'type': ['null', 'number']},
+                    'otherEngagements': {'type': ['null', 'number']},
+                    'pivotValue': {'type': ['null', 'string']},
+                    'pivotValues': {'items': {'type': ['null', 'string']},
+                                    'type': ['null', 'array']},
+                    'reactions': {'type': ['null', 'number']},
+                    'sends': {'type': ['null', 'number']},
+                    'shares': {'type': ['null', 'number']},
+                    'start_date': {'format': 'date',
+                                   'type': ['null', 'string']},
+                    'textUrlClicks': {'type': ['null', 'number']},
+                    'totalEngagements': {'type': ['null', 'number']},
+                    'videoCompletions': {'type': ['null', 'number']},
+                    'videoFirstQuartileCompletions': {'type': ['null',
+                                                               'number']},
+                    'videoMidpointCompletions': {'type': ['null',
+                                                          'number']},
+                    'videoStarts': {'type': ['null', 'number']},
+                    'videoThirdQuartileCompletions': {'type': ['null',
+                                                               'number']},
+                    'videoViews': {'type': ['null', 'number']},
+                    'viralClicks': {'type': ['null', 'number']},
+                    'viralCommentLikes': {'type': ['null', 'number']},
+                    'viralComments': {'type': ['null', 'number']},
+                    'viralCompanyPageClicks': {'type': ['null', 'number']},
+                    'viralExternalWebsiteConversions': {'type': ['null',
+                                                                 'number']},
+                    'viralExternalWebsitePostClickConversions': {'type': ['null',
+                                                                          'number']},
+                    'viralExternalWebsitePostViewConversions': {'type': ['null',
+                                                                         'number']},
+                    'viralFollows': {'type': ['null', 'number']},
+                    'viralFullScreenPlays': {'type': ['null', 'number']},
+                    'viralImpressions': {'type': ['null', 'number']},
+                    'viralLandingPageClicks': {'type': ['null', 'number']},
+                    'viralLikes': {'type': ['null', 'number']},
+                    'viralOneClickLeadFormOpens': {'type': ['null',
+                                                            'number']},
+                    'viralOneClickLeads': {'type': ['null', 'number']},
+                    'viralOtherEngagements': {'type': ['null', 'number']},
+                    'viralReactions': {'type': ['null', 'number']},
+                    'viralShares': {'type': ['null', 'number']},
+                    'viralTotalEngagements': {'type': ['null', 'number']},
+                    'viralVideoCompletions': {'type': ['null', 'number']},
+                    'viralVideoFirstQuartileCompletions': {'type': ['null',
+                                                                    'number']},
+                    'viralVideoMidpointCompletions': {'type': ['null',
+                                                               'number']},
+                    'viralVideoStarts': {'type': ['null', 'number']},
+                    'viralVideoThirdQuartileCompletions': {'type': ['null',
+                                                                    'number']},
+                    'viralVideoViews': {'type': ['null', 'number']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'_pivot': 'CREATIVE',
+     'actionClicks': 0,
+     'adUnitClicks': 0,
+     'approximateUniqueImpressions': 902,
+     'cardClicks': 0,
+     'cardImpressions': 0,
+     'clicks': 3,
+     'commentLikes': 0,
+     'comments': 0,
+     'companyPageClicks': 0,
+     'conversionValueInLocalCurrency': '0',
+     'costInLocalCurrency': '12.4700000000000025',
+     'costInUsd': '12.4700000000000025',
+     'end_date': '2021-08-11',
+     'externalWebsiteConversions': 0,
+     'externalWebsitePostClickConversions': 0,
+     'externalWebsitePostViewConversions': 0,
+     'follows': 0,
+     'fullScreenPlays': 0,
+     'impressions': 994,
+     'landingPageClicks': 3,
+     'leadGenerationMailContactInfoShares': 0,
+     'leadGenerationMailInterestedClicks': 0,
+     'likes': 0,
+     'oneClickLeadFormOpens': 0,
+     'oneClickLeads': 0,
+     'opens': 0,
+     'otherEngagements': 0,
+     'pivotValue': 'urn:li:sponsoredCreative:133813726',
+     'pivotValues': ['urn:li:sponsoredCreative:133813726'],
+     'reactions': 0,
+     'sends': 0,
+     'shares': 0,
+     'start_date': '2021-08-11',
+     'textUrlClicks': 0,
+     'totalEngagements': 3,
+     'videoCompletions': 0,
+     'videoFirstQuartileCompletions': 0,
+     'videoMidpointCompletions': 0,
+     'videoStarts': 0,
+     'videoThirdQuartileCompletions': 0,
+     'videoViews': 0,
+     'viralCardClicks': 0,
+     'viralCardImpressions': 0,
+     'viralClicks': 0,
+     'viralCommentLikes': 0,
+     'viralComments': 0,
+     'viralCompanyPageClicks': 0,
+     'viralExternalWebsiteConversions': 0,
+     'viralExternalWebsitePostClickConversions': 0,
+     'viralExternalWebsitePostViewConversions': 0,
+     'viralFollows': 0}
+ERROR    root:test_core.py:662 
+The campaign_groups stream has the following schema errors:
+Additional properties are not allowed ('totalBudget' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'account': {'type': ['null', 'string']},
+                    'allowedCampaignTypes': {'items': {'type': ['null',
+                                                                'string']},
+                                             'type': ['null', 'array']},
+                    'backfilled': {'type': ['null', 'boolean']},
+                    'created': {'format': 'date-time',
+                                'type': ['null', 'string']},
+                    'id': {'type': ['null', 'integer']},
+                    'lastModified': {'format': 'date-time',
+                                     'type': ['null', 'string']},
+                    'name': {'type': ['null', 'string']},
+                    'runSchedule': {'properties': {'end': {'type': ['null',
+                                                                    'integer']},
+                                                   'start': {'type': ['null',
+                                                                      'integer']}},
+                                    'type': ['null', 'object']},
+                    'servingStatuses': {'items': {'type': ['null',
+                                                           'string']},
+                                        'type': ['null', 'array']},
+                    'status': {'type': ['null', 'string']},
+                    'test': {'type': ['null', 'boolean']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'account': 'urn:li:sponsoredAccount:508720451',
+     'backfilled': False,
+     'created': '2021-08-06 06:01:33',
+     'id': 616471656,
+     'lastModified': '2021-09-06 23:35:14',
+     'name': 'Airbyte Test',
+     'runSchedule': {'end': 1630971900000, 'start': 1628229693058},
+     'servingStatuses': ['CAMPAIGN_GROUP_END_DATE_HOLD',
+                         'CAMPAIGN_GROUP_TOTAL_BUDGET_HOLD'],
+     'status': 'ACTIVE',
+     'test': False,
+     'totalBudget': {'amount': '100', 'currencyCode': 'USD'}}
+ERROR    root:test_core.py:662 
+The campaigns stream has the following schema errors:
+Additional properties are not allowed ('offsitePreferences', 'test' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'account': {'type': ['null', 'string']},
+                    'associatedEntity': {'type': ['null', 'string']},
+                    'audienceExpansionEnabled': {'type': ['null',
+                                                          'boolean']},
+                    'campaignGroup': {'type': ['null', 'string']},
+                    'costType': {'type': ['null', 'string']},
+                    'created': {'format': 'date-time',
+                                'type': ['null', 'string']},
+                    'creativeSelection': {'type': ['null', 'string']},
+                    'dailyBudget': {'properties': {'amount': {'type': ['null',
+                                                                       'string']},
+                                                   'currencyCode': {'type': ['null',
+                                                                             'string']}},
+                                    'type': ['null', 'object']},
+                    'format': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'integer']},
+                    'lastModified': {'format': 'date-time',
+                                     'type': ['null', 'string']},
+                    'locale': {'properties': {'country': {'type': ['null',
+                                                                   'string']},
+                                              'language': {'type': ['null',
+                                                                    'string']}},
+                               'type': ['null', 'object']},
+                    'name': {'type': ['null', 'string']},
+                    'objectiveType': {'type': ['null', 'string']},
+                    'offsiteDeliveryEnabled': {'type': ['null', 'boolean']},
+                    'optimizationTargetType': {'type': ['null', 'string']},
+                    'pacingStrategy': {'type': ['null', 'string']},
+                    'runSchedule': {'properties': {'end': {'type': ['null',
+                                                                    'integer']},
+                                                   'start': {'type': ['null',
+                                                                      'integer']}},
+                                    'type': ['null', 'object']},
+                    'servingStatuses': {'items': {'type': ['null',
+                                                           'string']},
+                                        'type': ['null', 'array']},
+                    'status': {'type': ['null', 'string']},
+                    'storyDeliveryEnabled': {'type': ['null', 'boolean']},
+                    'targetingCriteria': {'properties': {'exclude': {'properties': {'or': {'items': {'properties': {'type': {'type': ['null',
+                                                                                                                                      'string']},
+                                                                                                                    'values': {'items': {'type': ['null',
+                                                                                                                                                  'string']},
+                                                                                                                               'type': ['null',
+                                                                                                                                        'array']}},
+                                                                                                     'type': ['null',
+                                                                                                              'object']},
+                                                                                           'type': ['null',
+                                                                                                    'array']}},
+                                                                     'type': ['null',
+                                                                              'object']},
+                                                         'include': {'properties': {'and': {'items': {'properties': {'type': {'type': ['null',
+                                                                                                                                       'string']},
+                                                                                                                     'values': {'items': {'type': ['null',
+                                                                                                                                                   'string']},
+                                                                                                                                'type': ['null',
+                                                                                                                                         'array']}},
+                                                                                                      'type': ['null',
+                                                                                                               'object']},
+                                                                                            'type': ['null',
+                                                                                                     'array']}},
+                                                                     'type': ['null',
+                                                                              'object']}},
+                                          'type': ['null', 'object']},
+                    'type': {'type': ['null', 'string']},
+                    'unitCost': {'properties': {'amount': {'type': ['null',
+                                                                    'string']},
+                                                'currencyCode': {'type': ['null',
+                                                                          'string']}},
+                                 'type': ['null', 'object']},
+                    'version': {'properties': {'versionTag': {'type': ['null',
+                                                                       'string']}},
+                                'type': ['null', 'object']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'account': 'urn:li:sponsoredAccount:508777244',
+     'associatedEntity': 'urn:li:organization:64265083',
+     'audienceExpansionEnabled': True,
+     'campaignGroup': 'urn:li:sponsoredCampaignGroup:616749086',
+     'costType': 'CPM',
+     'created': '2021-08-22 20:37:17',
+     'creativeSelection': 'OPTIMIZED',
+     'dailyBudget': {'amount': '100', 'currencyCode': 'USD'},
+     'format': 'SINGLE_VIDEO',
+     'id': 169037246,
+     'lastModified': '2021-11-07 12:20:05',
+     'locale': {'country': 'US', 'language': 'en'},
+     'name': 'Brand awareness - Aug 22, 2021',
+     'objectiveType': 'BRAND_AWARENESS',
+     'offsiteDeliveryEnabled': True,
+     'offsitePreferences': {'iabCategories': {'exclude': []},
+                            'publisherRestrictionFiles': {'exclude': [],
+                                                          'include': []}},
+     'optimizationTargetType': 'MAX_REACH',
+     'pacingStrategy': 'LIFETIME',
+     'runSchedule': {'start': 1629590400000},
+     'servingStatuses': ['STOPPED',
+                         'ACCOUNT_SERVING_HOLD',
+                         'CAMPAIGN_GROUP_STATUS_HOLD'],
+     'status': 'DRAFT',
+     'storyDeliveryEnabled': False,
+     'targetingCriteria': {'include': {'and': [{'type': 'urn:li:adTargetingFacet:interfaceLocales',
+                                                'values': ['urn:li:locale:en_US']},
+                                               {'type': 'urn:li:adTargetingFacet:locations',
+                                                'values': ['urn:li:geo:103644278']}]}},
+     'test': False,
+     'type': 'SPONSORED_UPDATES',
+     'unitCost': {'amount': '61.02', 'currencyCode': 'USD'},
+     'version': {'versionTag': '3'}}
+ERROR    root:test_core.py:662 
+The creatives stream has the following schema errors:
+Additional properties are not allowed ('processingState' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'campaign': {'type': ['null', 'string']},
+                    'created': {'format': 'date-time',
+                                'type': ['null', 'string']},
+                    'id': {'type': ['null', 'integer']},
+                    'lastModified': {'format': 'date-time',
+                                     'type': ['null', 'string']},
+                    'reference': {'type': ['null', 'string']},
+                    'review': {'properties': {'reviewStatus': {'type': ['null',
+                                                                        'string']}},
+                               'type': ['null', 'object']},
+                    'servingStatuses': {'items': {'type': ['null',
+                                                           'string']},
+                                        'type': ['null', 'array']},
+                    'status': {'type': ['null', 'string']},
+                    'test': {'type': ['null', 'boolean']},
+                    'type': {'type': ['null', 'string']},
+                    'variables': {'properties': {'click_uri': {'type': ['null',
+                                                                        'string']},
+                                                 'type': {'type': ['null',
+                                                                   'string']},
+                                                 'values': {'items': {'properties': {'key': {'type': ['null',
+                                                                                                      'string']},
+                                                                                     'value': {'type': ['null',
+                                                                                                        'string']}},
+                                                                      'type': ['null',
+                                                                               'object']},
+                                                            'type': ['null',
+                                                                     'array']}},
+                                  'type': ['null', 'object']},
+                    'version': {'properties': {'versionTag': {'type': ['null',
+                                                                       'string']}},
+                                'type': ['null', 'object']}},
+     'type': ['null', 'object']}
+
+On instance:
+    {'campaign': 'urn:li:sponsoredCampaign:169037246',
+     'created': '2021-08-22 20:49:25',
+     'id': 135841046,
+     'lastModified': '2021-09-10 15:51:03',
+     'processingState': 'PROCESSING_SUCCEEDED',
+     'reference': 'urn:li:ugcPost:6835311566041284608',
+     'review': {'reviewStatus': 'PENDING'},
+     'servingStatuses': ['UNDER_REVIEW'],
+     'status': 'ACTIVE',
+     'test': False,
+     'type': 'SPONSORED_VIDEO',
+     'variables': {'type': 'com.linkedin.ads.SponsoredVideoCreativeVariables',
+                   'values': [{'key': 'videoAspectRatio',
+                               'value': '{"widthAspect": 16.0, '
+                                        '"heightAspect": 9.0}'},
+                              {'key': 'mediaAsset',
+                               'value': '"urn:li:digitalmediaAsset:C5610AQFvkR0uBh0b5Q"'},
+                              {'key': 'userGeneratedContentPost',
+                               'value': '"urn:li:ugcPost:6835311566041284608"'},
+                              {'key': 'callToActionEnabled',
+                               'value': 'true'},
+                              {'key': 'directSponsoredContent',
+                               'value': 'true'},
+                              {'key': 'durationMicro',
+                               'value': '6767000'}]},
+     'version': {'versionTag': '5'}}
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+=========== 1 failed, 1 passed, 35 deselected in 1872.97s (0:31:12) ============

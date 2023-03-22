@@ -1,0 +1,494 @@
+../../../../connectors/source-nytimes/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-nytimes
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 37 items / 35 deselected / 2 selected
+
+../../test_input/test_core.py F                                          [ 50%]
+../../test_input/test_incremental.py .                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff96aff310>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='archive', json_schema={'$schema':...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff96788a90>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='archive', data={'abstract': 'A day of hesitation in Lee County came desp...bcbc', 'word_count': 590, 'uri': 'nyt://article/a4eaa4cf-9e6e-59b3-98b4-f89f0203bcbc'}, emitted_at=1679408010899), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='archive', json_schema={'$schema':...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('archive', 'most_popular_viewed').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe archive stream has the following schema errors:\nAdditional properties are not allowed ('lead_paragraph', 'abstract' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'_id': {'type': ['null', 'string']},\n                    'byline': {'properties': {'organization': {'type': ['null',\n                                                                        'string']},\n                                              'original': {'type': ['null',\n                                                                    'string']},\n                                              'person': {'items': {'properties': {'firstname': {'type': ['null',\n                                                                                                         'string']},\n                                                                                  'lastname': {'type': ['null',\n                                                                                                        'string']},\n                                                                                  'middlename': {'type': ['null',\n                                                                                                          'string']},\n                                                                                  'organization': {'type': ['null',\n                                                                                                            'string']},\n                                                                                  'qualifier': {'type': ['null',\n                                                                                                         'string']},\n                                                                                  'rank': {'type': ['null',\n                                                                                                    'integer']},\n                                                                                  'role': {'type': ['null',\n                                                                                                    'string']},\n                                                                                  'title': {'type': ['null',\n                                                                                                     'string']}},\n                                                                   'type': 'object'},\n                                                         'type': 'array'}},\n                               'type': 'object'},\n                    'document_type': {'description': 'Document type '\n                                                     '(article, '\n                                                     'multimedia).',\n                                      'type': ['null', 'string']},\n                    'headline': {'properties': {'content_kicker': {'type': ['null',\n                                                                            'string']},\n                                                'kicker': {'type': ['null',\n                                                                    'string']},\n                                                'main': {'type': ['null',\n                                                                  'string']},\n                                                'name': {'type': ['null',\n                                                                  'string']},\n                                                'print_headline': {'type': ['null',\n                                                                            'string']},\n                                                'seo': {'type': ['null',\n                                                                 'string']},\n                                                'sub': {'type': ['null',\n                                                                 'string']}},\n                                 'type': 'object'},\n                    'keywords': {'items': {'properties': {'major': {'type': ['null',\n                                                                             'string']},\n                                                          'name': {'type': ['null',\n                                                                            'string']},\n                                                          'rank': {'type': ['null',\n                                                                            'integer']},\n                                                          'value': {'type': ['null',\n                                                                             'string']}},\n                                           'type': 'object'},\n                                 'type': 'array'},\n                    'multimedia': {'items': {'properties': {'caption': {'type': ['null',\n                                                                                 'string']},\n                                                            'credit': {'type': ['null',\n                                                                                'string']},\n                                                            'crop_name': {'type': ['null',\n                                                                                   'string']},\n                                                            'height': {'type': ['null',\n                                                                                'integer']},\n                                                            'legacy': {'properties': {'xlarge': {'type': ['null',\n                                                                                                          'string']},\n                                                                                      'xlargeheight': {'type': ['null',\n                                                                                                                'integer']},\n                                                                                      'xlargewidth': {'type': ['null',\n                                                                                                               'integer']}},\n                                                                       'type': 'object'},\n                                                            'rank': {'type': ['null',\n                                                                              'integer']},\n                                                            'subtype': {'type': ['null',\n                                                                                 'string']},\n                                                            'type': {'type': ['null',\n                                                                              'string']},\n                                                            'url': {'type': ['null',\n                                                                             'string']},\n                                                            'width': {'type': ['null',\n                                                                               'integer']}},\n                                             'type': 'object'},\n                                   'type': 'array'},\n                    'news_desk': {'description': 'Desk in the newsroom '\n                                                 'that worked on the story '\n                                                 '(Foreign, Metro, Sports, '\n                                                 '...).',\n                                  'type': ['null', 'string']},\n                    'print_page': {'description': 'Page in print (e.g. 1).',\n                                   'type': ['null', 'string']},\n                    'print_section': {'description': 'Section in print '\n                                                     '(e.g. A).',\n                                      'type': ['null', 'string']},\n                    'pub_date': {'description': 'Publication date.',\n                                 'type': ['null', 'string']},\n                    'section_name': {'description': 'Section that the '\n                                                    'article appeared in '\n                                                    '(New York, Sports, '\n                                                    'World, ...).',\n                                     'type': ['null', 'string']},\n                    'snippet': {'type': ['null', 'string']},\n                    'source': {'type': ['null', 'string']},\n                    'type_of_material': {'description': 'Type of asset '\n                                                        '(Correction, '\n                                                        'News, Op-Ed, '\n                                                        'Review, Video, '\n                                                        '...).',\n                                         'type': ['null', 'string']},\n                    'uri': {'description': 'Uniquely identifies an asset.',\n                            'type': ['null', 'string']},\n                    'web_url': {'description': 'Article URL.',\n                                'type': ['null', 'string']},\n                    'word_count': {'description': 'Number of words in the '\n                                                  'article.',\n                                   'type': ['null', 'integer']}},\n     'type': 'object'}\n\nOn instance:\n    {'_id': 'nyt://article/b45f31c0-f387-59aa-af83-10aff26ebe61',\n     'abstract': 'Brian Boyd, who fatally hit Lisa Banes on a Manhattan '\n                 'crosswalk, tried to explain his actions in court, '\n                 'angering the judge. \u201cI did beep my horn,\u201d he said.',\n     'byline': {'organization': None,\n                'original': 'By Nate Schweber',\n                'person': [{'firstname': 'Nate',\n                            'lastname': 'Schweber',\n                            'middlename': None,\n                            'organization': '',\n                            'qualifier': None,\n                            'rank': 1,\n                            'role': 'reported',\n                            'title': None}]},\n     'document_type': 'article',\n     'headline': {'content_kicker': None,\n                  'kicker': None,\n                  'main': 'Scooter Driver Who Struck and Killed Actress '\n                          'Gets Up to 3 Years',\n                  'name': None,\n                  'print_headline': '',\n                  'seo': None,\n                  'sub': None},\n     'keywords': [{'major': 'N',\n                   'name': 'subject',\n                   'rank': 1,\n                   'value': 'Deaths (Fatalities)'},\n                  {'major': 'N',\n                   'name': 'subject',\n                   'rank': 2,\n                   'value': 'Decisions and Verdicts'},\n                  {'major': 'N',\n                   'name': 'persons',\n                   'rank': 3,\n                   'value': 'Banes, Lisa'},\n                  {'major': 'N',\n                   'name': 'persons',\n                   'rank': 4,\n                   'value': 'Boyd, Brian (1994- )'},\n                  {'major': 'N',\n                   'name': 'glocations',\n                   'rank': 5,\n                   'value': 'New York City'}],\n     'lead_paragraph': 'A State Supreme Court judge on Wednesday sentenced '\n                       'a scooter driver to as much as three years in '\n                       'prison for fatally hitting an actress, Lisa Banes, '\n                       'after the man tried to avoid blame for the '\n                       'accident following an earlier admission of guilt.',\n     'multimedia': [{'caption': None,\n                     'credit': None,\n                     'crop_name': 'articleLarge',\n                     'height': 400,\n                     'legacy': {'xlarge': 'images/2022/11/30/multimedia/30scooter-sentence-1-97cd/30scooter-sentence-1-97cd-articleLarge.jpg',\n                                'xlargeheight': 400,\n                                'xlargewidth': 600},\n                     'rank': 0,\n                     'subType': 'xlarge',\n                     'subtype': 'xlarge',\n                     'type': 'image',\n                     'url': 'images/2022/11/30/multimedia/30scooter-sentence-1-97cd/30scooter-sentence-1-97cd-articleLarge.jpg',\n                     'width': 600},\n                    {'caption': None,\n                     'credit': None,\n                     'crop_name': 'jumbo',\n                     'height': 682,\n                     'legacy': {},\n                     'rank': 0,\n                     'subType': 'jumbo',\n                     'subtype': 'jumbo',\n                     'type': 'image',\n                     'url': 'images/2022/11/30/multimedia/30scooter-sentence-1-97cd/30scooter-sentence-1-97cd-jumbo.jpg',\n                     'width': 1024},\n                    {'caption': None,\n                     'credit': None,\n                     'crop_name': 'superJumbo',\n                     'height': 1365,\n                     'legacy': {},\n                     'rank': 0,\n                     'subType': 'superJumbo',\n                     'subtype': 'superJumbo',\n                     'type': 'image',\n                     'url': 'images/2022/11/30/multimedia/30scooter-sentence-1-97cd/30scooter-sentence-1-97cd-superJumbo.jpg',\n                     'width': 2048},\n                    {'caption': None,\n                     'credit': None,\n                     'crop_name': 'thumbStandard',\n                     'height': 75,\n                     'legacy': {'thumbnail': 'images/2022/11/30/multimedia/30scooter-sentence-1-97cd/30scooter-sentence-1-97cd-thumbStandard.jpg',\n                                'thumbnailheight': 75,\n                                'thumbnailwidth': 75},\n                     'rank': 0,\n                     'subType': 'thumbnail',\n                     'subtype': 'thumbnail',\n                     'type': 'image',\n                     'url': 'images/2022/11/30/multimedia/30scooter-sentence-1-97cd/30scooter-sentence-1-97cd-thumbStandard.jpg',\n                     'width': 75},\n                    {'caption': None,\n                     'credit': None,\n                     'crop_name': 'thumbLarge',\n                     'height': 150,\n                     'legacy': {},\n                     'rank': 0,\n                     'subType': 'thumbLarge',\n                     'subtype': 'thumbLarge',\n                     'type': 'image',\n                     'url': 'images/2022/11/30/multimedia/30scooter-sentence-1-97cd/30scooter-sentence-1-97cd-thumbLarge.jpg',\n                     'width': 150}],\n     'news_desk': 'Metro',\n     'pub_date': '2022-11-30T19:50:09+0000',\n     'section_name': 'New York',\n     'snippet': 'Brian Boyd, who fatally hit Lisa Banes on a Manhattan '\n                'crosswalk, tried to explain his actions in court, '\n                'angering the judge. \u201cI did beep my horn,\u201d he said.',\n     'source': 'The New York Times',\n     'type_of_material': 'News',\n     'uri': 'nyt://article/b45f31c0-f387-59aa-af83-10aff26ebe61',\n     'web_url': 'https://www.nytimes.com/2022/11/30/nyregion/actress-death-sentencing-scooter-driver.html',\n     'word_count': 645}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe most_popular_viewed stream has the following schema errors:\nAdditional properties are not allowed ('nytdsection', 'eta_id', 'subsection', 'updated' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'abstract': {'description': 'Brief summary of the '\n                                                'article.',\n                                 'type': ['null', 'string']},\n                    'adx_keywords': {'description': 'Semicolon separated '\n                                                    'list of keywords.',\n                                     'type': ['null', 'string']},\n                    'asset_id': {'description': 'Asset ID number (e.g. '\n                                                '100000007772696).',\n                                 'type': ['null', 'integer']},\n                    'byline': {'description': \"Article's byline (e.g. By \"\n                                              'Thomas L. Friedman).',\n                               'type': ['null', 'string']},\n                    'column': {'description': 'Deprecated. Set to null.',\n                               'type': ['null', 'string']},\n                    'des_facet': {'description': 'Array of description '\n                                                 'facets (e.g. Quarantine '\n                                                 '(Life and Culture)).',\n                                  'items': {'type': ['null', 'string']},\n                                  'type': 'array'},\n                    'geo_facet': {'description': 'Array of geographic '\n                                                 'facets (e.g. Canada).',\n                                  'items': {'type': ['null', 'string']},\n                                  'type': 'array'},\n                    'id': {'description': 'Asset ID number (e.g. '\n                                          '100000007772696).',\n                           'type': ['null', 'integer']},\n                    'media': {'description': 'Array of images.',\n                              'items': {'properties': {'approved_for_syndication': {'description': 'Whether '\n                                                                                                   'media '\n                                                                                                   'is '\n                                                                                                   'approved '\n                                                                                                   'for '\n                                                                                                   'syndication.',\n                                                                                    'type': ['null',\n                                                                                             'integer']},\n                                                       'caption': {'description': 'Media '\n                                                                                  'caption.',\n                                                                   'type': ['null',\n                                                                            'string']},\n                                                       'copyright': {'description': 'Media '\n                                                                                    'credit.',\n                                                                     'type': ['null',\n                                                                              'string']},\n                                                       'media-metadata': {'description': 'Media '\n                                                                                         'metadata '\n                                                                                         '(url, '\n                                                                                         'width, '\n                                                                                         'height, '\n                                                                                         '...).',\n                                                                          'items': {'properties': {'format': {'description': \"Image's \"\n                                                                                                                             'crop '\n                                                                                                                             'name.',\n                                                                                                              'type': ['null',\n                                                                                                                       'string']},\n                                                                                                   'height': {'description': \"Image's \"\n                                                                                                                             'height '\n                                                                                                                             '(e.g. '\n                                                                                                                             '293).',\n                                                                                                              'type': ['null',\n                                                                                                                       'integer']},\n                                                                                                   'url': {'description': \"Image's \"\n                                                                                                                          'URL.',\n                                                                                                           'type': ['null',\n                                                                                                                    'string']},\n                                                                                                   'width': {'description': \"Image's \"\n                                                                                                                            'width '\n                                                                                                                            '(e.g. '\n                                                                                                                            '440).',\n                                                                                                             'type': ['null',\n                                                                                                                      'integer']}},\n                                                                                    'type': 'object'},\n                                                                          'type': 'array'},\n                                                       'subtype': {'description': 'Asset '\n                                                                                  'subtype '\n                                                                                  '(e.g. '\n                                                                                  'photo).',\n                                                                   'type': ['null',\n                                                                            'string']},\n                                                       'type': {'description': 'Asset '\n                                                                               'type '\n                                                                               '(e.g. '\n                                                                               'image).',\n                                                                'type': ['null',\n                                                                         'string']}},\n                                        'type': 'object'},\n                              'type': 'array'},\n                    'org_facet': {'description': 'Array of organization '\n                                                 'facets (e.g. Sullivan '\n                                                 'Street Bakery).',\n                                  'items': {'type': ['null', 'string']},\n                                  'type': 'array'},\n                    'per_facet': {'description': 'Array of person facets '\n                                                 '(e.g. Bittman, Mark).',\n                                  'items': {'type': ['null', 'string']},\n                                  'type': 'array'},\n                    'published_date': {'description': 'When the article '\n                                                      'was published on '\n                                                      'the web (e.g. '\n                                                      '2021-04-19).',\n                                       'type': ['null', 'string']},\n                    'section': {'description': \"Article's section (e.g. \"\n                                               'Sports).',\n                                'type': ['null', 'string']},\n                    'source': {'description': 'Publisher (e.g. New York '\n                                              'Times).',\n                               'type': ['null', 'string']},\n                    'title': {'description': \"Article's headline (e.g. \"\n                                             'When the Cellos Play, the '\n                                             'Cows Come Home).',\n                              'type': ['null', 'string']},\n                    'type': {'description': 'Asset type (e.g. Article, '\n                                            'Interactive, ...).',\n                             'type': ['null', 'string']},\n                    'uri': {'description': \"An article's globally unique \"\n                                           'identifier.',\n                            'type': ['null', 'string']},\n                    'url': {'description': \"Article's URL.\",\n                            'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'abstract': 'The artist wasn\u2019t even set to take the stage. Instead '\n                 'she exchanged her initially glamorous look for a '\n                 'stripped-down one to suit her intense delivery.',\n     'adx_keywords': 'Pop and Rock Music;Academy Awards '\n                     '(Oscars);Movies;Cosmetics and Toiletries;Fashion and '\n                     'Apparel;Lady Gaga',\n     'asset_id': 100000008809544,\n     'byline': 'By Sarah Bahr',\n     'column': None,\n     'des_facet': ['Pop and Rock Music',\n                   'Academy Awards (Oscars)',\n                   'Movies',\n                   'Cosmetics and Toiletries',\n                   'Fashion and Apparel'],\n     'eta_id': 0,\n     'geo_facet': [],\n     'id': 100000008809544,\n     'media': [{'approved_for_syndication': 1,\n                'caption': 'Lady Gaga opting for a minimal look onstage.',\n                'copyright': 'Todd Heisler/The New York Times',\n                'media-metadata': [{'format': 'Standard Thumbnail',\n                                    'height': 75,\n                                    'url': 'https://static01.nyt.com/images/2023/03/12/movies/awardsseason/todd-oscars-2023-2486/todd-oscars-2023-2486-thumbStandard-v3.jpg',\n                                    'width': 75},\n                                   {'format': 'mediumThreeByTwo210',\n                                    'height': 140,\n                                    'url': 'https://static01.nyt.com/images/2023/03/12/movies/awardsseason/todd-oscars-2023-2486/todd-oscars-2023-2486-mediumThreeByTwo210-v3.jpg',\n                                    'width': 210},\n                                   {'format': 'mediumThreeByTwo440',\n                                    'height': 293,\n                                    'url': 'https://static01.nyt.com/images/2023/03/12/movies/awardsseason/todd-oscars-2023-2486/todd-oscars-2023-2486-mediumThreeByTwo440-v3.jpg',\n                                    'width': 440}],\n                'subtype': 'photo',\n                'type': 'image'}],\n     'nytdsection': 'movies',\n     'org_facet': [],\n     'per_facet': ['Lady Gaga'],\n     'published_date': '2023-03-12',\n     'section': 'Movies',\n     'source': 'New York Times',\n     'subsection': '',\n     'title': 'To Perform \u2018Hold My Hand,\u2019 Lady Gaga Goes au Naturel',\n     'type': 'Article',\n     'updated': '2023-03-13 13:35:36',\n     'uri': 'nyt://article/a7a1fbd1-2d75-5ad2-9c71-801eb01eb70e',\n     'url': 'https://www.nytimes.com/2023/03/12/movies/lady-gaga-oscars-performance.html'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The archive stream has the following schema errors:
+Additional properties are not allowed ('lead_paragraph', 'abstract' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'_id': {'type': ['null', 'string']},
+                    'byline': {'properties': {'organization': {'type': ['null',
+                                                                        'string']},
+                                              'original': {'type': ['null',
+                                                                    'string']},
+                                              'person': {'items': {'properties': {'firstname': {'type': ['null',
+                                                                                                         'string']},
+                                                                                  'lastname': {'type': ['null',
+                                                                                                        'string']},
+                                                                                  'middlename': {'type': ['null',
+                                                                                                          'string']},
+                                                                                  'organization': {'type': ['null',
+                                                                                                            'string']},
+                                                                                  'qualifier': {'type': ['null',
+                                                                                                         'string']},
+                                                                                  'rank': {'type': ['null',
+                                                                                                    'integer']},
+                                                                                  'role': {'type': ['null',
+                                                                                                    'string']},
+                                                                                  'title': {'type': ['null',
+                                                                                                     'string']}},
+                                                                   'type': 'object'},
+                                                         'type': 'array'}},
+                               'type': 'object'},
+                    'document_type': {'description': 'Document type '
+                                                     '(article, '
+                                                     'multimedia).',
+                                      'type': ['null', 'string']},
+                    'headline': {'properties': {'content_kicker': {'type': ['null',
+                                                                            'string']},
+                                                'kicker': {'type': ['null',
+                                                                    'string']},
+                                                'main': {'type': ['null',
+                                                                  'string']},
+                                                'name': {'type': ['null',
+                                                                  'string']},
+                                                'print_headline': {'type': ['null',
+                                                                            'string']},
+                                                'seo': {'type': ['null',
+                                                                 'string']},
+                                                'sub': {'type': ['null',
+                                                                 'string']}},
+                                 'type': 'object'},
+                    'keywords': {'items': {'properties': {'major': {'type': ['null',
+                                                                             'string']},
+                                                          'name': {'type': ['null',
+                                                                            'string']},
+                                                          'rank': {'type': ['null',
+                                                                            'integer']},
+                                                          'value': {'type': ['null',
+                                                                             'string']}},
+                                           'type': 'object'},
+                                 'type': 'array'},
+                    'multimedia': {'items': {'properties': {'caption': {'type': ['null',
+                                                                                 'string']},
+                                                            'credit': {'type': ['null',
+                                                                                'string']},
+                                                            'crop_name': {'type': ['null',
+                                                                                   'string']},
+                                                            'height': {'type': ['null',
+                                                                                'integer']},
+                                                            'legacy': {'properties': {'xlarge': {'type': ['null',
+                                                                                                          'string']},
+                                                                                      'xlargeheight': {'type': ['null',
+                                                                                                                'integer']},
+                                                                                      'xlargewidth': {'type': ['null',
+                                                                                                               'integer']}},
+                                                                       'type': 'object'},
+                                                            'rank': {'type': ['null',
+                                                                              'integer']},
+                                                            'subtype': {'type': ['null',
+                                                                                 'string']},
+                                                            'type': {'type': ['null',
+                                                                              'string']},
+                                                            'url': {'type': ['null',
+                                                                             'string']},
+                                                            'width': {'type': ['null',
+                                                                               'integer']}},
+                                             'type': 'object'},
+                                   'type': 'array'},
+                    'news_desk': {'description': 'Desk in the newsroom '
+                                                 'that worked on the story '
+                                                 '(Foreign, Metro, Sports, '
+                                                 '...).',
+                                  'type': ['null', 'string']},
+                    'print_page': {'description': 'Page in print (e.g. 1).',
+                                   'type': ['null', 'string']},
+                    'print_section': {'description': 'Section in print '
+                                                     '(e.g. A).',
+                                      'type': ['null', 'string']},
+                    'pub_date': {'description': 'Publication date.',
+                                 'type': ['null', 'string']},
+                    'section_name': {'description': 'Section that the '
+                                                    'article appeared in '
+                                                    '(New York, Sports, '
+                                                    'World, ...).',
+                                     'type': ['null', 'string']},
+                    'snippet': {'type': ['null', 'string']},
+                    'source': {'type': ['null', 'string']},
+                    'type_of_material': {'description': 'Type of asset '
+                                                        '(Correction, '
+                                                        'News, Op-Ed, '
+                                                        'Review, Video, '
+                                                        '...).',
+                                         'type': ['null', 'string']},
+                    'uri': {'description': 'Uniquely identifies an asset.',
+                            'type': ['null', 'string']},
+                    'web_url': {'description': 'Article URL.',
+                                'type': ['null', 'string']},
+                    'word_count': {'description': 'Number of words in the '
+                                                  'article.',
+                                   'type': ['null', 'integer']}},
+     'type': 'object'}
+
+On instance:
+    {'_id': 'nyt://article/b45f31c0-f387-59aa-af83-10aff26ebe61',
+     'abstract': 'Brian Boyd, who fatally hit Lisa Banes on a Manhattan '
+                 'crosswalk, tried to explain his actions in court, '
+                 'angering the judge. “I did beep my horn,” he said.',
+     'byline': {'organization': None,
+                'original': 'By Nate Schweber',
+                'person': [{'firstname': 'Nate',
+                            'lastname': 'Schweber',
+                            'middlename': None,
+                            'organization': '',
+                            'qualifier': None,
+                            'rank': 1,
+                            'role': 'reported',
+                            'title': None}]},
+     'document_type': 'article',
+     'headline': {'content_kicker': None,
+                  'kicker': None,
+                  'main': 'Scooter Driver Who Struck and Killed Actress '
+                          'Gets Up to 3 Years',
+                  'name': None,
+                  'print_headline': '',
+                  'seo': None,
+                  'sub': None},
+     'keywords': [{'major': 'N',
+                   'name': 'subject',
+                   'rank': 1,
+                   'value': 'Deaths (Fatalities)'},
+                  {'major': 'N',
+                   'name': 'subject',
+                   'rank': 2,
+                   'value': 'Decisions and Verdicts'},
+                  {'major': 'N',
+                   'name': 'persons',
+                   'rank': 3,
+                   'value': 'Banes, Lisa'},
+                  {'major': 'N',
+                   'name': 'persons',
+                   'rank': 4,
+                   'value': 'Boyd, Brian (1994- )'},
+                  {'major': 'N',
+                   'name': 'glocations',
+                   'rank': 5,
+                   'value': 'New York City'}],
+     'lead_paragraph': 'A State Supreme Court judge on Wednesday sentenced '
+                       'a scooter driver to as much as three years in '
+                       'prison for fatally hitting an actress, Lisa Banes, '
+                       'after the man tried to avoid blame for the '
+                       'accident following an earlier admission of guilt.',
+     'multimedia': [{'caption': None,
+                     'credit': None,
+                     'crop_name': 'articleLarge',
+                     'height': 400,
+                     'legacy': {'xlarge': 'images/2022/11/30/multimedia/30scooter-sentence-1-97cd/30scooter-sentence-1-97cd-articleLarge.jpg',
+                                'xlargeheight': 400,
+                                'xlargewidth': 600},
+                     'rank': 0,
+                     'subType': 'xlarge',
+                     'subtype': 'xlarge',
+                     'type': 'image',
+                     'url': 'images/2022/11/30/multimedia/30scooter-sentence-1-97cd/30scooter-sentence-1-97cd-articleLarge.jpg',
+                     'width': 600},
+                    {'caption': None,
+                     'credit': None,
+                     'crop_name': 'jumbo',
+                     'height': 682,
+                     'legacy': {},
+                     'rank': 0,
+                     'subType': 'jumbo',
+                     'subtype': 'jumbo',
+                     'type': 'image',
+                     'url': 'images/2022/11/30/multimedia/30scooter-sentence-1-97cd/30scooter-sentence-1-97cd-jumbo.jpg',
+                     'width': 1024},
+                    {'caption': None,
+                     'credit': None,
+                     'crop_name': 'superJumbo',
+                     'height': 1365,
+                     'legacy': {},
+                     'rank': 0,
+                     'subType': 'superJumbo',
+                     'subtype': 'superJumbo',
+                     'type': 'image',
+                     'url': 'images/2022/11/30/multimedia/30scooter-sentence-1-97cd/30scooter-sentence-1-97cd-superJumbo.jpg',
+                     'width': 2048},
+                    {'caption': None,
+                     'credit': None,
+                     'crop_name': 'thumbStandard',
+                     'height': 75,
+                     'legacy': {'thumbnail': 'images/2022/11/30/multimedia/30scooter-sentence-1-97cd/30scooter-sentence-1-97cd-thumbStandard.jpg',
+                                'thumbnailheight': 75,
+                                'thumbnailwidth': 75},
+                     'rank': 0,
+                     'subType': 'thumbnail',
+                     'subtype': 'thumbnail',
+                     'type': 'image',
+                     'url': 'images/2022/11/30/multimedia/30scooter-sentence-1-97cd/30scooter-sentence-1-97cd-thumbStandard.jpg',
+                     'width': 75},
+                    {'caption': None,
+                     'credit': None,
+                     'crop_name': 'thumbLarge',
+                     'height': 150,
+                     'legacy': {},
+                     'rank': 0,
+                     'subType': 'thumbLarge',
+                     'subtype': 'thumbLarge',
+                     'type': 'image',
+                     'url': 'images/2022/11/30/multimedia/30scooter-sentence-1-97cd/30scooter-sentence-1-97cd-thumbLarge.jpg',
+                     'width': 150}],
+     'news_desk': 'Metro',
+     'pub_date': '2022-11-30T19:50:09+0000',
+     'section_name': 'New York',
+     'snippet': 'Brian Boyd, who fatally hit Lisa Banes on a Manhattan '
+                'crosswalk, tried to explain his actions in court, '
+                'angering the judge. “I did beep my horn,” he said.',
+     'source': 'The New York Times',
+     'type_of_material': 'News',
+     'uri': 'nyt://article/b45f31c0-f387-59aa-af83-10aff26ebe61',
+     'web_url': 'https://www.nytimes.com/2022/11/30/nyregion/actress-death-sentencing-scooter-driver.html',
+     'word_count': 645}
+ERROR    root:test_core.py:662 
+The most_popular_viewed stream has the following schema errors:
+Additional properties are not allowed ('nytdsection', 'eta_id', 'subsection', 'updated' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'abstract': {'description': 'Brief summary of the '
+                                                'article.',
+                                 'type': ['null', 'string']},
+                    'adx_keywords': {'description': 'Semicolon separated '
+                                                    'list of keywords.',
+                                     'type': ['null', 'string']},
+                    'asset_id': {'description': 'Asset ID number (e.g. '
+                                                '100000007772696).',
+                                 'type': ['null', 'integer']},
+                    'byline': {'description': "Article's byline (e.g. By "
+                                              'Thomas L. Friedman).',
+                               'type': ['null', 'string']},
+                    'column': {'description': 'Deprecated. Set to null.',
+                               'type': ['null', 'string']},
+                    'des_facet': {'description': 'Array of description '
+                                                 'facets (e.g. Quarantine '
+                                                 '(Life and Culture)).',
+                                  'items': {'type': ['null', 'string']},
+                                  'type': 'array'},
+                    'geo_facet': {'description': 'Array of geographic '
+                                                 'facets (e.g. Canada).',
+                                  'items': {'type': ['null', 'string']},
+                                  'type': 'array'},
+                    'id': {'description': 'Asset ID number (e.g. '
+                                          '100000007772696).',
+                           'type': ['null', 'integer']},
+                    'media': {'description': 'Array of images.',
+                              'items': {'properties': {'approved_for_syndication': {'description': 'Whether '
+                                                                                                   'media '
+                                                                                                   'is '
+                                                                                                   'approved '
+                                                                                                   'for '
+                                                                                                   'syndication.',
+                                                                                    'type': ['null',
+                                                                                             'integer']},
+                                                       'caption': {'description': 'Media '
+                                                                                  'caption.',
+                                                                   'type': ['null',
+                                                                            'string']},
+                                                       'copyright': {'description': 'Media '
+                                                                                    'credit.',
+                                                                     'type': ['null',
+                                                                              'string']},
+                                                       'media-metadata': {'description': 'Media '
+                                                                                         'metadata '
+                                                                                         '(url, '
+                                                                                         'width, '
+                                                                                         'height, '
+                                                                                         '...).',
+                                                                          'items': {'properties': {'format': {'description': "Image's "
+                                                                                                                             'crop '
+                                                                                                                             'name.',
+                                                                                                              'type': ['null',
+                                                                                                                       'string']},
+                                                                                                   'height': {'description': "Image's "
+                                                                                                                             'height '
+                                                                                                                             '(e.g. '
+                                                                                                                             '293).',
+                                                                                                              'type': ['null',
+                                                                                                                       'integer']},
+                                                                                                   'url': {'description': "Image's "
+                                                                                                                          'URL.',
+                                                                                                           'type': ['null',
+                                                                                                                    'string']},
+                                                                                                   'width': {'description': "Image's "
+                                                                                                                            'width '
+                                                                                                                            '(e.g. '
+                                                                                                                            '440).',
+                                                                                                             'type': ['null',
+                                                                                                                      'integer']}},
+                                                                                    'type': 'object'},
+                                                                          'type': 'array'},
+                                                       'subtype': {'description': 'Asset '
+                                                                                  'subtype '
+                                                                                  '(e.g. '
+                                                                                  'photo).',
+                                                                   'type': ['null',
+                                                                            'string']},
+                                                       'type': {'description': 'Asset '
+                                                                               'type '
+                                                                               '(e.g. '
+                                                                               'image).',
+                                                                'type': ['null',
+                                                                         'string']}},
+                                        'type': 'object'},
+                              'type': 'array'},
+                    'org_facet': {'description': 'Array of organization '
+                                                 'facets (e.g. Sullivan '
+                                                 'Street Bakery).',
+                                  'items': {'type': ['null', 'string']},
+                                  'type': 'array'},
+                    'per_facet': {'description': 'Array of person facets '
+                                                 '(e.g. Bittman, Mark).',
+                                  'items': {'type': ['null', 'string']},
+                                  'type': 'array'},
+                    'published_date': {'description': 'When the article '
+                                                      'was published on '
+                                                      'the web (e.g. '
+                                                      '2021-04-19).',
+                                       'type': ['null', 'string']},
+                    'section': {'description': "Article's section (e.g. "
+                                               'Sports).',
+                                'type': ['null', 'string']},
+                    'source': {'description': 'Publisher (e.g. New York '
+                                              'Times).',
+                               'type': ['null', 'string']},
+                    'title': {'description': "Article's headline (e.g. "
+                                             'When the Cellos Play, the '
+                                             'Cows Come Home).',
+                              'type': ['null', 'string']},
+                    'type': {'description': 'Asset type (e.g. Article, '
+                                            'Interactive, ...).',
+                             'type': ['null', 'string']},
+                    'uri': {'description': "An article's globally unique "
+                                           'identifier.',
+                            'type': ['null', 'string']},
+                    'url': {'description': "Article's URL.",
+                            'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'abstract': 'The artist wasn’t even set to take the stage. Instead '
+                 'she exchanged her initially glamorous look for a '
+                 'stripped-down one to suit her intense delivery.',
+     'adx_keywords': 'Pop and Rock Music;Academy Awards '
+                     '(Oscars);Movies;Cosmetics and Toiletries;Fashion and '
+                     'Apparel;Lady Gaga',
+     'asset_id': 100000008809544,
+     'byline': 'By Sarah Bahr',
+     'column': None,
+     'des_facet': ['Pop and Rock Music',
+                   'Academy Awards (Oscars)',
+                   'Movies',
+                   'Cosmetics and Toiletries',
+                   'Fashion and Apparel'],
+     'eta_id': 0,
+     'geo_facet': [],
+     'id': 100000008809544,
+     'media': [{'approved_for_syndication': 1,
+                'caption': 'Lady Gaga opting for a minimal look onstage.',
+                'copyright': 'Todd Heisler/The New York Times',
+                'media-metadata': [{'format': 'Standard Thumbnail',
+                                    'height': 75,
+                                    'url': 'https://static01.nyt.com/images/2023/03/12/movies/awardsseason/todd-oscars-2023-2486/todd-oscars-2023-2486-thumbStandard-v3.jpg',
+                                    'width': 75},
+                                   {'format': 'mediumThreeByTwo210',
+                                    'height': 140,
+                                    'url': 'https://static01.nyt.com/images/2023/03/12/movies/awardsseason/todd-oscars-2023-2486/todd-oscars-2023-2486-mediumThreeByTwo210-v3.jpg',
+                                    'width': 210},
+                                   {'format': 'mediumThreeByTwo440',
+                                    'height': 293,
+                                    'url': 'https://static01.nyt.com/images/2023/03/12/movies/awardsseason/todd-oscars-2023-2486/todd-oscars-2023-2486-mediumThreeByTwo440-v3.jpg',
+                                    'width': 440}],
+                'subtype': 'photo',
+                'type': 'image'}],
+     'nytdsection': 'movies',
+     'org_facet': [],
+     'per_facet': ['Lady Gaga'],
+     'published_date': '2023-03-12',
+     'section': 'Movies',
+     'source': 'New York Times',
+     'subsection': '',
+     'title': 'To Perform ‘Hold My Hand,’ Lady Gaga Goes au Naturel',
+     'type': 'Article',
+     'updated': '2023-03-13 13:35:36',
+     'uri': 'nyt://article/a7a1fbd1-2d75-5ad2-9c71-801eb01eb70e',
+     'url': 'https://www.nytimes.com/2023/03/12/movies/lady-gaga-oscars-performance.html'}
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+============ 1 failed, 1 passed, 35 deselected in 72.85s (0:01:12) =============

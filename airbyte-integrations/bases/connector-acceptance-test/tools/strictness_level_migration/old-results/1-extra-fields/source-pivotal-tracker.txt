@@ -1,0 +1,445 @@
+../../../../connectors/source-pivotal-tracker/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-pivotal-tracker
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffa64358b0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='projects', json_schema={'$schema'...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffa5d8f910>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='projects', data={'id': 2559475, 'kind': 'project', 'name': 'Airbyte', 'v...er label', 'created_at': '2022-04-04T23:43:11Z', 'updated_at': '2022-04-04T23:43:11Z'}, emitted_at=1679408584218), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='projects', json_schema={'$schema'...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('projects', 'stories', 'project_memberships', 'epics', 'activity').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe projects stream has the following schema errors:\nAdditional properties are not allowed ('show_priority_icon_in_all_panels', 'show_priority_icon' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'account_id': {'type': ['null', 'integer']},\n                    'atom_enabled': {'type': ['null', 'boolean']},\n                    'automatic_planning': {'type': ['null', 'boolean']},\n                    'bugs_and_chores_are_estimatable': {'type': ['null',\n                                                                 'boolean']},\n                    'created_at': {'format': 'date-time',\n                                   'type': ['null', 'string']},\n                    'current_iteration_number': {'type': ['null',\n                                                          'integer']},\n                    'enable_following': {'type': ['null', 'boolean']},\n                    'enable_incoming_emails': {'type': ['null', 'boolean']},\n                    'enable_tasks': {'type': ['null', 'boolean']},\n                    'has_google_domain': {'type': ['null', 'boolean']},\n                    'id': {'type': ['null', 'integer']},\n                    'initial_velocity': {'type': ['null', 'integer']},\n                    'iteration_length': {'type': ['null', 'integer']},\n                    'kind': {'type': ['null', 'string']},\n                    'name': {'type': ['null', 'string']},\n                    'number_of_done_iterations_to_show': {'type': ['null',\n                                                                   'integer']},\n                    'point_scale': {'type': ['null', 'string']},\n                    'point_scale_is_custom': {'type': ['null', 'boolean']},\n                    'project_id': {'type': ['null', 'integer']},\n                    'project_type': {'type': ['null', 'string']},\n                    'public': {'type': ['null', 'boolean']},\n                    'show_story_priority': {'type': ['null', 'boolean']},\n                    'start_time': {'format': 'date-time',\n                                   'type': ['null', 'string']},\n                    'time_zone': {'type': ['null', 'object']},\n                    'updated_at': {'format': 'date-time',\n                                   'type': ['null', 'string']},\n                    'velocity_averaged_over': {'type': ['null', 'integer']},\n                    'version': {'type': ['null', 'integer']},\n                    'week_start_day': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'account_id': 1167453,\n     'atom_enabled': False,\n     'automatic_planning': True,\n     'bugs_and_chores_are_estimatable': False,\n     'created_at': '2022-03-21T15:03:46Z',\n     'current_iteration_number': 51,\n     'enable_following': True,\n     'enable_incoming_emails': True,\n     'enable_tasks': True,\n     'has_google_domain': False,\n     'id': 2559475,\n     'initial_velocity': 10,\n     'iteration_length': 1,\n     'kind': 'project',\n     'name': 'Airbyte',\n     'number_of_done_iterations_to_show': 4,\n     'point_scale': '0,1,2,3',\n     'point_scale_is_custom': False,\n     'project_type': 'private',\n     'public': False,\n     'show_priority_icon': False,\n     'show_priority_icon_in_all_panels': True,\n     'show_story_priority': True,\n     'start_time': '2022-04-04T07:00:00Z',\n     'time_zone': {'kind': 'time_zone',\n                   'offset': '-07:00',\n                   'olson_name': 'America/Los_Angeles'},\n     'updated_at': '2022-03-21T16:01:26Z',\n     'velocity_averaged_over': 3,\n     'version': 27,\n     'week_start_day': 'Monday'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe stories stream has the following schema errors:\nAdditional properties are not allowed ('description' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'accepted_at': {'format': 'date-time',\n                                    'type': ['null', 'string']},\n                    'created_at': {'format': 'date-time',\n                                   'type': ['null', 'string']},\n                    'current_state': {'type': ['null', 'string']},\n                    'estimate': {'type': ['null', 'integer']},\n                    'id': {'type': ['null', 'integer']},\n                    'kind': {'type': ['null', 'string']},\n                    'labels': {'items': {'properties': {'created_at': {'format': 'date-time',\n                                                                       'type': ['null',\n                                                                                'string']},\n                                                        'id': {'type': ['null',\n                                                                        'integer']},\n                                                        'kind': {'type': ['null',\n                                                                          'string']},\n                                                        'name': {'type': ['null',\n                                                                          'string']},\n                                                        'project_id': {'type': ['null',\n                                                                                'integer']},\n                                                        'updated_at': {'format': 'date-time',\n                                                                       'type': ['null',\n                                                                                'string']}},\n                                         'type': 'object'},\n                               'type': 'array'},\n                    'name': {'type': ['null', 'string']},\n                    'owned_by_id': {'type': ['null', 'integer']},\n                    'owner_ids': {'items': {'type': 'integer'},\n                                  'type': 'array'},\n                    'project_id': {'type': ['null', 'integer']},\n                    'requested_by_id': {'type': ['null', 'integer']},\n                    'story_priority': {'type': ['null', 'string']},\n                    'story_type': {'type': ['null', 'string']},\n                    'updated_at': {'format': 'date-time',\n                                   'type': ['null', 'string']},\n                    'url': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'created_at': '2022-04-04T23:43:11Z',\n     'current_state': 'unscheduled',\n     'description': 'Cool Description',\n     'id': 181782101,\n     'kind': 'story',\n     'labels': [{'created_at': '2022-04-04T23:43:11Z',\n                 'id': 23642635,\n                 'kind': 'label',\n                 'name': 'another label',\n                 'project_id': 2559475,\n                 'updated_at': '2022-04-04T23:43:11Z'},\n                {'created_at': '2022-04-04T23:43:11Z',\n                 'id': 23642634,\n                 'kind': 'label',\n                 'name': 'new label',\n                 'project_id': 2559475,\n                 'updated_at': '2022-04-04T23:43:11Z'}],\n     'name': 'A cool history',\n     'owner_ids': [],\n     'project_id': 2559475,\n     'requested_by_id': 3440438,\n     'story_priority': 'p3',\n     'story_type': 'feature',\n     'updated_at': '2022-04-04T23:43:11Z',\n     'url': 'https://www.pivotaltracker.com/story/show/181782101'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe project_memberships stream has the following schema errors:\nAdditional properties are not allowed ('last_viewed_at' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'created_at': {'format': 'date-time',\n                                   'type': ['null', 'string']},\n                    'favorite': {'type': ['null', 'boolean']},\n                    'id': {'type': ['null', 'integer']},\n                    'kind': {'type': ['null', 'string']},\n                    'person': {'properties': {'email': {'type': ['null',\n                                                                 'string']},\n                                              'id': {'type': ['null',\n                                                              'integer']},\n                                              'initials': {'type': ['null',\n                                                                    'string']},\n                                              'kind': {'type': ['null',\n                                                                'string']},\n                                              'name': {'type': ['null',\n                                                                'string']},\n                                              'username': {'type': ['null',\n                                                                    'string']}},\n                               'type': 'object'},\n                    'project_color': {'type': ['null', 'string']},\n                    'project_id': {'type': ['null', 'integer']},\n                    'role': {'type': ['null', 'string']},\n                    'updated_at': {'format': 'date-time',\n                                   'type': ['null', 'string']},\n                    'wants_comment_notification_emails': {'type': ['null',\n                                                                   'boolean']},\n                    'will_receive_mention_notifications_or_emails': {'type': ['null',\n                                                                              'boolean']}},\n     'type': 'object'}\n\nOn instance:\n    {'created_at': '2022-03-21T15:03:46Z',\n     'favorite': False,\n     'id': 11093421,\n     'kind': 'project_membership',\n     'last_viewed_at': '2022-04-04T23:51:01Z',\n     'person': {'email': 'integration-test@airbyte.io',\n                'id': 3440438,\n                'initials': 'IN',\n                'kind': 'person',\n                'name': 'integration-test',\n                'username': 'integrationtest'},\n     'project_color': '6e7306',\n     'project_id': 2559475,\n     'role': 'owner',\n     'updated_at': '2022-04-04T23:51:01Z',\n     'wants_comment_notification_emails': True,\n     'will_receive_mention_notifications_or_emails': True}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe epics stream has the following schema errors:\nAdditional properties are not allowed ('description' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'created_at': {'format': 'date-time',\n                                   'type': ['null', 'string']},\n                    'id': {'type': ['null', 'integer']},\n                    'kind': {'type': ['null', 'string']},\n                    'label': {'properties': {'created_at': {'format': 'date-time',\n                                                            'type': ['null',\n                                                                     'string']},\n                                             'id': {'type': ['null',\n                                                             'integer']},\n                                             'kind': {'type': ['null',\n                                                               'string']},\n                                             'name': {'type': ['null',\n                                                               'string']},\n                                             'project_id': {'type': ['null',\n                                                                     'integer']},\n                                             'updated_at': {'format': 'date-time',\n                                                            'type': ['null',\n                                                                     'string']}},\n                              'type': 'object'},\n                    'name': {'type': ['null', 'string']},\n                    'project_id': {'type': ['null', 'integer']},\n                    'updated_at': {'format': 'date-time',\n                                   'type': ['null', 'string']},\n                    'url': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'created_at': '2022-04-04T23:43:35Z',\n     'description': 'New Epic',\n     'id': 4931976,\n     'kind': 'epic',\n     'label': {'created_at': '2022-04-04T23:43:34Z',\n               'id': 23642636,\n               'kind': 'label',\n               'name': 'my incredible epic',\n               'project_id': 2559475,\n               'updated_at': '2022-04-04T23:43:34Z'},\n     'name': 'My incredible Epic',\n     'project_id': 2559475,\n     'updated_at': '2022-04-04T23:46:24Z',\n     'url': 'https://www.pivotaltracker.com/epic/show/4931976'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe activity stream has the following schema errors:\nAdditional properties are not allowed ('secondary_resources', 'project' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'changes': {'items': {'properties': {'change_type': {'type': ['null',\n                                                                                  'string']},\n                                                         'id': {'type': ['null',\n                                                                         'integer']},\n                                                         'kind': {'type': ['null',\n                                                                           'string']},\n                                                         'new_values': {'type': ['null',\n                                                                                 'object']},\n                                                         'original_values': {'type': ['null',\n                                                                                      'object']}},\n                                          'type': 'object'},\n                                'type': 'array'},\n                    'guid': {'type': ['null', 'string']},\n                    'highlight': {'type': ['null', 'string']},\n                    'kind': {'type': ['null', 'string']},\n                    'message': {'type': ['null', 'string']},\n                    'occurred_at': {'format': 'date-time',\n                                    'type': ['null', 'string']},\n                    'performed_by': {'properties': {'email': {'type': ['null',\n                                                                       'string']},\n                                                    'id': {'type': ['null',\n                                                                    'integer']},\n                                                    'initials': {'type': ['null',\n                                                                          'string']},\n                                                    'kind': {'type': ['null',\n                                                                      'string']},\n                                                    'name': {'type': ['null',\n                                                                      'string']},\n                                                    'username': {'type': ['null',\n                                                                          'string']}},\n                                     'type': 'object'},\n                    'primary_resources': {'items': {'properties': {'id': {'type': ['null',\n                                                                                   'integer']},\n                                                                   'kind': {'type': ['null',\n                                                                                     'string']}},\n                                                    'type': 'object'},\n                                          'type': ['null', 'array']},\n                    'project_id': {'type': ['null', 'integer']},\n                    'project_version': {'type': ['null', 'integer']}},\n     'type': 'object'}\n\nOn instance:\n    {'changes': [{'change_type': 'update',\n                  'id': 3440438,\n                  'kind': 'person',\n                  'new_values': {'avatar_guid': 'dc644613bd9c6bb731eceb886b7cbc45'},\n                  'original_values': {'avatar_guid': 'dc644613bd9c6bb731eceb886b7cbc45'}}],\n     'guid': '2559475_3',\n     'highlight': 'updated',\n     'kind': 'project_membership_update_activity',\n     'message': 'integration-test updated their profile',\n     'occurred_at': '2022-03-21T15:05:05Z',\n     'performed_by': {'id': 3440438,\n                      'initials': 'IN',\n                      'kind': 'person',\n                      'name': 'integration-test'},\n     'primary_resources': [{'id': 2559475,\n                            'kind': 'project',\n                            'name': 'Airbyte'}],\n     'project': {'id': 2559475, 'kind': 'project', 'name': 'Airbyte'},\n     'project_id': 2559475,\n     'project_version': 3,\n     'secondary_resources': []}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The projects stream has the following schema errors:
+Additional properties are not allowed ('show_priority_icon_in_all_panels', 'show_priority_icon' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'account_id': {'type': ['null', 'integer']},
+                    'atom_enabled': {'type': ['null', 'boolean']},
+                    'automatic_planning': {'type': ['null', 'boolean']},
+                    'bugs_and_chores_are_estimatable': {'type': ['null',
+                                                                 'boolean']},
+                    'created_at': {'format': 'date-time',
+                                   'type': ['null', 'string']},
+                    'current_iteration_number': {'type': ['null',
+                                                          'integer']},
+                    'enable_following': {'type': ['null', 'boolean']},
+                    'enable_incoming_emails': {'type': ['null', 'boolean']},
+                    'enable_tasks': {'type': ['null', 'boolean']},
+                    'has_google_domain': {'type': ['null', 'boolean']},
+                    'id': {'type': ['null', 'integer']},
+                    'initial_velocity': {'type': ['null', 'integer']},
+                    'iteration_length': {'type': ['null', 'integer']},
+                    'kind': {'type': ['null', 'string']},
+                    'name': {'type': ['null', 'string']},
+                    'number_of_done_iterations_to_show': {'type': ['null',
+                                                                   'integer']},
+                    'point_scale': {'type': ['null', 'string']},
+                    'point_scale_is_custom': {'type': ['null', 'boolean']},
+                    'project_id': {'type': ['null', 'integer']},
+                    'project_type': {'type': ['null', 'string']},
+                    'public': {'type': ['null', 'boolean']},
+                    'show_story_priority': {'type': ['null', 'boolean']},
+                    'start_time': {'format': 'date-time',
+                                   'type': ['null', 'string']},
+                    'time_zone': {'type': ['null', 'object']},
+                    'updated_at': {'format': 'date-time',
+                                   'type': ['null', 'string']},
+                    'velocity_averaged_over': {'type': ['null', 'integer']},
+                    'version': {'type': ['null', 'integer']},
+                    'week_start_day': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'account_id': 1167453,
+     'atom_enabled': False,
+     'automatic_planning': True,
+     'bugs_and_chores_are_estimatable': False,
+     'created_at': '2022-03-21T15:03:46Z',
+     'current_iteration_number': 51,
+     'enable_following': True,
+     'enable_incoming_emails': True,
+     'enable_tasks': True,
+     'has_google_domain': False,
+     'id': 2559475,
+     'initial_velocity': 10,
+     'iteration_length': 1,
+     'kind': 'project',
+     'name': 'Airbyte',
+     'number_of_done_iterations_to_show': 4,
+     'point_scale': '0,1,2,3',
+     'point_scale_is_custom': False,
+     'project_type': 'private',
+     'public': False,
+     'show_priority_icon': False,
+     'show_priority_icon_in_all_panels': True,
+     'show_story_priority': True,
+     'start_time': '2022-04-04T07:00:00Z',
+     'time_zone': {'kind': 'time_zone',
+                   'offset': '-07:00',
+                   'olson_name': 'America/Los_Angeles'},
+     'updated_at': '2022-03-21T16:01:26Z',
+     'velocity_averaged_over': 3,
+     'version': 27,
+     'week_start_day': 'Monday'}
+ERROR    root:test_core.py:662 
+The stories stream has the following schema errors:
+Additional properties are not allowed ('description' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'accepted_at': {'format': 'date-time',
+                                    'type': ['null', 'string']},
+                    'created_at': {'format': 'date-time',
+                                   'type': ['null', 'string']},
+                    'current_state': {'type': ['null', 'string']},
+                    'estimate': {'type': ['null', 'integer']},
+                    'id': {'type': ['null', 'integer']},
+                    'kind': {'type': ['null', 'string']},
+                    'labels': {'items': {'properties': {'created_at': {'format': 'date-time',
+                                                                       'type': ['null',
+                                                                                'string']},
+                                                        'id': {'type': ['null',
+                                                                        'integer']},
+                                                        'kind': {'type': ['null',
+                                                                          'string']},
+                                                        'name': {'type': ['null',
+                                                                          'string']},
+                                                        'project_id': {'type': ['null',
+                                                                                'integer']},
+                                                        'updated_at': {'format': 'date-time',
+                                                                       'type': ['null',
+                                                                                'string']}},
+                                         'type': 'object'},
+                               'type': 'array'},
+                    'name': {'type': ['null', 'string']},
+                    'owned_by_id': {'type': ['null', 'integer']},
+                    'owner_ids': {'items': {'type': 'integer'},
+                                  'type': 'array'},
+                    'project_id': {'type': ['null', 'integer']},
+                    'requested_by_id': {'type': ['null', 'integer']},
+                    'story_priority': {'type': ['null', 'string']},
+                    'story_type': {'type': ['null', 'string']},
+                    'updated_at': {'format': 'date-time',
+                                   'type': ['null', 'string']},
+                    'url': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'created_at': '2022-04-04T23:43:11Z',
+     'current_state': 'unscheduled',
+     'description': 'Cool Description',
+     'id': 181782101,
+     'kind': 'story',
+     'labels': [{'created_at': '2022-04-04T23:43:11Z',
+                 'id': 23642635,
+                 'kind': 'label',
+                 'name': 'another label',
+                 'project_id': 2559475,
+                 'updated_at': '2022-04-04T23:43:11Z'},
+                {'created_at': '2022-04-04T23:43:11Z',
+                 'id': 23642634,
+                 'kind': 'label',
+                 'name': 'new label',
+                 'project_id': 2559475,
+                 'updated_at': '2022-04-04T23:43:11Z'}],
+     'name': 'A cool history',
+     'owner_ids': [],
+     'project_id': 2559475,
+     'requested_by_id': 3440438,
+     'story_priority': 'p3',
+     'story_type': 'feature',
+     'updated_at': '2022-04-04T23:43:11Z',
+     'url': 'https://www.pivotaltracker.com/story/show/181782101'}
+ERROR    root:test_core.py:662 
+The project_memberships stream has the following schema errors:
+Additional properties are not allowed ('last_viewed_at' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'created_at': {'format': 'date-time',
+                                   'type': ['null', 'string']},
+                    'favorite': {'type': ['null', 'boolean']},
+                    'id': {'type': ['null', 'integer']},
+                    'kind': {'type': ['null', 'string']},
+                    'person': {'properties': {'email': {'type': ['null',
+                                                                 'string']},
+                                              'id': {'type': ['null',
+                                                              'integer']},
+                                              'initials': {'type': ['null',
+                                                                    'string']},
+                                              'kind': {'type': ['null',
+                                                                'string']},
+                                              'name': {'type': ['null',
+                                                                'string']},
+                                              'username': {'type': ['null',
+                                                                    'string']}},
+                               'type': 'object'},
+                    'project_color': {'type': ['null', 'string']},
+                    'project_id': {'type': ['null', 'integer']},
+                    'role': {'type': ['null', 'string']},
+                    'updated_at': {'format': 'date-time',
+                                   'type': ['null', 'string']},
+                    'wants_comment_notification_emails': {'type': ['null',
+                                                                   'boolean']},
+                    'will_receive_mention_notifications_or_emails': {'type': ['null',
+                                                                              'boolean']}},
+     'type': 'object'}
+
+On instance:
+    {'created_at': '2022-03-21T15:03:46Z',
+     'favorite': False,
+     'id': 11093421,
+     'kind': 'project_membership',
+     'last_viewed_at': '2022-04-04T23:51:01Z',
+     'person': {'email': 'integration-test@airbyte.io',
+                'id': 3440438,
+                'initials': 'IN',
+                'kind': 'person',
+                'name': 'integration-test',
+                'username': 'integrationtest'},
+     'project_color': '6e7306',
+     'project_id': 2559475,
+     'role': 'owner',
+     'updated_at': '2022-04-04T23:51:01Z',
+     'wants_comment_notification_emails': True,
+     'will_receive_mention_notifications_or_emails': True}
+ERROR    root:test_core.py:662 
+The epics stream has the following schema errors:
+Additional properties are not allowed ('description' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'created_at': {'format': 'date-time',
+                                   'type': ['null', 'string']},
+                    'id': {'type': ['null', 'integer']},
+                    'kind': {'type': ['null', 'string']},
+                    'label': {'properties': {'created_at': {'format': 'date-time',
+                                                            'type': ['null',
+                                                                     'string']},
+                                             'id': {'type': ['null',
+                                                             'integer']},
+                                             'kind': {'type': ['null',
+                                                               'string']},
+                                             'name': {'type': ['null',
+                                                               'string']},
+                                             'project_id': {'type': ['null',
+                                                                     'integer']},
+                                             'updated_at': {'format': 'date-time',
+                                                            'type': ['null',
+                                                                     'string']}},
+                              'type': 'object'},
+                    'name': {'type': ['null', 'string']},
+                    'project_id': {'type': ['null', 'integer']},
+                    'updated_at': {'format': 'date-time',
+                                   'type': ['null', 'string']},
+                    'url': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'created_at': '2022-04-04T23:43:35Z',
+     'description': 'New Epic',
+     'id': 4931976,
+     'kind': 'epic',
+     'label': {'created_at': '2022-04-04T23:43:34Z',
+               'id': 23642636,
+               'kind': 'label',
+               'name': 'my incredible epic',
+               'project_id': 2559475,
+               'updated_at': '2022-04-04T23:43:34Z'},
+     'name': 'My incredible Epic',
+     'project_id': 2559475,
+     'updated_at': '2022-04-04T23:46:24Z',
+     'url': 'https://www.pivotaltracker.com/epic/show/4931976'}
+ERROR    root:test_core.py:662 
+The activity stream has the following schema errors:
+Additional properties are not allowed ('secondary_resources', 'project' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'changes': {'items': {'properties': {'change_type': {'type': ['null',
+                                                                                  'string']},
+                                                         'id': {'type': ['null',
+                                                                         'integer']},
+                                                         'kind': {'type': ['null',
+                                                                           'string']},
+                                                         'new_values': {'type': ['null',
+                                                                                 'object']},
+                                                         'original_values': {'type': ['null',
+                                                                                      'object']}},
+                                          'type': 'object'},
+                                'type': 'array'},
+                    'guid': {'type': ['null', 'string']},
+                    'highlight': {'type': ['null', 'string']},
+                    'kind': {'type': ['null', 'string']},
+                    'message': {'type': ['null', 'string']},
+                    'occurred_at': {'format': 'date-time',
+                                    'type': ['null', 'string']},
+                    'performed_by': {'properties': {'email': {'type': ['null',
+                                                                       'string']},
+                                                    'id': {'type': ['null',
+                                                                    'integer']},
+                                                    'initials': {'type': ['null',
+                                                                          'string']},
+                                                    'kind': {'type': ['null',
+                                                                      'string']},
+                                                    'name': {'type': ['null',
+                                                                      'string']},
+                                                    'username': {'type': ['null',
+                                                                          'string']}},
+                                     'type': 'object'},
+                    'primary_resources': {'items': {'properties': {'id': {'type': ['null',
+                                                                                   'integer']},
+                                                                   'kind': {'type': ['null',
+                                                                                     'string']}},
+                                                    'type': 'object'},
+                                          'type': ['null', 'array']},
+                    'project_id': {'type': ['null', 'integer']},
+                    'project_version': {'type': ['null', 'integer']}},
+     'type': 'object'}
+
+On instance:
+    {'changes': [{'change_type': 'update',
+                  'id': 3440438,
+                  'kind': 'person',
+                  'new_values': {'avatar_guid': 'dc644613bd9c6bb731eceb886b7cbc45'},
+                  'original_values': {'avatar_guid': 'dc644613bd9c6bb731eceb886b7cbc45'}}],
+     'guid': '2559475_3',
+     'highlight': 'updated',
+     'kind': 'project_membership_update_activity',
+     'message': 'integration-test updated their profile',
+     'occurred_at': '2022-03-21T15:05:05Z',
+     'performed_by': {'id': 3440438,
+                      'initials': 'IN',
+                      'kind': 'person',
+                      'name': 'integration-test'},
+     'primary_resources': [{'id': 2559475,
+                            'kind': 'project',
+                            'name': 'Airbyte'}],
+     'project': {'id': 2559475, 'kind': 'project', 'name': 'Airbyte'},
+     'project_id': 2559475,
+     'project_version': 3,
+     'secondary_resources': []}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+=========== 1 failed, 1 skipped, 33 deselected, 35 warnings in 6.43s ===========

@@ -1,0 +1,451 @@
+../../../../connectors/source-klarna/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-klarna
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffb771f8b0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='payouts', json_schema={'type': 'o...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffb6f3b910>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='payouts', data={'currency_code': 'SEK', 'merchant_id': 'PK57312', 'merch...m/settlements/v1/transactions?payment_reference=5240a346-ad5c-450f-a58c-c4ecb53f689f'}, emitted_at=1679407755757), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='payouts', json_schema={'type': 'o...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('transactions',).
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe transactions stream has the following schema errors:\nAdditional properties are not allowed ('merchant_id', 'shipping_address_country', 'consumer_vat' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/schema#',\n     'additionalProperties': False,\n     'properties': {'amount': {'description': 'Total amount of the '\n                                              'specific transaction, in '\n                                              'minor units',\n                               'example': 2000,\n                               'format': 'int64',\n                               'type': 'integer'},\n                    'capture_date': {'description': 'ISO 8601 formatted '\n                                                    'date-time string',\n                                     'example': '2016-12-14T07:52:26Z',\n                                     'format': 'date-time',\n                                     'type': 'string'},\n                    'capture_id': {'description': 'The Klarna assigned id '\n                                                  'reference of a specific '\n                                                  'capture',\n                                   'example': '33db6f16-9f43-43fa-a587-cc51411c98e4',\n                                   'type': 'string'},\n                    'currency_code': {'description': 'ISO 4217 Currency '\n                                                     'Code. Like USD, EUR, '\n                                                     'AUD or GBP.',\n                                      'example': 'USD',\n                                      'type': 'string'},\n                    'currency_code_of_registration_country': {'description': 'ISO '\n                                                                             '4217 '\n                                                                             'Currency '\n                                                                             'Code '\n                                                                             'of '\n                                                                             'the '\n                                                                             'country '\n                                                                             'you '\n                                                                             'are '\n                                                                             'registered '\n                                                                             'in.',\n                                                              'example': 'EUR',\n                                                              'type': 'string'},\n                    'detailed_type': {'description': 'Detailed description '\n                                                     'of the transaction '\n                                                     'type',\n                                      'enum': ['COMMISSION',\n                                               'CREDITED_CORRECTION',\n                                               'PURCHASE_FEE_PERCENTAGE',\n                                               'PURCHASE_FEE_PERCENTAGE_REFUND',\n                                               'LATE_RETURN_FEE',\n                                               'PURCHASE_FEE_FIXED',\n                                               'EXPIRY_FEE_GROSS',\n                                               'EXPIRY_FEE',\n                                               'SERVICING_FEE',\n                                               'RETURN_FEE',\n                                               'EXTRA_INVOICE_FEE',\n                                               'PURCHASE_RETURN',\n                                               'COMMISSION_RETURN',\n                                               'REVERSAL',\n                                               'FRAUD_POLICY_CHARGE',\n                                               'COMMISSION_RETURN_GROSS',\n                                               'FRAUD_POLICY_CREDIT_NET',\n                                               'PURCHASE',\n                                               'MANUAL_ENTRY',\n                                               'LOAN_PAYOUT',\n                                               'LOAN_AMORTISATION',\n                                               'LOAN_FEE',\n                                               'FEE_REFUND',\n                                               'PURCHASE_COMMISSION_PERCENTAGE',\n                                               'EXTEND_DUE_DATE_FEE',\n                                               'TRANSFER_FROM_LEGACY_INTEGRATION',\n                                               'FIXED_FEE_CORRECTION_UK',\n                                               'PERCENTAGE_FEE_CORRECTION_UK',\n                                               'VAT_ON_FEE_CORRECTION_UK',\n                                               'FIXED_FEE_CORRECTION_SE',\n                                               'PERCENTAGE_FEE_CORRECTION_SE',\n                                               'PERCENTAGE_FEE_CORRECTION',\n                                               'FIXED_FEE_CORRECTION',\n                                               'ROLLING_RESERVE',\n                                               'PERCENTAGE_FEES',\n                                               'PAYMENT_REMINDER',\n                                               'CORRECTION',\n                                               'UNDER_REVIEW',\n                                               'INSUFFICIENT_BANK_ACCOUNT_DETAILS',\n                                               'DISPUTE_FEE',\n                                               'DISPUTE_FEE_REFUND'],\n                                      'example': 'PURCHASE',\n                                      'type': 'string'},\n                    'initial_number_of_installments': {'description': 'Number '\n                                                                      'of '\n                                                                      'installments '\n                                                                      'the '\n                                                                      'consumer '\n                                                                      'chose '\n                                                                      'during '\n                                                                      'checkout '\n                                                                      'in '\n                                                                      'case '\n                                                                      'of '\n                                                                      'installment '\n                                                                      'payments',\n                                                       'example': 3,\n                                                       'type': 'integer'},\n                    'initial_payment_method_monthly_downpayments': {'description': 'Number '\n                                                                                   'of '\n                                                                                   'monthly '\n                                                                                   'downpayments '\n                                                                                   'that '\n                                                                                   'were '\n                                                                                   'chosen '\n                                                                                   'during '\n                                                                                   'the '\n                                                                                   'checkout '\n                                                                                   'in '\n                                                                                   'case '\n                                                                                   'of '\n                                                                                   'installment '\n                                                                                   'payments.',\n                                                                    'example': 12,\n                                                                    'type': 'integer'},\n                    'initial_payment_method_type': {'description': 'Payment '\n                                                                   'method '\n                                                                   'the '\n                                                                   'consumer '\n                                                                   'chose '\n                                                                   'during '\n                                                                   'checkout',\n                                                    'example': 'direct_debit',\n                                                    'type': 'string'},\n                    'merchant_capture_reference': {'description': 'Your '\n                                                                  'internal '\n                                                                  'reference '\n                                                                  'to the '\n                                                                  'capture, '\n                                                                  'that '\n                                                                  'has '\n                                                                  'been '\n                                                                  'submitted '\n                                                                  'during '\n                                                                  'capturing '\n                                                                  'an '\n                                                                  'order '\n                                                                  'via API',\n                                                   'type': 'string'},\n                    'merchant_reference1': {'description': 'Merchant '\n                                                           'assigned '\n                                                           'reference, '\n                                                           'typically a '\n                                                           'reference to '\n                                                           'an order '\n                                                           'management '\n                                                           'system id',\n                                            'type': 'string'},\n                    'merchant_reference2': {'description': 'Merchant '\n                                                           'assigned '\n                                                           'reference, '\n                                                           'typically a '\n                                                           'reference to '\n                                                           'an order '\n                                                           'management '\n                                                           'system id',\n                                            'type': 'string'},\n                    'merchant_refund_reference': {'description': 'Your '\n                                                                 'internal '\n                                                                 'reference '\n                                                                 'to the '\n                                                                 'refund, '\n                                                                 'that has '\n                                                                 'been '\n                                                                 'submitted '\n                                                                 'during '\n                                                                 'refunding '\n                                                                 'an order '\n                                                                 'via API',\n                                                  'type': 'string'},\n                    'order_id': {'description': 'The Klarna assigned order '\n                                                'id reference',\n                                 'example': 'ce17b4cb-147f-48b7-b8e6-dde2fa397f04',\n                                 'format': 'uuid',\n                                 'type': 'string'},\n                    'payment_reference': {'description': 'Reference to the '\n                                                         'specific payout '\n                                                         'the transaction '\n                                                         'is part of, if '\n                                                         'available.',\n                                          'example': 'XISA93DJ',\n                                          'type': 'string'},\n                    'payout': {'description': 'Link to the payout that '\n                                              'this transaction is part of',\n                               'example': 'https://{settlements_api}/payouts/XISA93DJ',\n                               'type': 'string'},\n                    'purchase_country': {'description': 'ISO Alpha-2 '\n                                                        'Country Code',\n                                         'example': 'PL',\n                                         'type': 'string'},\n                    'refund_id': {'description': 'The Klarna assigned id '\n                                                 'reference of a specific '\n                                                 'refund',\n                                  'example': 'ef1baa1f-b42e-44be-b9e4-4b94510b53e5',\n                                  'type': 'string'},\n                    'sale_date': {'description': 'ISO 8601 formatted '\n                                                 'date-time string',\n                                  'example': '2016-12-14T07:52:26Z',\n                                  'format': 'date-time',\n                                  'type': 'string'},\n                    'shipping_country': {'description': 'ISO Alpha-2 '\n                                                        'Country Code',\n                                         'example': 'PL',\n                                         'type': 'string'},\n                    'short_order_id': {'description': 'The Klarna assigned '\n                                                      'short order id '\n                                                      'reference',\n                                       'example': 'shortrid',\n                                       'type': 'string'},\n                    'tax_in_currency_of_registration_country': {'description': 'The '\n                                                                               'tax '\n                                                                               'amount '\n                                                                               'on '\n                                                                               'the '\n                                                                               'respective '\n                                                                               'fee, '\n                                                                               'converted '\n                                                                               'into '\n                                                                               'the '\n                                                                               'currency '\n                                                                               'of '\n                                                                               'your '\n                                                                               'registration '\n                                                                               'country. '\n                                                                               'In '\n                                                                               'case '\n                                                                               'you '\n                                                                               'are '\n                                                                               'a '\n                                                                               'German '\n                                                                               'merchant '\n                                                                               'selling '\n                                                                               'in '\n                                                                               'another '\n                                                                               'currency '\n                                                                               'then '\n                                                                               'EUR '\n                                                                               'or '\n                                                                               'a '\n                                                                               'Swedish '\n                                                                               'merchant '\n                                                                               'selling '\n                                                                               'in '\n                                                                               'another '\n                                                                               'currency '\n                                                                               'then '\n                                                                               'SEK, '\n                                                                               'we '\n                                                                               'convert '\n                                                                               'the '\n                                                                               'VAT '\n                                                                               'amount '\n                                                                               'on '\n                                                                               'the '\n                                                                               'Klarna '\n                                                                               'fees '\n                                                                               'into '\n                                                                               'the '\n                                                                               'currency '\n                                                                               'of '\n                                                                               'the '\n                                                                               'country '\n                                                                               'you '\n                                                                               'are '\n                                                                               'registered '\n                                                                               'in, '\n                                                                               'based '\n                                                                               'on '\n                                                                               'the '\n                                                                               'exchange '\n                                                                               'rate '\n                                                                               'of '\n                                                                               'the '\n                                                                               'capture '\n                                                                               'date.',\n                                                                'example': 1000,\n                                                                'type': 'integer'},\n                    'type': {'description': 'The type of transaction.',\n                             'enum': ['COMMISSION',\n                                      'SALE',\n                                      'REVERSAL',\n                                      'RETURN',\n                                      'TAX',\n                                      'FEE',\n                                      'FEE_REFUND',\n                                      'CORRECTION',\n                                      'REVERSAL_MERCHANT_PROTECTION',\n                                      'CHARGE',\n                                      'CREDIT',\n                                      'HOLDBACK',\n                                      'RELEASE'],\n                             'example': 'SALE',\n                             'type': 'string'},\n                    'vat_amount': {'description': 'VAT (Value added tax) '\n                                                  'amount on Klarna fees, '\n                                                  'in minor units',\n                                   'example': 1000,\n                                   'type': 'integer'},\n                    'vat_rate': {'description': 'VAT (Value added tax) '\n                                                'rate on Klarna fees',\n                                 'example': 2000,\n                                 'type': 'integer'}},\n     'required': ['capture_id', 'sale_date', 'capture_date', 'order_id'],\n     'type': 'object'}\n\nOn instance:\n    {'amount': 87900,\n     'capture_date': '2022-05-24T09:50:11.742Z',\n     'capture_id': '01b365ba-cf03-4b16-9562-56588d6a18b7',\n     'consumer_vat': [{'tax_amount': 0, 'tax_rate': 0}],\n     'currency_code': 'PLN',\n     'detailed_type': 'PURCHASE',\n     'initial_payment_method_type': 'invoice',\n     'merchant_id': 'PK57312',\n     'order_id': 'f36b6346-f571-49a9-9332-41c78fa9569d',\n     'payment_reference': '8613d3a4-8ab5-4a38-aae0-88b58fa363dc',\n     'payout': 'https://api.playground.klarna.com/settlements/v1/payouts/8613d3a4-8ab5-4a38-aae0-88b58fa363dc',\n     'purchase_country': 'PL',\n     'sale_date': '2022-05-24T09:48:53.498Z',\n     'shipping_address_country': 'PL',\n     'short_order_id': '5XJVX293-2',\n     'type': 'SALE',\n     'vat_amount': 0}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The transactions stream has the following schema errors:
+Additional properties are not allowed ('merchant_id', 'shipping_address_country', 'consumer_vat' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/schema#',
+     'additionalProperties': False,
+     'properties': {'amount': {'description': 'Total amount of the '
+                                              'specific transaction, in '
+                                              'minor units',
+                               'example': 2000,
+                               'format': 'int64',
+                               'type': 'integer'},
+                    'capture_date': {'description': 'ISO 8601 formatted '
+                                                    'date-time string',
+                                     'example': '2016-12-14T07:52:26Z',
+                                     'format': 'date-time',
+                                     'type': 'string'},
+                    'capture_id': {'description': 'The Klarna assigned id '
+                                                  'reference of a specific '
+                                                  'capture',
+                                   'example': '33db6f16-9f43-43fa-a587-cc51411c98e4',
+                                   'type': 'string'},
+                    'currency_code': {'description': 'ISO 4217 Currency '
+                                                     'Code. Like USD, EUR, '
+                                                     'AUD or GBP.',
+                                      'example': 'USD',
+                                      'type': 'string'},
+                    'currency_code_of_registration_country': {'description': 'ISO '
+                                                                             '4217 '
+                                                                             'Currency '
+                                                                             'Code '
+                                                                             'of '
+                                                                             'the '
+                                                                             'country '
+                                                                             'you '
+                                                                             'are '
+                                                                             'registered '
+                                                                             'in.',
+                                                              'example': 'EUR',
+                                                              'type': 'string'},
+                    'detailed_type': {'description': 'Detailed description '
+                                                     'of the transaction '
+                                                     'type',
+                                      'enum': ['COMMISSION',
+                                               'CREDITED_CORRECTION',
+                                               'PURCHASE_FEE_PERCENTAGE',
+                                               'PURCHASE_FEE_PERCENTAGE_REFUND',
+                                               'LATE_RETURN_FEE',
+                                               'PURCHASE_FEE_FIXED',
+                                               'EXPIRY_FEE_GROSS',
+                                               'EXPIRY_FEE',
+                                               'SERVICING_FEE',
+                                               'RETURN_FEE',
+                                               'EXTRA_INVOICE_FEE',
+                                               'PURCHASE_RETURN',
+                                               'COMMISSION_RETURN',
+                                               'REVERSAL',
+                                               'FRAUD_POLICY_CHARGE',
+                                               'COMMISSION_RETURN_GROSS',
+                                               'FRAUD_POLICY_CREDIT_NET',
+                                               'PURCHASE',
+                                               'MANUAL_ENTRY',
+                                               'LOAN_PAYOUT',
+                                               'LOAN_AMORTISATION',
+                                               'LOAN_FEE',
+                                               'FEE_REFUND',
+                                               'PURCHASE_COMMISSION_PERCENTAGE',
+                                               'EXTEND_DUE_DATE_FEE',
+                                               'TRANSFER_FROM_LEGACY_INTEGRATION',
+                                               'FIXED_FEE_CORRECTION_UK',
+                                               'PERCENTAGE_FEE_CORRECTION_UK',
+                                               'VAT_ON_FEE_CORRECTION_UK',
+                                               'FIXED_FEE_CORRECTION_SE',
+                                               'PERCENTAGE_FEE_CORRECTION_SE',
+                                               'PERCENTAGE_FEE_CORRECTION',
+                                               'FIXED_FEE_CORRECTION',
+                                               'ROLLING_RESERVE',
+                                               'PERCENTAGE_FEES',
+                                               'PAYMENT_REMINDER',
+                                               'CORRECTION',
+                                               'UNDER_REVIEW',
+                                               'INSUFFICIENT_BANK_ACCOUNT_DETAILS',
+                                               'DISPUTE_FEE',
+                                               'DISPUTE_FEE_REFUND'],
+                                      'example': 'PURCHASE',
+                                      'type': 'string'},
+                    'initial_number_of_installments': {'description': 'Number '
+                                                                      'of '
+                                                                      'installments '
+                                                                      'the '
+                                                                      'consumer '
+                                                                      'chose '
+                                                                      'during '
+                                                                      'checkout '
+                                                                      'in '
+                                                                      'case '
+                                                                      'of '
+                                                                      'installment '
+                                                                      'payments',
+                                                       'example': 3,
+                                                       'type': 'integer'},
+                    'initial_payment_method_monthly_downpayments': {'description': 'Number '
+                                                                                   'of '
+                                                                                   'monthly '
+                                                                                   'downpayments '
+                                                                                   'that '
+                                                                                   'were '
+                                                                                   'chosen '
+                                                                                   'during '
+                                                                                   'the '
+                                                                                   'checkout '
+                                                                                   'in '
+                                                                                   'case '
+                                                                                   'of '
+                                                                                   'installment '
+                                                                                   'payments.',
+                                                                    'example': 12,
+                                                                    'type': 'integer'},
+                    'initial_payment_method_type': {'description': 'Payment '
+                                                                   'method '
+                                                                   'the '
+                                                                   'consumer '
+                                                                   'chose '
+                                                                   'during '
+                                                                   'checkout',
+                                                    'example': 'direct_debit',
+                                                    'type': 'string'},
+                    'merchant_capture_reference': {'description': 'Your '
+                                                                  'internal '
+                                                                  'reference '
+                                                                  'to the '
+                                                                  'capture, '
+                                                                  'that '
+                                                                  'has '
+                                                                  'been '
+                                                                  'submitted '
+                                                                  'during '
+                                                                  'capturing '
+                                                                  'an '
+                                                                  'order '
+                                                                  'via API',
+                                                   'type': 'string'},
+                    'merchant_reference1': {'description': 'Merchant '
+                                                           'assigned '
+                                                           'reference, '
+                                                           'typically a '
+                                                           'reference to '
+                                                           'an order '
+                                                           'management '
+                                                           'system id',
+                                            'type': 'string'},
+                    'merchant_reference2': {'description': 'Merchant '
+                                                           'assigned '
+                                                           'reference, '
+                                                           'typically a '
+                                                           'reference to '
+                                                           'an order '
+                                                           'management '
+                                                           'system id',
+                                            'type': 'string'},
+                    'merchant_refund_reference': {'description': 'Your '
+                                                                 'internal '
+                                                                 'reference '
+                                                                 'to the '
+                                                                 'refund, '
+                                                                 'that has '
+                                                                 'been '
+                                                                 'submitted '
+                                                                 'during '
+                                                                 'refunding '
+                                                                 'an order '
+                                                                 'via API',
+                                                  'type': 'string'},
+                    'order_id': {'description': 'The Klarna assigned order '
+                                                'id reference',
+                                 'example': 'ce17b4cb-147f-48b7-b8e6-dde2fa397f04',
+                                 'format': 'uuid',
+                                 'type': 'string'},
+                    'payment_reference': {'description': 'Reference to the '
+                                                         'specific payout '
+                                                         'the transaction '
+                                                         'is part of, if '
+                                                         'available.',
+                                          'example': 'XISA93DJ',
+                                          'type': 'string'},
+                    'payout': {'description': 'Link to the payout that '
+                                              'this transaction is part of',
+                               'example': 'https://{settlements_api}/payouts/XISA93DJ',
+                               'type': 'string'},
+                    'purchase_country': {'description': 'ISO Alpha-2 '
+                                                        'Country Code',
+                                         'example': 'PL',
+                                         'type': 'string'},
+                    'refund_id': {'description': 'The Klarna assigned id '
+                                                 'reference of a specific '
+                                                 'refund',
+                                  'example': 'ef1baa1f-b42e-44be-b9e4-4b94510b53e5',
+                                  'type': 'string'},
+                    'sale_date': {'description': 'ISO 8601 formatted '
+                                                 'date-time string',
+                                  'example': '2016-12-14T07:52:26Z',
+                                  'format': 'date-time',
+                                  'type': 'string'},
+                    'shipping_country': {'description': 'ISO Alpha-2 '
+                                                        'Country Code',
+                                         'example': 'PL',
+                                         'type': 'string'},
+                    'short_order_id': {'description': 'The Klarna assigned '
+                                                      'short order id '
+                                                      'reference',
+                                       'example': 'shortrid',
+                                       'type': 'string'},
+                    'tax_in_currency_of_registration_country': {'description': 'The '
+                                                                               'tax '
+                                                                               'amount '
+                                                                               'on '
+                                                                               'the '
+                                                                               'respective '
+                                                                               'fee, '
+                                                                               'converted '
+                                                                               'into '
+                                                                               'the '
+                                                                               'currency '
+                                                                               'of '
+                                                                               'your '
+                                                                               'registration '
+                                                                               'country. '
+                                                                               'In '
+                                                                               'case '
+                                                                               'you '
+                                                                               'are '
+                                                                               'a '
+                                                                               'German '
+                                                                               'merchant '
+                                                                               'selling '
+                                                                               'in '
+                                                                               'another '
+                                                                               'currency '
+                                                                               'then '
+                                                                               'EUR '
+                                                                               'or '
+                                                                               'a '
+                                                                               'Swedish '
+                                                                               'merchant '
+                                                                               'selling '
+                                                                               'in '
+                                                                               'another '
+                                                                               'currency '
+                                                                               'then '
+                                                                               'SEK, '
+                                                                               'we '
+                                                                               'convert '
+                                                                               'the '
+                                                                               'VAT '
+                                                                               'amount '
+                                                                               'on '
+                                                                               'the '
+                                                                               'Klarna '
+                                                                               'fees '
+                                                                               'into '
+                                                                               'the '
+                                                                               'currency '
+                                                                               'of '
+                                                                               'the '
+                                                                               'country '
+                                                                               'you '
+                                                                               'are '
+                                                                               'registered '
+                                                                               'in, '
+                                                                               'based '
+                                                                               'on '
+                                                                               'the '
+                                                                               'exchange '
+                                                                               'rate '
+                                                                               'of '
+                                                                               'the '
+                                                                               'capture '
+                                                                               'date.',
+                                                                'example': 1000,
+                                                                'type': 'integer'},
+                    'type': {'description': 'The type of transaction.',
+                             'enum': ['COMMISSION',
+                                      'SALE',
+                                      'REVERSAL',
+                                      'RETURN',
+                                      'TAX',
+                                      'FEE',
+                                      'FEE_REFUND',
+                                      'CORRECTION',
+                                      'REVERSAL_MERCHANT_PROTECTION',
+                                      'CHARGE',
+                                      'CREDIT',
+                                      'HOLDBACK',
+                                      'RELEASE'],
+                             'example': 'SALE',
+                             'type': 'string'},
+                    'vat_amount': {'description': 'VAT (Value added tax) '
+                                                  'amount on Klarna fees, '
+                                                  'in minor units',
+                                   'example': 1000,
+                                   'type': 'integer'},
+                    'vat_rate': {'description': 'VAT (Value added tax) '
+                                                'rate on Klarna fees',
+                                 'example': 2000,
+                                 'type': 'integer'}},
+     'required': ['capture_id', 'sale_date', 'capture_date', 'order_id'],
+     'type': 'object'}
+
+On instance:
+    {'amount': 87900,
+     'capture_date': '2022-05-24T09:50:11.742Z',
+     'capture_id': '01b365ba-cf03-4b16-9562-56588d6a18b7',
+     'consumer_vat': [{'tax_amount': 0, 'tax_rate': 0}],
+     'currency_code': 'PLN',
+     'detailed_type': 'PURCHASE',
+     'initial_payment_method_type': 'invoice',
+     'merchant_id': 'PK57312',
+     'order_id': 'f36b6346-f571-49a9-9332-41c78fa9569d',
+     'payment_reference': '8613d3a4-8ab5-4a38-aae0-88b58fa363dc',
+     'payout': 'https://api.playground.klarna.com/settlements/v1/payouts/8613d3a4-8ab5-4a38-aae0-88b58fa363dc',
+     'purchase_country': 'PL',
+     'sale_date': '2022-05-24T09:48:53.498Z',
+     'shipping_address_country': 'PL',
+     'short_order_id': '5XJVX293-2',
+     'type': 'SALE',
+     'vat_amount': 0}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+=========== 1 failed, 1 skipped, 33 deselected, 35 warnings in 8.93s ===========

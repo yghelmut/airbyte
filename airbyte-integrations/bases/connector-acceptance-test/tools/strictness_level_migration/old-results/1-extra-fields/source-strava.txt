@@ -1,0 +1,252 @@
+../../../../connectors/source-strava/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-strava
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 37 items / 35 deselected / 2 selected
+
+../../test_input/test_core.py F                                          [ 50%]
+../../test_input/test_incremental.py .                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff8e0036a0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='athlete_stats', json_schema={'$sc...l: 'incremental'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff8e03e820>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='athlete_stats', data={'biggest_ride_distance': 37825.1, 'biggest_climb_e...from_accepted_tag': False, 'pr_count': 1, 'total_photo_count': 1, 'has_kudoed': False}, emitted_at=1679412932932), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='athlete_stats', json_schema={'$sc...l: 'incremental'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('activities',).
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe activities stream has the following schema errors:\nAdditional properties are not allowed ('sport_type' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'achievement_count': {'type': ['null', 'integer']},\n                    'athlete': {'properties': {'id': {'type': ['null',\n                                                               'integer']},\n                                               'resource_state': {'type': ['null',\n                                                                           'integer']}},\n                                'type': 'object'},\n                    'athlete_count': {'type': ['null', 'integer']},\n                    'average_speed': {'type': ['null', 'number']},\n                    'average_temp': {'type': ['null', 'number']},\n                    'average_watts': {'type': ['null', 'number']},\n                    'comment_count': {'type': ['null', 'integer']},\n                    'commute': {'type': ['null', 'boolean']},\n                    'device_watts': {'type': ['null', 'boolean']},\n                    'display_hide_heartrate_option': {'type': ['null',\n                                                               'boolean']},\n                    'distance': {'type': ['null', 'number']},\n                    'elapsed_time': {'type': ['null', 'integer']},\n                    'elev_high': {'type': ['null', 'number']},\n                    'elev_low': {'type': ['null', 'number']},\n                    'end_latlng': {'items': {'type': ['null', 'number']},\n                                   'type': ['null', 'array']},\n                    'external_id': {'type': ['null', 'string']},\n                    'flagged': {'type': ['null', 'boolean']},\n                    'from_accepted_tag': {'type': ['null', 'boolean']},\n                    'gear_id': {'type': ['null', 'string']},\n                    'has_heartrate': {'type': ['null', 'boolean']},\n                    'has_kudoed': {'type': ['null', 'boolean']},\n                    'heartrate_opt_out': {'type': ['null', 'boolean']},\n                    'id': {'type': 'integer'},\n                    'kilojoules': {'type': ['null', 'number']},\n                    'kudos_count': {'type': ['null', 'integer']},\n                    'location_city': {'type': ['null', 'string']},\n                    'location_country': {'type': ['null', 'string']},\n                    'location_state': {'type': ['null', 'string']},\n                    'manual': {'type': ['null', 'boolean']},\n                    'map': {'properties': {'id': {'type': ['null',\n                                                           'string']},\n                                           'resource_state': {'type': ['null',\n                                                                       'integer']},\n                                           'summary_polyline': {'type': ['null',\n                                                                         'string']}},\n                            'type': 'object'},\n                    'max_speed': {'type': ['null', 'number']},\n                    'max_watts': {'type': ['null', 'integer']},\n                    'moving_time': {'type': ['null', 'integer']},\n                    'name': {'type': ['null', 'string']},\n                    'photo_count': {'type': ['null', 'integer']},\n                    'pr_count': {'type': ['null', 'integer']},\n                    'private': {'type': ['null', 'boolean']},\n                    'resource_state': {'type': ['null', 'integer']},\n                    'start_date': {'type': ['null', 'string']},\n                    'start_date_local': {'type': ['null', 'string']},\n                    'start_latitude': {'type': ['null', 'number']},\n                    'start_latlng': {'items': {'type': ['null', 'number']},\n                                     'type': ['null', 'array']},\n                    'start_longitude': {'type': ['null', 'number']},\n                    'timezone': {'type': ['null', 'string']},\n                    'total_elevation_gain': {'type': ['null', 'number']},\n                    'total_photo_count': {'type': ['null', 'integer']},\n                    'trainer': {'type': ['null', 'boolean']},\n                    'type': {'type': ['null', 'string']},\n                    'upload_id': {'type': ['null', 'integer']},\n                    'upload_id_str': {'type': ['null', 'string']},\n                    'utc_offset': {'type': ['null', 'number']},\n                    'visibility': {'type': ['null', 'string']},\n                    'weighted_average_watts': {'type': ['null', 'integer']},\n                    'workout_type': {'type': ['null', 'integer']}},\n     'type': 'object'}\n\nOn instance:\n    {'achievement_count': 2,\n     'athlete': {'id': 17831421, 'resource_state': 1},\n     'athlete_count': 1,\n     'average_speed': 2.282,\n     'comment_count': 0,\n     'commute': False,\n     'display_hide_heartrate_option': False,\n     'distance': 5161.7,\n     'elapsed_time': 2300,\n     'elev_high': 116.7,\n     'elev_low': 71.6,\n     'end_latlng': [37.757830219343305, -122.46300612576306],\n     'external_id': 'FC09BDCF-D0D7-47ED-9729-9180036A49FF-activity.fit',\n     'flagged': False,\n     'from_accepted_tag': False,\n     'gear_id': 'g8900179',\n     'has_heartrate': False,\n     'has_kudoed': False,\n     'heartrate_opt_out': False,\n     'id': 8698989864,\n     'kudos_count': 1,\n     'location_city': None,\n     'location_country': '',\n     'location_state': None,\n     'manual': False,\n     'map': {'id': 'a8698989864',\n             'resource_state': 2,\n             'summary_polyline': 'i_neFfomjVs@BYEU?KDQAECa@F[AIBY?o@FSE_@DKEQDQASDU?IBECWDMCUHw@FKAE@mAASCMHKCWDCCGAQBIDIAIEUHGG?B@A_@BWHIAMFeAGc@LUMCG?e@Ga@@SEY?q@AOGIKAKFI?OEQ@IC]HKAOBGIABB?CA?Bc@TK?EBO?k@FCAW?ICM@KKCG@KGw@MWa@mAU_@Oa@EEEOa@[[e@EAAIu@eAYk@QUo@CGAEEEM@a@CSYmBCEGSGEQLG?MDQAQDYBSEKIKAOEg@]a@Bk@@GBI?UOCCAWKSQe@c@g@EK[]AKNwA?UCMECE@GBITCr@GR?ZGd@GrAI~@GhACDUvDy@bIEp@SnBQz@Kv@GT?HOh@E`@i@dCQnA[zAK|@G\\\\Ad@DTEZNrEA`@BHAxA@RH`@HLDNFDJ?HIF@HCLHFCb@Fp@YHGFKBA@F?RFLFb@JTJGNHVYXSR]j@o@PEJBTCdAHDADKf@i@LGN?FCJQN?DARQ`@WJOLGHOBMAKJULKv@UDE?SMc@GGEOa@o@[]Q[AIJ[DENAnA_@XYDIPmA?oBHa@JUnAyA^o@TM^YZa@`@s@ZSh@@NDb@Az@Od@Sp@?XCJEZB^CP@PEJETBP?N@DAZ?f@CLEJFLCDBAR@FHFNGH?`@Wr@KF?HJB?BJ^JJCHBFCTCJ@DBLCFB`@IV@FEb@ADCh@@d@C^Bb@ANGtACJA`@?ZEP?NJDJBhA?l@F|@v@B'},\n     'max_speed': 4.656,\n     'moving_time': 2262,\n     'name': 'Left hip hurts even during slow jog?',\n     'photo_count': 0,\n     'pr_count': 1,\n     'private': False,\n     'resource_state': 2,\n     'sport_type': 'Run',\n     'start_date': '2023-03-11T22:55:16Z',\n     'start_date_local': '2023-03-11T14:55:16Z',\n     'start_latlng': [37.75748010724783, -122.46295466087759],\n     'timezone': '(GMT-08:00) America/Los_Angeles',\n     'total_elevation_gain': 55.7,\n     'total_photo_count': 2,\n     'trainer': False,\n     'type': 'Run',\n     'upload_id': 9337115620,\n     'upload_id_str': '9337115620',\n     'utc_offset': -28800.0,\n     'visibility': 'followers_only',\n     'workout_type': 0}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The activities stream has the following schema errors:
+Additional properties are not allowed ('sport_type' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'achievement_count': {'type': ['null', 'integer']},
+                    'athlete': {'properties': {'id': {'type': ['null',
+                                                               'integer']},
+                                               'resource_state': {'type': ['null',
+                                                                           'integer']}},
+                                'type': 'object'},
+                    'athlete_count': {'type': ['null', 'integer']},
+                    'average_speed': {'type': ['null', 'number']},
+                    'average_temp': {'type': ['null', 'number']},
+                    'average_watts': {'type': ['null', 'number']},
+                    'comment_count': {'type': ['null', 'integer']},
+                    'commute': {'type': ['null', 'boolean']},
+                    'device_watts': {'type': ['null', 'boolean']},
+                    'display_hide_heartrate_option': {'type': ['null',
+                                                               'boolean']},
+                    'distance': {'type': ['null', 'number']},
+                    'elapsed_time': {'type': ['null', 'integer']},
+                    'elev_high': {'type': ['null', 'number']},
+                    'elev_low': {'type': ['null', 'number']},
+                    'end_latlng': {'items': {'type': ['null', 'number']},
+                                   'type': ['null', 'array']},
+                    'external_id': {'type': ['null', 'string']},
+                    'flagged': {'type': ['null', 'boolean']},
+                    'from_accepted_tag': {'type': ['null', 'boolean']},
+                    'gear_id': {'type': ['null', 'string']},
+                    'has_heartrate': {'type': ['null', 'boolean']},
+                    'has_kudoed': {'type': ['null', 'boolean']},
+                    'heartrate_opt_out': {'type': ['null', 'boolean']},
+                    'id': {'type': 'integer'},
+                    'kilojoules': {'type': ['null', 'number']},
+                    'kudos_count': {'type': ['null', 'integer']},
+                    'location_city': {'type': ['null', 'string']},
+                    'location_country': {'type': ['null', 'string']},
+                    'location_state': {'type': ['null', 'string']},
+                    'manual': {'type': ['null', 'boolean']},
+                    'map': {'properties': {'id': {'type': ['null',
+                                                           'string']},
+                                           'resource_state': {'type': ['null',
+                                                                       'integer']},
+                                           'summary_polyline': {'type': ['null',
+                                                                         'string']}},
+                            'type': 'object'},
+                    'max_speed': {'type': ['null', 'number']},
+                    'max_watts': {'type': ['null', 'integer']},
+                    'moving_time': {'type': ['null', 'integer']},
+                    'name': {'type': ['null', 'string']},
+                    'photo_count': {'type': ['null', 'integer']},
+                    'pr_count': {'type': ['null', 'integer']},
+                    'private': {'type': ['null', 'boolean']},
+                    'resource_state': {'type': ['null', 'integer']},
+                    'start_date': {'type': ['null', 'string']},
+                    'start_date_local': {'type': ['null', 'string']},
+                    'start_latitude': {'type': ['null', 'number']},
+                    'start_latlng': {'items': {'type': ['null', 'number']},
+                                     'type': ['null', 'array']},
+                    'start_longitude': {'type': ['null', 'number']},
+                    'timezone': {'type': ['null', 'string']},
+                    'total_elevation_gain': {'type': ['null', 'number']},
+                    'total_photo_count': {'type': ['null', 'integer']},
+                    'trainer': {'type': ['null', 'boolean']},
+                    'type': {'type': ['null', 'string']},
+                    'upload_id': {'type': ['null', 'integer']},
+                    'upload_id_str': {'type': ['null', 'string']},
+                    'utc_offset': {'type': ['null', 'number']},
+                    'visibility': {'type': ['null', 'string']},
+                    'weighted_average_watts': {'type': ['null', 'integer']},
+                    'workout_type': {'type': ['null', 'integer']}},
+     'type': 'object'}
+
+On instance:
+    {'achievement_count': 2,
+     'athlete': {'id': 17831421, 'resource_state': 1},
+     'athlete_count': 1,
+     'average_speed': 2.282,
+     'comment_count': 0,
+     'commute': False,
+     'display_hide_heartrate_option': False,
+     'distance': 5161.7,
+     'elapsed_time': 2300,
+     'elev_high': 116.7,
+     'elev_low': 71.6,
+     'end_latlng': [37.757830219343305, -122.46300612576306],
+     'external_id': 'FC09BDCF-D0D7-47ED-9729-9180036A49FF-activity.fit',
+     'flagged': False,
+     'from_accepted_tag': False,
+     'gear_id': 'g8900179',
+     'has_heartrate': False,
+     'has_kudoed': False,
+     'heartrate_opt_out': False,
+     'id': 8698989864,
+     'kudos_count': 1,
+     'location_city': None,
+     'location_country': '',
+     'location_state': None,
+     'manual': False,
+     'map': {'id': 'a8698989864',
+             'resource_state': 2,
+             'summary_polyline': 'i_neFfomjVs@BYEU?KDQAECa@F[AIBY?o@FSE_@DKEQDQASDU?IBECWDMCUHw@FKAE@mAASCMHKCWDCCGAQBIDIAIEUHGG?B@A_@BWHIAMFeAGc@LUMCG?e@Ga@@SEY?q@AOGIKAKFI?OEQ@IC]HKAOBGIABB?CA?Bc@TK?EBO?k@FCAW?ICM@KKCG@KGw@MWa@mAU_@Oa@EEEOa@[[e@EAAIu@eAYk@QUo@CGAEEEM@a@CSYmBCEGSGEQLG?MDQAQDYBSEKIKAOEg@]a@Bk@@GBI?UOCCAWKSQe@c@g@EK[]AKNwA?UCMECE@GBITCr@GR?ZGd@GrAI~@GhACDUvDy@bIEp@SnBQz@Kv@GT?HOh@E`@i@dCQnA[zAK|@G\\Ad@DTEZNrEA`@BHAxA@RH`@HLDNFDJ?HIF@HCLHFCb@Fp@YHGFKBA@F?RFLFb@JTJGNHVYXSR]j@o@PEJBTCdAHDADKf@i@LGN?FCJQN?DARQ`@WJOLGHOBMAKJULKv@UDE?SMc@GGEOa@o@[]Q[AIJ[DENAnA_@XYDIPmA?oBHa@JUnAyA^o@TM^YZa@`@s@ZSh@@NDb@Az@Od@Sp@?XCJEZB^CP@PEJETBP?N@DAZ?f@CLEJFLCDBAR@FHFNGH?`@Wr@KF?HJB?BJ^JJCHBFCTCJ@DBLCFB`@IV@FEb@ADCh@@d@C^Bb@ANGtACJA`@?ZEP?NJDJBhA?l@F|@v@B'},
+     'max_speed': 4.656,
+     'moving_time': 2262,
+     'name': 'Left hip hurts even during slow jog?',
+     'photo_count': 0,
+     'pr_count': 1,
+     'private': False,
+     'resource_state': 2,
+     'sport_type': 'Run',
+     'start_date': '2023-03-11T22:55:16Z',
+     'start_date_local': '2023-03-11T14:55:16Z',
+     'start_latlng': [37.75748010724783, -122.46295466087759],
+     'timezone': '(GMT-08:00) America/Los_Angeles',
+     'total_elevation_gain': 55.7,
+     'total_photo_count': 2,
+     'trainer': False,
+     'type': 'Run',
+     'upload_id': 9337115620,
+     'upload_id_str': '9337115620',
+     'utc_offset': -28800.0,
+     'visibility': 'followers_only',
+     'workout_type': 0}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 36 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+=========== 1 failed, 1 passed, 35 deselected, 37 warnings in 22.24s ===========

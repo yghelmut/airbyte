@@ -1,0 +1,13 @@
+../../../../connectors/source-google-analytics-data-api/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-google-analytics-data-api
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 37 items / 35 deselected / 2 selected
+
+../../test_input/test_core.py .                                          [ 50%]
+../../test_input/test_incremental.py .                                   [100%]
+
+
+================= 2 passed, 35 deselected in 256.14s (0:04:16) =================

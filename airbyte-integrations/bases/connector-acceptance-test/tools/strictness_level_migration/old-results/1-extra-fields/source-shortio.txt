@@ -1,0 +1,214 @@
+../../../../connectors/source-shortio/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-shortio
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffa4d136d0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='clicks', json_schema={'$schema': ...: 'full_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='clicks', bypass_reason=None)}
+ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffa4791d60>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='links', data={'lcpath': 'gem9bt', 'createdAt': '2021-08-09T13:51:46.000Z... None, 'utmCampaignId': None, 'utmTerm': '5964', 'utmContent': '239563406.1628516963'}, emitted_at=1679409838535), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='clicks', json_schema={'$schema': ...: 'full_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('links',).
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe links stream has the following schema errors:\nAdditional properties are not allowed ('id', 'OwnerId', 'lcpath' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-04/schema#',\n     'additionalProperties': False,\n     'properties': {'AutodeletedAt': {'format': 'date-time',\n                                      'type': ['null', 'string']},\n                    'DomainId': {'type': 'integer'},\n                    'Owner': {'properties': {'email': {'type': ['null',\n                                                                'string']},\n                                             'id': {'type': 'integer'},\n                                             'name': {'type': ['null',\n                                                               'string']},\n                                             'photoURL': {'type': ['null',\n                                                                   'string']}},\n                              'type': ['null', 'object']},\n                    'User': {'properties': {'email': {'type': ['null',\n                                                               'string']},\n                                            'id': {'type': 'integer'},\n                                            'name': {'type': ['null',\n                                                              'string']},\n                                            'photoURL': {'type': ['null',\n                                                                  'string']}},\n                             'type': ['null', 'object']},\n                    'androidURL': {'type': ['null', 'string']},\n                    'archived': {'type': ['null', 'boolean']},\n                    'clicksLimit': {'type': ['null', 'string']},\n                    'cloaking': {'type': ['null', 'boolean']},\n                    'createdAt': {'format': 'date-time', 'type': 'string'},\n                    'expiredURL': {'type': ['null', 'string']},\n                    'expiresAt': {'type': ['null', 'string']},\n                    'icon': {'type': ['null', 'string']},\n                    'idString': {'type': 'string'},\n                    'integrationAdroll': {'type': ['null', 'string']},\n                    'integrationFB': {'type': ['null', 'string']},\n                    'integrationGA': {'type': ['null', 'string']},\n                    'integrationGTM': {'type': ['null', 'string']},\n                    'iphoneURL': {'type': ['null', 'string']},\n                    'originalURL': {'type': 'string'},\n                    'password': {'type': ['null', 'string']},\n                    'path': {'type': ['null', 'string']},\n                    'redirectType': {'type': ['null', 'string']},\n                    'secureShortURL': {'type': ['null', 'string']},\n                    'shortURL': {'type': 'string'},\n                    'source': {'type': ['null', 'string']},\n                    'splitPercent': {'type': ['null', 'string']},\n                    'splitURL': {'type': ['null', 'string']},\n                    'tags': {'items': {'type': 'string'},\n                             'type': ['null', 'array']},\n                    'title': {'type': ['null', 'string']},\n                    'updatedAt': {'format': 'date-time', 'type': 'string'},\n                    'utmCampaign': {'type': ['null', 'string']},\n                    'utmCampaignId': {'type': ['null', 'string']},\n                    'utmContent': {'type': ['null', 'string']},\n                    'utmMedium': {'type': ['null', 'string']},\n                    'utmSource': {'type': ['null', 'string']},\n                    'utmTerm': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'DomainId': 235589,\n     'OwnerId': 231775,\n     'User': {'email': 'integration-test@airbyte.io',\n              'id': 231775,\n              'name': 'Jean Lafleur',\n              'photoURL': None},\n     'archived': False,\n     'cloaking': False,\n     'createdAt': '2021-08-06T09:16:05.000Z',\n     'expiresAt': '2021-08-07T09:16:05.000Z',\n     'id': 'lnk_ZhP_StVBp',\n     'idString': 'lnk_ZhP_StVBp',\n     'lcpath': '21.08.07',\n     'originalURL': 'https://short.cm/features/link-expiration',\n     'path': '21.08.07',\n     'secureShortURL': 'https://1hsf.short.gy/21.08.07',\n     'shortURL': 'https://1hsf.short.gy/21.08.07',\n     'source': 'api',\n     'title': 'Example: Link will expire at August 7th, 2021 at 9:16:05 AM '\n              'GMT+0',\n     'updatedAt': '2021-08-06T09:16:05.000Z',\n     'utmCampaign': None,\n     'utmCampaignId': None,\n     'utmContent': None,\n     'utmMedium': None,\n     'utmSource': None,\n     'utmTerm': None}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The links stream has the following schema errors:
+Additional properties are not allowed ('id', 'OwnerId', 'lcpath' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-04/schema#',
+     'additionalProperties': False,
+     'properties': {'AutodeletedAt': {'format': 'date-time',
+                                      'type': ['null', 'string']},
+                    'DomainId': {'type': 'integer'},
+                    'Owner': {'properties': {'email': {'type': ['null',
+                                                                'string']},
+                                             'id': {'type': 'integer'},
+                                             'name': {'type': ['null',
+                                                               'string']},
+                                             'photoURL': {'type': ['null',
+                                                                   'string']}},
+                              'type': ['null', 'object']},
+                    'User': {'properties': {'email': {'type': ['null',
+                                                               'string']},
+                                            'id': {'type': 'integer'},
+                                            'name': {'type': ['null',
+                                                              'string']},
+                                            'photoURL': {'type': ['null',
+                                                                  'string']}},
+                             'type': ['null', 'object']},
+                    'androidURL': {'type': ['null', 'string']},
+                    'archived': {'type': ['null', 'boolean']},
+                    'clicksLimit': {'type': ['null', 'string']},
+                    'cloaking': {'type': ['null', 'boolean']},
+                    'createdAt': {'format': 'date-time', 'type': 'string'},
+                    'expiredURL': {'type': ['null', 'string']},
+                    'expiresAt': {'type': ['null', 'string']},
+                    'icon': {'type': ['null', 'string']},
+                    'idString': {'type': 'string'},
+                    'integrationAdroll': {'type': ['null', 'string']},
+                    'integrationFB': {'type': ['null', 'string']},
+                    'integrationGA': {'type': ['null', 'string']},
+                    'integrationGTM': {'type': ['null', 'string']},
+                    'iphoneURL': {'type': ['null', 'string']},
+                    'originalURL': {'type': 'string'},
+                    'password': {'type': ['null', 'string']},
+                    'path': {'type': ['null', 'string']},
+                    'redirectType': {'type': ['null', 'string']},
+                    'secureShortURL': {'type': ['null', 'string']},
+                    'shortURL': {'type': 'string'},
+                    'source': {'type': ['null', 'string']},
+                    'splitPercent': {'type': ['null', 'string']},
+                    'splitURL': {'type': ['null', 'string']},
+                    'tags': {'items': {'type': 'string'},
+                             'type': ['null', 'array']},
+                    'title': {'type': ['null', 'string']},
+                    'updatedAt': {'format': 'date-time', 'type': 'string'},
+                    'utmCampaign': {'type': ['null', 'string']},
+                    'utmCampaignId': {'type': ['null', 'string']},
+                    'utmContent': {'type': ['null', 'string']},
+                    'utmMedium': {'type': ['null', 'string']},
+                    'utmSource': {'type': ['null', 'string']},
+                    'utmTerm': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'DomainId': 235589,
+     'OwnerId': 231775,
+     'User': {'email': 'integration-test@airbyte.io',
+              'id': 231775,
+              'name': 'Jean Lafleur',
+              'photoURL': None},
+     'archived': False,
+     'cloaking': False,
+     'createdAt': '2021-08-06T09:16:05.000Z',
+     'expiresAt': '2021-08-07T09:16:05.000Z',
+     'id': 'lnk_ZhP_StVBp',
+     'idString': 'lnk_ZhP_StVBp',
+     'lcpath': '21.08.07',
+     'originalURL': 'https://short.cm/features/link-expiration',
+     'path': '21.08.07',
+     'secureShortURL': 'https://1hsf.short.gy/21.08.07',
+     'shortURL': 'https://1hsf.short.gy/21.08.07',
+     'source': 'api',
+     'title': 'Example: Link will expire at August 7th, 2021 at 9:16:05 AM '
+              'GMT+0',
+     'updatedAt': '2021-08-06T09:16:05.000Z',
+     'utmCampaign': None,
+     'utmCampaignId': None,
+     'utmContent': None,
+     'utmMedium': None,
+     'utmSource': None,
+     'utmTerm': None}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+=========== 1 failed, 1 skipped, 33 deselected, 35 warnings in 6.56s ===========

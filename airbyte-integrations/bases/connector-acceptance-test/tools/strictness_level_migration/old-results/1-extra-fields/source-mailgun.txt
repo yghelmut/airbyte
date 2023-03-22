@@ -1,0 +1,319 @@
+../../../../connectors/source-mailgun/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-mailgun
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 37 items / 35 deselected / 2 selected
+
+../../test_input/test_core.py F                                          [ 50%]
+../../test_input/test_incremental.py .                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffb8d4f6d0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='domains', json_schema={'type': 'o...cremental'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffb8cf48b0>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='domains', data={'created_at': 'Fri, 10 Sep 2021 13:17:12 GMT', 'id': '61...9bb46415ca65d45772bf1e2ec.mailgun.org/messages/BAABAQVsJ3L-c9GQaVJP_oho1jTY6J4WYw=='}}, emitted_at=1679407791159), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='domains', json_schema={'type': 'o...cremental'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('domains', 'events').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe domains stream has the following schema errors:\nAdditional properties are not allowed ('web_prefix', 'is_disabled', 'skip_verification', 'created_at', 'require_tls', 'state', 'type', 'smtp_login', 'id' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'dkim_key_size': {'type': 'integer'},\n                    'force_dkim_authority': {'type': 'boolean'},\n                    'ips': {'items': {'type': ['null', 'string']},\n                            'type': ['null', 'array']},\n                    'name': {'type': 'string'},\n                    'pool': {'type': ['null', 'string']},\n                    'smtp_password': {'type': ['null', 'string']},\n                    'spam_action': {'type': ['null', 'string']},\n                    'web_scheme': {'type': 'string'},\n                    'wildcard': {'type': 'boolean'}},\n     'type': 'object'}\n\nOn instance:\n    {'created_at': 'Fri, 10 Sep 2021 13:17:12 GMT',\n     'id': '613b5ad80428e95d5efbe6dd',\n     'is_disabled': False,\n     'name': 'sandbox823cdac9bb46415ca65d45772bf1e2ec.mailgun.org',\n     'require_tls': False,\n     'skip_verification': False,\n     'smtp_login': 'postmaster@sandbox823cdac9bb46415ca65d45772bf1e2ec.mailgun.org',\n     'spam_action': 'disabled',\n     'state': 'active',\n     'type': 'sandbox',\n     'web_prefix': 'email',\n     'web_scheme': 'http',\n     'wildcard': False}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe events stream has the following schema errors:\nAdditional properties are not allowed ('envelope' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'campaigns': {'type': ['null', 'array']},\n                    'client-info': {'properties': {'client-name': {'type': ['null',\n                                                                            'string']},\n                                                   'client-os': {'type': ['null',\n                                                                          'string']},\n                                                   'client-type': {'type': ['null',\n                                                                            'string']},\n                                                   'device-type': {'type': ['null',\n                                                                            'string']},\n                                                   'user-agent': {'type': ['null',\n                                                                           'string']}},\n                                    'type': ['null', 'object']},\n                    'delivery-status': {'properties': {'attempt-no': {'type': ['null',\n                                                                               'number']},\n                                                       'certificate-verified': {'type': ['null',\n                                                                                         'boolean']},\n                                                       'code': {'type': ['null',\n                                                                         'number',\n                                                                         'string']},\n                                                       'description': {'type': ['null',\n                                                                                'string']},\n                                                       'message': {'type': ['null',\n                                                                            'string']},\n                                                       'mx-host': {'type': ['null',\n                                                                            'string']},\n                                                       'retry-seconds': {'type': ['null',\n                                                                                  'number']},\n                                                       'session-seconds': {'type': ['null',\n                                                                                    'number']},\n                                                       'tls': {'type': ['null',\n                                                                        'boolean']},\n                                                       'utf8': {'type': ['null',\n                                                                         'boolean']}},\n                                        'type': ['null', 'object']},\n                    'envelop': {'properties': {'sender': {'type': ['null',\n                                                                   'string']},\n                                               'sending-ip': {'type': ['null',\n                                                                       'string']},\n                                               'targets': {'type': ['null',\n                                                                    'string']},\n                                               'transport': {'type': ['null',\n                                                                      'string']}},\n                                'type': ['null', 'object']},\n                    'event': {'type': 'string'},\n                    'flags': {'properties': {'is-authenticated': {'type': ['null',\n                                                                           'boolean']},\n                                             'is-delayed-bounce': {'type': ['null',\n                                                                            'boolean']},\n                                             'is-routed': {'type': ['null',\n                                                                    'boolean']},\n                                             'is-system-test': {'type': ['null',\n                                                                         'boolean']},\n                                             'is-test-mode': {'type': ['null',\n                                                                       'boolean']}},\n                              'type': ['null', 'object']},\n                    'geolocation': {'properties': {'city': {'type': ['null',\n                                                                     'string']},\n                                                   'country': {'type': ['null',\n                                                                        'string']},\n                                                   'region': {'type': ['null',\n                                                                       'string']}},\n                                    'type': ['null', 'object']},\n                    'id': {'type': 'string'},\n                    'ip': {'type': ['null', 'string']},\n                    'log-level': {'type': ['null', 'string']},\n                    'message': {'properties': {'attachments': {'type': ['null',\n                                                                        'array']},\n                                               'headers': {'properties': {'from': {'type': ['null',\n                                                                                            'string']},\n                                                                          'message-id': {'type': ['null',\n                                                                                                  'string']},\n                                                                          'subject': {'type': ['null',\n                                                                                               'string']},\n                                                                          'to': {'type': ['null',\n                                                                                          'string']}},\n                                                           'type': ['null',\n                                                                    'object']},\n                                               'recipients': {'items': {'type': ['null',\n                                                                                 'string']},\n                                                              'type': ['null',\n                                                                       'array']},\n                                               'size': {'type': ['null',\n                                                                 'number']}},\n                                'type': ['null', 'object']},\n                    'method': {'type': ['null', 'string']},\n                    'reason': {'type': ['null', 'string']},\n                    'recipient': {'type': ['null', 'string']},\n                    'recipient-domain': {'type': ['null', 'string']},\n                    'reject': {'properties': {'description': {'type': ['null',\n                                                                       'string']},\n                                              'reason': {'type': ['null',\n                                                                  'string']}},\n                               'type': ['null', 'object']},\n                    'routes': {'items': {'properties': {'expression': {'type': ['null',\n                                                                                'string']},\n                                                        'id': {'type': ['null',\n                                                                        'string']},\n                                                        'match': {'properties': {'recipient': {'type': ['null',\n                                                                                                        'string']}},\n                                                                  'type': ['null',\n                                                                           'object']}},\n                                         'type': ['null', 'object']},\n                               'type': ['null', 'array']},\n                    'severity': {'type': ['null', 'string']},\n                    'storage': {'properties': {'key': {'type': ['null',\n                                                                'string']},\n                                               'url': {'type': ['null',\n                                                                'string']}},\n                                'type': ['null', 'object']},\n                    'tags': {'items': {'type': ['null', 'string']},\n                             'type': ['null', 'array']},\n                    'timestamp': {'type': 'number'},\n                    'user-variables': {'type': ['null', 'object']}},\n     'type': 'object'}\n\nOn instance:\n    {'campaigns': [],\n     'delivery-status': {'attempt-no': 3,\n                         'certificate-verified': True,\n                         'code': 250,\n                         'description': '',\n                         'enhanced-code': '',\n                         'message': 'OK',\n                         'mx-host': 'aspmx.l.google.com',\n                         'session-seconds': 0.346,\n                         'tls': True,\n                         'utf8': True},\n     'envelope': {'sender': 'Bob@sandbox823cdac9bb46415ca65d45772bf1e2ec.mailgun.org',\n                  'sending-ip': '198.61.254.8',\n                  'targets': 'integration-test@airbyte.io',\n                  'transport': 'smtp'},\n     'event': 'delivered',\n     'flags': {'is-authenticated': True,\n               'is-routed': False,\n               'is-system-test': False,\n               'is-test-mode': False},\n     'id': 'Vve3sPblQyGFiFLz9OpR6g',\n     'log-level': 'info',\n     'message': {'attachments': [],\n                 'headers': {'from': 'Bob '\n                                     '<Bob@sandbox823cdac9bb46415ca65d45772bf1e2ec.mailgun.org>',\n                             'message-id': '20230319031207.374fa787f7102e03@sandbox823cdac9bb46415ca65d45772bf1e2ec.mailgun.org',\n                             'subject': 'Test message #1 from Bob',\n                             'to': 'integration-test@airbyte.io'},\n                 'size': 371},\n     'recipient': 'integration-test@airbyte.io',\n     'recipient-domain': 'airbyte.io',\n     'storage': {'env': 'production',\n                 'key': 'BAABAQXQJtorM0dmqWpPP5LvSgCFtWnJYQ==',\n                 'region': 'us-west1',\n                 'url': 'https://storage-us-west1.api.mailgun.net/v3/domains/sandbox823cdac9bb46415ca65d45772bf1e2ec.mailgun.org/messages/BAABAQXQJtorM0dmqWpPP5LvSgCFtWnJYQ=='},\n     'tags': [],\n     'timestamp': 1679195710.7162888,\n     'user-variables': {}}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The domains stream has the following schema errors:
+Additional properties are not allowed ('web_prefix', 'is_disabled', 'skip_verification', 'created_at', 'require_tls', 'state', 'type', 'smtp_login', 'id' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'dkim_key_size': {'type': 'integer'},
+                    'force_dkim_authority': {'type': 'boolean'},
+                    'ips': {'items': {'type': ['null', 'string']},
+                            'type': ['null', 'array']},
+                    'name': {'type': 'string'},
+                    'pool': {'type': ['null', 'string']},
+                    'smtp_password': {'type': ['null', 'string']},
+                    'spam_action': {'type': ['null', 'string']},
+                    'web_scheme': {'type': 'string'},
+                    'wildcard': {'type': 'boolean'}},
+     'type': 'object'}
+
+On instance:
+    {'created_at': 'Fri, 10 Sep 2021 13:17:12 GMT',
+     'id': '613b5ad80428e95d5efbe6dd',
+     'is_disabled': False,
+     'name': 'sandbox823cdac9bb46415ca65d45772bf1e2ec.mailgun.org',
+     'require_tls': False,
+     'skip_verification': False,
+     'smtp_login': 'postmaster@sandbox823cdac9bb46415ca65d45772bf1e2ec.mailgun.org',
+     'spam_action': 'disabled',
+     'state': 'active',
+     'type': 'sandbox',
+     'web_prefix': 'email',
+     'web_scheme': 'http',
+     'wildcard': False}
+ERROR    root:test_core.py:662 
+The events stream has the following schema errors:
+Additional properties are not allowed ('envelope' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'campaigns': {'type': ['null', 'array']},
+                    'client-info': {'properties': {'client-name': {'type': ['null',
+                                                                            'string']},
+                                                   'client-os': {'type': ['null',
+                                                                          'string']},
+                                                   'client-type': {'type': ['null',
+                                                                            'string']},
+                                                   'device-type': {'type': ['null',
+                                                                            'string']},
+                                                   'user-agent': {'type': ['null',
+                                                                           'string']}},
+                                    'type': ['null', 'object']},
+                    'delivery-status': {'properties': {'attempt-no': {'type': ['null',
+                                                                               'number']},
+                                                       'certificate-verified': {'type': ['null',
+                                                                                         'boolean']},
+                                                       'code': {'type': ['null',
+                                                                         'number',
+                                                                         'string']},
+                                                       'description': {'type': ['null',
+                                                                                'string']},
+                                                       'message': {'type': ['null',
+                                                                            'string']},
+                                                       'mx-host': {'type': ['null',
+                                                                            'string']},
+                                                       'retry-seconds': {'type': ['null',
+                                                                                  'number']},
+                                                       'session-seconds': {'type': ['null',
+                                                                                    'number']},
+                                                       'tls': {'type': ['null',
+                                                                        'boolean']},
+                                                       'utf8': {'type': ['null',
+                                                                         'boolean']}},
+                                        'type': ['null', 'object']},
+                    'envelop': {'properties': {'sender': {'type': ['null',
+                                                                   'string']},
+                                               'sending-ip': {'type': ['null',
+                                                                       'string']},
+                                               'targets': {'type': ['null',
+                                                                    'string']},
+                                               'transport': {'type': ['null',
+                                                                      'string']}},
+                                'type': ['null', 'object']},
+                    'event': {'type': 'string'},
+                    'flags': {'properties': {'is-authenticated': {'type': ['null',
+                                                                           'boolean']},
+                                             'is-delayed-bounce': {'type': ['null',
+                                                                            'boolean']},
+                                             'is-routed': {'type': ['null',
+                                                                    'boolean']},
+                                             'is-system-test': {'type': ['null',
+                                                                         'boolean']},
+                                             'is-test-mode': {'type': ['null',
+                                                                       'boolean']}},
+                              'type': ['null', 'object']},
+                    'geolocation': {'properties': {'city': {'type': ['null',
+                                                                     'string']},
+                                                   'country': {'type': ['null',
+                                                                        'string']},
+                                                   'region': {'type': ['null',
+                                                                       'string']}},
+                                    'type': ['null', 'object']},
+                    'id': {'type': 'string'},
+                    'ip': {'type': ['null', 'string']},
+                    'log-level': {'type': ['null', 'string']},
+                    'message': {'properties': {'attachments': {'type': ['null',
+                                                                        'array']},
+                                               'headers': {'properties': {'from': {'type': ['null',
+                                                                                            'string']},
+                                                                          'message-id': {'type': ['null',
+                                                                                                  'string']},
+                                                                          'subject': {'type': ['null',
+                                                                                               'string']},
+                                                                          'to': {'type': ['null',
+                                                                                          'string']}},
+                                                           'type': ['null',
+                                                                    'object']},
+                                               'recipients': {'items': {'type': ['null',
+                                                                                 'string']},
+                                                              'type': ['null',
+                                                                       'array']},
+                                               'size': {'type': ['null',
+                                                                 'number']}},
+                                'type': ['null', 'object']},
+                    'method': {'type': ['null', 'string']},
+                    'reason': {'type': ['null', 'string']},
+                    'recipient': {'type': ['null', 'string']},
+                    'recipient-domain': {'type': ['null', 'string']},
+                    'reject': {'properties': {'description': {'type': ['null',
+                                                                       'string']},
+                                              'reason': {'type': ['null',
+                                                                  'string']}},
+                               'type': ['null', 'object']},
+                    'routes': {'items': {'properties': {'expression': {'type': ['null',
+                                                                                'string']},
+                                                        'id': {'type': ['null',
+                                                                        'string']},
+                                                        'match': {'properties': {'recipient': {'type': ['null',
+                                                                                                        'string']}},
+                                                                  'type': ['null',
+                                                                           'object']}},
+                                         'type': ['null', 'object']},
+                               'type': ['null', 'array']},
+                    'severity': {'type': ['null', 'string']},
+                    'storage': {'properties': {'key': {'type': ['null',
+                                                                'string']},
+                                               'url': {'type': ['null',
+                                                                'string']}},
+                                'type': ['null', 'object']},
+                    'tags': {'items': {'type': ['null', 'string']},
+                             'type': ['null', 'array']},
+                    'timestamp': {'type': 'number'},
+                    'user-variables': {'type': ['null', 'object']}},
+     'type': 'object'}
+
+On instance:
+    {'campaigns': [],
+     'delivery-status': {'attempt-no': 3,
+                         'certificate-verified': True,
+                         'code': 250,
+                         'description': '',
+                         'enhanced-code': '',
+                         'message': 'OK',
+                         'mx-host': 'aspmx.l.google.com',
+                         'session-seconds': 0.346,
+                         'tls': True,
+                         'utf8': True},
+     'envelope': {'sender': 'Bob@sandbox823cdac9bb46415ca65d45772bf1e2ec.mailgun.org',
+                  'sending-ip': '198.61.254.8',
+                  'targets': 'integration-test@airbyte.io',
+                  'transport': 'smtp'},
+     'event': 'delivered',
+     'flags': {'is-authenticated': True,
+               'is-routed': False,
+               'is-system-test': False,
+               'is-test-mode': False},
+     'id': 'Vve3sPblQyGFiFLz9OpR6g',
+     'log-level': 'info',
+     'message': {'attachments': [],
+                 'headers': {'from': 'Bob '
+                                     '<Bob@sandbox823cdac9bb46415ca65d45772bf1e2ec.mailgun.org>',
+                             'message-id': '20230319031207.374fa787f7102e03@sandbox823cdac9bb46415ca65d45772bf1e2ec.mailgun.org',
+                             'subject': 'Test message #1 from Bob',
+                             'to': 'integration-test@airbyte.io'},
+                 'size': 371},
+     'recipient': 'integration-test@airbyte.io',
+     'recipient-domain': 'airbyte.io',
+     'storage': {'env': 'production',
+                 'key': 'BAABAQXQJtorM0dmqWpPP5LvSgCFtWnJYQ==',
+                 'region': 'us-west1',
+                 'url': 'https://storage-us-west1.api.mailgun.net/v3/domains/sandbox823cdac9bb46415ca65d45772bf1e2ec.mailgun.org/messages/BAABAQXQJtorM0dmqWpPP5LvSgCFtWnJYQ=='},
+     'tags': [],
+     'timestamp': 1679195710.7162888,
+     'user-variables': {}}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 36 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+=========== 1 failed, 1 passed, 35 deselected, 37 warnings in 17.59s ===========

@@ -1,0 +1,156 @@
+../../../../connectors/source-retently/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-retently
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 36 items / 35 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff8e6d33a0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='campaigns', json_schema={'type': ...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='reports', bypass_reason=None)}
+ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff8e03b910>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+>       output = docker_runner.call_read(connector_config, configured_catalog)
+
+connector_acceptance_test/tests/test_core.py:817: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+connector_acceptance_test/utils/connector_runner.py:96: in call_read
+    output = list(self.run(cmd=cmd, config=config, catalog=catalog, **kwargs))
+connector_acceptance_test/utils/connector_runner.py:120: in run
+    for line in self.read(container, command=cmd, with_ext=raise_container_error):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'connector_acceptance_test.utils.connector_runner.ConnectorRunner'>
+container = <Container: f9cb0b2d9e>
+command = 'read --config /data/tap_config.json --catalog /data/catalog.json'
+with_ext = True
+
+    @classmethod
+    def read(cls, container: Container, command: str = None, with_ext: bool = True) -> Iterable[str]:
+        """Reads connector's logs per line"""
+        buffer = b""
+        exception = ""
+        line = ""
+        for chunk in container.logs(stdout=True, stderr=True, stream=True, follow=True):
+    
+            buffer += chunk
+            while True:
+                # every chunk can include several lines
+                found = buffer.find(b"\n")
+                if found <= -1:
+                    break
+    
+                line = buffer[: found + 1].decode("utf-8")
+                if len(exception) > 0 or line.startswith("Traceback (most recent call last)"):
+                    exception += line
+                else:
+                    yield line
+                buffer = buffer[found + 1 :]
+    
+        if buffer:
+            # send the latest chunk if exists
+            line = buffer.decode("utf-8")
+            if exception:
+                exception += line
+            else:
+                yield line
+        try:
+            exit_status = container.wait()
+            container.remove()
+        except NotFound as err:
+            logging.error(f"Waiting error: {err}, logs: {exception or line}")
+            raise
+        if exit_status["StatusCode"]:
+            error = exit_status.get("Error") or exception or line
+            logging.error(f"Docker container failed, " f'code {exit_status["StatusCode"]}, error:\n{error}')
+            if with_ext:
+>               raise ContainerError(
+                    container=container,
+                    exit_status=exit_status["StatusCode"],
+                    command=command,
+                    image=container.image,
+                    stderr=error,
+                )
+E               docker.errors.ContainerError: Command 'read --config /data/tap_config.json --catalog /data/catalog.json' in image '<Image: 'airbyte/source-retently:dev'>' returned non-zero exit status 1: {"type": "TRACE", "trace": {"type": "ERROR", "emitted_at": 1679409101608.4758, "error": {"message": "Something went wrong in the connector. See the logs for more details.", "internal_message": "400 Client Error: Bad Request for url: https://app.retently.com/api/v2/nps/score?limit=1000", "stack_trace": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/availability_strategy.py\", line 74, in handle_http_error\n    reason = self.reasons_for_unavailable_status_codes(stream, logger, source, error)[status_code]\nKeyError: 400\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/airbyte/integration_code/main.py\", line 13, in <module>\n    launch(source, sys.argv[1:])\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 131, in launch\n    for message in source_entrypoint.run(parsed_args):\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 122, in run\n    for message in generator:\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/abstract_source.py\", line 114, in read\n    stream_is_available, error = stream_instance.check_availability(logger, self)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/core.py\", line 190, in check_availability\n    return self.availability_strategy.check_availability(self, logger, source)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/availability_strategy.py\", line 51, in check_availability\n    return self.handle_http_error(stream, logger, source, error)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/availability_strategy.py\", line 81, in handle_http_error\n    raise error\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/availability_strategy.py\", line 45, in check_availability\n    get_first_record_for_slice(stream, stream_slice)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/utils/stream_helper.py\", line 38, in get_first_record_for_slice\n    return next(records_for_slice)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\", line 419, in read_records\n    yield from self._read_pages(\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\", line 435, in _read_pages\n    request, response = self._fetch_next_page(stream_slice, stream_state, next_page_token)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\", line 458, in _fetch_next_page\n    response = self._send_request(request, request_kwargs)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\", line 360, in _send_request\n    return backoff_handler(user_backoff_handler)(request, request_kwargs)\n  File \"/usr/local/lib/python3.9/site-packages/backoff/_sync.py\", line 105, in retry\n    ret = target(*args, **kwargs)\n  File \"/usr/local/lib/python3.9/site-packages/backoff/_sync.py\", line 105, in retry\n    ret = target(*args, **kwargs)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\", line 327, in _send\n    raise exc\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\", line 324, in _send\n    response.raise_for_status()\n  File \"/usr/local/lib/python3.9/site-packages/requests/models.py\", line 1021, in raise_for_status\n    raise HTTPError(http_error_msg, response=self)\nrequests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://app.retently.com/api/v2/nps/score?limit=1000\n", "failure_type": "system_error"}}}
+
+connector_acceptance_test/utils/connector_runner.py:174: ContainerError
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "Docker container failed, code 1, error:\n{\"type\": \"TRACE\", \"trace\": {\"type\": \"ERROR\", \"emitted_at\": 1679409101608.4758, \"error\": {\"message\": \"Something went wrong in the connector. See the logs for more details.\", \"internal_message\": \"400 Client Error: Bad Request for url: https://app.retently.com/api/v2/nps/score?limit=1000\", \"stack_trace\": \"Traceback (most recent call last):\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/availability_strategy.py\\\", line 74, in handle_http_error\\n    reason = self.reasons_for_unavailable_status_codes(stream, logger, source, error)[status_code]\\nKeyError: 400\\n\\nDuring handling of the above exception, another exception occurred:\\n\\nTraceback (most recent call last):\\n  File \\\"/airbyte/integration_code/main.py\\\", line 13, in <module>\\n    launch(source, sys.argv[1:])\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\\\", line 131, in launch\\n    for message in source_entrypoint.run(parsed_args):\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\\\", line 122, in run\\n    for message in generator:\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/abstract_source.py\\\", line 114, in read\\n    stream_is_available, error = stream_instance.check_availability(logger, self)\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/core.py\\\", line 190, in check_availability\\n    return self.availability_strategy.check_availability(self, logger, source)\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/availability_strategy.py\\\", line 51, in check_availability\\n    return self.handle_http_error(stream, logger, source, error)\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/availability_strategy.py\\\", line 81, in handle_http_error\\n    raise error\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/availability_strategy.py\\\", line 45, in check_availability\\n    get_first_record_for_slice(stream, stream_slice)\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/utils/stream_helper.py\\\", line 38, in get_first_record_for_slice\\n    return next(records_for_slice)\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\\\", line 419, in read_records\\n    yield from self._read_pages(\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\\\", line 435, in _read_pages\\n    request, response = self._fetch_next_page(stream_slice, stream_state, next_page_token)\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\\\", line 458, in _fetch_next_page\\n    response = self._send_request(request, request_kwargs)\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\\\", line 360, in _send_request\\n    return backoff_handler(user_backoff_handler)(request, request_kwargs)\\n  File \\\"/usr/local/lib/python3.9/site-packages/backoff/_sync.py\\\", line 105, in retry\\n    ret = target(*args, **kwargs)\\n  File \\\"/usr/local/lib/python3.9/site-packages/backoff/_sync.py\\\", line 105, in retry\\n    ret = target(*args, **kwargs)\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\\\", line 327, in _send\\n    raise exc\\n  File \\\"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\\\", line 324, in _send\\n    response.raise_for_status()\\n  File \\\"/usr/local/lib/python3.9/site-packages/requests/models.py\\\", line 1021, in raise_for_status\\n    raise HTTPError(http_error_msg, response=self)\\nrequests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://app.retently.com/api/v2/nps/score?limit=1000\\n\", \"failure_type\": \"system_error\"}}}\n"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:connector_runner.py:172 Docker container failed, code 1, error:
+{"type": "TRACE", "trace": {"type": "ERROR", "emitted_at": 1679409101608.4758, "error": {"message": "Something went wrong in the connector. See the logs for more details.", "internal_message": "400 Client Error: Bad Request for url: https://app.retently.com/api/v2/nps/score?limit=1000", "stack_trace": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/availability_strategy.py\", line 74, in handle_http_error\n    reason = self.reasons_for_unavailable_status_codes(stream, logger, source, error)[status_code]\nKeyError: 400\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/airbyte/integration_code/main.py\", line 13, in <module>\n    launch(source, sys.argv[1:])\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 131, in launch\n    for message in source_entrypoint.run(parsed_args):\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/entrypoint.py\", line 122, in run\n    for message in generator:\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/abstract_source.py\", line 114, in read\n    stream_is_available, error = stream_instance.check_availability(logger, self)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/core.py\", line 190, in check_availability\n    return self.availability_strategy.check_availability(self, logger, source)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/availability_strategy.py\", line 51, in check_availability\n    return self.handle_http_error(stream, logger, source, error)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/availability_strategy.py\", line 81, in handle_http_error\n    raise error\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/availability_strategy.py\", line 45, in check_availability\n    get_first_record_for_slice(stream, stream_slice)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/utils/stream_helper.py\", line 38, in get_first_record_for_slice\n    return next(records_for_slice)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\", line 419, in read_records\n    yield from self._read_pages(\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\", line 435, in _read_pages\n    request, response = self._fetch_next_page(stream_slice, stream_state, next_page_token)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\", line 458, in _fetch_next_page\n    response = self._send_request(request, request_kwargs)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\", line 360, in _send_request\n    return backoff_handler(user_backoff_handler)(request, request_kwargs)\n  File \"/usr/local/lib/python3.9/site-packages/backoff/_sync.py\", line 105, in retry\n    ret = target(*args, **kwargs)\n  File \"/usr/local/lib/python3.9/site-packages/backoff/_sync.py\", line 105, in retry\n    ret = target(*args, **kwargs)\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\", line 327, in _send\n    raise exc\n  File \"/usr/local/lib/python3.9/site-packages/airbyte_cdk/sources/streams/http/http.py\", line 324, in _send\n    response.raise_for_status()\n  File \"/usr/local/lib/python3.9/site-packages/requests/models.py\", line 1021, in raise_for_status\n    raise HTTPError(http_error_msg, response=self)\nrequests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://app.retently.com/api/v2/nps/score?limit=1000\n", "failure_type": "system_error"}}}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - doc...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+=========== 1 failed, 1 skipped, 35 deselected, 35 warnings in 6.09s ===========

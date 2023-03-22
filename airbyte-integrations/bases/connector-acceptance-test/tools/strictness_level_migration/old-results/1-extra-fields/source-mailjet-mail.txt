@@ -1,0 +1,269 @@
+../../../../connectors/source-mailjet-mail/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-mailjet-mail
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff8d009be0>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='contactslist', json_schema={'$sch...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff8c29a850>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='contactslist', data={'Address': 'tccekzyag', 'CreatedAt': '2022-10-27T16...: False, 'Status': 'opened', 'Subject': '', 'UUID': 'afe6aaa5-69ee-4805-a978-e2b3d2ae3caa'}, emitted_at=1679407779124)]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='contactslist', json_schema={'$sch...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('stats_api_lifetime_message', 'contacts', 'message').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:config.py:282 The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe stats_api_lifetime_message stream has the following schema errors:\nAdditional properties are not allowed ('EventSpamCount' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'APIKeyID': {'type': 'integer'},\n                    'EventClickDelay': {'type': 'integer'},\n                    'EventClickedCount': {'type': 'integer'},\n                    'EventOpenDelay': {'type': 'integer'},\n                    'EventOpenedCount': {'type': 'integer'},\n                    'EventUnsubscribedCount': {'type': 'integer'},\n                    'EventWorkflowExitedCount': {'type': 'integer'},\n                    'MessageBlockedCount': {'type': 'integer'},\n                    'MessageClickedCount': {'type': 'integer'},\n                    'MessageDeferredCount': {'type': 'integer'},\n                    'MessageHardBouncedCount': {'type': 'integer'},\n                    'MessageOpenedCount': {'type': 'integer'},\n                    'MessageQueuedCount': {'type': 'integer'},\n                    'MessageSentCount': {'type': 'integer'},\n                    'MessageSoftBouncedCount': {'type': 'integer'},\n                    'MessageSpamCount': {'type': 'integer'},\n                    'MessageUnsubscribedCount': {'type': 'integer'},\n                    'MessageWorkFlowExitedCount': {'type': 'integer'},\n                    'SourceID': {'type': 'integer'},\n                    'Timeslice': {'type': 'string'},\n                    'Total': {'type': 'integer'}},\n     'type': 'object'}\n\nOn instance:\n    {'APIKeyID': 2054805,\n     'EventClickDelay': 0,\n     'EventClickedCount': 0,\n     'EventOpenDelay': 35,\n     'EventOpenedCount': 49,\n     'EventSpamCount': 0,\n     'EventUnsubscribedCount': 0,\n     'EventWorkflowExitedCount': 0,\n     'MessageBlockedCount': 0,\n     'MessageClickedCount': 0,\n     'MessageDeferredCount': 0,\n     'MessageHardBouncedCount': 0,\n     'MessageOpenedCount': 2,\n     'MessageQueuedCount': 0,\n     'MessageSentCount': 2,\n     'MessageSoftBouncedCount': 0,\n     'MessageSpamCount': 0,\n     'MessageUnsubscribedCount': 0,\n     'MessageWorkFlowExitedCount': 0,\n     'SourceID': 0,\n     'Timeslice': '',\n     'Total': 2}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe contacts stream has the following schema errors:\nAdditional properties are not allowed ('ExclusionFromCampaignsUpdatedAt' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'CreatedAt': {'type': 'string'},\n                    'DeliveredCount': {'type': 'integer'},\n                    'Email': {'type': 'string'},\n                    'ID': {'type': 'integer'},\n                    'IsExcludedFromCampaigns': {'type': 'boolean'},\n                    'IsOptInPending': {'type': 'boolean'},\n                    'IsSpamComplaining': {'type': 'boolean'},\n                    'LastActivityAt': {'type': 'string'},\n                    'LastUpdateAt': {'type': 'string'},\n                    'Name': {'type': 'string'},\n                    'UnsubscribedAt': {'type': 'string'},\n                    'UnsubscribedBy': {'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'CreatedAt': '2022-10-27T16:56:47Z',\n     'DeliveredCount': 0,\n     'Email': 'integration-test@airbyte.io',\n     'ExclusionFromCampaignsUpdatedAt': '',\n     'ID': 3482510753,\n     'IsExcludedFromCampaigns': False,\n     'IsOptInPending': False,\n     'IsSpamComplaining': False,\n     'LastActivityAt': '',\n     'LastUpdateAt': '',\n     'Name': '',\n     'UnsubscribedAt': '',\n     'UnsubscribedBy': ''}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe message stream has the following schema errors:\nAdditional properties are not allowed ('CampaignID' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'ArrivedAt': {'type': 'string'},\n                    'AttachmentCount': {'type': 'integer'},\n                    'AttemptCount': {'type': 'integer'},\n                    'ContactAlt': {'type': 'string'},\n                    'ContactID': {'type': 'integer'},\n                    'Delay': {'type': 'integer'},\n                    'DestinationID': {'type': 'integer'},\n                    'FilterTime': {'type': 'integer'},\n                    'ID': {'type': 'integer'},\n                    'IsClickTracked': {'type': 'boolean'},\n                    'IsHTMLPartIncluded': {'type': 'boolean'},\n                    'IsOpenTracked': {'type': 'boolean'},\n                    'IsTextPartIncluded': {'type': 'boolean'},\n                    'IsUnsubTracked': {'type': 'boolean'},\n                    'MessageSize': {'type': 'integer'},\n                    'SenderID': {'type': 'integer'},\n                    'SpamassRules': {'type': 'string'},\n                    'SpamassassinScore': {'type': 'integer'},\n                    'StatePermanent': {'type': 'boolean'},\n                    'Status': {'type': 'string'},\n                    'Subject': {'type': 'string'},\n                    'UUID': {'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'ArrivedAt': '2022-10-28T02:52:29Z',\n     'AttachmentCount': 0,\n     'AttemptCount': 0,\n     'CampaignID': 7663711154,\n     'ContactAlt': '',\n     'ContactID': 3482510753,\n     'Delay': 0,\n     'DestinationID': 63703534,\n     'FilterTime': 0,\n     'ID': 95701492092916410,\n     'IsClickTracked': True,\n     'IsHTMLPartIncluded': False,\n     'IsOpenTracked': True,\n     'IsTextPartIncluded': False,\n     'IsUnsubTracked': False,\n     'MessageSize': 19647,\n     'SenderID': 6453748924,\n     'SpamassRules': '',\n     'SpamassassinScore': 0,\n     'StatePermanent': False,\n     'Status': 'opened',\n     'Subject': '',\n     'UUID': 'afe6aaa5-69ee-4805-a978-e2b3d2ae3caa'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The stats_api_lifetime_message stream has the following schema errors:
+Additional properties are not allowed ('EventSpamCount' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'APIKeyID': {'type': 'integer'},
+                    'EventClickDelay': {'type': 'integer'},
+                    'EventClickedCount': {'type': 'integer'},
+                    'EventOpenDelay': {'type': 'integer'},
+                    'EventOpenedCount': {'type': 'integer'},
+                    'EventUnsubscribedCount': {'type': 'integer'},
+                    'EventWorkflowExitedCount': {'type': 'integer'},
+                    'MessageBlockedCount': {'type': 'integer'},
+                    'MessageClickedCount': {'type': 'integer'},
+                    'MessageDeferredCount': {'type': 'integer'},
+                    'MessageHardBouncedCount': {'type': 'integer'},
+                    'MessageOpenedCount': {'type': 'integer'},
+                    'MessageQueuedCount': {'type': 'integer'},
+                    'MessageSentCount': {'type': 'integer'},
+                    'MessageSoftBouncedCount': {'type': 'integer'},
+                    'MessageSpamCount': {'type': 'integer'},
+                    'MessageUnsubscribedCount': {'type': 'integer'},
+                    'MessageWorkFlowExitedCount': {'type': 'integer'},
+                    'SourceID': {'type': 'integer'},
+                    'Timeslice': {'type': 'string'},
+                    'Total': {'type': 'integer'}},
+     'type': 'object'}
+
+On instance:
+    {'APIKeyID': 2054805,
+     'EventClickDelay': 0,
+     'EventClickedCount': 0,
+     'EventOpenDelay': 35,
+     'EventOpenedCount': 49,
+     'EventSpamCount': 0,
+     'EventUnsubscribedCount': 0,
+     'EventWorkflowExitedCount': 0,
+     'MessageBlockedCount': 0,
+     'MessageClickedCount': 0,
+     'MessageDeferredCount': 0,
+     'MessageHardBouncedCount': 0,
+     'MessageOpenedCount': 2,
+     'MessageQueuedCount': 0,
+     'MessageSentCount': 2,
+     'MessageSoftBouncedCount': 0,
+     'MessageSpamCount': 0,
+     'MessageUnsubscribedCount': 0,
+     'MessageWorkFlowExitedCount': 0,
+     'SourceID': 0,
+     'Timeslice': '',
+     'Total': 2}
+ERROR    root:test_core.py:662 
+The contacts stream has the following schema errors:
+Additional properties are not allowed ('ExclusionFromCampaignsUpdatedAt' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'CreatedAt': {'type': 'string'},
+                    'DeliveredCount': {'type': 'integer'},
+                    'Email': {'type': 'string'},
+                    'ID': {'type': 'integer'},
+                    'IsExcludedFromCampaigns': {'type': 'boolean'},
+                    'IsOptInPending': {'type': 'boolean'},
+                    'IsSpamComplaining': {'type': 'boolean'},
+                    'LastActivityAt': {'type': 'string'},
+                    'LastUpdateAt': {'type': 'string'},
+                    'Name': {'type': 'string'},
+                    'UnsubscribedAt': {'type': 'string'},
+                    'UnsubscribedBy': {'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'CreatedAt': '2022-10-27T16:56:47Z',
+     'DeliveredCount': 0,
+     'Email': 'integration-test@airbyte.io',
+     'ExclusionFromCampaignsUpdatedAt': '',
+     'ID': 3482510753,
+     'IsExcludedFromCampaigns': False,
+     'IsOptInPending': False,
+     'IsSpamComplaining': False,
+     'LastActivityAt': '',
+     'LastUpdateAt': '',
+     'Name': '',
+     'UnsubscribedAt': '',
+     'UnsubscribedBy': ''}
+ERROR    root:test_core.py:662 
+The message stream has the following schema errors:
+Additional properties are not allowed ('CampaignID' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'ArrivedAt': {'type': 'string'},
+                    'AttachmentCount': {'type': 'integer'},
+                    'AttemptCount': {'type': 'integer'},
+                    'ContactAlt': {'type': 'string'},
+                    'ContactID': {'type': 'integer'},
+                    'Delay': {'type': 'integer'},
+                    'DestinationID': {'type': 'integer'},
+                    'FilterTime': {'type': 'integer'},
+                    'ID': {'type': 'integer'},
+                    'IsClickTracked': {'type': 'boolean'},
+                    'IsHTMLPartIncluded': {'type': 'boolean'},
+                    'IsOpenTracked': {'type': 'boolean'},
+                    'IsTextPartIncluded': {'type': 'boolean'},
+                    'IsUnsubTracked': {'type': 'boolean'},
+                    'MessageSize': {'type': 'integer'},
+                    'SenderID': {'type': 'integer'},
+                    'SpamassRules': {'type': 'string'},
+                    'SpamassassinScore': {'type': 'integer'},
+                    'StatePermanent': {'type': 'boolean'},
+                    'Status': {'type': 'string'},
+                    'Subject': {'type': 'string'},
+                    'UUID': {'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'ArrivedAt': '2022-10-28T02:52:29Z',
+     'AttachmentCount': 0,
+     'AttemptCount': 0,
+     'CampaignID': 7663711154,
+     'ContactAlt': '',
+     'ContactID': 3482510753,
+     'Delay': 0,
+     'DestinationID': 63703534,
+     'FilterTime': 0,
+     'ID': 95701492092916410,
+     'IsClickTracked': True,
+     'IsHTMLPartIncluded': False,
+     'IsOpenTracked': True,
+     'IsTextPartIncluded': False,
+     'IsUnsubTracked': False,
+     'MessageSize': 19647,
+     'SenderID': 6453748924,
+     'SpamassRules': '',
+     'SpamassassinScore': 0,
+     'StatePermanent': False,
+     'Status': 'opened',
+     'Subject': '',
+     'UUID': 'afe6aaa5-69ee-4805-a978-e2b3d2ae3caa'}
+=============================== warnings summary ===============================
+connector_acceptance_test/config.py:282: 34 warnings
+test_core.py: 1 warning
+  /airbyte/connector_acceptance_test/connector_acceptance_test/config.py:282: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    logging.warn("The acceptance-test-config.yml file is in a legacy format. Please migrate to the latest format.")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: not found in the config.
+========== 1 failed, 1 skipped, 33 deselected, 35 warnings in 12.68s ===========

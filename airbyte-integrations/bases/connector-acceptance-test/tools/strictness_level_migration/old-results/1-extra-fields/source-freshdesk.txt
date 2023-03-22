@@ -1,0 +1,920 @@
+../../../../connectors/source-freshdesk/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-freshdesk
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 37 items / 35 deselected / 2 selected
+
+../../test_input/test_core.py F                                          [ 50%]
+../../test_input/test_incremental.py .                                   [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffffab6baa00>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='agents', json_schema={'$schema': ...ull_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=[['id']])])
+expect_records_config = ExpectedRecordsConfig(bypass_reason=None, path=PosixPath('integration_tests/expected_records.jsonl'), extra_fields=False, exact_order=False, extra_records=True)
+should_validate_schema = True, should_validate_data_points = False
+should_fail_on_extra_columns = True
+empty_streams = {EmptyStreamConfiguration(name='skills', bypass_reason='no records'), EmptyStreamConfiguration(name='products', bypass_reason='no records')}
+ignored_fields = {}
+expected_records_by_stream = defaultdict(<class 'list'>, {'agents': [{'available': False, 'occasional': True, 'id': 67013469930, 'ticket_scope': 1,...084818', 'label': 'Are you satisfied with our customer support experience?', 'accepted_ratings': [103, 100, -103]}]}]})
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffffaad010d0>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='agents', data={'available': False, 'occasional': True, 'id': 67013469930...dated_at': '2021-02-11T22:21:40Z'}, 'signature': '<div dir="ltr"><p><br></p>\n</div>'}, emitted_at=1679405052075), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='agents', json_schema={'$schema': ...ull_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.append: 'append'>, primary_key=[['id']])])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('canned_responses', 'contacts', 'conversations', 'discussion_comments', 'discussion_forums', 'discussion_topics', 'email_mailboxes', 'roles', 'settings', 'sla_policies', 'solution_articles', 'solution_categories', 'solution_folders', 'time_entries', 'ticket_fields', 'tickets').
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"type": "LOG", "log": {"level": "WARN", "message": "The configured catalog was built with the discovered catalog from which the following empty streams were removed: skills, products."}}
+------------------------------ Captured log setup ------------------------------
+WARNING  root:common.py:149 The configured catalog was built with the discovered catalog from which the following empty streams were removed: skills, products.
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe canned_responses stream has the following schema errors:\nAdditional properties are not allowed ('group_ids', 'visibility' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'attachments': {'items': {'properties': {'attachment_url': {'type': ['null',\n                                                                                         'string']},\n                                                             'content_type': {'type': ['null',\n                                                                                       'string']},\n                                                             'created_at': {'type': ['string',\n                                                                                     'null']},\n                                                             'id': {'type': ['null',\n                                                                             'integer']},\n                                                             'name': {'type': ['null',\n                                                                               'string']},\n                                                             'size': {'type': ['null',\n                                                                               'integer']},\n                                                             'thumb_url': {'type': ['null',\n                                                                                    'string']},\n                                                             'updated_at': {'type': ['string',\n                                                                                     'null']}},\n                                              'type': ['null', 'object']},\n                                    'type': ['null', 'array']},\n                    'content': {'type': ['null', 'string']},\n                    'content_html': {'type': ['null', 'string']},\n                    'created_at': {'type': ['string', 'null']},\n                    'folder_id': {'type': ['null', 'integer']},\n                    'id': {'type': ['null', 'integer']},\n                    'title': {'type': ['null', 'string']},\n                    'updated_at': {'type': ['string', 'null']}},\n     'type': 'object'}\n\nOn instance:\n    {'attachments': [],\n     'content': 'This is a sample canned response',\n     'content_html': '<div>This is a sample canned response</div>',\n     'created_at': '2022-04-27T02:25:33Z',\n     'folder_id': 67000174510,\n     'group_ids': [],\n     'id': 67000143819,\n     'title': 'Sample canned response',\n     'updated_at': '2022-04-27T02:25:33Z',\n     'visibility': 0}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe contacts stream has the following schema errors:\nAdditional properties are not allowed ('twitter_followers_count', 'twitter_profile_status' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'active': {'type': ['boolean', 'null']},\n                    'address': {'type': ['string', 'null']},\n                    'company_id': {'type': ['integer', 'null']},\n                    'created_at': {'type': ['string', 'null']},\n                    'csat_rating': {'type': ['integer', 'null']},\n                    'custom_fields': {'type': ['object', 'null']},\n                    'description': {'type': ['string', 'null']},\n                    'email': {'type': ['string', 'null']},\n                    'facebook_id': {'type': ['integer', 'null']},\n                    'id': {'type': ['integer', 'null']},\n                    'job_title': {'type': ['string', 'null']},\n                    'language': {'type': ['string', 'null']},\n                    'mobile': {'type': ['string', 'null']},\n                    'name': {'type': ['string', 'null']},\n                    'phone': {'type': ['string', 'null']},\n                    'preferred_source': {'type': ['string', 'null']},\n                    'time_zone': {'type': ['string', 'null']},\n                    'twitter_id': {'type': ['string', 'null']},\n                    'unique_external_id': {'type': ['string', 'null']},\n                    'updated_at': {'type': ['string', 'null']}},\n     'type': 'object'}\n\nOn instance:\n    {'active': True,\n     'address': '2950 S. Delaware Street, Suite 201, San Mateo CA 94403',\n     'company_id': None,\n     'created_at': '2022-05-25T21:25:35Z',\n     'csat_rating': None,\n     'custom_fields': {},\n     'description': None,\n     'email': 'sarah.james@freshdesk.com',\n     'facebook_id': None,\n     'id': 67038833129,\n     'job_title': None,\n     'language': 'en',\n     'mobile': None,\n     'name': 'Sarah James',\n     'phone': '+1 (855) 747 676',\n     'preferred_source': 'email',\n     'time_zone': 'Magadan',\n     'twitter_followers_count': None,\n     'twitter_id': None,\n     'twitter_profile_status': False,\n     'unique_external_id': None,\n     'updated_at': '2022-05-25T21:25:35Z'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe conversations stream has the following schema errors:\nAdditional properties are not allowed ('auto_response', 'outgoing_failures', 'thread_id', 'automation_type_id', 'last_edited_at', 'automation_id', 'thread_message_id', 'email_failure_count', 'last_edited_user_id' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'attachments': {'type': ['array', 'null']},\n                    'bcc_emails': {'type': ['array', 'null']},\n                    'body': {'type': ['string', 'null']},\n                    'body_text': {'type': ['string', 'null']},\n                    'category': {'type': ['integer', 'null']},\n                    'cc_emails': {'type': ['array', 'null']},\n                    'created_at': {'type': ['string', 'null']},\n                    'from_email': {'type': ['string', 'null']},\n                    'id': {'type': ['integer', 'null']},\n                    'incoming': {'type': ['boolean', 'null']},\n                    'private': {'type': ['boolean', 'null']},\n                    'source': {'type': ['integer', 'null']},\n                    'source_additional_info': {'type': ['object', 'null']},\n                    'support_email': {'type': ['string', 'null']},\n                    'ticket_id': {'type': ['integer', 'null']},\n                    'to_emails': {'type': ['array', 'null']},\n                    'updated_at': {'type': ['string', 'null']},\n                    'user_id': {'type': ['integer', 'null']}},\n     'type': 'object'}\n\nOn instance:\n    {'attachments': [],\n     'auto_response': False,\n     'automation_id': None,\n     'automation_type_id': None,\n     'bcc_emails': None,\n     'body': '<div>test</div>',\n     'body_text': 'test',\n     'category': 7,\n     'cc_emails': [],\n     'created_at': '2022-11-22T15:02:29Z',\n     'email_failure_count': None,\n     'from_email': None,\n     'id': 67105779604,\n     'incoming': True,\n     'last_edited_at': None,\n     'last_edited_user_id': None,\n     'outgoing_failures': None,\n     'private': False,\n     'source': 6,\n     'source_additional_info': None,\n     'support_email': None,\n     'thread_id': None,\n     'thread_message_id': None,\n     'ticket_id': 23,\n     'to_emails': None,\n     'updated_at': '2022-11-22T15:02:29Z',\n     'user_id': 67042965499}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe discussion_comments stream has the following schema errors:\nAdditional properties are not allowed ('body_text' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'answer': {'type': ['null', 'boolean']},\n                    'body': {'type': ['null', 'string']},\n                    'created_at': {'type': ['null', 'string']},\n                    'forum_id': {'type': ['null', 'integer']},\n                    'id': {'type': ['null', 'integer']},\n                    'published': {'type': ['null', 'boolean']},\n                    'spam': {'type': ['null', 'boolean']},\n                    'topic_id': {'type': ['null', 'integer']},\n                    'trash': {'type': ['null', 'boolean']},\n                    'updated_at': {'type': ['null', 'string']},\n                    'user_id': {'type': ['null', 'integer']}},\n     'type': 'object'}\n\nOn instance:\n    {'answer': False,\n     'body': \"There's a bug when you click here. Please fix!\",\n     'body_text': \"There's a bug when you click here. Please fix!\",\n     'created_at': '2022-04-27T13:10:23Z',\n     'forum_id': 67000195685,\n     'id': 67001514843,\n     'published': True,\n     'spam': None,\n     'topic_id': 67000674348,\n     'trash': False,\n     'updated_at': '2022-04-27T13:10:23Z',\n     'user_id': 67013469919}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe discussion_forums stream has the following schema errors:\nAdditional properties are not allowed ('comments_count' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'company_ids': {'items': {'type': ['null', 'integer']},\n                                    'type': ['null', 'array']},\n                    'description': {'type': ['null', 'string']},\n                    'forum_category_id': {'type': ['null', 'integer']},\n                    'forum_type': {'type': ['null', 'integer']},\n                    'forum_visibility': {'type': ['null', 'integer']},\n                    'id': {'type': ['null', 'integer']},\n                    'name': {'type': ['null', 'string']},\n                    'position': {'type': ['null', 'integer']},\n                    'posts_count': {'type': ['null', 'integer']},\n                    'topics_count': {'type': ['null', 'integer']}},\n     'type': 'object'}\n\nOn instance:\n    {'comments_count': 0,\n     'description': 'All offers and discounts.',\n     'forum_category_id': 67000039160,\n     'forum_type': 4,\n     'forum_visibility': 1,\n     'id': 67000195686,\n     'name': 'Sales and offers',\n     'position': 5,\n     'topics_count': 0}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe discussion_topics stream has the following schema errors:\nAdditional properties are not allowed ('replied_at', 'comments_count', 'published' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'created_at': {'type': ['null', 'string']},\n                    'forum_id': {'type': ['null', 'integer']},\n                    'hits': {'type': ['null', 'integer']},\n                    'id': {'type': ['null', 'integer']},\n                    'locked': {'type': ['null', 'boolean']},\n                    'merged_topic_id': {'type': ['null', 'integer']},\n                    'message': {'type': ['null', 'string']},\n                    'posts_count': {'type': ['null', 'integer']},\n                    'replied_by': {'type': ['null', 'integer']},\n                    'stamp_type': {'type': ['null', 'integer']},\n                    'sticky': {'type': ['null', 'boolean']},\n                    'title': {'type': ['null', 'string']},\n                    'updated_at': {'type': ['null', 'string']},\n                    'user_id': {'type': ['null', 'integer']},\n                    'user_votes': {'type': ['null', 'integer']}},\n     'type': 'object'}\n\nOn instance:\n    {'comments_count': 2,\n     'created_at': '2022-04-27T13:08:55Z',\n     'forum_id': 67000195685,\n     'hits': 0,\n     'id': 67000674348,\n     'locked': False,\n     'merged_topic_id': None,\n     'published': True,\n     'replied_at': '2022-04-27T13:10:23Z',\n     'replied_by': 67013469919,\n     'stamp_type': 9,\n     'sticky': True,\n     'title': 'Critical bugs',\n     'updated_at': '2022-04-27T13:08:55Z',\n     'user_id': 67013469919,\n     'user_votes': 0}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe email_mailboxes stream has the following schema errors:\nAdditional properties are not allowed ('created_at', 'failure_code', 'freshdesk_mailbox', 'active', 'updated_at' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'access_type': {'type': ['null', 'string']},\n                    'authentication': {'type': ['null', 'string']},\n                    'custom_mailbox': {'type': ['null', 'string']},\n                    'default_reply_email': {'type': ['null', 'boolean']},\n                    'delete_from_server': {'type': ['null', 'boolean']},\n                    'group_id': {'type': ['null', 'integer']},\n                    'id': {'type': ['null', 'integer']},\n                    'incoming': {'type': ['null', 'string']},\n                    'mail_server': {'type': ['null', 'string']},\n                    'mailbox_type': {'type': ['null', 'string']},\n                    'name': {'type': ['null', 'string']},\n                    'password': {'type': ['null', 'string']},\n                    'port': {'type': ['null', 'integer']},\n                    'product_id': {'type': ['null', 'integer']},\n                    'support_email': {'type': ['null', 'string']},\n                    'use_ssl': {'type': ['null', 'boolean']},\n                    'username': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'active': True,\n     'created_at': '2020-10-22T02:37:13Z',\n     'default_reply_email': True,\n     'failure_code': None,\n     'freshdesk_mailbox': {'forward_email': 'support@newaccount1603334233301.freshdesk.com'},\n     'group_id': None,\n     'id': 67000041667,\n     'mailbox_type': 'freshdesk_mailbox',\n     'name': 'Airbyte',\n     'product_id': None,\n     'support_email': 'support@newaccount1603334233301.freshdesk.com',\n     'updated_at': '2020-10-22T03:27:48Z'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe roles stream has the following schema errors:\nAdditional properties are not allowed ('agent_type' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'created_at': {'type': ['null', 'string']},\n                    'default': {'type': ['null', 'boolean']},\n                    'description': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'integer']},\n                    'name': {'type': ['null', 'string']},\n                    'updated_at': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'agent_type': 1,\n     'created_at': '2020-10-22T02:37:13Z',\n     'default': True,\n     'description': 'Can log, view, reply, update and resolve tickets and '\n                    'manage contacts.',\n     'id': 67000159706,\n     'name': 'Agent',\n     'updated_at': '2022-12-13T06:38:12Z'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe settings stream has the following schema errors:\nAdditional properties are not allowed ('help_widget_languages' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'portal_languages': {'items': {'type': ['null',\n                                                            'string']},\n                                         'type': ['null', 'array']},\n                    'primary_language': {'type': ['null', 'string']},\n                    'supported_languages': {'items': {'type': ['null',\n                                                               'string']},\n                                            'type': ['null', 'array']}},\n     'type': 'object'}\n\nOn instance:\n    {'help_widget_languages': [],\n     'portal_languages': [],\n     'primary_language': 'en',\n     'supported_languages': []}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe sla_policies stream has the following schema errors:\nAdditional properties are not allowed ('created_at', 'updated_at' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'active': {'type': ['null', 'boolean']},\n                    'applicable_to': {'properties': {'company_ids': {'items': {'type': ['null',\n                                                                                        'integer']},\n                                                                     'type': ['null',\n                                                                              'array']},\n                                                     'group_ids': {'items': {'type': ['null',\n                                                                                      'integer']},\n                                                                   'type': ['null',\n                                                                            'array']},\n                                                     'product_ids': {'items': {'type': ['null',\n                                                                                        'integer']},\n                                                                     'type': ['null',\n                                                                              'array']},\n                                                     'sources': {'items': {'type': ['null',\n                                                                                    'integer']},\n                                                                 'type': ['null',\n                                                                          'array']},\n                                                     'ticket_types': {'items': {'type': ['null',\n                                                                                         'string']},\n                                                                      'type': ['null',\n                                                                               'array']}},\n                                      'type': ['null', 'object']},\n                    'description': {'type': ['null', 'string']},\n                    'escalation': {'properties': {'resolution': {'properties': {'level1': {'properties': {'agent_ids': {'items': {'type': ['null',\n                                                                                                                                           'integer']},\n                                                                                                                        'type': ['null',\n                                                                                                                                 'array']},\n                                                                                                          'escalation_time': {'type': ['null',\n                                                                                                                                       'integer']}},\n                                                                                           'type': ['null',\n                                                                                                    'object']},\n                                                                                'level2': {'properties': {'agent_ids': {'items': {'type': ['null',\n                                                                                                                                           'integer']},\n                                                                                                                        'type': ['null',\n                                                                                                                                 'array']},\n                                                                                                          'escalation_time': {'type': ['null',\n                                                                                                                                       'integer']}},\n                                                                                           'type': ['null',\n                                                                                                    'object']},\n                                                                                'level3': {'properties': {'agent_ids': {'items': {'type': ['null',\n                                                                                                                                           'integer']},\n                                                                                                                        'type': ['null',\n                                                                                                                                 'array']},\n                                                                                                          'escalation_time': {'type': ['null',\n                                                                                                                                       'integer']}},\n                                                                                           'type': ['null',\n                                                                                                    'object']},\n                                                                                'level4': {'properties': {'agent_ids': {'items': {'type': ['null',\n                                                                                                                                           'integer']},\n                                                                                                                        'type': ['null',\n                                                                                                                                 'array']},\n                                                                                                          'escalation_time': {'type': ['null',\n                                                                                                                                       'integer']}},\n                                                                                           'type': ['null',\n                                                                                                    'object']}},\n                                                                 'type': ['null',\n                                                                          'object']},\n                                                  'response': {'properties': {'agent_ids': {'items': {'type': ['null',\n                                                                                                               'integer']},\n                                                                                            'type': ['null',\n                                                                                                     'array']},\n                                                                              'escalation_time': {'type': ['null',\n                                                                                                           'integer']}},\n                                                               'type': ['null',\n                                                                        'object']}},\n                                   'type': ['null', 'object']},\n                    'id': {'type': ['null', 'integer']},\n                    'is_default': {'type': ['null', 'boolean']},\n                    'name': {'type': ['null', 'string']},\n                    'position': {'type': ['null', 'integer']},\n                    'sla_target': {'properties': {'priority_1': {'properties': {'business_hours': {'type': ['null',\n                                                                                                            'boolean']},\n                                                                                'escalation_enabled': {'type': ['null',\n                                                                                                                'boolean']},\n                                                                                'resolve_within': {'type': ['null',\n                                                                                                            'integer']},\n                                                                                'respond_within': {'type': ['null',\n                                                                                                            'integer']}},\n                                                                 'type': ['null',\n                                                                          'object']},\n                                                  'priority_2': {'properties': {'business_hours': {'type': ['null',\n                                                                                                            'boolean']},\n                                                                                'escalation_enabled': {'type': ['null',\n                                                                                                                'boolean']},\n                                                                                'resolve_within': {'type': ['null',\n                                                                                                            'integer']},\n                                                                                'respond_within': {'type': ['null',\n                                                                                                            'integer']}},\n                                                                 'type': ['null',\n                                                                          'object']},\n                                                  'priority_3': {'properties': {'business_hours': {'type': ['null',\n                                                                                                            'boolean']},\n                                                                                'escalation_enabled': {'type': ['null',\n                                                                                                                'boolean']},\n                                                                                'resolve_within': {'type': ['null',\n                                                                                                            'integer']},\n                                                                                'respond_within': {'type': ['null',\n                                                                                                            'integer']}},\n                                                                 'type': ['null',\n                                                                          'object']},\n                                                  'priority_4': {'properties': {'business_hours': {'type': ['null',\n                                                                                                            'boolean']},\n                                                                                'escalation_enabled': {'type': ['null',\n                                                                                                                'boolean']},\n                                                                                'resolve_within': {'type': ['null',\n                                                                                                            'integer']},\n                                                                                'respond_within': {'type': ['null',\n                                                                                                            'integer']}},\n                                                                 'type': ['null',\n                                                                          'object']}},\n                                   'type': ['null', 'object']}},\n     'type': 'object'}\n\nOn instance:\n    {'active': True,\n     'applicable_to': {},\n     'created_at': '2020-10-22T02:37:13Z',\n     'description': 'default policy',\n     'escalation': {},\n     'id': 67000039537,\n     'is_default': True,\n     'name': 'Default SLA Policy',\n     'position': 1,\n     'sla_target': {'priority_1': {'business_hours': False,\n                                   'escalation_enabled': True,\n                                   'next_respond_within': None,\n                                   'resolve_within': 259200,\n                                   'respond_within': 86400},\n                    'priority_2': {'business_hours': False,\n                                   'escalation_enabled': True,\n                                   'next_respond_within': None,\n                                   'resolve_within': 86400,\n                                   'respond_within': 28800},\n                    'priority_3': {'business_hours': False,\n                                   'escalation_enabled': True,\n                                   'next_respond_within': None,\n                                   'resolve_within': 43200,\n                                   'respond_within': 14400},\n                    'priority_4': {'business_hours': False,\n                                   'escalation_enabled': True,\n                                   'next_respond_within': None,\n                                   'resolve_within': 14400,\n                                   'respond_within': 3600}},\n     'updated_at': '2020-10-22T02:37:13Z'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe solution_articles stream has the following schema errors:\nAdditional properties are not allowed ('attachments', 'hierarchy', 'type', 'cloud_files', 'feedback_count', 'suggested' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'agent_id': {'type': ['null', 'integer']},\n                    'category_id': {'type': ['null', 'integer']},\n                    'created_at': {'type': ['null', 'string']},\n                    'description': {'type': ['null', 'string']},\n                    'description_text': {'type': ['null', 'string']},\n                    'folder_id': {'type': ['null', 'integer']},\n                    'hits': {'type': ['null', 'integer']},\n                    'id': {'type': ['null', 'integer']},\n                    'seo_data': {'properties': {'meta_description': {'type': ['null',\n                                                                              'string']},\n                                                'meta_keywords': {'items': {'type': ['null',\n                                                                                     'string']},\n                                                                  'type': ['null',\n                                                                           'array']},\n                                                'meta_title': {'type': ['null',\n                                                                        'string']}},\n                                 'type': ['null', 'object']},\n                    'status': {'type': ['null', 'integer']},\n                    'tags': {'items': {'type': ['null', 'string']},\n                             'type': ['null', 'array']},\n                    'thumbs_down': {'type': ['null', 'integer']},\n                    'thumbs_up': {'type': ['null', 'integer']},\n                    'title': {'type': ['null', 'string']},\n                    'updated_at': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'agent_id': 67013469919,\n     'attachments': [],\n     'category_id': 67000173648,\n     'cloud_files': [],\n     'created_at': '2020-10-22T03:28:03Z',\n     'description': '<p> </p>',\n     'description_text': '   ',\n     'feedback_count': 0,\n     'folder_id': 67000255079,\n     'hierarchy': [{'data': {'id': 67000173648,\n                             'language': 'en',\n                             'name': 'Information collected'},\n                    'level': 0,\n                    'type': 'category'},\n                   {'data': {'id': 67000255079,\n                             'language': 'en',\n                             'name': 'Opt-out policy'},\n                    'level': 1,\n                    'type': 'folder'}],\n     'hits': 0,\n     'id': 67000284922,\n     'seo_data': {'meta_description': '', 'meta_title': ''},\n     'status': 1,\n     'suggested': 0,\n     'tags': [],\n     'thumbs_down': 0,\n     'thumbs_up': 0,\n     'title': 'Service related announcements',\n     'type': 1,\n     'updated_at': '2020-10-22T03:28:03Z'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe solution_categories stream has the following schema errors:\nAdditional properties are not allowed ('icon' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'created_at': {'type': ['null', 'string']},\n                    'description': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'integer']},\n                    'name': {'type': ['null', 'string']},\n                    'updated_at': {'type': ['null', 'string']},\n                    'visible_in_portals': {'items': {'type': ['null',\n                                                              'integer']},\n                                           'type': ['null', 'array']}},\n     'type': 'object'}\n\nOn instance:\n    {'created_at': '2020-10-22T03:28:02Z',\n     'description': 'Information collected category',\n     'icon': {},\n     'id': 67000173648,\n     'name': 'Information collected',\n     'updated_at': '2020-10-22T03:28:02Z',\n     'visible_in_portals': [67000039685]}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe solution_folders stream has the following schema errors:\nAdditional properties are not allowed ('category_id', 'articles_count', 'parent_folder_id', 'icon_url', 'sub_folders_count', 'hierarchy' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'company_ids': {'items': {'type': ['null', 'integer']},\n                                    'type': ['null', 'array']},\n                    'company_segment_ids': {'items': {'type': ['null',\n                                                               'integer']},\n                                            'type': ['null', 'array']},\n                    'contact_segment_ids': {'items': {'type': ['null',\n                                                               'integer']},\n                                            'type': ['null', 'array']},\n                    'created_at': {'type': ['null', 'string']},\n                    'description': {'type': ['null', 'string']},\n                    'id': {'type': ['null', 'integer']},\n                    'name': {'type': ['null', 'string']},\n                    'updated_at': {'type': ['null', 'string']},\n                    'visibility': {'type': ['null', 'integer']}},\n     'type': 'object'}\n\nOn instance:\n    {'articles_count': 2,\n     'category_id': 67000173648,\n     'created_at': '2020-10-22T03:28:02Z',\n     'description': 'Folder for adding Opt-out policy articles',\n     'hierarchy': [{'data': {'id': 67000173648,\n                             'language': 'en',\n                             'name': 'Information collected'},\n                    'level': 0,\n                    'type': 'category'},\n                   {'data': {'id': 67000255079,\n                             'language': 'en',\n                             'name': 'Opt-out policy'},\n                    'level': 1,\n                    'type': 'folder'}],\n     'icon_url': None,\n     'id': 67000255079,\n     'name': 'Opt-out policy',\n     'parent_folder_id': None,\n     'sub_folders_count': 0,\n     'updated_at': '2020-10-22T03:28:02Z',\n     'visibility': 1}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe time_entries stream has the following schema errors:\nAdditional properties are not allowed ('time_spent_in_seconds' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'agent_id': {'type': ['integer', 'null']},\n                    'billable': {'type': ['boolean', 'null']},\n                    'company_id': {'type': ['integer', 'null']},\n                    'created_at': {'type': ['string', 'null']},\n                    'executed_at': {'type': ['string', 'null']},\n                    'id': {'type': ['integer', 'null']},\n                    'note': {'type': ['string', 'null']},\n                    'start_time': {'type': ['string', 'null']},\n                    'ticket_id': {'type': ['integer', 'null']},\n                    'time_spent': {'type': ['string', 'null']},\n                    'timer_running': {'type': ['boolean', 'null']},\n                    'updated_at': {'type': ['string', 'null']}},\n     'type': 'object'}\n\nOn instance:\n    {'agent_id': 67013469919,\n     'billable': True,\n     'company_id': None,\n     'created_at': '2022-11-16T16:15:36Z',\n     'executed_at': '2022-11-17T00:00:00Z',\n     'id': 67011181684,\n     'note': 'Test',\n     'start_time': '2022-11-16T16:15:36Z',\n     'ticket_id': 22,\n     'time_spent': '00:01',\n     'time_spent_in_seconds': 103,\n     'timer_running': False,\n     'updated_at': '2022-11-16T16:17:18Z'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe ticket_fields stream has the following schema errors:\nAdditional properties are not allowed ('customers_can_filter' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'choices': {'type': ['null', 'array', 'object']},\n                    'created_at': {'type': ['null', 'string']},\n                    'customers_can_edit': {'type': ['null', 'boolean']},\n                    'default': {'type': ['null', 'boolean']},\n                    'dependent_fields': {'properties': {'created_at': {'type': ['null',\n                                                                                'string']},\n                                                        'id': {'type': ['null',\n                                                                        'integer']},\n                                                        'label': {'type': ['null',\n                                                                           'string']},\n                                                        'label_for_customers': {'type': ['null',\n                                                                                         'string']},\n                                                        'level': {'type': ['null',\n                                                                           'integer']},\n                                                        'name': {'type': ['null',\n                                                                          'string']},\n                                                        'ticket_field_id': {'type': ['null',\n                                                                                     'integer']},\n                                                        'updated_at': {'type': ['null',\n                                                                                'string']}}},\n                    'description': {'type': ['null', 'string']},\n                    'displayed_to_customers': {'type': ['null', 'boolean']},\n                    'field_update_in_progress': {'type': ['null',\n                                                          'boolean']},\n                    'id': {'type': ['null', 'integer']},\n                    'is_fsm': {'type': ['null', 'boolean']},\n                    'label': {'type': ['null', 'string']},\n                    'label_for_customers': {'type': ['null', 'string']},\n                    'name': {'type': ['null', 'string']},\n                    'portal_cc': {'type': ['null', 'boolean']},\n                    'portal_cc_to': {'type': ['null', 'string']},\n                    'position': {'type': ['null', 'integer']},\n                    'required_for_agents': {'type': ['null', 'boolean']},\n                    'required_for_closure': {'type': ['null', 'boolean']},\n                    'required_for_customers': {'type': ['null', 'boolean']},\n                    'type': {'type': ['null', 'string']},\n                    'updated_at': {'type': ['null', 'string']}},\n     'type': 'object'}\n\nOn instance:\n    {'created_at': '2020-10-22T02:37:13Z',\n     'customers_can_edit': True,\n     'customers_can_filter': False,\n     'default': True,\n     'description': 'Ticket Company',\n     'displayed_to_customers': True,\n     'id': 67000439414,\n     'label': 'Company',\n     'label_for_customers': 'Company',\n     'name': 'company',\n     'position': 11,\n     'required_for_agents': True,\n     'required_for_closure': False,\n     'required_for_customers': True,\n     'type': 'default_company',\n     'updated_at': '2020-10-22T02:37:13Z'}"}}
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe tickets stream has the following schema errors:\nAdditional properties are not allowed ('support_email' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'associated_tickets_count': {'type': ['integer',\n                                                          'null']},\n                    'association_type': {'type': ['integer', 'null']},\n                    'cc_emails': {'type': ['array', 'null']},\n                    'company_id': {'type': ['integer', 'null']},\n                    'created_at': {'type': ['string', 'null']},\n                    'custom_fields': {'type': ['object', 'null']},\n                    'description': {'type': ['string', 'null']},\n                    'description_text': {'type': ['string', 'null']},\n                    'due_by': {'type': ['string', 'null']},\n                    'email_config_id': {'type': ['integer', 'null']},\n                    'fr_due_by': {'type': ['string', 'null']},\n                    'fr_escalated': {'type': ['null', 'boolean']},\n                    'fwd_emails': {'type': ['array', 'null']},\n                    'group_id': {'type': ['integer', 'null']},\n                    'id': {'type': ['integer', 'null']},\n                    'is_escalated': {'type': ['boolean', 'null']},\n                    'nr_due_by': {'type': ['string', 'null']},\n                    'nr_escalated': {'type': ['boolean', 'null']},\n                    'priority': {'type': ['integer', 'null']},\n                    'product_id': {'type': ['integer', 'null']},\n                    'reply_cc_emails': {'type': ['array', 'null']},\n                    'requester': {'type': ['object', 'null']},\n                    'requester_id': {'type': ['integer', 'null']},\n                    'responder_id': {'type': ['integer', 'null']},\n                    'source': {'type': ['integer', 'null']},\n                    'spam': {'type': ['null', 'boolean']},\n                    'stats': {'type': ['object', 'null']},\n                    'status': {'type': ['integer', 'null']},\n                    'subject': {'type': ['string', 'null']},\n                    'tags': {'type': ['array', 'null']},\n                    'ticket_cc_emails': {'type': ['array', 'null']},\n                    'to_emails': {'items': {'type': ['string', 'null']},\n                                  'type': ['array', 'null']},\n                    'type': {'type': ['string', 'null']},\n                    'updated_at': {'type': ['string', 'null']}},\n     'type': 'object'}\n\nOn instance:\n    {'associated_tickets_count': None,\n     'association_type': None,\n     'cc_emails': [],\n     'company_id': 67001265522,\n     'created_at': '2022-11-22T15:00:34Z',\n     'custom_fields': {},\n     'description': '<div style=\"font-family:-apple-system, '\n                    'BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, '\n                    'Arial, sans-serif; font-size:14px\"><div '\n                    'dir=\"ltr\">Test<br><br>\\n'\n                    '</div></div>',\n     'description_text': 'Test',\n     'due_by': '2022-11-25T15:00:34Z',\n     'email_config_id': 67000041667,\n     'fr_due_by': '2022-11-23T15:00:34Z',\n     'fr_escalated': False,\n     'fwd_emails': [],\n     'group_id': None,\n     'id': 23,\n     'is_escalated': False,\n     'nr_due_by': None,\n     'nr_escalated': False,\n     'priority': 1,\n     'product_id': None,\n     'reply_cc_emails': [],\n     'requester': {'email': 'iryna.grankova@airbyte.io',\n                   'id': 67042965499,\n                   'mobile': '+380636306253',\n                   'name': 'Iryna Grankova',\n                   'phone': None},\n     'requester_id': 67042965499,\n     'responder_id': 67013469919,\n     'source': 10,\n     'spam': False,\n     'stats': {'agent_responded_at': None,\n               'closed_at': '2022-11-22T15:00:34Z',\n               'first_responded_at': None,\n               'pending_since': None,\n               'reopened_at': None,\n               'requester_responded_at': '2022-11-22T15:02:29Z',\n               'resolved_at': '2022-11-22T15:00:34Z',\n               'status_updated_at': '2022-11-22T15:00:34Z'},\n     'status': 5,\n     'subject': 'Test',\n     'support_email': 'support@newaccount1603334233301.freshdesk.com',\n     'tags': [],\n     'ticket_cc_emails': [],\n     'to_emails': ['support@newaccount1603334233301.freshdesk.com'],\n     'type': None,\n     'updated_at': '2022-11-22T15:02:37Z'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The canned_responses stream has the following schema errors:
+Additional properties are not allowed ('group_ids', 'visibility' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'attachments': {'items': {'properties': {'attachment_url': {'type': ['null',
+                                                                                         'string']},
+                                                             'content_type': {'type': ['null',
+                                                                                       'string']},
+                                                             'created_at': {'type': ['string',
+                                                                                     'null']},
+                                                             'id': {'type': ['null',
+                                                                             'integer']},
+                                                             'name': {'type': ['null',
+                                                                               'string']},
+                                                             'size': {'type': ['null',
+                                                                               'integer']},
+                                                             'thumb_url': {'type': ['null',
+                                                                                    'string']},
+                                                             'updated_at': {'type': ['string',
+                                                                                     'null']}},
+                                              'type': ['null', 'object']},
+                                    'type': ['null', 'array']},
+                    'content': {'type': ['null', 'string']},
+                    'content_html': {'type': ['null', 'string']},
+                    'created_at': {'type': ['string', 'null']},
+                    'folder_id': {'type': ['null', 'integer']},
+                    'id': {'type': ['null', 'integer']},
+                    'title': {'type': ['null', 'string']},
+                    'updated_at': {'type': ['string', 'null']}},
+     'type': 'object'}
+
+On instance:
+    {'attachments': [],
+     'content': 'This is a sample canned response',
+     'content_html': '<div>This is a sample canned response</div>',
+     'created_at': '2022-04-27T02:25:33Z',
+     'folder_id': 67000174510,
+     'group_ids': [],
+     'id': 67000143819,
+     'title': 'Sample canned response',
+     'updated_at': '2022-04-27T02:25:33Z',
+     'visibility': 0}
+ERROR    root:test_core.py:662 
+The contacts stream has the following schema errors:
+Additional properties are not allowed ('twitter_followers_count', 'twitter_profile_status' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'active': {'type': ['boolean', 'null']},
+                    'address': {'type': ['string', 'null']},
+                    'company_id': {'type': ['integer', 'null']},
+                    'created_at': {'type': ['string', 'null']},
+                    'csat_rating': {'type': ['integer', 'null']},
+                    'custom_fields': {'type': ['object', 'null']},
+                    'description': {'type': ['string', 'null']},
+                    'email': {'type': ['string', 'null']},
+                    'facebook_id': {'type': ['integer', 'null']},
+                    'id': {'type': ['integer', 'null']},
+                    'job_title': {'type': ['string', 'null']},
+                    'language': {'type': ['string', 'null']},
+                    'mobile': {'type': ['string', 'null']},
+                    'name': {'type': ['string', 'null']},
+                    'phone': {'type': ['string', 'null']},
+                    'preferred_source': {'type': ['string', 'null']},
+                    'time_zone': {'type': ['string', 'null']},
+                    'twitter_id': {'type': ['string', 'null']},
+                    'unique_external_id': {'type': ['string', 'null']},
+                    'updated_at': {'type': ['string', 'null']}},
+     'type': 'object'}
+
+On instance:
+    {'active': True,
+     'address': '2950 S. Delaware Street, Suite 201, San Mateo CA 94403',
+     'company_id': None,
+     'created_at': '2022-05-25T21:25:35Z',
+     'csat_rating': None,
+     'custom_fields': {},
+     'description': None,
+     'email': 'sarah.james@freshdesk.com',
+     'facebook_id': None,
+     'id': 67038833129,
+     'job_title': None,
+     'language': 'en',
+     'mobile': None,
+     'name': 'Sarah James',
+     'phone': '+1 (855) 747 676',
+     'preferred_source': 'email',
+     'time_zone': 'Magadan',
+     'twitter_followers_count': None,
+     'twitter_id': None,
+     'twitter_profile_status': False,
+     'unique_external_id': None,
+     'updated_at': '2022-05-25T21:25:35Z'}
+ERROR    root:test_core.py:662 
+The conversations stream has the following schema errors:
+Additional properties are not allowed ('auto_response', 'outgoing_failures', 'thread_id', 'automation_type_id', 'last_edited_at', 'automation_id', 'thread_message_id', 'email_failure_count', 'last_edited_user_id' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'attachments': {'type': ['array', 'null']},
+                    'bcc_emails': {'type': ['array', 'null']},
+                    'body': {'type': ['string', 'null']},
+                    'body_text': {'type': ['string', 'null']},
+                    'category': {'type': ['integer', 'null']},
+                    'cc_emails': {'type': ['array', 'null']},
+                    'created_at': {'type': ['string', 'null']},
+                    'from_email': {'type': ['string', 'null']},
+                    'id': {'type': ['integer', 'null']},
+                    'incoming': {'type': ['boolean', 'null']},
+                    'private': {'type': ['boolean', 'null']},
+                    'source': {'type': ['integer', 'null']},
+                    'source_additional_info': {'type': ['object', 'null']},
+                    'support_email': {'type': ['string', 'null']},
+                    'ticket_id': {'type': ['integer', 'null']},
+                    'to_emails': {'type': ['array', 'null']},
+                    'updated_at': {'type': ['string', 'null']},
+                    'user_id': {'type': ['integer', 'null']}},
+     'type': 'object'}
+
+On instance:
+    {'attachments': [],
+     'auto_response': False,
+     'automation_id': None,
+     'automation_type_id': None,
+     'bcc_emails': None,
+     'body': '<div>test</div>',
+     'body_text': 'test',
+     'category': 7,
+     'cc_emails': [],
+     'created_at': '2022-11-22T15:02:29Z',
+     'email_failure_count': None,
+     'from_email': None,
+     'id': 67105779604,
+     'incoming': True,
+     'last_edited_at': None,
+     'last_edited_user_id': None,
+     'outgoing_failures': None,
+     'private': False,
+     'source': 6,
+     'source_additional_info': None,
+     'support_email': None,
+     'thread_id': None,
+     'thread_message_id': None,
+     'ticket_id': 23,
+     'to_emails': None,
+     'updated_at': '2022-11-22T15:02:29Z',
+     'user_id': 67042965499}
+ERROR    root:test_core.py:662 
+The discussion_comments stream has the following schema errors:
+Additional properties are not allowed ('body_text' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'answer': {'type': ['null', 'boolean']},
+                    'body': {'type': ['null', 'string']},
+                    'created_at': {'type': ['null', 'string']},
+                    'forum_id': {'type': ['null', 'integer']},
+                    'id': {'type': ['null', 'integer']},
+                    'published': {'type': ['null', 'boolean']},
+                    'spam': {'type': ['null', 'boolean']},
+                    'topic_id': {'type': ['null', 'integer']},
+                    'trash': {'type': ['null', 'boolean']},
+                    'updated_at': {'type': ['null', 'string']},
+                    'user_id': {'type': ['null', 'integer']}},
+     'type': 'object'}
+
+On instance:
+    {'answer': False,
+     'body': "There's a bug when you click here. Please fix!",
+     'body_text': "There's a bug when you click here. Please fix!",
+     'created_at': '2022-04-27T13:10:23Z',
+     'forum_id': 67000195685,
+     'id': 67001514843,
+     'published': True,
+     'spam': None,
+     'topic_id': 67000674348,
+     'trash': False,
+     'updated_at': '2022-04-27T13:10:23Z',
+     'user_id': 67013469919}
+ERROR    root:test_core.py:662 
+The discussion_forums stream has the following schema errors:
+Additional properties are not allowed ('comments_count' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'company_ids': {'items': {'type': ['null', 'integer']},
+                                    'type': ['null', 'array']},
+                    'description': {'type': ['null', 'string']},
+                    'forum_category_id': {'type': ['null', 'integer']},
+                    'forum_type': {'type': ['null', 'integer']},
+                    'forum_visibility': {'type': ['null', 'integer']},
+                    'id': {'type': ['null', 'integer']},
+                    'name': {'type': ['null', 'string']},
+                    'position': {'type': ['null', 'integer']},
+                    'posts_count': {'type': ['null', 'integer']},
+                    'topics_count': {'type': ['null', 'integer']}},
+     'type': 'object'}
+
+On instance:
+    {'comments_count': 0,
+     'description': 'All offers and discounts.',
+     'forum_category_id': 67000039160,
+     'forum_type': 4,
+     'forum_visibility': 1,
+     'id': 67000195686,
+     'name': 'Sales and offers',
+     'position': 5,
+     'topics_count': 0}
+ERROR    root:test_core.py:662 
+The discussion_topics stream has the following schema errors:
+Additional properties are not allowed ('replied_at', 'comments_count', 'published' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'created_at': {'type': ['null', 'string']},
+                    'forum_id': {'type': ['null', 'integer']},
+                    'hits': {'type': ['null', 'integer']},
+                    'id': {'type': ['null', 'integer']},
+                    'locked': {'type': ['null', 'boolean']},
+                    'merged_topic_id': {'type': ['null', 'integer']},
+                    'message': {'type': ['null', 'string']},
+                    'posts_count': {'type': ['null', 'integer']},
+                    'replied_by': {'type': ['null', 'integer']},
+                    'stamp_type': {'type': ['null', 'integer']},
+                    'sticky': {'type': ['null', 'boolean']},
+                    'title': {'type': ['null', 'string']},
+                    'updated_at': {'type': ['null', 'string']},
+                    'user_id': {'type': ['null', 'integer']},
+                    'user_votes': {'type': ['null', 'integer']}},
+     'type': 'object'}
+
+On instance:
+    {'comments_count': 2,
+     'created_at': '2022-04-27T13:08:55Z',
+     'forum_id': 67000195685,
+     'hits': 0,
+     'id': 67000674348,
+     'locked': False,
+     'merged_topic_id': None,
+     'published': True,
+     'replied_at': '2022-04-27T13:10:23Z',
+     'replied_by': 67013469919,
+     'stamp_type': 9,
+     'sticky': True,
+     'title': 'Critical bugs',
+     'updated_at': '2022-04-27T13:08:55Z',
+     'user_id': 67013469919,
+     'user_votes': 0}
+ERROR    root:test_core.py:662 
+The email_mailboxes stream has the following schema errors:
+Additional properties are not allowed ('created_at', 'failure_code', 'freshdesk_mailbox', 'active', 'updated_at' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'access_type': {'type': ['null', 'string']},
+                    'authentication': {'type': ['null', 'string']},
+                    'custom_mailbox': {'type': ['null', 'string']},
+                    'default_reply_email': {'type': ['null', 'boolean']},
+                    'delete_from_server': {'type': ['null', 'boolean']},
+                    'group_id': {'type': ['null', 'integer']},
+                    'id': {'type': ['null', 'integer']},
+                    'incoming': {'type': ['null', 'string']},
+                    'mail_server': {'type': ['null', 'string']},
+                    'mailbox_type': {'type': ['null', 'string']},
+                    'name': {'type': ['null', 'string']},
+                    'password': {'type': ['null', 'string']},
+                    'port': {'type': ['null', 'integer']},
+                    'product_id': {'type': ['null', 'integer']},
+                    'support_email': {'type': ['null', 'string']},
+                    'use_ssl': {'type': ['null', 'boolean']},
+                    'username': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'active': True,
+     'created_at': '2020-10-22T02:37:13Z',
+     'default_reply_email': True,
+     'failure_code': None,
+     'freshdesk_mailbox': {'forward_email': 'support@newaccount1603334233301.freshdesk.com'},
+     'group_id': None,
+     'id': 67000041667,
+     'mailbox_type': 'freshdesk_mailbox',
+     'name': 'Airbyte',
+     'product_id': None,
+     'support_email': 'support@newaccount1603334233301.freshdesk.com',
+     'updated_at': '2020-10-22T03:27:48Z'}
+ERROR    root:test_core.py:662 
+The roles stream has the following schema errors:
+Additional properties are not allowed ('agent_type' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'created_at': {'type': ['null', 'string']},
+                    'default': {'type': ['null', 'boolean']},
+                    'description': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'integer']},
+                    'name': {'type': ['null', 'string']},
+                    'updated_at': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'agent_type': 1,
+     'created_at': '2020-10-22T02:37:13Z',
+     'default': True,
+     'description': 'Can log, view, reply, update and resolve tickets and '
+                    'manage contacts.',
+     'id': 67000159706,
+     'name': 'Agent',
+     'updated_at': '2022-12-13T06:38:12Z'}
+ERROR    root:test_core.py:662 
+The settings stream has the following schema errors:
+Additional properties are not allowed ('help_widget_languages' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'portal_languages': {'items': {'type': ['null',
+                                                            'string']},
+                                         'type': ['null', 'array']},
+                    'primary_language': {'type': ['null', 'string']},
+                    'supported_languages': {'items': {'type': ['null',
+                                                               'string']},
+                                            'type': ['null', 'array']}},
+     'type': 'object'}
+
+On instance:
+    {'help_widget_languages': [],
+     'portal_languages': [],
+     'primary_language': 'en',
+     'supported_languages': []}
+ERROR    root:test_core.py:662 
+The sla_policies stream has the following schema errors:
+Additional properties are not allowed ('created_at', 'updated_at' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'active': {'type': ['null', 'boolean']},
+                    'applicable_to': {'properties': {'company_ids': {'items': {'type': ['null',
+                                                                                        'integer']},
+                                                                     'type': ['null',
+                                                                              'array']},
+                                                     'group_ids': {'items': {'type': ['null',
+                                                                                      'integer']},
+                                                                   'type': ['null',
+                                                                            'array']},
+                                                     'product_ids': {'items': {'type': ['null',
+                                                                                        'integer']},
+                                                                     'type': ['null',
+                                                                              'array']},
+                                                     'sources': {'items': {'type': ['null',
+                                                                                    'integer']},
+                                                                 'type': ['null',
+                                                                          'array']},
+                                                     'ticket_types': {'items': {'type': ['null',
+                                                                                         'string']},
+                                                                      'type': ['null',
+                                                                               'array']}},
+                                      'type': ['null', 'object']},
+                    'description': {'type': ['null', 'string']},
+                    'escalation': {'properties': {'resolution': {'properties': {'level1': {'properties': {'agent_ids': {'items': {'type': ['null',
+                                                                                                                                           'integer']},
+                                                                                                                        'type': ['null',
+                                                                                                                                 'array']},
+                                                                                                          'escalation_time': {'type': ['null',
+                                                                                                                                       'integer']}},
+                                                                                           'type': ['null',
+                                                                                                    'object']},
+                                                                                'level2': {'properties': {'agent_ids': {'items': {'type': ['null',
+                                                                                                                                           'integer']},
+                                                                                                                        'type': ['null',
+                                                                                                                                 'array']},
+                                                                                                          'escalation_time': {'type': ['null',
+                                                                                                                                       'integer']}},
+                                                                                           'type': ['null',
+                                                                                                    'object']},
+                                                                                'level3': {'properties': {'agent_ids': {'items': {'type': ['null',
+                                                                                                                                           'integer']},
+                                                                                                                        'type': ['null',
+                                                                                                                                 'array']},
+                                                                                                          'escalation_time': {'type': ['null',
+                                                                                                                                       'integer']}},
+                                                                                           'type': ['null',
+                                                                                                    'object']},
+                                                                                'level4': {'properties': {'agent_ids': {'items': {'type': ['null',
+                                                                                                                                           'integer']},
+                                                                                                                        'type': ['null',
+                                                                                                                                 'array']},
+                                                                                                          'escalation_time': {'type': ['null',
+                                                                                                                                       'integer']}},
+                                                                                           'type': ['null',
+                                                                                                    'object']}},
+                                                                 'type': ['null',
+                                                                          'object']},
+                                                  'response': {'properties': {'agent_ids': {'items': {'type': ['null',
+                                                                                                               'integer']},
+                                                                                            'type': ['null',
+                                                                                                     'array']},
+                                                                              'escalation_time': {'type': ['null',
+                                                                                                           'integer']}},
+                                                               'type': ['null',
+                                                                        'object']}},
+                                   'type': ['null', 'object']},
+                    'id': {'type': ['null', 'integer']},
+                    'is_default': {'type': ['null', 'boolean']},
+                    'name': {'type': ['null', 'string']},
+                    'position': {'type': ['null', 'integer']},
+                    'sla_target': {'properties': {'priority_1': {'properties': {'business_hours': {'type': ['null',
+                                                                                                            'boolean']},
+                                                                                'escalation_enabled': {'type': ['null',
+                                                                                                                'boolean']},
+                                                                                'resolve_within': {'type': ['null',
+                                                                                                            'integer']},
+                                                                                'respond_within': {'type': ['null',
+                                                                                                            'integer']}},
+                                                                 'type': ['null',
+                                                                          'object']},
+                                                  'priority_2': {'properties': {'business_hours': {'type': ['null',
+                                                                                                            'boolean']},
+                                                                                'escalation_enabled': {'type': ['null',
+                                                                                                                'boolean']},
+                                                                                'resolve_within': {'type': ['null',
+                                                                                                            'integer']},
+                                                                                'respond_within': {'type': ['null',
+                                                                                                            'integer']}},
+                                                                 'type': ['null',
+                                                                          'object']},
+                                                  'priority_3': {'properties': {'business_hours': {'type': ['null',
+                                                                                                            'boolean']},
+                                                                                'escalation_enabled': {'type': ['null',
+                                                                                                                'boolean']},
+                                                                                'resolve_within': {'type': ['null',
+                                                                                                            'integer']},
+                                                                                'respond_within': {'type': ['null',
+                                                                                                            'integer']}},
+                                                                 'type': ['null',
+                                                                          'object']},
+                                                  'priority_4': {'properties': {'business_hours': {'type': ['null',
+                                                                                                            'boolean']},
+                                                                                'escalation_enabled': {'type': ['null',
+                                                                                                                'boolean']},
+                                                                                'resolve_within': {'type': ['null',
+                                                                                                            'integer']},
+                                                                                'respond_within': {'type': ['null',
+                                                                                                            'integer']}},
+                                                                 'type': ['null',
+                                                                          'object']}},
+                                   'type': ['null', 'object']}},
+     'type': 'object'}
+
+On instance:
+    {'active': True,
+     'applicable_to': {},
+     'created_at': '2020-10-22T02:37:13Z',
+     'description': 'default policy',
+     'escalation': {},
+     'id': 67000039537,
+     'is_default': True,
+     'name': 'Default SLA Policy',
+     'position': 1,
+     'sla_target': {'priority_1': {'business_hours': False,
+                                   'escalation_enabled': True,
+                                   'next_respond_within': None,
+                                   'resolve_within': 259200,
+                                   'respond_within': 86400},
+                    'priority_2': {'business_hours': False,
+                                   'escalation_enabled': True,
+                                   'next_respond_within': None,
+                                   'resolve_within': 86400,
+                                   'respond_within': 28800},
+                    'priority_3': {'business_hours': False,
+                                   'escalation_enabled': True,
+                                   'next_respond_within': None,
+                                   'resolve_within': 43200,
+                                   'respond_within': 14400},
+                    'priority_4': {'business_hours': False,
+                                   'escalation_enabled': True,
+                                   'next_respond_within': None,
+                                   'resolve_within': 14400,
+                                   'respond_within': 3600}},
+     'updated_at': '2020-10-22T02:37:13Z'}
+ERROR    root:test_core.py:662 
+The solution_articles stream has the following schema errors:
+Additional properties are not allowed ('attachments', 'hierarchy', 'type', 'cloud_files', 'feedback_count', 'suggested' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'agent_id': {'type': ['null', 'integer']},
+                    'category_id': {'type': ['null', 'integer']},
+                    'created_at': {'type': ['null', 'string']},
+                    'description': {'type': ['null', 'string']},
+                    'description_text': {'type': ['null', 'string']},
+                    'folder_id': {'type': ['null', 'integer']},
+                    'hits': {'type': ['null', 'integer']},
+                    'id': {'type': ['null', 'integer']},
+                    'seo_data': {'properties': {'meta_description': {'type': ['null',
+                                                                              'string']},
+                                                'meta_keywords': {'items': {'type': ['null',
+                                                                                     'string']},
+                                                                  'type': ['null',
+                                                                           'array']},
+                                                'meta_title': {'type': ['null',
+                                                                        'string']}},
+                                 'type': ['null', 'object']},
+                    'status': {'type': ['null', 'integer']},
+                    'tags': {'items': {'type': ['null', 'string']},
+                             'type': ['null', 'array']},
+                    'thumbs_down': {'type': ['null', 'integer']},
+                    'thumbs_up': {'type': ['null', 'integer']},
+                    'title': {'type': ['null', 'string']},
+                    'updated_at': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'agent_id': 67013469919,
+     'attachments': [],
+     'category_id': 67000173648,
+     'cloud_files': [],
+     'created_at': '2020-10-22T03:28:03Z',
+     'description': '<p> </p>',
+     'description_text': '   ',
+     'feedback_count': 0,
+     'folder_id': 67000255079,
+     'hierarchy': [{'data': {'id': 67000173648,
+                             'language': 'en',
+                             'name': 'Information collected'},
+                    'level': 0,
+                    'type': 'category'},
+                   {'data': {'id': 67000255079,
+                             'language': 'en',
+                             'name': 'Opt-out policy'},
+                    'level': 1,
+                    'type': 'folder'}],
+     'hits': 0,
+     'id': 67000284922,
+     'seo_data': {'meta_description': '', 'meta_title': ''},
+     'status': 1,
+     'suggested': 0,
+     'tags': [],
+     'thumbs_down': 0,
+     'thumbs_up': 0,
+     'title': 'Service related announcements',
+     'type': 1,
+     'updated_at': '2020-10-22T03:28:03Z'}
+ERROR    root:test_core.py:662 
+The solution_categories stream has the following schema errors:
+Additional properties are not allowed ('icon' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'created_at': {'type': ['null', 'string']},
+                    'description': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'integer']},
+                    'name': {'type': ['null', 'string']},
+                    'updated_at': {'type': ['null', 'string']},
+                    'visible_in_portals': {'items': {'type': ['null',
+                                                              'integer']},
+                                           'type': ['null', 'array']}},
+     'type': 'object'}
+
+On instance:
+    {'created_at': '2020-10-22T03:28:02Z',
+     'description': 'Information collected category',
+     'icon': {},
+     'id': 67000173648,
+     'name': 'Information collected',
+     'updated_at': '2020-10-22T03:28:02Z',
+     'visible_in_portals': [67000039685]}
+ERROR    root:test_core.py:662 
+The solution_folders stream has the following schema errors:
+Additional properties are not allowed ('category_id', 'articles_count', 'parent_folder_id', 'icon_url', 'sub_folders_count', 'hierarchy' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'company_ids': {'items': {'type': ['null', 'integer']},
+                                    'type': ['null', 'array']},
+                    'company_segment_ids': {'items': {'type': ['null',
+                                                               'integer']},
+                                            'type': ['null', 'array']},
+                    'contact_segment_ids': {'items': {'type': ['null',
+                                                               'integer']},
+                                            'type': ['null', 'array']},
+                    'created_at': {'type': ['null', 'string']},
+                    'description': {'type': ['null', 'string']},
+                    'id': {'type': ['null', 'integer']},
+                    'name': {'type': ['null', 'string']},
+                    'updated_at': {'type': ['null', 'string']},
+                    'visibility': {'type': ['null', 'integer']}},
+     'type': 'object'}
+
+On instance:
+    {'articles_count': 2,
+     'category_id': 67000173648,
+     'created_at': '2020-10-22T03:28:02Z',
+     'description': 'Folder for adding Opt-out policy articles',
+     'hierarchy': [{'data': {'id': 67000173648,
+                             'language': 'en',
+                             'name': 'Information collected'},
+                    'level': 0,
+                    'type': 'category'},
+                   {'data': {'id': 67000255079,
+                             'language': 'en',
+                             'name': 'Opt-out policy'},
+                    'level': 1,
+                    'type': 'folder'}],
+     'icon_url': None,
+     'id': 67000255079,
+     'name': 'Opt-out policy',
+     'parent_folder_id': None,
+     'sub_folders_count': 0,
+     'updated_at': '2020-10-22T03:28:02Z',
+     'visibility': 1}
+ERROR    root:test_core.py:662 
+The time_entries stream has the following schema errors:
+Additional properties are not allowed ('time_spent_in_seconds' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'agent_id': {'type': ['integer', 'null']},
+                    'billable': {'type': ['boolean', 'null']},
+                    'company_id': {'type': ['integer', 'null']},
+                    'created_at': {'type': ['string', 'null']},
+                    'executed_at': {'type': ['string', 'null']},
+                    'id': {'type': ['integer', 'null']},
+                    'note': {'type': ['string', 'null']},
+                    'start_time': {'type': ['string', 'null']},
+                    'ticket_id': {'type': ['integer', 'null']},
+                    'time_spent': {'type': ['string', 'null']},
+                    'timer_running': {'type': ['boolean', 'null']},
+                    'updated_at': {'type': ['string', 'null']}},
+     'type': 'object'}
+
+On instance:
+    {'agent_id': 67013469919,
+     'billable': True,
+     'company_id': None,
+     'created_at': '2022-11-16T16:15:36Z',
+     'executed_at': '2022-11-17T00:00:00Z',
+     'id': 67011181684,
+     'note': 'Test',
+     'start_time': '2022-11-16T16:15:36Z',
+     'ticket_id': 22,
+     'time_spent': '00:01',
+     'time_spent_in_seconds': 103,
+     'timer_running': False,
+     'updated_at': '2022-11-16T16:17:18Z'}
+ERROR    root:test_core.py:662 
+The ticket_fields stream has the following schema errors:
+Additional properties are not allowed ('customers_can_filter' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'choices': {'type': ['null', 'array', 'object']},
+                    'created_at': {'type': ['null', 'string']},
+                    'customers_can_edit': {'type': ['null', 'boolean']},
+                    'default': {'type': ['null', 'boolean']},
+                    'dependent_fields': {'properties': {'created_at': {'type': ['null',
+                                                                                'string']},
+                                                        'id': {'type': ['null',
+                                                                        'integer']},
+                                                        'label': {'type': ['null',
+                                                                           'string']},
+                                                        'label_for_customers': {'type': ['null',
+                                                                                         'string']},
+                                                        'level': {'type': ['null',
+                                                                           'integer']},
+                                                        'name': {'type': ['null',
+                                                                          'string']},
+                                                        'ticket_field_id': {'type': ['null',
+                                                                                     'integer']},
+                                                        'updated_at': {'type': ['null',
+                                                                                'string']}}},
+                    'description': {'type': ['null', 'string']},
+                    'displayed_to_customers': {'type': ['null', 'boolean']},
+                    'field_update_in_progress': {'type': ['null',
+                                                          'boolean']},
+                    'id': {'type': ['null', 'integer']},
+                    'is_fsm': {'type': ['null', 'boolean']},
+                    'label': {'type': ['null', 'string']},
+                    'label_for_customers': {'type': ['null', 'string']},
+                    'name': {'type': ['null', 'string']},
+                    'portal_cc': {'type': ['null', 'boolean']},
+                    'portal_cc_to': {'type': ['null', 'string']},
+                    'position': {'type': ['null', 'integer']},
+                    'required_for_agents': {'type': ['null', 'boolean']},
+                    'required_for_closure': {'type': ['null', 'boolean']},
+                    'required_for_customers': {'type': ['null', 'boolean']},
+                    'type': {'type': ['null', 'string']},
+                    'updated_at': {'type': ['null', 'string']}},
+     'type': 'object'}
+
+On instance:
+    {'created_at': '2020-10-22T02:37:13Z',
+     'customers_can_edit': True,
+     'customers_can_filter': False,
+     'default': True,
+     'description': 'Ticket Company',
+     'displayed_to_customers': True,
+     'id': 67000439414,
+     'label': 'Company',
+     'label_for_customers': 'Company',
+     'name': 'company',
+     'position': 11,
+     'required_for_agents': True,
+     'required_for_closure': False,
+     'required_for_customers': True,
+     'type': 'default_company',
+     'updated_at': '2020-10-22T02:37:13Z'}
+ERROR    root:test_core.py:662 
+The tickets stream has the following schema errors:
+Additional properties are not allowed ('support_email' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'associated_tickets_count': {'type': ['integer',
+                                                          'null']},
+                    'association_type': {'type': ['integer', 'null']},
+                    'cc_emails': {'type': ['array', 'null']},
+                    'company_id': {'type': ['integer', 'null']},
+                    'created_at': {'type': ['string', 'null']},
+                    'custom_fields': {'type': ['object', 'null']},
+                    'description': {'type': ['string', 'null']},
+                    'description_text': {'type': ['string', 'null']},
+                    'due_by': {'type': ['string', 'null']},
+                    'email_config_id': {'type': ['integer', 'null']},
+                    'fr_due_by': {'type': ['string', 'null']},
+                    'fr_escalated': {'type': ['null', 'boolean']},
+                    'fwd_emails': {'type': ['array', 'null']},
+                    'group_id': {'type': ['integer', 'null']},
+                    'id': {'type': ['integer', 'null']},
+                    'is_escalated': {'type': ['boolean', 'null']},
+                    'nr_due_by': {'type': ['string', 'null']},
+                    'nr_escalated': {'type': ['boolean', 'null']},
+                    'priority': {'type': ['integer', 'null']},
+                    'product_id': {'type': ['integer', 'null']},
+                    'reply_cc_emails': {'type': ['array', 'null']},
+                    'requester': {'type': ['object', 'null']},
+                    'requester_id': {'type': ['integer', 'null']},
+                    'responder_id': {'type': ['integer', 'null']},
+                    'source': {'type': ['integer', 'null']},
+                    'spam': {'type': ['null', 'boolean']},
+                    'stats': {'type': ['object', 'null']},
+                    'status': {'type': ['integer', 'null']},
+                    'subject': {'type': ['string', 'null']},
+                    'tags': {'type': ['array', 'null']},
+                    'ticket_cc_emails': {'type': ['array', 'null']},
+                    'to_emails': {'items': {'type': ['string', 'null']},
+                                  'type': ['array', 'null']},
+                    'type': {'type': ['string', 'null']},
+                    'updated_at': {'type': ['string', 'null']}},
+     'type': 'object'}
+
+On instance:
+    {'associated_tickets_count': None,
+     'association_type': None,
+     'cc_emails': [],
+     'company_id': 67001265522,
+     'created_at': '2022-11-22T15:00:34Z',
+     'custom_fields': {},
+     'description': '<div style="font-family:-apple-system, '
+                    'BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, '
+                    'Arial, sans-serif; font-size:14px"><div '
+                    'dir="ltr">Test<br><br>\n'
+                    '</div></div>',
+     'description_text': 'Test',
+     'due_by': '2022-11-25T15:00:34Z',
+     'email_config_id': 67000041667,
+     'fr_due_by': '2022-11-23T15:00:34Z',
+     'fr_escalated': False,
+     'fwd_emails': [],
+     'group_id': None,
+     'id': 23,
+     'is_escalated': False,
+     'nr_due_by': None,
+     'nr_escalated': False,
+     'priority': 1,
+     'product_id': None,
+     'reply_cc_emails': [],
+     'requester': {'email': 'iryna.grankova@airbyte.io',
+                   'id': 67042965499,
+                   'mobile': '+380636306253',
+                   'name': 'Iryna Grankova',
+                   'phone': None},
+     'requester_id': 67042965499,
+     'responder_id': 67013469919,
+     'source': 10,
+     'spam': False,
+     'stats': {'agent_responded_at': None,
+               'closed_at': '2022-11-22T15:00:34Z',
+               'first_responded_at': None,
+               'pending_since': None,
+               'reopened_at': None,
+               'requester_responded_at': '2022-11-22T15:02:29Z',
+               'resolved_at': '2022-11-22T15:00:34Z',
+               'status_updated_at': '2022-11-22T15:00:34Z'},
+     'status': 5,
+     'subject': 'Test',
+     'support_email': 'support@newaccount1603334233301.freshdesk.com',
+     'tags': [],
+     'ticket_cc_emails': [],
+     'to_emails': ['support@newaccount1603334233301.freshdesk.com'],
+     'type': None,
+     'updated_at': '2022-11-22T15:02:37Z'}
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+============ 1 failed, 1 passed, 35 deselected in 139.84s (0:02:19) ============

@@ -1,0 +1,388 @@
+../../../../connectors/source-recruitee/acceptance-test-config.yml
+/Users/ella/airbytehq/airbyte/airbyte-integrations/connectors/source-recruitee
+============================= test session starts ==============================
+platform linux -- Python 3.9.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /test_input
+plugins: timeout-1.4.2, hypothesis-6.54.6, requests-mock-1.9.3, cov-3.0.0, sugar-0.9.6, mock-3.6.1
+collected 34 items / 33 deselected / 1 skipped
+
+../../test_input/test_core.py F                                          [100%]
+
+
+=================================== FAILURES ===================================
+_______________________ TestBasicRead.test_read[inputs0] _______________________
+
+self = <connector_acceptance_test.tests.test_core.TestBasicRead object at 0xffff8a527730>
+connector_config = SecretDict(******)
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='candidates', json_schema={'$schem...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+expect_records_config = None, should_validate_schema = True
+should_validate_data_points = False, should_fail_on_extra_columns = True
+empty_streams = set(), ignored_fields = {}, expected_records_by_stream = {}
+docker_runner = <connector_acceptance_test.utils.connector_runner.ConnectorRunner object at 0xffff8a07a850>
+detailed_logger = <Logger detailed_logger /test_input/acceptance_tests_logs/test_core.py__TestBasicRead__test_read[inputs0].txt (DEBUG)>
+
+    def test_read(
+        self,
+        connector_config,
+        configured_catalog,
+        expect_records_config: ExpectedRecordsConfig,
+        should_validate_schema: Boolean,
+        should_validate_data_points: Boolean,
+        should_fail_on_extra_columns: Boolean,
+        empty_streams: Set[EmptyStreamConfiguration],
+        ignored_fields: Optional[Mapping[str, List[IgnoredFieldsConfiguration]]],
+        expected_records_by_stream: MutableMapping[str, List[MutableMapping]],
+        docker_runner: ConnectorRunner,
+        detailed_logger,
+    ):
+        output = docker_runner.call_read(connector_config, configured_catalog)
+        records = [message.record for message in filter_output(output, Type.RECORD)]
+    
+        assert records, "At least one record should be read using provided catalog"
+    
+        if should_validate_schema:  # TODO Conditional logic
+>           self._validate_schema(
+                records=records, configured_catalog=configured_catalog, fail_on_extra_columns=should_fail_on_extra_columns
+            )
+
+connector_acceptance_test/tests/test_core.py:823: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [AirbyteRecordMessage(namespace=None, stream='candidates', data={'admin_id': None, 'adminapp_url': 'https://app.recrui... 'upcoming_event': False, 'updated_at': '2022-10-08T23:58:40.180305Z', 'viewed': True}, emitted_at=1679408868814), ...]
+configured_catalog = ConfiguredAirbyteCatalog(streams=[ConfiguredAirbyteStream(stream=AirbyteStream(name='candidates', json_schema={'$schem...l_refresh'>, cursor_field=None, destination_sync_mode=<DestinationSyncMode.overwrite: 'overwrite'>, primary_key=None)])
+fail_on_extra_columns = True
+
+    @staticmethod
+    def _validate_schema(records: List[AirbyteRecordMessage], configured_catalog: ConfiguredAirbyteCatalog, fail_on_extra_columns: Boolean):
+        """
+        Check if data type and structure in records matches the one in json_schema of the stream in catalog
+        """
+        TestBasicRead._validate_records_structure(records, configured_catalog)
+        bar = "-" * 80
+        streams_errors = verify_records_schema(records, configured_catalog, fail_on_extra_columns)
+        for stream_name, errors in streams_errors.items():
+            errors = map(str, errors.values())
+            str_errors = f"\n{bar}\n".join(errors)
+            logging.error(f"\nThe {stream_name} stream has the following schema errors:\n{str_errors}")
+    
+        if streams_errors:
+>           pytest.fail(f"Please check your json_schema in selected streams {tuple(streams_errors.keys())}.")
+E           Failed: Please check your json_schema in selected streams ('offers',).
+
+connector_acceptance_test/tests/test_core.py:665: Failed
+----------------------------- Captured stdout call -----------------------------
+{"type": "LOG", "log": {"level": "ERROR", "message": "\nThe offers stream has the following schema errors:\nAdditional properties are not allowed ('shared_openings_count', 'hired_candidates_without_openings_count', 'issues', 'lang_code' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'additionalProperties': False,\n     'properties': {'adminapp_url': {'type': ['null', 'string']},\n                    'candidates_count': {'type': 'integer'},\n                    'careers_url': {'type': 'string'},\n                    'city': {'type': ['null', 'string']},\n                    'closed_at': {'type': ['null', 'string']},\n                    'country_code': {'type': ['null', 'string']},\n                    'created_at': {'type': 'string'},\n                    'department': {'type': ['null', 'string']},\n                    'department_id': {'type': 'integer'},\n                    'disqualified_candidates_count': {'type': 'integer'},\n                    'eeo_settings': {'type': ['null', 'string']},\n                    'employment_type': {'type': ['null', 'string']},\n                    'enabled_for_referrals': {'type': 'boolean'},\n                    'enabled_languages': {'items': {'properties': {'code': {'type': 'string'},\n                                                                   'name': {'type': 'string'},\n                                                                   'native_name': {'type': 'string'}},\n                                                    'type': 'object'},\n                                          'type': 'array'},\n                    'example': {'type': 'boolean'},\n                    'followed': {'type': 'boolean'},\n                    'followers': {'type': 'array'},\n                    'guid': {'type': 'string'},\n                    'has_active_campaign': {'type': 'boolean'},\n                    'hired_candidates_count': {'type': 'integer'},\n                    'hiring_manager_id': {'type': ['null', 'integer']},\n                    'id': {'type': 'integer'},\n                    'job_scheduler': {'type': ['null', 'string']},\n                    'kind': {'type': 'string'},\n                    'location': {'type': 'string'},\n                    'mailbox_email': {'type': ['null', 'string']},\n                    'number_of_openings': {'type': ['null', 'integer']},\n                    'offer_tags': {'type': 'array'},\n                    'pipeline': {'type': 'boolean'},\n                    'pipeline_template': {'type': ['null', 'object']},\n                    'position': {'type': ['null', 'integer']},\n                    'postal_code': {'type': ['null', 'string']},\n                    'published_at': {'type': ['null', 'string']},\n                    'qualified_candidates_count': {'type': 'integer'},\n                    'recruiter_id': {'type': ['null', 'integer']},\n                    'slug': {'type': 'string'},\n                    'state_code': {'type': ['null', 'string']},\n                    'state_name': {'type': ['null', 'string']},\n                    'status': {'type': 'string'},\n                    'street': {'type': ['null', 'string']},\n                    'title': {'type': 'string'},\n                    'updated_at': {'type': 'string'},\n                    'url': {'type': 'string'}},\n     'type': 'object'}\n\nOn instance:\n    {'adminapp_url': 'https://app.recruitee.com/#/offers/recruiter-sample',\n     'candidates_count': 4,\n     'careers_url': 'https://test455.recruitee.com/o/recruiter-sample',\n     'city': 'London',\n     'closed_at': None,\n     'country_code': 'GB',\n     'created_at': '2022-10-26T23:58:40.121163Z',\n     'department': 'Human resources',\n     'department_id': 275621,\n     'disqualified_candidates_count': 0,\n     'eeo_settings': None,\n     'employment_type': 'fulltime',\n     'enabled_for_referrals': False,\n     'enabled_languages': [{'code': 'en',\n                            'name': 'English',\n                            'native_name': 'English'}],\n     'example': True,\n     'followed': False,\n     'followers': [],\n     'guid': 'u1vgr',\n     'has_active_campaign': False,\n     'hired_candidates_count': 0,\n     'hired_candidates_without_openings_count': None,\n     'hiring_manager_id': None,\n     'id': 1120675,\n     'issues': {'is_required_data_missing': False,\n                'is_requisition_missing': True},\n     'job_scheduler': None,\n     'kind': 'job',\n     'lang_code': 'en',\n     'location': 'Remote job',\n     'mailbox_email': 'job.u1vgr@test455.recruitee.com',\n     'number_of_openings': None,\n     'offer_tags': ['Sample', 'Mid-level'],\n     'pipeline': False,\n     'pipeline_template': {'category': None,\n                           'custom': False,\n                           'default': False,\n                           'id': 627543,\n                           'position': None,\n                           'requires_adjustment': False,\n                           'stages': [{'action_templates': [],\n                                       'category': 'referred',\n                                       'fair_evaluations_enabled': False,\n                                       'group': 'applicants',\n                                       'id': 7810423,\n                                       'locked': True,\n                                       'name': 'Referred',\n                                       'placements_count': None,\n                                       'position': -3,\n                                       'time_limit': None},\n                                      {'action_templates': [],\n                                       'category': 'sourced',\n                                       'fair_evaluations_enabled': False,\n                                       'group': 'applicants',\n                                       'id': 7810424,\n                                       'locked': True,\n                                       'name': 'Sourced',\n                                       'placements_count': None,\n                                       'position': -2,\n                                       'time_limit': None},\n                                      {'action_templates': [],\n                                       'category': 'apply',\n                                       'fair_evaluations_enabled': False,\n                                       'group': 'applicants',\n                                       'id': 7810425,\n                                       'locked': True,\n                                       'name': 'Applied',\n                                       'placements_count': None,\n                                       'position': -1,\n                                       'time_limit': None},\n                                      {'action_templates': [{'data': {'attachment_ids': [],\n                                                                      'body_html': '<div>Hi '\n                                                                                   '[first_name],<br '\n                                                                                   '/><br '\n                                                                                   '/> '\n                                                                                   'Thank '\n                                                                                   'you '\n                                                                                   'for '\n                                                                                   'your '\n                                                                                   'interest '\n                                                                                   'in '\n                                                                                   '[company] '\n                                                                                   'and '\n                                                                                   'your '\n                                                                                   'application '\n                                                                                   'for '\n                                                                                   'the '\n                                                                                   'position '\n                                                                                   'of '\n                                                                                   '[job_offer].<br '\n                                                                                   '/><br '\n                                                                                   '/>Your '\n                                                                                   'application '\n                                                                                   'stood '\n                                                                                   'out '\n                                                                                   'to '\n                                                                                   'us '\n                                                                                   'and '\n                                                                                   \"we'd \"\n                                                                                   'like '\n                                                                                   'to '\n                                                                                   'invite '\n                                                                                   'you '\n                                                                                   'for '\n                                                                                   'an '\n                                                                                   'interview '\n                                                                                   'at '\n                                                                                   'our '\n                                                                                   'office '\n                                                                                   'to '\n                                                                                   'get '\n                                                                                   'to '\n                                                                                   'know '\n                                                                                   'you '\n                                                                                   'a '\n                                                                                   'bit '\n                                                                                   'better.<br '\n                                                                                   '/><br '\n                                                                                   \"/>You'll \"\n                                                                                   'meet '\n                                                                                   'with '\n                                                                                   'the '\n                                                                                   '[department] '\n                                                                                   'department '\n                                                                                   'manager. '\n                                                                                   'The '\n                                                                                   'interview '\n                                                                                   'will '\n                                                                                   'last '\n                                                                                   'about '\n                                                                                   '30-60 '\n                                                                                   'minutes '\n                                                                                   'and '\n                                                                                   'you\u2019ll '\n                                                                                   'have '\n                                                                                   'the '\n                                                                                   'chance '\n                                                                                   'to '\n                                                                                   'discuss '\n                                                                                   'the '\n                                                                                   '[job_offer] '\n                                                                                   'position '\n                                                                                   'and '\n                                                                                   'learn '\n                                                                                   'more '\n                                                                                   'about '\n                                                                                   'our '\n                                                                                   'company.<br '\n                                                                                   '/><br '\n                                                                                   '/> '\n                                                                                   'Choose '\n                                                                                   'a '\n                                                                                   'time '\n                                                                                   'that '\n                                                                                   'works '\n                                                                                   'best '\n                                                                                   'for '\n                                                                                   'you. '\n                                                                                   '<a '\n                                                                                   'target=\"_blank\" '\n                                                                                   'href=\"https://test455.recruitee.com/v/i/s/vuc911l2av9p/no-token\" '\n                                                                                   'target=\"self\">https://test455.recruitee.com/v/i/s/vuc911l2av9p/no-token</a><br '\n                                                                                   '/><br '\n                                                                                   '/> '\n                                                                                   'Looking '\n                                                                                   'forward '\n                                                                                   'to '\n                                                                                   'hearing '\n                                                                                   'from '\n                                                                                   'you,<br '\n                                                                                   '/><br '\n                                                                                   '/> '\n                                                                                   'Kind '\n                                                                                   'regards,</div>\\n'\n                                                                                   '<div><br '\n                                                                                   '/></div>',\n                                                                      'from': None,\n                                                                      'from_kind': 'admin_performing_action',\n                                                                      'send_after_at_hour': None,\n                                                                      'send_after_at_minute': None,\n                                                                      'send_after_days': None,\n                                                                      'send_at_timezone': None,\n                                                                      'signature': False,\n                                                                      'subject': '[job_offer] '\n                                                                                 '- '\n                                                                                 'Invitation '\n                                                                                 'to '\n                                                                                 'interview',\n                                                                      'visibility': {'admin_ids': [],\n                                                                                     'level': 'public',\n                                                                                     'role_ids': []}},\n                                                             'id': 547788,\n                                                             'kind': 'send_email',\n                                                             'references': []}],\n                                       'category': 'interview',\n                                       'fair_evaluations_enabled': False,\n                                       'group': 'active',\n                                       'id': 7810426,\n                                       'locked': False,\n                                       'name': 'On-site interview',\n                                       'placements_count': None,\n                                       'position': 2,\n                                       'time_limit': None},\n                                      {'action_templates': [],\n                                       'category': 'evaluation',\n                                       'fair_evaluations_enabled': False,\n                                       'group': 'active',\n                                       'id': 7810427,\n                                       'locked': False,\n                                       'name': 'Evaluation',\n                                       'placements_count': None,\n                                       'position': 3,\n                                       'time_limit': None},\n                                      {'action_templates': [],\n                                       'category': 'offer',\n                                       'fair_evaluations_enabled': False,\n                                       'group': 'active',\n                                       'id': 7810428,\n                                       'locked': False,\n                                       'name': 'Offer',\n                                       'placements_count': None,\n                                       'position': 4,\n                                       'time_limit': None},\n                                      {'action_templates': [{'data': {'tags': ['Hired']},\n                                                             'id': 547787,\n                                                             'kind': 'add_tags',\n                                                             'references': []}],\n                                       'category': 'hire',\n                                       'fair_evaluations_enabled': False,\n                                       'group': 'hires',\n                                       'id': 7810429,\n                                       'locked': False,\n                                       'name': 'Hired',\n                                       'placements_count': None,\n                                       'position': 5,\n                                       'time_limit': None}],\n                           'title': 'Recruiter (Sample)'},\n     'position': 2,\n     'postal_code': '01-001',\n     'published_at': None,\n     'qualified_candidates_count': 4,\n     'recruiter_id': None,\n     'shared_openings_count': None,\n     'slug': 'recruiter-sample',\n     'state_code': 'LND',\n     'state_name': None,\n     'status': 'internal',\n     'street': None,\n     'title': 'Recruiter (Sample)',\n     'updated_at': '2022-10-26T23:58:59.915881Z',\n     'url': 'https://test455.recruitee.com/o/recruiter-sample'}"}}
+------------------------------ Captured log call -------------------------------
+ERROR    root:test_core.py:662 
+The offers stream has the following schema errors:
+Additional properties are not allowed ('shared_openings_count', 'hired_candidates_without_openings_count', 'issues', 'lang_code' were unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'additionalProperties': False,
+     'properties': {'adminapp_url': {'type': ['null', 'string']},
+                    'candidates_count': {'type': 'integer'},
+                    'careers_url': {'type': 'string'},
+                    'city': {'type': ['null', 'string']},
+                    'closed_at': {'type': ['null', 'string']},
+                    'country_code': {'type': ['null', 'string']},
+                    'created_at': {'type': 'string'},
+                    'department': {'type': ['null', 'string']},
+                    'department_id': {'type': 'integer'},
+                    'disqualified_candidates_count': {'type': 'integer'},
+                    'eeo_settings': {'type': ['null', 'string']},
+                    'employment_type': {'type': ['null', 'string']},
+                    'enabled_for_referrals': {'type': 'boolean'},
+                    'enabled_languages': {'items': {'properties': {'code': {'type': 'string'},
+                                                                   'name': {'type': 'string'},
+                                                                   'native_name': {'type': 'string'}},
+                                                    'type': 'object'},
+                                          'type': 'array'},
+                    'example': {'type': 'boolean'},
+                    'followed': {'type': 'boolean'},
+                    'followers': {'type': 'array'},
+                    'guid': {'type': 'string'},
+                    'has_active_campaign': {'type': 'boolean'},
+                    'hired_candidates_count': {'type': 'integer'},
+                    'hiring_manager_id': {'type': ['null', 'integer']},
+                    'id': {'type': 'integer'},
+                    'job_scheduler': {'type': ['null', 'string']},
+                    'kind': {'type': 'string'},
+                    'location': {'type': 'string'},
+                    'mailbox_email': {'type': ['null', 'string']},
+                    'number_of_openings': {'type': ['null', 'integer']},
+                    'offer_tags': {'type': 'array'},
+                    'pipeline': {'type': 'boolean'},
+                    'pipeline_template': {'type': ['null', 'object']},
+                    'position': {'type': ['null', 'integer']},
+                    'postal_code': {'type': ['null', 'string']},
+                    'published_at': {'type': ['null', 'string']},
+                    'qualified_candidates_count': {'type': 'integer'},
+                    'recruiter_id': {'type': ['null', 'integer']},
+                    'slug': {'type': 'string'},
+                    'state_code': {'type': ['null', 'string']},
+                    'state_name': {'type': ['null', 'string']},
+                    'status': {'type': 'string'},
+                    'street': {'type': ['null', 'string']},
+                    'title': {'type': 'string'},
+                    'updated_at': {'type': 'string'},
+                    'url': {'type': 'string'}},
+     'type': 'object'}
+
+On instance:
+    {'adminapp_url': 'https://app.recruitee.com/#/offers/recruiter-sample',
+     'candidates_count': 4,
+     'careers_url': 'https://test455.recruitee.com/o/recruiter-sample',
+     'city': 'London',
+     'closed_at': None,
+     'country_code': 'GB',
+     'created_at': '2022-10-26T23:58:40.121163Z',
+     'department': 'Human resources',
+     'department_id': 275621,
+     'disqualified_candidates_count': 0,
+     'eeo_settings': None,
+     'employment_type': 'fulltime',
+     'enabled_for_referrals': False,
+     'enabled_languages': [{'code': 'en',
+                            'name': 'English',
+                            'native_name': 'English'}],
+     'example': True,
+     'followed': False,
+     'followers': [],
+     'guid': 'u1vgr',
+     'has_active_campaign': False,
+     'hired_candidates_count': 0,
+     'hired_candidates_without_openings_count': None,
+     'hiring_manager_id': None,
+     'id': 1120675,
+     'issues': {'is_required_data_missing': False,
+                'is_requisition_missing': True},
+     'job_scheduler': None,
+     'kind': 'job',
+     'lang_code': 'en',
+     'location': 'Remote job',
+     'mailbox_email': 'job.u1vgr@test455.recruitee.com',
+     'number_of_openings': None,
+     'offer_tags': ['Sample', 'Mid-level'],
+     'pipeline': False,
+     'pipeline_template': {'category': None,
+                           'custom': False,
+                           'default': False,
+                           'id': 627543,
+                           'position': None,
+                           'requires_adjustment': False,
+                           'stages': [{'action_templates': [],
+                                       'category': 'referred',
+                                       'fair_evaluations_enabled': False,
+                                       'group': 'applicants',
+                                       'id': 7810423,
+                                       'locked': True,
+                                       'name': 'Referred',
+                                       'placements_count': None,
+                                       'position': -3,
+                                       'time_limit': None},
+                                      {'action_templates': [],
+                                       'category': 'sourced',
+                                       'fair_evaluations_enabled': False,
+                                       'group': 'applicants',
+                                       'id': 7810424,
+                                       'locked': True,
+                                       'name': 'Sourced',
+                                       'placements_count': None,
+                                       'position': -2,
+                                       'time_limit': None},
+                                      {'action_templates': [],
+                                       'category': 'apply',
+                                       'fair_evaluations_enabled': False,
+                                       'group': 'applicants',
+                                       'id': 7810425,
+                                       'locked': True,
+                                       'name': 'Applied',
+                                       'placements_count': None,
+                                       'position': -1,
+                                       'time_limit': None},
+                                      {'action_templates': [{'data': {'attachment_ids': [],
+                                                                      'body_html': '<div>Hi '
+                                                                                   '[first_name],<br '
+                                                                                   '/><br '
+                                                                                   '/> '
+                                                                                   'Thank '
+                                                                                   'you '
+                                                                                   'for '
+                                                                                   'your '
+                                                                                   'interest '
+                                                                                   'in '
+                                                                                   '[company] '
+                                                                                   'and '
+                                                                                   'your '
+                                                                                   'application '
+                                                                                   'for '
+                                                                                   'the '
+                                                                                   'position '
+                                                                                   'of '
+                                                                                   '[job_offer].<br '
+                                                                                   '/><br '
+                                                                                   '/>Your '
+                                                                                   'application '
+                                                                                   'stood '
+                                                                                   'out '
+                                                                                   'to '
+                                                                                   'us '
+                                                                                   'and '
+                                                                                   "we'd "
+                                                                                   'like '
+                                                                                   'to '
+                                                                                   'invite '
+                                                                                   'you '
+                                                                                   'for '
+                                                                                   'an '
+                                                                                   'interview '
+                                                                                   'at '
+                                                                                   'our '
+                                                                                   'office '
+                                                                                   'to '
+                                                                                   'get '
+                                                                                   'to '
+                                                                                   'know '
+                                                                                   'you '
+                                                                                   'a '
+                                                                                   'bit '
+                                                                                   'better.<br '
+                                                                                   '/><br '
+                                                                                   "/>You'll "
+                                                                                   'meet '
+                                                                                   'with '
+                                                                                   'the '
+                                                                                   '[department] '
+                                                                                   'department '
+                                                                                   'manager. '
+                                                                                   'The '
+                                                                                   'interview '
+                                                                                   'will '
+                                                                                   'last '
+                                                                                   'about '
+                                                                                   '30-60 '
+                                                                                   'minutes '
+                                                                                   'and '
+                                                                                   'you’ll '
+                                                                                   'have '
+                                                                                   'the '
+                                                                                   'chance '
+                                                                                   'to '
+                                                                                   'discuss '
+                                                                                   'the '
+                                                                                   '[job_offer] '
+                                                                                   'position '
+                                                                                   'and '
+                                                                                   'learn '
+                                                                                   'more '
+                                                                                   'about '
+                                                                                   'our '
+                                                                                   'company.<br '
+                                                                                   '/><br '
+                                                                                   '/> '
+                                                                                   'Choose '
+                                                                                   'a '
+                                                                                   'time '
+                                                                                   'that '
+                                                                                   'works '
+                                                                                   'best '
+                                                                                   'for '
+                                                                                   'you. '
+                                                                                   '<a '
+                                                                                   'target="_blank" '
+                                                                                   'href="https://test455.recruitee.com/v/i/s/vuc911l2av9p/no-token" '
+                                                                                   'target="self">https://test455.recruitee.com/v/i/s/vuc911l2av9p/no-token</a><br '
+                                                                                   '/><br '
+                                                                                   '/> '
+                                                                                   'Looking '
+                                                                                   'forward '
+                                                                                   'to '
+                                                                                   'hearing '
+                                                                                   'from '
+                                                                                   'you,<br '
+                                                                                   '/><br '
+                                                                                   '/> '
+                                                                                   'Kind '
+                                                                                   'regards,</div>\n'
+                                                                                   '<div><br '
+                                                                                   '/></div>',
+                                                                      'from': None,
+                                                                      'from_kind': 'admin_performing_action',
+                                                                      'send_after_at_hour': None,
+                                                                      'send_after_at_minute': None,
+                                                                      'send_after_days': None,
+                                                                      'send_at_timezone': None,
+                                                                      'signature': False,
+                                                                      'subject': '[job_offer] '
+                                                                                 '- '
+                                                                                 'Invitation '
+                                                                                 'to '
+                                                                                 'interview',
+                                                                      'visibility': {'admin_ids': [],
+                                                                                     'level': 'public',
+                                                                                     'role_ids': []}},
+                                                             'id': 547788,
+                                                             'kind': 'send_email',
+                                                             'references': []}],
+                                       'category': 'interview',
+                                       'fair_evaluations_enabled': False,
+                                       'group': 'active',
+                                       'id': 7810426,
+                                       'locked': False,
+                                       'name': 'On-site interview',
+                                       'placements_count': None,
+                                       'position': 2,
+                                       'time_limit': None},
+                                      {'action_templates': [],
+                                       'category': 'evaluation',
+                                       'fair_evaluations_enabled': False,
+                                       'group': 'active',
+                                       'id': 7810427,
+                                       'locked': False,
+                                       'name': 'Evaluation',
+                                       'placements_count': None,
+                                       'position': 3,
+                                       'time_limit': None},
+                                      {'action_templates': [],
+                                       'category': 'offer',
+                                       'fair_evaluations_enabled': False,
+                                       'group': 'active',
+                                       'id': 7810428,
+                                       'locked': False,
+                                       'name': 'Offer',
+                                       'placements_count': None,
+                                       'position': 4,
+                                       'time_limit': None},
+                                      {'action_templates': [{'data': {'tags': ['Hired']},
+                                                             'id': 547787,
+                                                             'kind': 'add_tags',
+                                                             'references': []}],
+                                       'category': 'hire',
+                                       'fair_evaluations_enabled': False,
+                                       'group': 'hires',
+                                       'id': 7810429,
+                                       'locked': False,
+                                       'name': 'Hired',
+                                       'placements_count': None,
+                                       'position': 5,
+                                       'time_limit': None}],
+                           'title': 'Recruiter (Sample)'},
+     'position': 2,
+     'postal_code': '01-001',
+     'published_at': None,
+     'qualified_candidates_count': 4,
+     'recruiter_id': None,
+     'shared_openings_count': None,
+     'slug': 'recruiter-sample',
+     'state_code': 'LND',
+     'state_name': None,
+     'status': 'internal',
+     'street': None,
+     'title': 'Recruiter (Sample)',
+     'updated_at': '2022-10-26T23:58:59.915881Z',
+     'url': 'https://test455.recruitee.com/o/recruiter-sample'}
+=========================== short test summary info ============================
+FAILED ../../test_input/test_core.py::TestBasicRead::test_read[inputs0] - Fai...
+SKIPPED [1] connector_acceptance_test/plugin.py:63: Skipping TestIncremental.test_two_sequential_reads: This connector does not implement incremental sync
+================= 1 failed, 1 skipped, 33 deselected in 6.89s ==================
