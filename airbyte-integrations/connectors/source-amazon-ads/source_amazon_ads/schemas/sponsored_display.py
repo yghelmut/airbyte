@@ -16,7 +16,7 @@ class DisplayCampaign(CatalogModel):
     endDate: str = None
     costType: str
     state: str
-    portfolioId: str = None
+    portfolioId: int = None
     tactic: str
     deliveryProfile: str
 
